@@ -1,0 +1,24 @@
+body{
+    height: 100%;
+    background-color: #575a59;
+}
+html{
+    height: 100%;
+}
+#logo {
+    max-height: 10vh;
+}
+#vonal{
+    background-color: black;
+    width: 100%;
+    height: 10vh;
+}
+#navbarrr{
+    height: 100%;
+    font-size: 3vh;
+    font-weight: bold;
+}
+#navbaritemm{
+    color: rgb(214, 192, 118);
+    
+}
