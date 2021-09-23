@@ -7,7 +7,11 @@
         mc:Ignorable="d"
 Title="Peacful Paradise Reception" Height="450" Width="800" WindowStartupLocation="CenterScreen">
     <Grid>
-        <DockPanel HorizontalAlignment="Left">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="200"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <DockPanel HorizontalAlignment="Left" Grid.Column="0">
             <Border 
                 BorderBrush="Black"
                 BorderThickness="3"
