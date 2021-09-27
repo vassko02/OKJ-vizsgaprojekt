@@ -21,3 +21,5 @@ Z:\Hotel\Recepcio_alkalmazas\Recepcio_alkalmazas\obj\Debug\netcoreapp3.1\consump
 Z:\Hotel\Recepcio_alkalmazas\Recepcio_alkalmazas\obj\Debug\netcoreapp3.1\guestleave.baml
 Z:\Hotel\Recepcio_alkalmazas\Recepcio_alkalmazas\obj\Debug\netcoreapp3.1\reciept.g.cs
 Z:\Hotel\Recepcio_alkalmazas\Recepcio_alkalmazas\obj\Debug\netcoreapp3.1\reciept.baml
+Z:\Hotel\Recepcio_alkalmazas\Recepcio_alkalmazas\obj\Debug\netcoreapp3.1\edit.g.cs
+Z:\Hotel\Recepcio_alkalmazas\Recepcio_alkalmazas\obj\Debug\netcoreapp3.1\edit.baml

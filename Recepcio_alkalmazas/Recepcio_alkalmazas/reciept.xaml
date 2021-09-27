@@ -5,10 +5,11 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Recepcio_alkalmazas"
         mc:Ignorable="d"
-Title="Peacful Paradise Reception" Height="450" Width="800" WindowStartupLocation="CenterScreen">
+        Title="Peacful Paradise Reception" Height="562" Width="1000"
+ WindowStartupLocation="CenterScreen">
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="200"/>
+            <ColumnDefinition Width="250"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
         <DockPanel HorizontalAlignment="Left" Grid.Column="0">
@@ -16,7 +17,7 @@ Title="Peacful Paradise Reception" Height="450" Width="800" WindowStartupLocatio
                 BorderBrush="Black"
                 BorderThickness="3"
                >
-                <StackPanel Width="200" Background="#7f7e7b" HorizontalAlignment="Left" >
+                <StackPanel Width="250" Background="#575a59" HorizontalAlignment="Left" >
                     <Image Source="img/proba.png" Stretch="Fill" Height="88"/>
                     <Button Padding="5" FontWeight="Bold" Name="btn_erkezes" Content="Guest arrives" Background="Black" Foreground="DarkGoldenrod" Margin="15,10,15,10" Click="btn_erkezes_Click">
                         <Button.Resources>
@@ -26,6 +27,13 @@ Title="Peacful Paradise Reception" Height="450" Width="800" WindowStartupLocatio
                         </Button.Resources>
                     </Button>
                     <Button Padding="5" FontWeight="Bold" Name="btn_tavozas" Content="Guest leaves" Background="Black" Foreground="DarkGoldenrod" Margin="15,10,15,10" Click="btn_tavozas_Click">
+                        <Button.Resources>
+                            <Style TargetType="Border">
+                                <Setter Property="CornerRadius" Value="5"/>
+                            </Style>
+                        </Button.Resources>
+                    </Button>
+                    <Button Padding="5" FontWeight="Bold" Name="btn_modosit" Content="Edit reservation" Background="Black" Foreground="DarkGoldenrod" Margin="15,10,15,10" Click="btn_modosit_Click">
                         <Button.Resources>
                             <Style TargetType="Border">
                                 <Setter Property="CornerRadius" Value="5"/>

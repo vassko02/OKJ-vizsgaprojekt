@@ -7,12 +7,16 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="img\hatter.jpg" />
     <None Remove="img\kislogo.png" />
     <None Remove="img\nagylogo.png" />
     <None Remove="img\proba.png" />
   </ItemGroup>
 
   <ItemGroup>
+    <Resource Include="img\hatter.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
     <Resource Include="img\kislogo.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>

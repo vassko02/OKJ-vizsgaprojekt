@@ -45,5 +45,12 @@ namespace Recepcio_alkalmazas
             rec.Show();
             this.Close();
         }
+
+        private void btn_modosit_Click(object sender, RoutedEventArgs e)
+        {
+            edit ed = new edit();
+            ed.Show();
+            this.Close();
+        }
     }
 }

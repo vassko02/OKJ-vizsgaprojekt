@@ -13,19 +13,19 @@ using System.Windows.Shapes;
 namespace Recepcio_alkalmazas
 {
     /// <summary>
-    /// Interaction logic for guestleave.xaml
+    /// Interaction logic for consumption.xaml
     /// </summary>
-    public partial class guestleave : Window
+    public partial class edit : Window
     {
-        public guestleave()
+        public edit()
         {
             InitializeComponent();
         }
 
-        private void btn_fogyasztás_Click(object sender, RoutedEventArgs e)
+        private void btn_tavozas_Click(object sender, RoutedEventArgs e)
         {
-            consumption cons = new consumption();
-            cons.Show();
+            guestleave leave = new guestleave();
+            leave.Show();
             this.Close();
         }
 
@@ -33,6 +33,12 @@ namespace Recepcio_alkalmazas
         {
             reciept rec = new reciept();
             rec.Show();
+            this.Close();
+        }
+        private void btn_fogyasztás_Click(object sender, RoutedEventArgs e)
+        {
+            consumption cons = new consumption();
+            cons.Show();
             this.Close();
         }
 
@@ -43,11 +49,6 @@ namespace Recepcio_alkalmazas
             this.Close();
         }
 
-        private void btn_modosit_Click(object sender, RoutedEventArgs e)
-        {
-            edit ed = new edit();
-            ed.Show();
-            this.Close();
-        }
+
     }
 }
