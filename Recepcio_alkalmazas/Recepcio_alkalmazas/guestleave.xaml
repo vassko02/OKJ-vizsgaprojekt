@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:Recepcio_alkalmazas"
         mc:Ignorable="d"
         Title="Peacful Paradise Reception" Height="562" Width="1000"
- WindowStartupLocation="CenterScreen">
+ WindowStartupLocation="CenterScreen" FontSize="14">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="250"/>
@@ -15,7 +15,7 @@
         <DockPanel HorizontalAlignment="Left" Grid.Column="0">
             <Border
                 BorderBrush="Black"
-                BorderThickness="3"
+                BorderThickness="0,0,3,0"
                >
                 <StackPanel Width="250" Background="#575a59" HorizontalAlignment="Left" >
                     <Image Source="img/proba.png" Stretch="Fill" Height="88"/>
@@ -56,6 +56,13 @@
                     </Button>
                 </StackPanel>
             </Border>
+        </DockPanel>
+        <DockPanel Grid.Column="1">
+            <DockPanel.Background>
+                <ImageBrush ImageSource="img/hatter.jpg"/>
+            </DockPanel.Background>
+
+
         </DockPanel>
     </Grid>
 </Window>
