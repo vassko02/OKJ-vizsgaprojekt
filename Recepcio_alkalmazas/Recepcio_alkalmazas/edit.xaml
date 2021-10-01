@@ -12,11 +12,11 @@
             <ColumnDefinition Width="250"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
-        <DockPanel HorizontalAlignment="Left" Grid.Column="0">
-            <Border 
+        <DockPanel HorizontalAlignment="Left" Grid.Column="0" >
+            <Border
                 BorderBrush="Black"
-                BorderThickness="0,0,3,0"
-                <StackPanel Width="250" Background="#575a59" HorizontalAlignment="Left" >
+                BorderThickness="0,0,3,0">
+                <StackPanel  Width="250" Background="#575a59" HorizontalAlignment="Left" >
                     <Image Source="img/proba.png" Stretch="Fill" Height="88"/>
                     <Button Padding="5" FontWeight="Bold" Name="btn_erkezes" Content="Guest arrives" Background="Black" Foreground="DarkGoldenrod" Margin="15,10,15,10" Click="btn_erkezes_Click">
                         <Button.Resources>
@@ -55,6 +55,10 @@
                     </Button>
                 </StackPanel>
             </Border>
+            <StackPanel Width="200">
+                <Label Content="Guest name:" Width="150" HorizontalAlignment="Left" Margin="5"/>
+                <TextBox HorizontalAlignment="Left" Name="tb_vendegneve" Margin="5" Width="150"/>
+            </StackPanel>
         </DockPanel>
 
         <DockPanel Grid.Column="1">
