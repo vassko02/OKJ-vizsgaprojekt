@@ -1,19 +1,19 @@
 ﻿Recepcio_alkalmazas
-
+1.0.0.0
 
 winexe
 C#
 .cs
-Z:\Hotel\Recepcio_alkalmazas\Recepcio_alkalmazas\obj\Debug\netcoreapp3.1\
+D:\School\Recepcio_alkalmazas\Recepcio_alkalmazas\obj\Debug\netcoreapp3.1\
 Recepcio_alkalmazas
 none
 false
-TRACE;DEBUG;NETCOREAPP;NETCOREAPP3_1
-Z:\Hotel\Recepcio_alkalmazas\Recepcio_alkalmazas\App.xaml
-5506914022
+TRACE;DEBUG;NETCOREAPP;NETCOREAPP3_1;
+D:\School\Recepcio_alkalmazas\Recepcio_alkalmazas\App.xaml
+51679541487
 
-8-1252590281
-1921654412462
+9601757115
+192-1533232326
 consumption.xaml;edit.xaml;guestleave.xaml;MainWindow.xaml;reciept.xaml;
 
 False

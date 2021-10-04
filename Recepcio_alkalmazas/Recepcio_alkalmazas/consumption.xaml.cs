@@ -17,11 +17,32 @@ namespace Recepcio_alkalmazas
     /// </summary>
     public partial class consumption : Window
     {
+        Dictionary<string, double> italok = new Dictionary<string, double>();
         public consumption()
         {
             InitializeComponent();
+            italfeltolt();
         }
 
+        private void italfeltolt()
+        {
+            italok.Add("Coca-Cola",1.5);
+            italok.Add("Fanta", 1.5);
+            italok.Add("Sprite", 1.5);
+            italok.Add("Natur Aqua", 1.5);
+            italok.Add("Kinley", 1.5);
+            italok.Add("Cappy", 1.5);
+            italok.Add("Aperol spritz", 5.99);
+            italok.Add("Bloody Mary", 9.99);
+            italok.Add("Cosmopolian", 7.99);
+            italok.Add("Gin Fizz", 6.99);
+            italok.Add("Long Island Ice Tea", 8.99);
+            italok.Add("Margarita", 8.99);
+            italok.Add("Mojito", 9.99);
+            italok.Add("Pina colada", 7.49);
+            italok.Add("Zombie", 10.49);
+
+        }
         private void btn_tavozas_Click(object sender, RoutedEventArgs e)
         {
             guestleave leave = new guestleave();
