@@ -62,7 +62,60 @@
             <DockPanel.Background>
                 <ImageBrush ImageSource="img/hatter.jpg"/>
             </DockPanel.Background>
-
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="270"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <StackPanel Orientation="Vertical" Grid.Column="0" Width="260" HorizontalAlignment="Left">
+                    <Label Content="Guest name:" HorizontalAlignment="Center" FontSize="16" FontWeight="Bold" Margin="5" Foreground="DarkGoldenrod" Width="200"/>
+                    <TextBox Width="200" Foreground="DarkGoldenrod" Name="tb_guestinput" HorizontalAlignment="Center" Margin="5" />
+                    <ListBox Margin="5" Width="200" Height="150" Name="lb_guests"/>
+                    <Label Content="Consumptions:" HorizontalAlignment="Center" FontSize="16" FontWeight="Bold" Margin="5" Foreground="DarkGoldenrod" Width="200"/>
+                    <ListBox Margin="5" Width="200" Height="150" Name="lb_fogyasztasok"/>
+                    <Button Padding="5" FontWeight="Bold" Name="btn_eltavolit" Content="Remove selected item" Background="Black" Foreground="DarkGoldenrod" Margin="30,10,30,10">
+                        <Button.Resources>
+                            <Style TargetType="Border">
+                                <Setter Property="CornerRadius" Value="5"/>
+                            </Style>
+                        </Button.Resources>
+                    </Button>
+                </StackPanel>
+                <StackPanel Grid.Column="1" Orientation="Vertical">
+                    <Label Content="Select item" HorizontalAlignment="Center" FontSize="20" Foreground="DarkGoldenrod" FontWeight="Bold" Margin="5"/>
+                    <ScrollViewer Height="350" Margin="10" Width="435">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="140"/>
+                                <ColumnDefinition Width="140"/>
+                                <ColumnDefinition Width="140"/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="190"/>
+                                <RowDefinition Height="190"/>
+                                <RowDefinition Height="190"/>
+                                <RowDefinition Height="190"/>
+                                <RowDefinition Height="190"/>
+                            </Grid.RowDefinitions>
+                            <StackPanel Grid.Row="0" Grid.Column="0" Background="AliceBlue" Margin="5">
+                                <Image Source="ASD.png" Margin="5,0,5,0" Width="120" Height="120"/>
+                                <Label Content="asd" Margin="5,0,5,0" HorizontalAlignment="Left" Foreground="DarkGoldenrod" FontWeight="Bold"/>
+                                    <Label Content="100$" Foreground="DarkGoldenrod" FontWeight="Bold"/>
+                            </StackPanel>
+                            <StackPanel Grid.Row="0" Grid.Column="1" Background="AliceBlue" Margin="5">
+                                <Image Source="ASD.png" Margin="5,0,5,0" Width="120" Height="120"/>
+                                <Label Content="asd" Margin="5,0,5,0" HorizontalAlignment="Left" Foreground="DarkGoldenrod" FontWeight="Bold"/>
+                                <Label Content="100$" Foreground="DarkGoldenrod" FontWeight="Bold"/>
+                            </StackPanel>
+                            <StackPanel Grid.Row="0" Grid.Column="2" Background="AliceBlue" Margin="5">
+                                <Image Source="ASD.png" Margin="5,0,5,0" Width="120" Height="120"/>
+                                <Label Content="asd" Margin="5,0,5,0" HorizontalAlignment="Left" Foreground="DarkGoldenrod" FontWeight="Bold"/>
+                                <Label Content="100$" Foreground="DarkGoldenrod" FontWeight="Bold"/>
+                            </StackPanel>
+                        </Grid>
+                    </ScrollViewer>
+                </StackPanel>
+            </Grid>
 
         </DockPanel>
     </Grid>

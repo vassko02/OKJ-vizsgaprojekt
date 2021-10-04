@@ -7,6 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="ASD.png" />
     <None Remove="img\hatter.jpg" />
     <None Remove="img\kislogo.png" />
     <None Remove="img\nagylogo.png" />
@@ -14,6 +15,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Resource Include="ASD.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
     <Resource Include="img\hatter.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
@@ -26,6 +30,10 @@
     <Resource Include="img\proba.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="img\fogyasztas\" />
   </ItemGroup>
 
 </Project>
