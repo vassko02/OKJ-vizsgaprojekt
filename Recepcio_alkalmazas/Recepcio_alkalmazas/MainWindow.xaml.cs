@@ -13,17 +13,20 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.IO;
+using System.ComponentModel;
+using System.Collections.ObjectModel;
 
 namespace Recepcio_alkalmazas
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class MainWindow : Window, INotifyPropertyChanged
     {
         List<foglalas> foglalasok = new List<foglalas>();
         List<string> vendegnevek = new List<string>();
         List<string> filterednevek = new List<string>();
+        public event PropertyChangedEventHandler PropertyChanged;
         public MainWindow()
         {
             InitializeComponent();
@@ -84,13 +87,28 @@ namespace Recepcio_alkalmazas
 
         private void tb_guestinput_TextChanged(object sender, TextChangedEventArgs e)
         {
-            foreach (var item in filterednevek)
+            string input=tb_guestinput.Text.ToLower();
+            //for (int i = 0; i < foglalasok.Count; i++)
+            //{
+            //    if (!filterednevek[i].Contains(input))
+            //    {
+            //        filterednevek.RemoveAt(i);
+            //        break;
+            //    }
+            //    if (filterednevek[i].Contains(input)&&!filterednevek.Contains(foglalasok[i].guestname))
+            //    {
+            //        filterednevek.Add(foglalasok[i].guestname);
+            //    }
+            //}
+            filterednevek.Clear();
+            foreach (var item in foglalasok)
             {
-                if (true)
+                if (item.guestname.ToLower().Contains(input))
                 {
-
+                    filterednevek.Add(item.guestname);
                 }
             }
+            lb_guests.Items.Refresh();
         }
     }
 }
