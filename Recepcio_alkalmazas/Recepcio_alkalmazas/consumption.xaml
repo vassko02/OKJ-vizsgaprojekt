@@ -83,7 +83,7 @@
                     <Label Content="Price: " Name="lbl_osszeg" Foreground="DarkGoldenrod" FontWeight="Bold" Margin="25,5,20,5" Width="200"/>
                 </StackPanel>
                 <StackPanel Grid.Column="1" Orientation="Vertical">
-                    <Label Content="Select a drink" HorizontalAlignment="Center" FontSize="20" Foreground="DarkGoldenrod" FontWeight="Bold" Margin="5"/>
+                    <Label Content="Select an item" HorizontalAlignment="Center" FontSize="20" Foreground="DarkGoldenrod" FontWeight="Bold" Margin="5"/>
                     <ScrollViewer Name="sv_italok" Height="350" Margin="10" Width="435">
                         <Grid>
                             <Grid.ColumnDefinitions>
@@ -92,88 +92,122 @@
                                 <ColumnDefinition Width="140"/>
                             </Grid.ColumnDefinitions>
                             <Grid.RowDefinitions>
+                                <RowDefinition Height="50"/>
                                 <RowDefinition Height="190"/>
                                 <RowDefinition Height="190"/>
                                 <RowDefinition Height="190"/>
                                 <RowDefinition Height="190"/>
                                 <RowDefinition Height="190"/>
+                                <RowDefinition Height="50"/>
+                                <RowDefinition Height="70"/>
+                                <RowDefinition Height="70"/>
                             </Grid.RowDefinitions>
-                            <StackPanel Grid.Row="0" Grid.Column="0" Background="AliceBlue" Margin="5">
-                                <Image Source="ASD.png" Margin="5,0,5,0" Width="120" Height="120"/>
+                            <StackPanel Grid.Row="0" Grid.ColumnSpan="3">
+                                <Label Content="Drinks" Margin="5,10,5,0" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="18" Foreground="DarkGoldenrod" FontWeight="Bold"/>
+                            </StackPanel>
+                            <StackPanel Grid.Row="1" Grid.Column="0" Background="Black" Margin="5">
+                                <Image Source="img/fogyasztas/kola.png" Margin="5,0,5,0" Width="120" Height="120" Stretch="Fill"/>
                                 <Label Content="Coca-Cola" Margin="5,0,5,0" HorizontalAlignment="Left" Foreground="DarkGoldenrod" FontWeight="Bold"/>
-                                    <Label Content="$1.5" Foreground="DarkGoldenrod" FontWeight="Bold"/>
+                                    <Label Content="$1.49" Foreground="DarkGoldenrod" FontWeight="Bold"/>
                             </StackPanel>
-                            <StackPanel Grid.Row="0" Grid.Column="1" Background="AliceBlue" Margin="5">
-                                <Image Source="ASD.png" Margin="5,0,5,0" Width="120" Height="120"/>
+                            <StackPanel Grid.Row="1" Grid.Column="1" Background="Black" Margin="5">
+                                <Image Source="img/fogyasztas/fanta.png" Margin="5,0,5,0" Width="120" Height="120" Stretch="Fill"/>
                                 <Label Content="Fanta" Margin="5,0,5,0" HorizontalAlignment="Left" Foreground="DarkGoldenrod" FontWeight="Bold"/>
-                                <Label Content="$1.5" Foreground="DarkGoldenrod" FontWeight="Bold"/>
+                                <Label Content="$1.49" Foreground="DarkGoldenrod" FontWeight="Bold"/>
                             </StackPanel>
-                            <StackPanel Grid.Row="0" Grid.Column="2" Background="AliceBlue" Margin="5">
-                                <Image Source="ASD.png" Margin="5,0,5,0" Width="120" Height="120"/>
+                            <StackPanel Grid.Row="1" Grid.Column="2" Background="Black" Margin="5">
+                                <Image Source="img/fogyasztas/sprite.png" Margin="5,0,5,0" Width="120" Height="120" Stretch="Fill"/>
                                 <Label Content="Sprite" Margin="5,0,5,0" HorizontalAlignment="Left" Foreground="DarkGoldenrod" FontWeight="Bold"/>
-                                <Label Content="$1.5" Foreground="DarkGoldenrod" FontWeight="Bold"/>
+                                <Label Content="$1.49" Foreground="DarkGoldenrod" FontWeight="Bold"/>
                             </StackPanel>
 
-                            <StackPanel Grid.Row="1" Grid.Column="0" Background="AliceBlue" Margin="5">
-                                <Image Source="ASD.png" Margin="5,0,5,0" Width="120" Height="120"/>
+                            <StackPanel Grid.Row="2" Grid.Column="0" Background="Black" Margin="5">
+                                <Image Source="img/fogyasztas/cappy.png" Margin="5,0,5,0" Width="120" Height="120" Stretch="Fill"/>
                                 <Label Content="Cappy" Margin="5,0,5,0" HorizontalAlignment="Left" Foreground="DarkGoldenrod" FontWeight="Bold"/>
-                                <Label Content="$1.5" Foreground="DarkGoldenrod" FontWeight="Bold"/>
+                                <Label Content="$1.49" Foreground="DarkGoldenrod" FontWeight="Bold"/>
                             </StackPanel>
-                            <StackPanel Grid.Row="1" Grid.Column="1" Background="AliceBlue" Margin="5">
-                                <Image Source="ASD.png" Margin="5,0,5,0" Width="120" Height="120"/>
+                            <StackPanel Grid.Row="2" Grid.Column="1" Background="Black" Margin="5">
+                                <Image Source="img/fogyasztas/tonic.png" Margin="5,0,5,0" Width="120" Height="120" Stretch="Fill"/>
                                 <Label Content="Kinley" Margin="5,0,5,0" HorizontalAlignment="Left" Foreground="DarkGoldenrod" FontWeight="Bold"/>
-                                <Label Content="$1.5" Foreground="DarkGoldenrod" FontWeight="Bold"/>
+                                <Label Content="$1.49" Foreground="DarkGoldenrod" FontWeight="Bold"/>
                             </StackPanel>
-                            <StackPanel Grid.Row="1" Grid.Column="2" Background="AliceBlue" Margin="5">
-                                <Image Source="ASD.png" Margin="5,0,5,0" Width="120" Height="120"/>
+                            <StackPanel Grid.Row="2" Grid.Column="2" Background="Black" Margin="5">
+                                <Image Source="img/fogyasztas/natur.png" Margin="5,0,5,0" Width="120" Height="120" Stretch="Fill"/>
                                 <Label Content="Natur aqua" Margin="5,0,5,0" HorizontalAlignment="Left" Foreground="DarkGoldenrod" FontWeight="Bold"/>
-                                <Label Content="$1.5" Foreground="DarkGoldenrod" FontWeight="Bold"/>
+                                <Label Content="$1.49" Foreground="DarkGoldenrod" FontWeight="Bold"/>
                             </StackPanel>
-                            
-                            <StackPanel Grid.Row="2" Grid.Column="0" Background="AliceBlue" Margin="5">
-                                <Image Source="ASD.png" Margin="5,0,5,0" Width="120" Height="120"/>
+
+                            <StackPanel Grid.Row="3" Grid.Column="0" Background="Black" Margin="5">
+                                <Image Source="img/fogyasztas/aperol-spritz.png" Margin="5,0,5,0" Width="120" Height="120" Stretch="Fill"/>
                                 <Label Content="Aperol Spritz" Margin="5,0,5,0" HorizontalAlignment="Left" Foreground="DarkGoldenrod" FontWeight="Bold"/>
                                 <Label Content="$5.99" Foreground="DarkGoldenrod" FontWeight="Bold"/>
                             </StackPanel>
-                            <StackPanel Grid.Row="2" Grid.Column="1" Background="AliceBlue" Margin="5">
-                                <Image Source="ASD.png" Margin="5,0,5,0" Width="120" Height="120"/>
+                            <StackPanel Grid.Row="3" Grid.Column="1" Background="Black" Margin="5">
+                                <Image Source="img/fogyasztas/bloodymary.png" Margin="5,0,5,0" Width="120" Height="120" Stretch="Fill"/>
                                 <Label Content="Bloody Mary" Margin="5,0,5,0" HorizontalAlignment="Left" Foreground="DarkGoldenrod" FontWeight="Bold"/>
                                 <Label Content="$9.99" Foreground="DarkGoldenrod" FontWeight="Bold"/>
                             </StackPanel>
-                            <StackPanel Grid.Row="2" Grid.Column="2" Background="AliceBlue" Margin="5">
-                                <Image Source="ASD.png" Margin="5,0,5,0" Width="120" Height="120"/>
+                            <StackPanel Grid.Row="3" Grid.Column="2" Background="Black" Margin="5">
+                                <Image Source="img/fogyasztas/cosmopolitan.png" Margin="5,0,5,0" Width="120" Height="120" Stretch="Fill"/>
                                 <Label Content="Cosmopolitan" Margin="5,0,5,0" HorizontalAlignment="Left" Foreground="DarkGoldenrod" FontWeight="Bold"/>
                                 <Label Content="$7.99" Foreground="DarkGoldenrod" FontWeight="Bold"/>
                             </StackPanel>
-                            <StackPanel Grid.Row="3" Grid.Column="0" Background="AliceBlue" Margin="5">
-                                <Image Source="ASD.png" Margin="5,0,5,0" Width="120" Height="120"/>
+                            <StackPanel Grid.Row="4" Grid.Column="0" Background="Black" Margin="5">
+                                <Image Source="img/fogyasztas/gin-fizz.png" Margin="5,0,5,0" Width="120" Height="120" Stretch="Fill"/>
                                 <Label Content="Gin fizz" Margin="5,0,5,0" HorizontalAlignment="Left" Foreground="DarkGoldenrod" FontWeight="Bold"/>
                                 <Label Content="$6.99" Foreground="DarkGoldenrod" FontWeight="Bold"/>
                             </StackPanel>
-                            <StackPanel Grid.Row="3" Grid.Column="1" Background="AliceBlue" Margin="5">
-                                <Image Source="ASD.png" Margin="5,0,5,0" Width="120" Height="120"/>
+                            <StackPanel Grid.Row="4" Grid.Column="1" Background="Black" Margin="5">
+                                <Image Source="img/fogyasztas/LongIslandIcedTea.png" Margin="5,0,5,0" Width="120" Height="120" Stretch="Fill"/>
                                 <Label Content="Long Island Ice tea" Margin="5,0,5,0" HorizontalAlignment="Left" Foreground="DarkGoldenrod" FontWeight="Bold"/>
                                 <Label Content="$8.99" Foreground="DarkGoldenrod" FontWeight="Bold"/>
                             </StackPanel>
-                            <StackPanel Grid.Row="3" Grid.Column="2" Background="AliceBlue" Margin="5">
-                                <Image Source="ASD.png" Margin="5,0,5,0" Width="120" Height="120"/>
+                            <StackPanel Grid.Row="4" Grid.Column="2" Background="Black" Margin="5">
+                                <Image Source="img/fogyasztas/margarita.png" Margin="5,0,5,0" Width="120" Height="120" Stretch="Fill"/>
                                 <Label Content="Margarita" Margin="5,0,5,0" HorizontalAlignment="Left" Foreground="DarkGoldenrod" FontWeight="Bold"/>
                                 <Label Content="$8.99" Foreground="DarkGoldenrod" FontWeight="Bold"/>
                             </StackPanel>
-                            <StackPanel Grid.Row="4" Grid.Column="0" Background="AliceBlue" Margin="5">
-                                <Image Source="ASD.png" Margin="5,0,5,0" Width="120" Height="120"/>
+                            <StackPanel Grid.Row="5" Grid.Column="0" Background="Black" Margin="5">
+                                <Image Source="img/fogyasztas/mojito.png" Margin="5,0,5,0" Width="120" Height="120" Stretch="Fill"/>
                                 <Label Content="Mojito" Margin="5,0,5,0" HorizontalAlignment="Left" Foreground="DarkGoldenrod" FontWeight="Bold"/>
                                 <Label Content="$9.99" Foreground="DarkGoldenrod" FontWeight="Bold"/>
                             </StackPanel>
-                            <StackPanel Grid.Row="4" Grid.Column="1" Background="AliceBlue" Margin="5">
-                                <Image Source="ASD.png" Margin="5,0,5,0" Width="120" Height="120"/>
+                            <StackPanel Grid.Row="5" Grid.Column="1" Background="Black" Margin="5">
+                                <Image Source="img/fogyasztas/pina-colada.png" Margin="5,0,5,0" Width="120" Height="120" Stretch="Fill"/>
                                 <Label Content="Pina Colada" Margin="5,0,5,0" HorizontalAlignment="Left" Foreground="DarkGoldenrod" FontWeight="Bold"/>
                                 <Label Content="$7.49" Foreground="DarkGoldenrod" FontWeight="Bold"/>
                             </StackPanel>
-                            <StackPanel Grid.Row="4" Grid.Column="2" Background="AliceBlue" Margin="5">
-                                <Image Source="ASD.png" Margin="5,0,5,0" Width="120" Height="120"/>
+                            <StackPanel Grid.Row="5" Grid.Column="2" Background="Black" Margin="5">
+                                <Image Source="img/fogyasztas/zombie.png" Margin="5,0,5,0" Width="120" Height="120" Stretch="Fill"/>
                                 <Label Content="Zombie" Margin="5,0,5,0" HorizontalAlignment="Left" Foreground="DarkGoldenrod" FontWeight="Bold"/>
                                 <Label Content="$10.49" Foreground="DarkGoldenrod" FontWeight="Bold"/>
+                            </StackPanel>
+                            <StackPanel Grid.Row="6" Grid.ColumnSpan="3">
+                                <Label Content="Extras" Margin="5,10,5,0" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="18" Foreground="DarkGoldenrod" FontWeight="Bold"/>
+                            </StackPanel>
+                            <StackPanel Grid.Row="7" Grid.Column="0" Background="Black" Margin="5">
+                                <Label Content="Massage" Margin="5,0,5,0" HorizontalAlignment="Left" Foreground="DarkGoldenrod" FontWeight="Bold"/>
+                                <Label Content="$14.99" Foreground="DarkGoldenrod" FontWeight="Bold"/>
+                            </StackPanel>
+                            <StackPanel Grid.Row="7" Grid.Column="1" Background="Black" Margin="5">
+                                <Label Content="Hairdresser" Margin="5,0,5,0" HorizontalAlignment="Left" Foreground="DarkGoldenrod" FontWeight="Bold"/>
+                                <Label Content="22.99$" Foreground="DarkGoldenrod" FontWeight="Bold"/>
+                            </StackPanel>
+                            <StackPanel Grid.Row="7" Grid.Column="2" Background="Black" Margin="5">
+                                <Label Content="Billiard" Margin="5,0,5,0" HorizontalAlignment="Left" Foreground="DarkGoldenrod" FontWeight="Bold"/>
+                                <Label Content="15.99$/hr" Foreground="DarkGoldenrod" FontWeight="Bold"/>
+                            </StackPanel>
+                            <StackPanel Grid.Row="8" Grid.Column="0" Background="Black" Margin="5">
+                                <Label Content="Bowling" Margin="5,0,5,0" HorizontalAlignment="Left" Foreground="DarkGoldenrod" FontWeight="Bold"/>
+                                <Label Content="14.99$/hr" Foreground="DarkGoldenrod" FontWeight="Bold"/>
+                            </StackPanel>
+                            <StackPanel Grid.Row="8" Grid.Column="1" Background="Black" Margin="5">
+                                <Label Content="Tennis" Margin="5,0,5,0" HorizontalAlignment="Left" Foreground="DarkGoldenrod" FontWeight="Bold"/>
+                                <Label Content="16.99$/hr" Foreground="DarkGoldenrod" FontWeight="Bold"/>
+                            </StackPanel>
+                            <StackPanel Grid.Row="8" Grid.Column="2" Background="Black" Margin="5">
+                                <Label Content="Breakfast in bed" Margin="5,0,5,0" HorizontalAlignment="Left" Foreground="DarkGoldenrod" FontWeight="Bold"/>
+                                <Label Content="8.99$/hr" Foreground="DarkGoldenrod" FontWeight="Bold"/>
                             </StackPanel>
                         </Grid>
                     </ScrollViewer>

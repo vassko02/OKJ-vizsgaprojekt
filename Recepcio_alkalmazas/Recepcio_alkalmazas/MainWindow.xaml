@@ -75,8 +75,8 @@
                 </Grid.ColumnDefinitions>
                 <StackPanel Orientation="Vertical" Grid.Column="0" Width="260" HorizontalAlignment="Left">
                     <Label Content="Guest name:" HorizontalAlignment="Center" FontSize="16" FontWeight="Bold" Margin="5" Foreground="DarkGoldenrod" Width="200"/>
-                    <TextBox Width="200" Foreground="DarkGoldenrod" Name="tb_guestinput" HorizontalAlignment="Center" Margin="5" />
-                    <ListBox Margin="5" Width="200" Height="150" Name="lb_guests"/>
+                    <TextBox Width="200" Foreground="DarkGoldenrod" Name="tb_guestinput" HorizontalAlignment="Center" Margin="5" TextChanged="tb_guestinput_TextChanged" />
+                    <ListBox Margin="5" ItemsSource="{Binding}" Width="200" Height="150" Name="lb_guests"/>
                     <Label Content="Payment:" HorizontalAlignment="Center" FontSize="16" FontWeight="Bold" Margin="5" Foreground="DarkGoldenrod" Width="200"/>
                     <Button Padding="5" FontWeight="Bold" Name="btn_elofizetes" Content="Payment before (Cash/Card)" Background="Black" Foreground="DarkGoldenrod" Margin="30,10,30,10">
                             <Button.Resources>

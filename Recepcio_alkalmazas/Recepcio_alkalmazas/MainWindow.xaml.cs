@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.IO;
 
 namespace Recepcio_alkalmazas
 {
@@ -20,9 +21,37 @@ namespace Recepcio_alkalmazas
     /// </summary>
     public partial class MainWindow : Window
     {
+        List<foglalas> foglalasok = new List<foglalas>();
+        List<string> vendegnevek = new List<string>();
+        List<string> filterednevek = new List<string>();
         public MainWindow()
         {
             InitializeComponent();
+            foglalasokbeolvasasa("foglalas.txt");
+            vendeknevbetolt();
+            lb_guests.DataContext = filterednevek;
+        }
+
+        private void vendeknevbetolt()
+        {
+            foreach (var item in foglalasok)
+            {
+                vendegnevek.Add(item.guestname);
+            }
+            foreach (var item in foglalasok)
+            {
+                filterednevek.Add(item.guestname);
+            }
+        }
+
+        private void foglalasokbeolvasasa(string fajlnev)
+        {
+            StreamReader sr = new StreamReader(fajlnev);
+            do
+            {
+                foglalasok.Add(new foglalas(sr.ReadLine()));
+            } while (!sr.EndOfStream);
+            sr.Close();
         }
 
         private void btn_tavozas_Click(object sender, RoutedEventArgs e)
@@ -51,6 +80,17 @@ namespace Recepcio_alkalmazas
             edit ed = new edit();
             ed.Show();
             this.Close();
+        }
+
+        private void tb_guestinput_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            foreach (var item in filterednevek)
+            {
+                if (true)
+                {
+
+                }
+            }
         }
     }
 }

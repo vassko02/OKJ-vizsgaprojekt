@@ -41,7 +41,12 @@ namespace Recepcio_alkalmazas
             italok.Add("Mojito", 9.99);
             italok.Add("Pina colada", 7.49);
             italok.Add("Zombie", 10.49);
-
+            italok.Add("Massage", 14.99);
+            italok.Add("Hairdresser", 22.99);
+            italok.Add("Billiard", 15.99);
+            italok.Add("Bowling", 14.99);
+            italok.Add("Tennis", 16.99);
+            italok.Add("Breakfast in bead", 8.99);
         }
         private void btn_tavozas_Click(object sender, RoutedEventArgs e)
         {
