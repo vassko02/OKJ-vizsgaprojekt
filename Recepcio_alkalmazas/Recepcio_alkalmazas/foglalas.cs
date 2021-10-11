@@ -20,16 +20,16 @@ namespace Recepcio_alkalmazas
 			get { return _IDnumber; }
 			set { _IDnumber = value; }
 		}
-		private DateTime _ArriveDate;
+		private string _ArriveDate;
 
-		public DateTime arrivedate
+		public string arrivedate
 		{
 			get { return _ArriveDate; }
 			set { _ArriveDate = value; }
 		}
-		private DateTime _leaveDate;
+		private string _leaveDate;
 
-		public DateTime LeaveDAte
+		public string LeaveDate
 		{
 			get { return _leaveDate; }
 			set { _leaveDate = value; }
@@ -76,18 +76,26 @@ namespace Recepcio_alkalmazas
 			get { return _price; }
 			set { _price = value; }
 		}
+		private string _phone;
+
+		public string phone
+		{
+			get { return _phone; }
+			set { _phone = value; }
+		}
 		public foglalas(string adatok)
 		{
 			guestname = adatok.Split(';')[0].ToString();
 			IDnumber = adatok.Split(';')[1].ToString();
-			arrivedate = Convert.ToDateTime(adatok.Split(';')[2].ToString());
-			LeaveDAte = Convert.ToDateTime(adatok.Split(';')[3].ToString());
+			arrivedate = adatok.Split(';')[2].ToString();
+			LeaveDate = adatok.Split(';')[3].ToString();
 			guestnumber = int.Parse(adatok.Split(';')[4]);
 			childrennumber = int.Parse(adatok.Split(';')[5]);
 			adoultnumber = int.Parse(adatok.Split(';')[6]);
 			servicetype = adatok.Split(';')[7].ToString();
 			roomtype = adatok.Split(';')[8].ToString();
 			price = int.Parse(adatok.Split(';')[9]);
+			phone = adatok.Split(';')[10].ToString();
 		}
 	}
 }

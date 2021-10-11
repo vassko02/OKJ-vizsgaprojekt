@@ -68,9 +68,11 @@
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
                 <StackPanel Orientation="Vertical" Grid.Column="0" Width="260" HorizontalAlignment="Left">
-                    <Label Content="Guest name:" HorizontalAlignment="Center" FontSize="16" FontWeight="Bold" Margin="5" Foreground="DarkGoldenrod" Width="194"/>
-                    <TextBox Width="200" Foreground="DarkGoldenrod" Name="tb_guestinput" HorizontalAlignment="Center" Margin="5" />
-                    <ListBox Margin="5" Width="200" Height="200" Name="lb_guests"/>
+                    <Label Content="Guest name:" HorizontalAlignment="Center" FontSize="16" FontWeight="Bold" Margin="5" Foreground="DarkGoldenrod" Width="200"/>
+                    <TextBox Width="200" FontWeight="Bold" Foreground="DarkGoldenrod" Name="tb_guestinput" HorizontalAlignment="Center" Margin="5" 
+                             Text="{Binding SearchText, UpdateSourceTrigger=PropertyChanged}" TextChanged="tb_guestinput_TextChanged" />
+                    <ListBox Margin="5" Foreground="DarkGoldenrod" FontWeight="Bold" ItemsSource="{Binding}" Width="200" Height="150"  Name="lb_guests" 
+                             IsSynchronizedWithCurrentItem="True"/>
                 </StackPanel>
                 
             </Grid>

@@ -21,12 +21,11 @@ namespace Recepcio_alkalmazas
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
-    public partial class MainWindow : Window, INotifyPropertyChanged
+    public partial class MainWindow : Window
     {
         List<foglalas> foglalasok = new List<foglalas>();
         List<string> vendegnevek = new List<string>();
         List<string> filterednevek = new List<string>();
-        public event PropertyChangedEventHandler PropertyChanged;
         public MainWindow()
         {
             InitializeComponent();
@@ -88,18 +87,6 @@ namespace Recepcio_alkalmazas
         private void tb_guestinput_TextChanged(object sender, TextChangedEventArgs e)
         {
             string input=tb_guestinput.Text.ToLower();
-            //for (int i = 0; i < foglalasok.Count; i++)
-            //{
-            //    if (!filterednevek[i].Contains(input))
-            //    {
-            //        filterednevek.RemoveAt(i);
-            //        break;
-            //    }
-            //    if (filterednevek[i].Contains(input)&&!filterednevek.Contains(foglalasok[i].guestname))
-            //    {
-            //        filterednevek.Add(foglalasok[i].guestname);
-            //    }
-            //}
             filterednevek.Clear();
             foreach (var item in foglalasok)
             {
@@ -108,7 +95,29 @@ namespace Recepcio_alkalmazas
                     filterednevek.Add(item.guestname);
                 }
             }
+            filterednevek.Sort();
             lb_guests.Items.Refresh();
+        }
+
+        private void lb_guests_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            foreach (var item in foglalasok)
+            {
+                if (item.guestname==lb_guests.SelectedItem.ToString())
+                {
+                    lbl_guest.Content = item.guestname.ToString();
+                    lbl_id.Content = item.IDnumber.ToString();
+                    lbl_phone.Content = item.phone.ToString();
+                    lbl_arrive.Content = item.arrivedate.ToString();
+                    lbl_leave.Content = item.LeaveDate.ToString(); 
+                    lbl_guestnumber.Content = item.guestnumber.ToString();
+                    lbl_childnumber.Content = item.childrennumber.ToString(); 
+                    lbl_adultnumber.Content = item.adoultnumber.ToString();
+                    lbl_service.Content = item.servicetype.ToString();
+                    lbl_room.Content = item.roomtype.ToString();
+                    lbl_price.Content = item.price.ToString();
+                }
+            }
         }
     }
 }
