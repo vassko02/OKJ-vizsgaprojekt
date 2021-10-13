@@ -77,7 +77,73 @@
                     <ListBox Margin="5" Foreground="DarkGoldenrod" FontWeight="Bold" ItemsSource="{Binding}" Width="200" Height="150"  Name="lb_guests" 
                              IsSynchronizedWithCurrentItem="True"/>
                 </StackPanel>
+                <StackPanel Grid.Column="1" Orientation="Vertical" Name="sp_adatok">
+                    <Label Content="Reservation data" HorizontalAlignment="Center" FontSize="20" Foreground="DarkGoldenrod" FontWeight="Bold" Margin="5"/>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="40"/>
+                            <RowDefinition Height="40"/>
+                            <RowDefinition Height="40"/>
+                            <RowDefinition Height="40"/>
+                            <RowDefinition Height="40"/>
+                            <RowDefinition Height="40"/>
+                            <RowDefinition Height="40"/>
+                            <RowDefinition Height="40"/>
+                            <RowDefinition Height="40"/>
+                            <RowDefinition Height="40"/>
+                            <RowDefinition Height="40"/>
+                        </Grid.RowDefinitions> 
+                        <StackPanel Orientation="Horizontal">
+                            <Label Content="Guest name:" Width="200" Foreground="DarkGoldenrod" HorizontalAlignment="Right" Margin="5" FontWeight="Bold" FontSize="14"/>
+                            <TextBox Foreground="DarkGoldenrod" HorizontalAlignment="Center" Name="tb_guest" Margin="5" Width="150" FontWeight="Bold" FontSize="14"/>
+                        </StackPanel>
+                        <StackPanel Grid.Row="1" Orientation="Horizontal">
+                            <Label Content="ID number:" Width="200" Foreground="DarkGoldenrod" HorizontalAlignment="Right" Margin="5" FontWeight="Bold" FontSize="14"/>
+                            <TextBox Foreground="DarkGoldenrod" HorizontalAlignment="Left" Name="tb_id" Margin="5" FontWeight="Bold" Width="150" FontSize="14"/>
 
+                        </StackPanel>
+                        <StackPanel Grid.Row="2" Orientation="Horizontal">
+                            <Label Content="Phone number:" Width="200" Foreground="DarkGoldenrod" HorizontalAlignment="Right" Margin="5" FontWeight="Bold" FontSize="14"/>
+                            <TextBox Foreground="DarkGoldenrod" HorizontalAlignment="Left" Name="tb_phone" Margin="5" FontWeight="Bold" Width="150" FontSize="14"/>
+
+                        </StackPanel>
+                        <StackPanel Grid.Row="3" Orientation="Horizontal">
+                            <Label Content="Arrival date:" Width="200" Foreground="DarkGoldenrod" HorizontalAlignment="Right" Margin="5" FontWeight="Bold" FontSize="14"/>
+                            <TextBox Foreground="DarkGoldenrod" HorizontalAlignment="Left" Name="tb_arrive" Margin="5" FontWeight="Bold" Width="150" FontSize="14"/>
+
+                        </StackPanel>
+                        <StackPanel Grid.Row="4" Orientation="Horizontal">
+                            <Label Content="Leaving date:" Width="200" Foreground="DarkGoldenrod" HorizontalAlignment="Right" Margin="5" FontWeight="Bold" FontSize="14"/>
+                            <TextBox Foreground="DarkGoldenrod" HorizontalAlignment="Left" Name="tb_leave" Margin="5" FontWeight="Bold" Width="150" FontSize="14"/>
+                        </StackPanel>
+                        <StackPanel Grid.Row="5" Orientation="Horizontal">
+                            <Label Content="The number of guests:"  Width="200" Foreground="DarkGoldenrod" HorizontalAlignment="Right" Margin="5" FontWeight="Bold" FontSize="14"/>
+                            <TextBox Foreground="DarkGoldenrod" HorizontalAlignment="Left" Name="tb_guestnumber" Margin="5" FontWeight="Bold" Width="150" FontSize="14"/>
+
+                        </StackPanel>
+                        <StackPanel Grid.Row="6" Orientation="Horizontal">
+                            <Label Content="The number of children:" Width="200" Foreground="DarkGoldenrod" HorizontalAlignment="Right" Margin="5" FontWeight="Bold" FontSize="14"/>
+                            <TextBox Foreground="DarkGoldenrod" HorizontalAlignment="Left" Name="tb_childnumber" Margin="5" FontWeight="Bold" Width="150" FontSize="14"/>
+
+                        </StackPanel>
+                        <StackPanel Grid.Row="7" Orientation="Horizontal">
+                            <Label Content="The number of adults:" Width="200" Foreground="DarkGoldenrod" HorizontalAlignment="Right" Margin="5" FontWeight="Bold" FontSize="14"/>
+                            <TextBox Foreground="DarkGoldenrod" HorizontalAlignment="Left" Name="tb_adultnumber" Margin="5" FontWeight="Bold" Width="150" FontSize="14"/>
+                        </StackPanel>
+                        <StackPanel Grid.Row="8" Orientation="Horizontal">
+                            <Label Content="Service type:" Width="200" Foreground="DarkGoldenrod" HorizontalAlignment="Right" Margin="5" FontWeight="Bold" FontSize="14"/>
+                            <TextBox Foreground="DarkGoldenrod" HorizontalAlignment="Left" Name="tb_service" Margin="5" FontWeight="Bold" Width="150" FontSize="14"/>
+                        </StackPanel>
+                        <StackPanel Grid.Row="9" Orientation="Horizontal">
+                            <Label Content="Room type:" Width="200" Foreground="DarkGoldenrod" HorizontalAlignment="Right" Margin="5" FontWeight="Bold" FontSize="14"/>
+                            <TextBox Foreground="DarkGoldenrod" HorizontalAlignment="Left" Name="tb_room" Margin="5" FontWeight="Bold" Width="150" FontSize="14"/>
+                        </StackPanel>
+                        <StackPanel Grid.Row="10" Orientation="Horizontal">
+                            <Label Content="Price:" Width="200" Foreground="DarkGoldenrod" HorizontalAlignment="Right" Margin="5" FontWeight="Bold" FontSize="14"/>
+                            <TextBox Foreground="DarkGoldenrod" HorizontalAlignment="Left" Name="tb_price" Margin="5" FontWeight="Bold"  Width="150" FontSize="14"/>
+                        </StackPanel>
+                    </Grid>
+                </StackPanel>
             </Grid>
         </DockPanel>
         

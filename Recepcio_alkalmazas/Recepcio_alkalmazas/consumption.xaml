@@ -207,7 +207,7 @@
                             </StackPanel>
                             <StackPanel Grid.Row="8" Grid.Column="2" Background="Black" Margin="5">
                                 <Label Content="Breakfast in bed" Margin="5,0,5,0" HorizontalAlignment="Left" Foreground="DarkGoldenrod" FontWeight="Bold"/>
-                                <Label Content="8.99$/hr" Foreground="DarkGoldenrod" FontWeight="Bold"/>
+                                <Label Content="8.99$" Foreground="DarkGoldenrod" FontWeight="Bold"/>
                             </StackPanel>
                         </Grid>
                     </ScrollViewer>

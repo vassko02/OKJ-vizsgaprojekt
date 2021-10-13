@@ -7,6 +7,7 @@ using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
+using System.ComponentModel;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using System.IO;
@@ -77,8 +78,7 @@ namespace Recepcio_alkalmazas
         }
 
         private void tb_guestinput_TextChanged(object sender, TextChangedEventArgs e)
-        {
-            
+        {       
                 string input = tb_guestinput.Text.ToLower();
                 filterednevek.Clear();
                 foreach (var item in foglalasok)
@@ -90,7 +90,7 @@ namespace Recepcio_alkalmazas
                 }
                 filterednevek.Sort();
                 lb_guests.Items.Refresh();
-            
+
         }
     }
 }
