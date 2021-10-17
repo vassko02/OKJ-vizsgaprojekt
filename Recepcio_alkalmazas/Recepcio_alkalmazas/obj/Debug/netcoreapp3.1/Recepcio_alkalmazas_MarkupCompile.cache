@@ -4,16 +4,16 @@
 winexe
 C#
 .cs
-Z:\Recepcio_alkalmazas\Recepcio_alkalmazas\obj\Debug\netcoreapp3.1\
+D:\Recepcio_alkalmazas\Recepcio_alkalmazas\obj\Debug\netcoreapp3.1\
 Recepcio_alkalmazas
 none
 false
-TRACE;DEBUG;NETCOREAPP;NETCOREAPP3_1
-Z:\Recepcio_alkalmazas\Recepcio_alkalmazas\App.xaml
-5506914022
+TRACE;DEBUG;NETCOREAPP;NETCOREAPP3_1;
+D:\Recepcio_alkalmazas\Recepcio_alkalmazas\App.xaml
+51679541487
 
-8246804743
-1921654412462
+8-2110886314
+192-1533232326
 consumption.xaml;edit.xaml;guestleave.xaml;MainWindow.xaml;reciept.xaml;
 
 False

@@ -28,6 +28,7 @@ namespace Recepcio_alkalmazas
             foglalasokbeolvasasa("foglalas.txt");
             vendeknevbetolt();
             lb_guests.DataContext = filterednevek;
+            lb_guests.SelectedItem = "";
         }
         private void vendeknevbetolt()
         {
@@ -39,6 +40,7 @@ namespace Recepcio_alkalmazas
             {
                 filterednevek.Add(item.guestname);
             }
+            filterednevek.Sort();
         }
         private void foglalasokbeolvasasa(string fajlnev)
         {

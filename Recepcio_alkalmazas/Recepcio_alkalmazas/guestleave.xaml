@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Recepcio_alkalmazas"
         mc:Ignorable="d"
-        Title="Peacful Paradise Reception" Height="562" Width="1000"
+        Title="Peaceful Paradise Reception" Height="562" Width="1000"
  WindowStartupLocation="CenterScreen" FontSize="14">
     <Grid>
         <Grid.ColumnDefinitions>
