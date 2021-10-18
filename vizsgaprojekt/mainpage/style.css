@@ -5,11 +5,10 @@
 }
 
 body, html {
-    color: #15181A;
-
+    color: black;
+    background-color: black;
+    color: #ffd814;
 }
-
-
 
 
 /* Create a Parallax Effect */
@@ -23,14 +22,14 @@ body, html {
 
 /* First image (Logo. Full height) */
 .bgimg-1 {
-    background-image: url('https://c2.staticflickr.com/6/5208/5308016251_3eaa8dc84d_b.jpg');
-    min-height: 100%;
+    background-image: url('https://images.hdqwalls.com/download/rainy-night-man-with-umbrella-scifi-drawings-digital-art-hu-2560x1080.jpg');
+    min-height: 60%;
 }
 
 /* Second image (Portfolio) */
 .bgimg-2 {
-    background-image: url("https://www.w3schools.com/w3css/img_parallax2.jpg");
-    min-height: 400px;
+    background-image: url('https://images.hdqwalls.com/wallpapers/new-york-city-wide-8k-2z.jpg');
+    min-height: 60%;
 }
 
 /* Third image (Contact) */
@@ -58,7 +57,11 @@ body, html {
 
 /* About Section */
 #about {
+  background-color: black;
+  color: #ffd814;
   font-size: 1.4em;
+  border-top: 0.1px solid hsl(50, 50%, 54%);
+  border-bottom: 0.5px solid hsl(50, 50%, 54%);
 }
 
 /* Heart Icon */
@@ -98,16 +101,6 @@ i.fa {
   transition: color 1s;
 }
 
-.fa-fire:hover {
-  color: #4a4;
-}
 
-.fa-facebook:hover {
-  color: #04a;
-}
-
-.fa-codepen:hover {
-  color: #4af;
-}
 
 #profile { vertical-align: middle; }
