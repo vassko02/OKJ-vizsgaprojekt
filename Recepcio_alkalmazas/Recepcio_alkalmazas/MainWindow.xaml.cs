@@ -24,7 +24,6 @@ namespace Recepcio_alkalmazas
     public partial class MainWindow : Window
     {
         List<foglalas> foglalasok = new List<foglalas>();
-        List<string> vendegnevek = new List<string>();
         List<string> filterednevek = new List<string>();
         foglalas ujfoglalas = new foglalas();
 
@@ -37,13 +36,8 @@ namespace Recepcio_alkalmazas
             sp_adatok.DataContext = ujfoglalas;
             lb_guests.SelectedItem = "";
         }
-
         private void vendeknevbetolt()
         {
-            foreach (var item in foglalasok)
-            {
-                vendegnevek.Add(item.guestname);
-            }
             foreach (var item in foglalasok)
             {
                 filterednevek.Add(item.guestname);
@@ -91,7 +85,7 @@ namespace Recepcio_alkalmazas
 
         private void tb_guestinput_TextChanged(object sender, TextChangedEventArgs e)
         {
-            string input =tb_guestinput.Text.ToLower();
+            string input = tb_guestinput.Text.ToLower();
             filterednevek.Clear();
             foreach (var item in foglalasok)
             {
@@ -100,13 +94,13 @@ namespace Recepcio_alkalmazas
                     filterednevek.Add(item.guestname);
                 }
             }
-            filterednevek.Sort();          
+            filterednevek.Sort();
             lb_guests.Items.Refresh();
         }
 
         private void lb_guests_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            
+
             foreach (var item in foglalasok)
             {
                 if (lb_guests.SelectedItem.ToString() == item.guestname)
@@ -122,7 +116,6 @@ namespace Recepcio_alkalmazas
                     ujfoglalas.roomtype = item.roomtype;
                     ujfoglalas.price = item.price;
                     ujfoglalas.phone = item.phone;
-                
                 }
             }
         }

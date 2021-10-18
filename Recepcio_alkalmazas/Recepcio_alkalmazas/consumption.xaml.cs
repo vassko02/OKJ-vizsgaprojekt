@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -8,7 +10,11 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.IO;
+using System.ComponentModel;
+using System.Collections.ObjectModel;
 
 namespace Recepcio_alkalmazas
 {
@@ -17,14 +23,40 @@ namespace Recepcio_alkalmazas
     /// </summary>
     public partial class consumption : Window
     {
+        List<foglalas> foglalasok = new List<foglalas>();
         Dictionary<string, double> lehetosegek = new Dictionary<string, double>();
+        List<string> filterednevek = new List<string>();
+        foglalas ujfoglalas = new foglalas();
+        List<fogyasztas> fogyasztasok = new List<fogyasztas>();
 
         public consumption()
         {
             InitializeComponent();
             italfeltolt();
+            foglalasokbeolvasasa("foglalas.txt");
+            vendeknevbetolt();
+            lb_guests.DataContext = filterednevek;
+            lb_guests.SelectedItem = "";
+            lb_fogyasztasok.DataContext =fogyasztasok;
+        }
+        private void vendeknevbetolt()
+        {
+            foreach (var item in foglalasok)
+            {
+                filterednevek.Add(item.guestname);
+            }
+            filterednevek.Sort();
         }
 
+        private void foglalasokbeolvasasa(string fajlnev)
+        {
+            StreamReader sr = new StreamReader(fajlnev);
+            do
+            {
+                foglalasok.Add(new foglalas(sr.ReadLine()));
+            } while (!sr.EndOfStream);
+            sr.Close();
+        }
         private void italfeltolt()
         {
             lehetosegek.Add("Coca-Cola",1.5);
@@ -75,6 +107,26 @@ namespace Recepcio_alkalmazas
             edit ed = new edit();
             ed.Show();
             this.Close();
+        }
+
+        private void lb_guests_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+
+        private void tb_guestinput_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            string input = tb_guestinput.Text.ToLower();
+            filterednevek.Clear();
+            foreach (var item in foglalasok)
+            {
+                if (item.guestname.ToLower().Contains(input))
+                {
+                    filterednevek.Add(item.guestname);
+                }
+            }
+            filterednevek.Sort();
+            lb_guests.Items.Refresh();
         }
     }
 }
