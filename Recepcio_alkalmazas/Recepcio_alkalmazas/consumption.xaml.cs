@@ -28,7 +28,7 @@ namespace Recepcio_alkalmazas
         List<string> filterednevek = new List<string>();
         foglalas ujfoglalas = new foglalas();
         List<fogyasztas> fogyasztasok = new List<fogyasztas>();
-
+        fogyasztas melyikvendege = new fogyasztas();
         public consumption()
         {
             InitializeComponent();
@@ -38,6 +38,7 @@ namespace Recepcio_alkalmazas
             lb_guests.DataContext = filterednevek;
             lb_guests.SelectedItem = "";
             lb_fogyasztasok.DataContext =fogyasztasok;
+            lb_fogyasztasok.DataContext = melyikvendege;
         }
         private void vendeknevbetolt()
         {
@@ -111,7 +112,16 @@ namespace Recepcio_alkalmazas
 
         private void lb_guests_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-
+            melyikvendege.guestname = lb_guests.SelectedItem.ToString();
+            Dictionary<string, double> a = new Dictionary<string, double>();
+            foreach (var item in fogyasztasok)
+            {
+                if (item.guestname== lb_guests.SelectedItem.ToString())
+                {
+                    a = item.cons;
+                }
+            }
+            melyikvendege.cons = a;
         }
 
         private void tb_guestinput_TextChanged(object sender, TextChangedEventArgs e)
@@ -127,6 +137,29 @@ namespace Recepcio_alkalmazas
             }
             filterednevek.Sort();
             lb_guests.Items.Refresh();
+        }
+
+        private void StackPanel_MouseUp(object sender, MouseButtonEventArgs e)
+        {
+            string valasztottitem = ((StackPanel)sender).Tag.ToString();
+            double itemar=0;
+            foreach (var item in lehetosegek)
+            {
+                if (item.Key==valasztottitem)
+                {
+                    itemar = item.Value;
+                }
+            }
+            foreach (var item in foglalasok)
+            {
+                if (item.guestname==lb_guests.SelectedItem.ToString())
+                {
+                    foreach (var i in fogyasztasok)
+                    {
+                        fogyasztasok.Add(new fogyasztas(lb_guests.SelectedItem.ToString(), valasztottitem, itemar));
+                    }
+                }
+            }
         }
     }
 }
