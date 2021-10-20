@@ -74,7 +74,7 @@
                     <ListBox Margin="5" Foreground="DarkGoldenrod" FontWeight="Bold" ItemsSource="{Binding}" Width="200" Height="150"  Name="lb_guests" 
                              IsSynchronizedWithCurrentItem="True" SelectedIndex="-1" SelectionChanged="lb_guests_SelectionChanged"/>
                     <Label Content="Consumptions:" HorizontalAlignment="Center" FontSize="16" FontWeight="Bold" Margin="5" Foreground="DarkGoldenrod" Width="200"/>
-                    <ListBox Margin="5" Width="200" Height="150" ItemsSource="{Binding cons}" Name="lb_fogyasztasok"/>
+                    <ListBox Margin="5" Width="200" Height="150" ItemsSource="{Binding}" IsSynchronizedWithCurrentItem="True" Name="lb_fogyasztasok"/>
                     <Button Padding="5" FontWeight="Bold" Name="btn_eltavolit" Content="Remove selected item" Background="Black" Foreground="DarkGoldenrod" Margin="30,10,30,10">
                         <Button.Resources>
                             <Style TargetType="Border">
@@ -215,7 +215,6 @@
                     </ScrollViewer>
                 </StackPanel>
             </Grid>
-
         </DockPanel>
     </Grid>
 </Window>

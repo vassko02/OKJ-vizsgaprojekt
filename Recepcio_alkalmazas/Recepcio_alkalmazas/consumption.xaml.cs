@@ -29,6 +29,7 @@ namespace Recepcio_alkalmazas
         foglalas ujfoglalas = new foglalas();
         List<fogyasztas> fogyasztasok = new List<fogyasztas>();
         fogyasztas melyikvendege = new fogyasztas();
+        Dictionary<string, double> filtered = new Dictionary<string, double>();
         public consumption()
         {
             InitializeComponent();
@@ -37,8 +38,8 @@ namespace Recepcio_alkalmazas
             vendeknevbetolt();
             lb_guests.DataContext = filterednevek;
             lb_guests.SelectedItem = "";
-            lb_fogyasztasok.DataContext =fogyasztasok;
-            lb_fogyasztasok.DataContext = melyikvendege;
+            //lb_fogyasztasok.DataContext =fogyasztasok;
+            //lb_fogyasztasok.DataContext = filtered;
         }
         private void vendeknevbetolt()
         {
@@ -60,12 +61,12 @@ namespace Recepcio_alkalmazas
         }
         private void italfeltolt()
         {
-            lehetosegek.Add("Coca-Cola",1.5);
-            lehetosegek.Add("Fanta", 1.5);
-            lehetosegek.Add("Sprite", 1.5);
-            lehetosegek.Add("Natur Aqua", 1.5);
-            lehetosegek.Add("Kinley", 1.5);
-            lehetosegek.Add("Cappy", 1.5);
+            lehetosegek.Add("Coca-Cola",1.49);
+            lehetosegek.Add("Fanta", 1.49);
+            lehetosegek.Add("Sprite", 1.49);
+            lehetosegek.Add("Natur Aqua", 1.49);
+            lehetosegek.Add("Kinley", 1.49);
+            lehetosegek.Add("Cappy", 1.49);
             lehetosegek.Add("Aperol spritz", 5.99);
             lehetosegek.Add("Bloody Mary", 9.99);
             lehetosegek.Add("Cosmopolian", 7.99);
@@ -112,16 +113,16 @@ namespace Recepcio_alkalmazas
 
         private void lb_guests_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            melyikvendege.guestname = lb_guests.SelectedItem.ToString();
-            Dictionary<string, double> a = new Dictionary<string, double>();
-            foreach (var item in fogyasztasok)
-            {
-                if (item.guestname== lb_guests.SelectedItem.ToString())
-                {
-                    a = item.cons;
-                }
-            }
-            melyikvendege.cons = a;
+            //melyikvendege.guestname = lb_guests.SelectedItem.ToString();
+            //Dictionary<string, double> a = new Dictionary<string, double>();
+            //foreach (var item in fogyasztasok)
+            //{
+            //    if (item.guestname== lb_guests.SelectedItem.ToString())
+            //    {
+            //        a = item.cons;
+            //    }
+            //}
+            //melyikvendege.cons = a;
         }
 
         private void tb_guestinput_TextChanged(object sender, TextChangedEventArgs e)
@@ -150,16 +151,29 @@ namespace Recepcio_alkalmazas
                     itemar = item.Value;
                 }
             }
-            foreach (var item in foglalasok)
-            {
-                if (item.guestname==lb_guests.SelectedItem.ToString())
-                {
-                    foreach (var i in fogyasztasok)
-                    {
-                        fogyasztasok.Add(new fogyasztas(lb_guests.SelectedItem.ToString(), valasztottitem, itemar));
-                    }
-                }
-            }
+            //Dictionary<string, double> proba = new Dictionary<string, double>();
+            //proba.Add(valasztottitem,itemar);
+            //fogyasztasok.Add(new fogyasztas(lb_guests.SelectedItem.ToString(),proba));
+            //foreach (var item in fogyasztasok)
+            //{
+            //    if (item.guestname== lb_guests.SelectedItem.ToString())
+            //    {
+            //        filtered.Add(item.cons[item.guestname].ToString(), double.Parse(item.cons[item.guestname].ToString()));
+            //    }
+            //}
+            //foreach (var item in fogyasztasok)
+            //{
+            //    for (int i = 0; i < fogyasztasok.Count; i++)
+            //    {
+            //        if (fogyasztasok[i].guestname == lb_guests.SelectedItem.ToString())
+            //        {
+            //            fogyasztasok[i].cons.Add(valasztottitem, itemar);
+            //            fogyasztasok
+            //        }
+            //    }
+
+            //}
+            //proba.Clear();
         }
     }
 }

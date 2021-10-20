@@ -19,15 +19,18 @@ namespace Recepcio_alkalmazas
 			get { return _cons; }
 			set { _cons = value; }
 		}
+		public void consfeltolt(string itemname, double price)
+        {
+			cons.Add(itemname,price);
+        }
 		public fogyasztas()
 		{
 
 		}
-		public fogyasztas(string guestname,string itemname,double price)
+		public fogyasztas(string guestname,Dictionary<string,double> cons)
 		{
 			this.guestname = guestname;
-			this.cons = new Dictionary<string, double>();
-			cons.Add(itemname,price);
+			this.cons = cons;
 		}
 	}
 }
