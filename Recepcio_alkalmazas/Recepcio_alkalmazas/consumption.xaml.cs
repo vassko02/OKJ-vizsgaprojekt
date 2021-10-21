@@ -28,8 +28,8 @@ namespace Recepcio_alkalmazas
         List<string> filterednevek = new List<string>();
         foglalas ujfoglalas = new foglalas();
         List<fogyasztas> fogyasztasok = new List<fogyasztas>();
-        fogyasztas melyikvendege = new fogyasztas();
-        Dictionary<string, double> filtered = new Dictionary<string, double>();
+        List<fogyasztas> valasztottembere = new List<fogyasztas>();
+       
         public consumption()
         {
             InitializeComponent();
@@ -38,8 +38,8 @@ namespace Recepcio_alkalmazas
             vendeknevbetolt();
             lb_guests.DataContext = filterednevek;
             lb_guests.SelectedItem = "";
-            //lb_fogyasztasok.DataContext =fogyasztasok;
-            //lb_fogyasztasok.DataContext = filtered;
+            lb_fogyasztasok.DataContext = valasztottembere;
+            fogyasztasok.Add(new fogyasztas("qwe","Coca-Cola",1.49));
         }
         private void vendeknevbetolt()
         {
@@ -61,20 +61,20 @@ namespace Recepcio_alkalmazas
         }
         private void italfeltolt()
         {
-            lehetosegek.Add("Coca-Cola",1.49);
-            lehetosegek.Add("Fanta", 1.49);
-            lehetosegek.Add("Sprite", 1.49);
-            lehetosegek.Add("Natur Aqua", 1.49);
-            lehetosegek.Add("Kinley", 1.49);
-            lehetosegek.Add("Cappy", 1.49);
+            lehetosegek.Add("Coca-Cola",1.5);
+            lehetosegek.Add("Fanta", 1.5);
+            lehetosegek.Add("Sprite", 1.5);
+            lehetosegek.Add("Natur Aqua", 1.5);
+            lehetosegek.Add("Kinley", 1.5);
+            lehetosegek.Add("Cappy", 1.5);
             lehetosegek.Add("Aperol spritz", 5.99);
             lehetosegek.Add("Bloody Mary", 9.99);
-            lehetosegek.Add("Cosmopolian", 7.99);
+            lehetosegek.Add("Cosmopolitan", 7.99);
             lehetosegek.Add("Gin Fizz", 6.99);
             lehetosegek.Add("Long Island Ice Tea", 8.99);
             lehetosegek.Add("Margarita", 8.99);
             lehetosegek.Add("Mojito", 9.99);
-            lehetosegek.Add("Pina colada", 7.49);
+            lehetosegek.Add("Pina Colada", 7.49);
             lehetosegek.Add("Zombie", 10.49);
             lehetosegek.Add("Massage", 14.99);
             lehetosegek.Add("Hairdresser", 22.99);
@@ -113,16 +113,15 @@ namespace Recepcio_alkalmazas
 
         private void lb_guests_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            //melyikvendege.guestname = lb_guests.SelectedItem.ToString();
-            //Dictionary<string, double> a = new Dictionary<string, double>();
-            //foreach (var item in fogyasztasok)
-            //{
-            //    if (item.guestname== lb_guests.SelectedItem.ToString())
-            //    {
-            //        a = item.cons;
-            //    }
-            //}
-            //melyikvendege.cons = a;
+            valasztottembere.Clear();
+            lb_fogyasztasok.Items.Refresh();
+            foreach (var item in fogyasztasok)
+            {
+                if (item.guestname==lb_guests.SelectedItem.ToString())
+                {
+                    valasztottembere.Add(new fogyasztas(item.guestname,item.itemname,item.price));
+                }
+            }
         }
 
         private void tb_guestinput_TextChanged(object sender, TextChangedEventArgs e)
@@ -139,7 +138,6 @@ namespace Recepcio_alkalmazas
             filterednevek.Sort();
             lb_guests.Items.Refresh();
         }
-
         private void StackPanel_MouseUp(object sender, MouseButtonEventArgs e)
         {
             string valasztottitem = ((StackPanel)sender).Tag.ToString();
@@ -151,29 +149,9 @@ namespace Recepcio_alkalmazas
                     itemar = item.Value;
                 }
             }
-            //Dictionary<string, double> proba = new Dictionary<string, double>();
-            //proba.Add(valasztottitem,itemar);
-            //fogyasztasok.Add(new fogyasztas(lb_guests.SelectedItem.ToString(),proba));
-            //foreach (var item in fogyasztasok)
-            //{
-            //    if (item.guestname== lb_guests.SelectedItem.ToString())
-            //    {
-            //        filtered.Add(item.cons[item.guestname].ToString(), double.Parse(item.cons[item.guestname].ToString()));
-            //    }
-            //}
-            //foreach (var item in fogyasztasok)
-            //{
-            //    for (int i = 0; i < fogyasztasok.Count; i++)
-            //    {
-            //        if (fogyasztasok[i].guestname == lb_guests.SelectedItem.ToString())
-            //        {
-            //            fogyasztasok[i].cons.Add(valasztottitem, itemar);
-            //            fogyasztasok
-            //        }
-            //    }
-
-            //}
-            //proba.Clear();
+            valasztottembere.Add(new fogyasztas(lb_guests.SelectedItem.ToString(),valasztottitem,itemar));
+            fogyasztasok.Add(new fogyasztas(lb_guests.SelectedItem.ToString(), valasztottitem, itemar));
+            lb_fogyasztasok.Items.Refresh();
         }
     }
 }

@@ -74,7 +74,16 @@
                     <ListBox Margin="5" Foreground="DarkGoldenrod" FontWeight="Bold" ItemsSource="{Binding}" Width="200" Height="150"  Name="lb_guests" 
                              IsSynchronizedWithCurrentItem="True" SelectedIndex="-1" SelectionChanged="lb_guests_SelectionChanged"/>
                     <Label Content="Consumptions:" HorizontalAlignment="Center" FontSize="16" FontWeight="Bold" Margin="5" Foreground="DarkGoldenrod" Width="200"/>
-                    <ListBox Margin="5" Width="200" Height="150" ItemsSource="{Binding}" IsSynchronizedWithCurrentItem="True" Name="lb_fogyasztasok"/>
+                    <ListBox Margin="5" Width="200" Height="150" ItemsSource="{Binding}" IsSynchronizedWithCurrentItem="True" Name="lb_fogyasztasok">
+                        <ListBox.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Horizontal">
+                                    <Label Foreground="DarkGoldenrod" Margin="5" Content="{Binding itemname}"/>
+                                    <Label Foreground="DarkGoldenrod" Margin="5" Content="{Binding price}"/>
+                                </StackPanel>
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                    </ListBox>
                     <Button Padding="5" FontWeight="Bold" Name="btn_eltavolit" Content="Remove selected item" Background="Black" Foreground="DarkGoldenrod" Margin="30,10,30,10">
                         <Button.Resources>
                             <Style TargetType="Border">
@@ -133,7 +142,7 @@
                                 <Label Content="Kinley" Margin="5,0,5,0" HorizontalAlignment="Left" Foreground="DarkGoldenrod" FontWeight="Bold"/>
                                 <Label Content="$1.49" Foreground="DarkGoldenrod" FontWeight="Bold"/>
                             </StackPanel>
-                            <StackPanel Grid.Row="2"  MouseUp="StackPanel_MouseUp" Grid.Column="2" Tag="Natur aqua" Background="Black" Margin="5">
+                            <StackPanel Grid.Row="2"  MouseUp="StackPanel_MouseUp" Grid.Column="2" Tag="Natur Aqua" Background="Black" Margin="5">
                                 <Image Source="img/fogyasztas/natur.png" Margin="5,0,5,0" Width="120" Height="120" Stretch="Fill"/>
                                 <Label Content="Natur aqua" Margin="5,0,5,0" HorizontalAlignment="Left" Foreground="DarkGoldenrod" FontWeight="Bold"/>
                                 <Label Content="$1.49" Foreground="DarkGoldenrod" FontWeight="Bold"/>
@@ -154,7 +163,7 @@
                                 <Label Content="Cosmopolitan" Margin="5,0,5,0" HorizontalAlignment="Left" Foreground="DarkGoldenrod" FontWeight="Bold"/>
                                 <Label Content="$7.99" Foreground="DarkGoldenrod" FontWeight="Bold"/>
                             </StackPanel>
-                            <StackPanel Grid.Row="4" MouseUp="StackPanel_MouseUp" Tag="Gin fizz" Grid.Column="0" Background="Black" Margin="5">
+                            <StackPanel Grid.Row="4" MouseUp="StackPanel_MouseUp" Tag="Gin Fizz" Grid.Column="0" Background="Black" Margin="5">
                                 <Image Source="img/fogyasztas/gin-fizz.png" Margin="5,0,5,0" Width="120" Height="120" Stretch="Fill"/>
                                 <Label Content="Gin fizz" Margin="5,0,5,0" HorizontalAlignment="Left" Foreground="DarkGoldenrod" FontWeight="Bold"/>
                                 <Label Content="$6.99" Foreground="DarkGoldenrod" FontWeight="Bold"/>
@@ -215,6 +224,7 @@
                     </ScrollViewer>
                 </StackPanel>
             </Grid>
+
         </DockPanel>
     </Grid>
 </Window>
