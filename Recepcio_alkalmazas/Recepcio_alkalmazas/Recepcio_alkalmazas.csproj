@@ -7,7 +7,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="ASD.png" />
     <None Remove="foglalas.txt" />
     <None Remove="img\fogyasztas\aperol-spritz.png" />
     <None Remove="img\fogyasztas\bloodymary.png" />
@@ -25,15 +24,10 @@
     <None Remove="img\fogyasztas\tonic.png" />
     <None Remove="img\fogyasztas\zombie.png" />
     <None Remove="img\hatter.jpg" />
-    <None Remove="img\kislogo.png" />
-    <None Remove="img\nagylogo.png" />
     <None Remove="img\proba.png" />
   </ItemGroup>
 
   <ItemGroup>
-    <Resource Include="ASD.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
     <Resource Include="foglalas.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
@@ -54,12 +48,6 @@
     <Resource Include="img\fogyasztas\zombie.png" />
     <Resource Include="img\hatter.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="img\kislogo.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="img\nagylogo.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
     <Resource Include="img\proba.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

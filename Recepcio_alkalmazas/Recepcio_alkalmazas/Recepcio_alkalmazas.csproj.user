@@ -7,33 +7,39 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
-    <Compile Update="consumption.xaml.cs">
+    <Compile Update="pages\consumption.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="edit.xaml.cs">
+    <Compile Update="pages\editreservation.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="guestleave.xaml.cs">
+    <Compile Update="pages\guestarrives.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="reciept.xaml.cs">
+    <Compile Update="pages\guestleaves.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="pages\recipe.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Page Update="consumption.xaml">
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Update="edit.xaml">
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Update="guestleave.xaml">
-      <SubType>Designer</SubType>
-    </Page>
     <Page Update="MainWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="reciept.xaml">
+    <Page Update="pages\consumption.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="pages\editreservation.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="pages\guestarrives.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="pages\guestleaves.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="pages\recipe.xaml">
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>
