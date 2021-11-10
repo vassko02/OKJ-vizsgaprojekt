@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Gép: 127.0.0.1
--- Létrehozás ideje: 2021. Okt 20. 10:30
+-- Létrehozás ideje: 2021. Nov 10. 09:40
 -- Kiszolgáló verziója: 10.4.21-MariaDB
 -- PHP verzió: 8.0.10
 
@@ -33,7 +33,7 @@ CREATE TABLE `consumption` (
   `ConsumptionID` int(11) NOT NULL,
   `Price` double NOT NULL,
   `ItemName` varchar(50) NOT NULL,
-  `RoomID` int(11) NOT NULL
+  `ReservationID` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -102,7 +102,7 @@ CREATE TABLE `servicetype` (
 --
 ALTER TABLE `consumption`
   ADD PRIMARY KEY (`ConsumptionID`),
-  ADD KEY `RoomID` (`RoomID`);
+  ADD KEY `ReservationID` (`ReservationID`);
 
 --
 -- A tábla indexei `customer`
@@ -173,7 +173,7 @@ ALTER TABLE `servicetype`
 -- Megkötések a táblához `consumption`
 --
 ALTER TABLE `consumption`
-  ADD CONSTRAINT `consumption_ibfk_1` FOREIGN KEY (`RoomID`) REFERENCES `room` (`RoomID`);
+  ADD CONSTRAINT `consumption_ibfk_1` FOREIGN KEY (`ReservationID`) REFERENCES `reservation` (`ReservationID`);
 
 --
 -- Megkötések a táblához `reservation`
