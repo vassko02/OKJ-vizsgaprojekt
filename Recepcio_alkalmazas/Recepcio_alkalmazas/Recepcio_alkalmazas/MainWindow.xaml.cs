@@ -27,31 +27,62 @@ namespace Recepcio_alkalmazas
         public MainWindow()
         {
             InitializeComponent();
+            reset("erkezes");
             frm_main.Content = new guestarrives();
         }
+
+        private void reset(string melyikgomb)
+        {
+            btn_tavozas.BorderBrush = btn_reciept.BorderBrush = btn_modosit.BorderBrush = btn_erkezes.BorderBrush=btn_fogyasztás.BorderBrush = Brushes.Black;
+            switch (melyikgomb)
+            {
+                case "tavozas":
+                    btn_tavozas.BorderBrush = Brushes.DarkGoldenrod;
+                    break;
+                case "erkezes":
+                    btn_erkezes.BorderBrush = Brushes.DarkGoldenrod;
+                    break;
+                case "recipe":
+                    btn_reciept.BorderBrush = Brushes.DarkGoldenrod;
+                    break;
+                case "modify":
+                    btn_modosit.BorderBrush = Brushes.DarkGoldenrod;
+                    break;
+                case "fogyasztas":
+                    btn_fogyasztás.BorderBrush = Brushes.DarkGoldenrod;
+                    break;
+                default:
+                    break;
+            }
+        }
+
         private void btn_tavozas_Click(object sender, RoutedEventArgs e)
         {
+            reset("tavozas");
             frm_main.Content = new guestleaves();
-
         }
 
         private void btn_fogyasztás_Click(object sender, RoutedEventArgs e)
         {
+            reset("fogyasztas");
             frm_main.Content = new consumption();
 
         }
         private void btn_modosit_Click(object sender, RoutedEventArgs e)
         {
+            reset("modify");
             frm_main.Content = new editreservation();
         }
 
         private void btn_erkezes_Click(object sender, RoutedEventArgs e)
         {
+            reset("erkezes");
             frm_main.Content = new guestarrives();
         }
 
         private void btn_reciept_Click(object sender, RoutedEventArgs e)
         {
+            reset("recipe");
             frm_main.Content = new recipe();
         }
 
