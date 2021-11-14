@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup />
+  <ItemGroup>
+    <ApplicationDefinition Update="App.xaml">
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Update="pages\consumption.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="pages\editreservation.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="pages\guestarrives.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="pages\guestleaves.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="pages\recipe.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="MainWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="pages\consumption.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="pages\editreservation.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="pages\guestarrives.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="pages\guestleaves.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="pages\recipe.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+</Project>

@@ -1,0 +1,57 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="foglalas.txt" />
+    <None Remove="img\fogyasztas\aperol-spritz.png" />
+    <None Remove="img\fogyasztas\bloodymary.png" />
+    <None Remove="img\fogyasztas\cappy.png" />
+    <None Remove="img\fogyasztas\cosmopolitan.png" />
+    <None Remove="img\fogyasztas\fanta.png" />
+    <None Remove="img\fogyasztas\gin-fizz.png" />
+    <None Remove="img\fogyasztas\kola.png" />
+    <None Remove="img\fogyasztas\LongIslandIcedTea.png" />
+    <None Remove="img\fogyasztas\margarita.png" />
+    <None Remove="img\fogyasztas\mojito.png" />
+    <None Remove="img\fogyasztas\natur.png" />
+    <None Remove="img\fogyasztas\pina-colada.png" />
+    <None Remove="img\fogyasztas\sprite.png" />
+    <None Remove="img\fogyasztas\tonic.png" />
+    <None Remove="img\fogyasztas\zombie.png" />
+    <None Remove="img\hatter.jpg" />
+    <None Remove="img\proba.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="foglalas.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="img\fogyasztas\aperol-spritz.png" />
+    <Resource Include="img\fogyasztas\bloodymary.png" />
+    <Resource Include="img\fogyasztas\cappy.png" />
+    <Resource Include="img\fogyasztas\cosmopolitan.png" />
+    <Resource Include="img\fogyasztas\fanta.png" />
+    <Resource Include="img\fogyasztas\gin-fizz.png" />
+    <Resource Include="img\fogyasztas\kola.png" />
+    <Resource Include="img\fogyasztas\LongIslandIcedTea.png" />
+    <Resource Include="img\fogyasztas\margarita.png" />
+    <Resource Include="img\fogyasztas\mojito.png" />
+    <Resource Include="img\fogyasztas\natur.png" />
+    <Resource Include="img\fogyasztas\pina-colada.png" />
+    <Resource Include="img\fogyasztas\sprite.png" />
+    <Resource Include="img\fogyasztas\tonic.png" />
+    <Resource Include="img\fogyasztas\zombie.png" />
+    <Resource Include="img\hatter.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="img\proba.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+
+</Project>

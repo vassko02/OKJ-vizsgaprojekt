@@ -1,0 +1,70 @@
+﻿<Window x:Class="Recepcio_alkalmazas.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Recepcio_alkalmazas"
+        mc:Ignorable="d"
+        Title="Peaceful Paradise Reception" Height="562" Width="1000"
+        WindowStartupLocation="CenterScreen" FontSize="14">
+        
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="250"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <!--Menü-->
+        <DockPanel HorizontalAlignment="Left" Grid.Column="0" >
+            <Border
+                BorderBrush="Black"
+                BorderThickness="0,0,3,0"
+               >
+                <StackPanel  Width="250" Background="#575a59" HorizontalAlignment="Left" >
+                    <Image Source="img/proba.png" Stretch="Fill" Height="88"/>
+                    <Button Padding="5" FontWeight="Bold" Name="btn_erkezes" Content="Guest arrives" Background="Black" Foreground="DarkGoldenrod" Margin="15,10,15,10" Click="btn_erkezes_Click">
+                        <Button.Resources>
+                            <Style TargetType="Border">
+                                <Setter Property="CornerRadius" Value="5"/>
+                            </Style>
+                        </Button.Resources>
+                    </Button>
+                    <Button Padding="5" FontWeight="Bold" Name="btn_tavozas" Content="Guest leaves" Background="Black" Foreground="DarkGoldenrod" Margin="15,10,15,10" Click="btn_tavozas_Click">
+                        <Button.Resources>
+                            <Style TargetType="Border">
+                                <Setter Property="CornerRadius" Value="5"/>
+                            </Style>
+                        </Button.Resources>
+                    </Button>
+                    <Button Padding="5" FontWeight="Bold" Name="btn_modosit" Content="Edit reservation" Background="Black" Foreground="DarkGoldenrod" Margin="15,10,15,10" Click="btn_modosit_Click">
+                        <Button.Resources>
+                            <Style TargetType="Border">
+                                <Setter Property="CornerRadius" Value="5"/>
+                            </Style>
+                        </Button.Resources>
+                    </Button>
+                    <Button Padding="5" FontWeight="Bold" Name="btn_fogyasztás" Content="Consumption" Background="Black" Foreground="DarkGoldenrod" Margin="15,10,15,10" Click="btn_fogyasztás_Click">
+                        <Button.Resources>
+                            <Style TargetType="Border">
+                                <Setter Property="CornerRadius" Value="5"/>
+                            </Style>
+                        </Button.Resources>
+                    </Button>
+                    <Button Padding="5" FontWeight="Bold" Name="btn_reciept" Content="Reciept" Background="Black" Foreground="DarkGoldenrod" Margin="15,10,15,10" Click="btn_reciept_Click">
+                        <Button.Resources>
+                            <Style TargetType="Border">
+                                <Setter Property="CornerRadius" Value="5"/>
+                            </Style>
+                        </Button.Resources>
+                    </Button>
+                </StackPanel>
+            </Border>
+        </DockPanel>
+        <!--Vendég választása-->
+        <DockPanel Grid.Column="1">
+            <DockPanel.Background>
+                <ImageBrush ImageSource="img/hatter.jpg"/>
+            </DockPanel.Background>
+            <Frame Name="frm_main" NavigationUIVisibility="Hidden"/>
+        </DockPanel>
+    </Grid>
+</Window>
