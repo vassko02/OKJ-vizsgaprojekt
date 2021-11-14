@@ -54,5 +54,32 @@ namespace Recepcio_alkalmazas
         {
             frm_main.Content = new recipe();
         }
+
+        private void btn_close_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
+
+        private void btn_fullscreen_Click(object sender, RoutedEventArgs e)
+        {
+            if (Application.Current.MainWindow.WindowState != WindowState.Maximized) {
+                Application.Current.MainWindow.WindowState=WindowState.Maximized; 
+            }
+            else
+                Application.Current.MainWindow.WindowState = WindowState.Normal;
+        }
+
+        private void btn_mini_Click(object sender, RoutedEventArgs e)
+        {
+            Application.Current.MainWindow.WindowState= WindowState.Minimized;
+        }
+
+        private void Grid_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            if (e.LeftButton==MouseButtonState.Pressed)
+            {
+                DragMove();
+            }
+        }
     }
 }

@@ -18,9 +18,13 @@
             <RowDefinition/>
         </Grid.RowDefinitions>
         <Border Grid.ColumnSpan="2" Background="#36393f">
-            <Grid>
+            <Grid MouseDown="Grid_MouseDown">
                 <Label Content="Peaceful Paradise Reception" Foreground="DarkGray" VerticalAlignment="Center" FontSize="18" FontWeight="Bold"/>
-                <Button Width="20" Height="20" Content="❌" HorizontalAlignment="Right" Background="Transparent" BorderThickness="0" Foreground="red"/>
+                <Button Width="20" Height="20" Content="❌" Margin="0,0,5,0" HorizontalAlignment="Right" Background="Transparent" BorderThickness="0" Click="btn_close_Click" Name="btn_close" Foreground="Gray"/>
+                <Button Width="20" Height="20" Content="🗖" Margin="0,0,25,0" HorizontalAlignment="Right" Background="Transparent" BorderThickness="0" Name="btn_fullscreen" Click="btn_fullscreen_Click" Foreground="Gray"/>
+                <Button Width="20" Height="20" Content="🗕" Margin="0,0,45,3" HorizontalAlignment="Right" Background="Transparent" BorderThickness="0" Name="btn_mini" Click="btn_mini_Click" Foreground="Gray"/>
+
+
             </Grid>
         </Border>
 
