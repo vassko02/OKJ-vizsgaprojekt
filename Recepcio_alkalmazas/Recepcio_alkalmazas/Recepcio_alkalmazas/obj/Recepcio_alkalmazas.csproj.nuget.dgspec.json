@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\School\\Recepcio_alkalmazas\\Recepcio_alkalmazas\\Recepcio_alkalmazas.csproj": {}
+    "D:\\asd\\OKJ-vizsgaprojekt\\Recepcio_alkalmazas\\Recepcio_alkalmazas\\Recepcio_alkalmazas\\Recepcio_alkalmazas.csproj": {}
   },
   "projects": {
-    "D:\\School\\Recepcio_alkalmazas\\Recepcio_alkalmazas\\Recepcio_alkalmazas.csproj": {
+    "D:\\asd\\OKJ-vizsgaprojekt\\Recepcio_alkalmazas\\Recepcio_alkalmazas\\Recepcio_alkalmazas\\Recepcio_alkalmazas.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\School\\Recepcio_alkalmazas\\Recepcio_alkalmazas\\Recepcio_alkalmazas.csproj",
+        "projectUniqueName": "D:\\asd\\OKJ-vizsgaprojekt\\Recepcio_alkalmazas\\Recepcio_alkalmazas\\Recepcio_alkalmazas\\Recepcio_alkalmazas.csproj",
         "projectName": "Recepcio_alkalmazas",
-        "projectPath": "D:\\School\\Recepcio_alkalmazas\\Recepcio_alkalmazas\\Recepcio_alkalmazas.csproj",
+        "projectPath": "D:\\asd\\OKJ-vizsgaprojekt\\Recepcio_alkalmazas\\Recepcio_alkalmazas\\Recepcio_alkalmazas\\Recepcio_alkalmazas.csproj",
         "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
-        "outputPath": "D:\\School\\Recepcio_alkalmazas\\Recepcio_alkalmazas\\obj\\",
+        "outputPath": "D:\\asd\\OKJ-vizsgaprojekt\\Recepcio_alkalmazas\\Recepcio_alkalmazas\\Recepcio_alkalmazas\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
