@@ -53,7 +53,7 @@ namespace Recepcio_alkalmazas.pages {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/Recepcio_alkalmazas;V1.0.0.0;component/pages/recipe.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/Recepcio_alkalmazas;component/pages/recipe.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\pages\recipe.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

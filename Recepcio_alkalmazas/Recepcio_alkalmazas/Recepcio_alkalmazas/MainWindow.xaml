@@ -5,16 +5,27 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Recepcio_alkalmazas"
         mc:Ignorable="d"
-        Title="Peaceful Paradise Reception" Height="562" Width="1000"
-        WindowStartupLocation="CenterScreen" FontSize="14">
+        Height="562" Width="1000"
+        WindowStartupLocation="CenterScreen" FontSize="14" ResizeMode="NoResize" WindowStyle="None">
         
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="250"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="35"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Border Grid.ColumnSpan="2" Background="#36393f">
+            <Grid>
+                <Label Content="Peaceful Paradise Reception" Foreground="DarkGray" VerticalAlignment="Center" FontSize="18" FontWeight="Bold"/>
+                <Button Width="20" Height="20" Content="❌" HorizontalAlignment="Right" Background="Transparent" BorderThickness="0" Foreground="red"/>
+            </Grid>
+        </Border>
+
         <!--Menü-->
-        <DockPanel HorizontalAlignment="Left" Grid.Column="0" >
+        <DockPanel HorizontalAlignment="Left" Grid.Column="0" Grid.Row="1">
             <Border
                 BorderBrush="Black"
                 BorderThickness="0,0,3,0"
@@ -60,7 +71,7 @@
             </Border>
         </DockPanel>
         <!--Vendég választása-->
-        <DockPanel Grid.Column="1">
+        <DockPanel Grid.Column="1" Grid.Row="1">
             <DockPanel.Background>
                 <ImageBrush ImageSource="img/hatter.jpg"/>
             </DockPanel.Background>

@@ -69,7 +69,7 @@ namespace Recepcio_alkalmazas.pages {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/Recepcio_alkalmazas;V1.0.0.0;component/pages/guestleaves.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/Recepcio_alkalmazas;component/pages/guestleaves.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\pages\guestleaves.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);
