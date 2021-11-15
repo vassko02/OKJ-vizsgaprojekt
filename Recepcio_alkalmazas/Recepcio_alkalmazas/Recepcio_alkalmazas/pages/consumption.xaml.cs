@@ -11,6 +11,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.IO;
+using System.Collections.ObjectModel;
 
 namespace Recepcio_alkalmazas.pages
 {
@@ -19,12 +20,12 @@ namespace Recepcio_alkalmazas.pages
     /// </summary>
     public partial class consumption : Page
     {
-        List<foglalas> foglalasok = new List<foglalas>();
+        ObservableCollection<foglalas> foglalasok = new ObservableCollection<foglalas>();
         Dictionary<string, double> lehetosegek = new Dictionary<string, double>();
         List<string> filterednevek = new List<string>();
         foglalas ujfoglalas = new foglalas();
-        List<fogyasztas> fogyasztasok = new List<fogyasztas>();
-        List<fogyasztas> valasztottembere = new List<fogyasztas>();
+        ObservableCollection<fogyasztas> fogyasztasok = new ObservableCollection<fogyasztas>();
+        ObservableCollection<fogyasztas> valasztottembere = new ObservableCollection<fogyasztas>();
         public consumption()
         {
             InitializeComponent();
@@ -119,6 +120,11 @@ namespace Recepcio_alkalmazas.pages
             valasztottembere.Add(new fogyasztas(lb_guests.SelectedItem.ToString(), valasztottitem, itemar));
             fogyasztasok.Add(new fogyasztas(lb_guests.SelectedItem.ToString(), valasztottitem, itemar));
             lb_fogyasztasok.Items.Refresh();
+        }
+
+        private void btn_eltavolit_Click(object sender, RoutedEventArgs e)
+        {
+            
         }
     }
 }
