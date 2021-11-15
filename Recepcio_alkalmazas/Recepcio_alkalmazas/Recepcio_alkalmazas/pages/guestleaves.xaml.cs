@@ -65,5 +65,29 @@ namespace Recepcio_alkalmazas.pages
             filterednevek.Sort();
             lb_guests.Items.Refresh();
         }
+
+        private void btn_keszpenz_Click(object sender, RoutedEventArgs e)
+        {
+            if (btn_keszpenz.IsChecked==true)
+            {
+                btn_kartya.IsChecked = false;
+            }
+            else
+            {
+                btn_kartya.IsEnabled = true;
+            }
+        }
+
+        private void btn_kartya_Click(object sender, RoutedEventArgs e)
+        {
+            if (btn_keszpenz.IsChecked == true)
+            {
+                btn_keszpenz.IsChecked = false;
+            }
+            else
+            {
+                btn_keszpenz.IsEnabled = true;
+            }
+        }
     }
 }
