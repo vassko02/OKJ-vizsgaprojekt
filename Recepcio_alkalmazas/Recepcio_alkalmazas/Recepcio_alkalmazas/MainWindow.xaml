@@ -71,6 +71,11 @@
                             </Style>
                         </Button.Resources>
                     </Button>
+                    <StackPanel Margin="0,90,0,0">
+                        <Label Content="Current date/time:" HorizontalAlignment="Center" HorizontalContentAlignment="Center" Width="250" FontSize="20" FontWeight="Bold" Foreground="White" />
+                        <Label Name="LiveDateLabel" Content="" HorizontalAlignment="Center" HorizontalContentAlignment="Center" VerticalAlignment="Bottom" Margin="0,-6,0,0" Width="250" FontSize="20" FontWeight="Bold" Foreground="White" />
+                        <Label Name="LiveTimeLabel" Content="" HorizontalAlignment="Center" HorizontalContentAlignment="Center" VerticalAlignment="Bottom" Margin="0,-6,0,0" Width="250" FontSize="20" FontWeight="Bold" Foreground="White" />
+                    </StackPanel>
                 </StackPanel>
             </Border>
         </DockPanel>

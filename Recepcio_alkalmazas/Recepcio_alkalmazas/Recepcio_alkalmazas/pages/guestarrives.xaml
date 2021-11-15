@@ -21,7 +21,32 @@
                 <ListBox Margin="5" Foreground="DarkGoldenrod" FontWeight="Bold" ItemsSource="{Binding}" Width="200" Height="150"  Name="lb_guests" 
                              IsSynchronizedWithCurrentItem="True" SelectedIndex="-1" SelectionChanged="lb_guests_SelectionChanged"/>
                 <Label Content="Payment:" HorizontalAlignment="Center" FontSize="16" FontWeight="Bold" Margin="5" Foreground="DarkGoldenrod" Width="200"/>
-                <Button Padding="5" FontWeight="Bold" Name="btn_elofizetes" Content="Payment before (Cash/Card)" Background="Black" Foreground="DarkGoldenrod" Margin="30,10,30,10">
+                <StackPanel Orientation="Horizontal">
+                    <ToggleButton Padding="5" FontWeight="Bold" Width="100" Click="btn_keszpenz_Click" HorizontalAlignment="Left" Name="btn_keszpenz" Content="Cash" Background="Black" Foreground="DarkGoldenrod" Margin="25,10,5,10">
+                        <ToggleButton.Resources>
+                            <Style TargetType="Border">
+                                <Setter Property="CornerRadius" Value="5"/>
+                            </Style>
+                        </ToggleButton.Resources>
+                    </ToggleButton>
+                    <ToggleButton Padding="5" Click="btn_kartya_Click" FontWeight="Bold" Width="100" HorizontalAlignment="Left" Name="btn_kartya" Content="Card" Background="Black" Foreground="DarkGoldenrod" Margin="5,10,5,10">
+                        <ToggleButton.Resources>
+                            <Style TargetType="Border">
+                                <Setter Property="CornerRadius" Value="5"/>
+                            </Style>
+                        </ToggleButton.Resources>
+                    </ToggleButton>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Label Content="Amount payed:" HorizontalAlignment="Left" FontSize="14" FontWeight="Bold" Margin="30,5,5,5" Foreground="DarkGoldenrod" Width="120"/>
+                    <Label Content="$" HorizontalAlignment="Left" FontSize="14" FontWeight="Bold" Margin="5,5,0,5" Foreground="DarkGoldenrod" Width="20"/>
+                    <TextBox Margin="0,5,5,5" Name="tb_fizetett" Foreground="DarkGoldenrod" FontWeight="Bold" FontSize="14" IsEnabled="{Binding ElementName=btn_keszpenz,Path=IsChecked}" Width="60"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Label Content="Change:" HorizontalAlignment="Left" FontSize="14" FontWeight="Bold" Margin="30,5,5,5" Foreground="DarkGoldenrod" Width="120"/>
+                    <TextBlock Margin="5" Name="tb_change" Text="$" FontSize="14" Foreground="DarkGoldenrod" FontWeight="Bold" VerticalAlignment="Center" Width="100"/>
+                </StackPanel>
+                <Button Padding="5" FontWeight="Bold" Name="btn_fizetes" Content="Pay" Background="Black" Foreground="DarkGoldenrod" Margin="30,10,30,10">
                     <Button.Resources>
                         <Style TargetType="Border">
                             <Setter Property="CornerRadius" Value="5"/>

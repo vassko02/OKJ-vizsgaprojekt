@@ -16,6 +16,7 @@ using System.IO;
 using System.ComponentModel;
 using System.Collections.ObjectModel;
 using Recepcio_alkalmazas.pages;
+using System.Windows.Threading;
 
 namespace Recepcio_alkalmazas
 {
@@ -29,8 +30,16 @@ namespace Recepcio_alkalmazas
             InitializeComponent();
             reset("erkezes");
             frm_main.Content = new guestarrives();
+            DispatcherTimer LiveTime = new DispatcherTimer();
+            LiveTime.Interval = TimeSpan.FromSeconds(1);
+            LiveTime.Tick += timer_Tick;
+            LiveTime.Start();
         }
-
+        void timer_Tick(object sender, EventArgs e)
+        {
+            LiveDateLabel.Content = DateTime.Now.ToString("yyyy MM. dd.");
+            LiveTimeLabel.Content = DateTime.Now.ToString("HH:mm:ss");
+        }
         private void reset(string melyikgomb)
         {
             btn_tavozas.BorderBrush = btn_reciept.BorderBrush = btn_modosit.BorderBrush = btn_erkezes.BorderBrush=btn_fogyasztás.BorderBrush = Brushes.Black;

@@ -29,6 +29,7 @@ namespace Recepcio_alkalmazas.pages
             vendeknevbetolt();
             lb_guests.DataContext = filterednevek;
             lb_guests.SelectedItem = "";
+            btn_fizetes.IsEnabled = false;
         }
         private void vendeknevbetolt()
         {
@@ -68,13 +69,21 @@ namespace Recepcio_alkalmazas.pages
 
         private void btn_keszpenz_Click(object sender, RoutedEventArgs e)
         {
-            if (btn_keszpenz.IsChecked==true)
+            if (btn_keszpenz.IsChecked == true)
             {
                 btn_kartya.IsChecked = false;
             }
             else
             {
                 btn_kartya.IsEnabled = true;
+            }
+            if (btn_keszpenz.IsChecked == false && btn_kartya.IsChecked == false)
+            {
+                btn_fizetes.IsEnabled = false;
+            }
+            else
+            {
+                btn_fizetes.IsEnabled = true;
             }
         }
 
@@ -83,10 +92,23 @@ namespace Recepcio_alkalmazas.pages
             if (btn_keszpenz.IsChecked == true)
             {
                 btn_keszpenz.IsChecked = false;
+                tb_fizetett.Text = "";
             }
             else
             {
                 btn_keszpenz.IsEnabled = true;
+            }
+            if (btn_keszpenz.IsChecked == false && btn_kartya.IsChecked == false)
+            {
+                btn_fizetes.IsEnabled = false;
+            }
+            if (btn_keszpenz.IsChecked == false && btn_kartya.IsChecked == false)
+            {
+                btn_fizetes.IsEnabled = false;
+            }
+            else
+            {
+                btn_fizetes.IsEnabled = true;
             }
         }
     }
