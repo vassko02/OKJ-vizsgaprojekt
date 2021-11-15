@@ -18,7 +18,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Teko:wght@300&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="mainpage.css">
-  <link rel="stylesheet" href="header.css">
+  <link rel="stylesheet" href="../css/header.css">
   <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans'>
   <link rel="stylesheet" href="./style.css">
   <title>Peaceful Paradise</title>
@@ -27,28 +27,32 @@
 <body id="body">
 
   <nav class="navbar navbar-expand-lg sticky-top" id="navbarrr" style="background-color: black;">
-    <img src="../pictures/korulvagott_logo.png" id="logo" class="float-left" alt="">
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#dropdown">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="#dropdown">
-      <ul class="navbar-nav mr-auto" id="navbarull">
-        <li class="nav-item active">
-          <button class="custom-btn btn-5"><span>Hotel</span></button>
-        </li>
-        <li class="nav-item active">
-          <button class="custom-btn btn-5"><span>Casino</span></button>
-        </li>
-        <li class="nav-item active">
-          <button class="custom-btn btn-5"><span>Restaurant</span></button>
-        </li>
-        <li class="nav-item active"></li>
-        <li class="nav-item active"></li>
-        <li class="nav-item active"></li>
-      </ul>
+		<a class="custom-btn btn-5" id="logo" href="../mainpage/mainpage.html">
+			<img  src="../pictures/korulvagott_logo.png" id="logo" class="float-left" alt="">
+		</a>
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#dropdown">
+			<span class="navbar-toggler-icon "></span>
+		</button>
+		<div class="collapse navbar-collapse" id="#dropdown">
+			<ul class="navbar-nav mr-auto" id="navbarull">
+				<li class="nav-item active">
+					<button class="custom-btn btn-5"><a href="../mainpage/mainpage.html">Hotel</a></button>
+				</li>
+				<li class="nav-item active">
+					<button class="custom-btn btn-5"><a>Casino</span></button>
+				</li>
+				<li class="nav-item active">
+					<button class="custom-btn btn-5"><a href="../book/book.html">Book</a></button>
+				</li>
+				<li class="nav-item active">
+					<button class="custom-btn btn-5"><span>Restaurant</span></button>
+				</li>
 
-    </div>
-  </nav>
+
+			</ul>
+
+		</div>
+	</nav>
 
   <div id="carouselExampleFade" class="carousel slide carousel-fade" data-bs-ride="carousel">
     <div class="carousel-indicators">

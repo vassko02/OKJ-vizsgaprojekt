@@ -13,9 +13,9 @@ a:hover {
 html{
     height: 100%;
 }
-
-#sliderpic{
-    max-width: 80%;
+#logokep {
+   background-image: url("../pictures/korulvagott_logo.png");
+   background-repeat: no-repeat;
+   max-height: 5vh;
+   width: 20%;
 }
-
-
