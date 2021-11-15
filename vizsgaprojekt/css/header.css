@@ -1,0 +1,74 @@
+#logo {
+    max-height: 5vh;
+    width: 20vw;
+    z-index: -10;
+}
+#vonal{
+    color: black;
+    background-color: black;
+    width: 100%;
+    height: auto;
+}
+#navbarull{
+    margin-left: auto;
+    margin-right: 5vh;
+}
+#navbarrr{
+  padding-top: 0;
+  height: 6vh;
+}
+@font-face{
+    font-family: stereogothic;
+    src: url("../Stereo Gothic 500.ttf");
+}
+#navbaritemm{
+   
+    color: #C5B358;
+    margin: 2vh;
+    font-family: stereogothic;
+    font-size: 1.7vh;
+    letter-spacing: 0.4vh;
+}
+.btn-5 {
+    width: 130px;
+    height: 40px;
+    line-height: 42px;
+    padding: 0;
+    margin-right: 1vh;
+    border: none;
+    font-family: stereogothic;
+    color: #C5B358;
+    background: hsl(0, 0%, 0%);
+    background: linear-gradient(0deg, hsl(0, 0%, 0%) 0%, rgbrgb(0, 0, 0)0%);
+  }
+  .btn-5:hover {
+    color: hsl(50, 90%, 56%);
+    background: transparent;
+    box-shadow:none;
+  }
+  .btn-5:before,
+  .btn-5:after{
+    content:'';
+    position:absolute;
+    top:0;
+    right:0;
+    height:2px;
+    width:0;
+    background: #C5B358;
+    box-shadow:
+     -1px -1px 5px 0px #fff,
+     7px 7px 20px 0px #0003,
+     4px 4px 5px 0px #0002;
+    transition:400ms ease all;
+  }
+  .btn-5:after{
+    right:inherit;
+    top:inherit;
+    left:0;
+    bottom:0;
+  }
+  .btn-5:hover:before,
+  .btn-5:hover:after{
+    width:100%;
+    transition:800ms ease all;
+  }
