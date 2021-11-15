@@ -5,7 +5,7 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:Recepcio_alkalmazas.pages"
       mc:Ignorable="d" 
-      d:DesignHeight="600" d:DesignWidth="800"
+      d:DesignHeight="450" d:DesignWidth="800"
       Title="consumption">
     <Grid>
             <Grid.ColumnDefinitions>
@@ -29,7 +29,7 @@
                         </DataTemplate>
                     </ListBox.ItemTemplate>
                 </ListBox>
-                <Button Padding="5" FontWeight="Bold" Name="btn_eltavolit" Content="Remove selected item" Background="Black" Foreground="DarkGoldenrod" Margin="30,10,30,10" Click="btn_eltavolit_Click">
+                <Button Padding="5" FontWeight="Bold" Name="btn_eltavolit" Content="Remove selected item" Background="Black" Foreground="DarkGoldenrod" Margin="30,10,30,10">
                     <Button.Resources>
                         <Style TargetType="Border">
                             <Setter Property="CornerRadius" Value="5"/>
