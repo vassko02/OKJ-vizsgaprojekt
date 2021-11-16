@@ -1,8 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "gKhAN0KSnPSp5QmyDOxPwFHc2MGXtTL4aSQILsu50VRulWyspwvgnVnERwobEbpOYQ3qiVizwzw8Ef+AtYcpfA==",
+  "dgSpecHash": "GepiaPfgo14Y703veqHbV31d/1nMHiaeIihRxXg4aYgrtW4qPdSqUxWk4o83FOjOLC0mhkUfb3S0JkaKGqfpZA==",
   "success": true,
   "projectFilePath": "D:\\asd\\OKJ-vizsgaprojekt\\Recepcio_alkalmazas\\Recepcio_alkalmazas\\Recepcio_alkalmazas\\Recepcio_alkalmazas.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\User\\.nuget\\packages\\mahapps.metro.iconpacks.material\\4.11.0\\mahapps.metro.iconpacks.material.4.11.0.nupkg.sha512"
+  ],
   "logs": []
 }

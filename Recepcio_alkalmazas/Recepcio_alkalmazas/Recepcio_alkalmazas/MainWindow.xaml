@@ -3,7 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:Recepcio_alkalmazas"
+        xmlns:local="clr-namespace:Recepcio_alkalmazas" xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
         mc:Ignorable="d"
         Height="562" Width="1000"
         WindowStartupLocation="CenterScreen" FontSize="14" WindowStyle="None" AllowsTransparency="True" ResizeMode="CanResizeWithGrip">
@@ -36,42 +36,62 @@
                >
                 <StackPanel  Width="250" Background="#575a59" HorizontalAlignment="Left" >
                     <Image Source="img/proba.png" Stretch="Fill" Height="88"/>
-                    <Button Padding="5" FontWeight="Bold" Name="btn_erkezes" Content="Guest arrives" Background="Black" Foreground="DarkGoldenrod" Margin="15,10,15,10" Click="btn_erkezes_Click">
+                    <Button Padding="5" FontWeight="Bold" Name="btn_erkezes" Background="Black" Margin="15,10,15,10" Click="btn_erkezes_Click">
                         <Button.Resources>
                             <Style TargetType="Border">
                                 <Setter Property="CornerRadius" Value="5"/>
                             </Style>
                         </Button.Resources>
+                        <StackPanel Orientation="Horizontal">
+                            <Label Content="Guest arrives" Foreground="DarkGoldenrod" Margin="0,0,5,0"/>
+                            <iconPacks:PackIconMaterial Width="20" Height="20" Kind="LocationEnter" Foreground="DarkGoldenrod" VerticalContentAlignment="Center" VerticalAlignment="Center"/>
+                        </StackPanel>
                     </Button>
-                    <Button Padding="5" FontWeight="Bold" Name="btn_tavozas" Content="Guest leaves" Background="Black" Foreground="DarkGoldenrod" Margin="15,10,15,10" Click="btn_tavozas_Click">
+                    <Button Padding="5" FontWeight="Bold" Name="btn_tavozas" Background="Black"  Margin="15,10,15,10" Click="btn_tavozas_Click">
                         <Button.Resources>
                             <Style TargetType="Border">
                                 <Setter Property="CornerRadius" Value="5"/>
                             </Style>
                         </Button.Resources>
+                        <StackPanel Orientation="Horizontal">
+                            <Label Content="Guest leaves" Foreground="DarkGoldenrod" Margin="0,0,5,0"/>
+                            <iconPacks:PackIconMaterial Width="20" Height="20" Kind="ExitRun" Foreground="DarkGoldenrod" VerticalContentAlignment="Center" VerticalAlignment="Center"/>
+                        </StackPanel>
                     </Button>
-                    <Button Padding="5" FontWeight="Bold" Name="btn_modosit" Content="Edit reservation" Background="Black" Foreground="DarkGoldenrod" Margin="15,10,15,10" Click="btn_modosit_Click">
+                    <Button Padding="5" FontWeight="Bold" Name="btn_modosit" Background="Black" Margin="15,10,15,10" Click="btn_modosit_Click">
                         <Button.Resources>
                             <Style TargetType="Border">
                                 <Setter Property="CornerRadius" Value="5"/>
                             </Style>
                         </Button.Resources>
+                        <StackPanel Orientation="Horizontal">
+                            <Label Content="Edit reservation" Foreground="DarkGoldenrod" Margin="0,0,5,0"/>
+                            <iconPacks:PackIconMaterial Width="20" Height="20" Kind="BookEdit" Foreground="DarkGoldenrod" VerticalContentAlignment="Center" VerticalAlignment="Center"/>
+                        </StackPanel>
                     </Button>
-                    <Button Padding="5" FontWeight="Bold" Name="btn_fogyasztás" Content="Consumption" Background="Black" Foreground="DarkGoldenrod" Margin="15,10,15,10" Click="btn_fogyasztás_Click">
+                    <Button Padding="5" FontWeight="Bold" Name="btn_fogyasztás" Background="Black" Margin="15,10,15,10" Click="btn_fogyasztás_Click">
                         <Button.Resources>
                             <Style TargetType="Border">
                                 <Setter Property="CornerRadius" Value="5"/>
                             </Style>
                         </Button.Resources>
+                        <StackPanel Orientation="Horizontal">
+                            <Label Content="Consumption" Foreground="DarkGoldenrod" Margin="0,0,5,0"/>
+                            <iconPacks:PackIconMaterial Width="20" Height="20" Kind="FoodForkDrink" Foreground="DarkGoldenrod" VerticalContentAlignment="Center" VerticalAlignment="Center"/>
+                        </StackPanel>
                     </Button>
-                    <Button Padding="5" FontWeight="Bold" Name="btn_reciept" Content="Reciept" Background="Black" Foreground="DarkGoldenrod" Margin="15,10,15,10" Click="btn_reciept_Click">
+                    <Button Padding="5" FontWeight="Bold" Name="btn_reciept" Background="Black" Margin="15,10,15,10" Click="btn_reciept_Click">
                         <Button.Resources>
                             <Style TargetType="Border">
                                 <Setter Property="CornerRadius" Value="5"/>
                             </Style>
                         </Button.Resources>
+                        <StackPanel Orientation="Horizontal">
+                            <Label Content="Reciept" Foreground="DarkGoldenrod" Margin="0,0,5,0"/>
+                            <iconPacks:PackIconMaterial Width="20" Height="20" Kind="FormatListNumbered" Foreground="DarkGoldenrod" VerticalContentAlignment="Center" VerticalAlignment="Center"/>
+                        </StackPanel>
                     </Button>
-                    <StackPanel Margin="0,90,0,0">
+                    <StackPanel Margin="0,40,0,0">
                         <Label Content="Current date/time:" HorizontalAlignment="Center" HorizontalContentAlignment="Center" Width="250" FontSize="20" FontWeight="Bold" Foreground="White" />
                         <Label Name="LiveDateLabel" Content="" HorizontalAlignment="Center" HorizontalContentAlignment="Center" VerticalAlignment="Bottom" Margin="0,-6,0,0" Width="250" FontSize="20" FontWeight="Bold" Foreground="White" />
                         <Label Name="LiveTimeLabel" Content="" HorizontalAlignment="Center" HorizontalContentAlignment="Center" VerticalAlignment="Bottom" Margin="0,-6,0,0" Width="250" FontSize="20" FontWeight="Bold" Foreground="White" />
