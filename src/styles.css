@@ -1,0 +1,7 @@
+body {
+    font-family: sans-serif;
+  }
+  .datetimepicker-dummy .datetimepicker-dummy-wrapper {
+    border: 1px solid red !important;
+  }
+  
