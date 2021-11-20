@@ -4,7 +4,7 @@ import "bulma-calendar/dist/css/bulma-calendar.min.css";
 import bulmaCalendar from "bulma-calendar/dist/js/bulma-calendar.min.js";
 
 document.getElementById("app").innerHTML = `
-    <span><input style='border: 1px solid red' type="date"></spa>
+    <span><input style='border: 1px solid red' type="date"></span>
 `;
 const options = {
   type: "date",

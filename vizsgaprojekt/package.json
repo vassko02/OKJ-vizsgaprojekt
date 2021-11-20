@@ -4,12 +4,12 @@
   "description": "",
   "main": "book.html",
   "scripts": {
-    "start": "parcel book.html --open",
+    "start": "parcel ../book/book.html --open",
     "build": "parcel build book.html"
   },
   "dependencies": {
     "bulma": "0.8.2",
-    "bulma-calendar": "^6.1.13"
+    "bulma-calendar": "^6.1.14"
   },
   "devDependencies": {
     "@babel/core": "7.2.0",
