@@ -7,7 +7,7 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
-    <Compile Update="pages\consumption.xaml.cs">
+    <Compile Update="pages\cons.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="pages\editreservation.xaml.cs">
@@ -27,7 +27,7 @@
     <Page Update="MainWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="pages\consumption.xaml">
+    <Page Update="pages\cons.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="pages\editreservation.xaml">

@@ -17,6 +17,8 @@ using System.ComponentModel;
 using System.Collections.ObjectModel;
 using Recepcio_alkalmazas.pages;
 using System.Windows.Threading;
+using Recepcio_alkalmazas.Models;
+
 
 namespace Recepcio_alkalmazas
 {
@@ -64,7 +66,6 @@ namespace Recepcio_alkalmazas
                     break;
             }
         }
-
         private void btn_tavozas_Click(object sender, RoutedEventArgs e)
         {
             reset("tavozas");
@@ -74,7 +75,7 @@ namespace Recepcio_alkalmazas
         private void btn_fogyasztás_Click(object sender, RoutedEventArgs e)
         {
             reset("fogyasztas");
-            frm_main.Content = new consumption();
+            frm_main.Content = new cons();
 
         }
         private void btn_modosit_Click(object sender, RoutedEventArgs e)
