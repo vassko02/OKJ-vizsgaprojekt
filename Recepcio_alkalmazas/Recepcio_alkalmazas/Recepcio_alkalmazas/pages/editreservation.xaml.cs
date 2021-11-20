@@ -28,9 +28,8 @@ namespace Recepcio_alkalmazas.pages
             InitializeComponent();
             foglalasokbeolvasasa("foglalas.txt");
             vendeknevbetolt();
-            lb_guests.DataContext = filterednevek;
             sp_jobb.DataContext = ujfoglalas;
-            lb_guests.SelectedItem = "";
+            dg_foglalasok.DataContext = foglalasok;
         }
         private void vendeknevbetolt()
         {
@@ -54,46 +53,18 @@ namespace Recepcio_alkalmazas.pages
             } while (!sr.EndOfStream);
             sr.Close();
         }
-    private void tb_guestinput_TextChanged(object sender, TextChangedEventArgs e)
-    {
-        string input = tb_guestinput.Text.ToLower();
-        filterednevek.Clear();
-        foreach (var item in foglalasok)
+        private void tb_guestinput_TextChanged(object sender, TextChangedEventArgs e)
         {
-            if (item.guestname.ToLower().Contains(input))
+            string input = tb_guestinput.Text.ToLower();
+            filterednevek.Clear();
+            foreach (var item in foglalasok)
             {
-                filterednevek.Add(item.guestname);
+                if (item.guestname.ToLower().Contains(input))
+                {
+                    filterednevek.Add(item.guestname);
+                }
             }
-        }
-        filterednevek.Sort();
-        lb_guests.Items.Refresh();
-    }
-
-    private void lb_guests_SelectionChanged(object sender, SelectionChangedEventArgs e)
-    {
-        if (!(lb_guests.Items.Count > 0))
-        {
-            return;
-        }
-        string valasztott = lb_guests.SelectedItem.ToString();
-
-        foreach (var item in foglalasok)
-        {
-            if (item.guestname == valasztott)
-            {
-                ujfoglalas.guestname = valasztott;
-                ujfoglalas.IDnumber = item.IDnumber;
-                ujfoglalas.arrivedate = item.arrivedate;
-                ujfoglalas.LeaveDate = item.LeaveDate;
-                ujfoglalas.guestnumber = item.guestnumber;
-                ujfoglalas.childrennumber = item.childrennumber;
-                ujfoglalas.adoultnumber = item.adoultnumber;
-                ujfoglalas.servicetype = item.servicetype;
-                ujfoglalas.roomtype = item.roomtype;
-                ujfoglalas.price = item.price;
-                ujfoglalas.phone = item.phone;
-            }
+            filterednevek.Sort();
         }
     }
-}
 }

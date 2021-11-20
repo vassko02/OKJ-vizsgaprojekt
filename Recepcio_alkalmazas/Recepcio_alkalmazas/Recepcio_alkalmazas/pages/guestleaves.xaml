@@ -10,16 +10,15 @@
 
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="250"/>
+            <ColumnDefinition Width="270"/>
             <ColumnDefinition Width="250"/>
             <ColumnDefinition/>
-
         </Grid.ColumnDefinitions>
-        <StackPanel Orientation="Vertical" Grid.Column="0" HorizontalAlignment="Center">
+        <StackPanel Orientation="Vertical" Grid.Column="0" Width="260" HorizontalAlignment="Left">
             <Label Content="Guest name:" HorizontalAlignment="Center" FontSize="16" FontWeight="Bold" Margin="5" Foreground="DarkGoldenrod" Width="200"/>
             <TextBox Width="200" FontWeight="Bold" Foreground="DarkGoldenrod" Name="tb_guestinput" HorizontalAlignment="Center" Margin="5" 
                              Text="{Binding SearchText, UpdateSourceTrigger=PropertyChanged}" TextChanged="tb_guestinput_TextChanged" />
-            <ListBox Margin="5" Foreground="DarkGoldenrod" FontWeight="Bold" ItemsSource="{Binding}" Width="200" Height="150"  Name="lb_guests" 
+            <ListBox Margin="0,5,0,5" Foreground="DarkGoldenrod" FontWeight="Bold" ItemsSource="{Binding}" Width="200" Height="150"  Name="lb_guests" 
                              IsSynchronizedWithCurrentItem="True"/>
         </StackPanel>
         <StackPanel Grid.Column="1" >

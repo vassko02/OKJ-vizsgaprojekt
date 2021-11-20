@@ -6,8 +6,14 @@
         xmlns:local="clr-namespace:Recepcio_alkalmazas" xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
         mc:Ignorable="d"
         Height="562" Width="1000"
-        WindowStartupLocation="CenterScreen" FontSize="14" WindowStyle="None" AllowsTransparency="True" ResizeMode="CanResizeWithGrip">
-        
+        WindowStartupLocation="CenterScreen" FontSize="14" WindowStyle="None" AllowsTransparency="True">
+    <Window.Resources>
+        <Style TargetType="Button">
+            <Setter Property="Background" Value="Black"/>
+            <Setter Property="Foreground" Value="DarkGoldenrod"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+        </Style>
+    </Window.Resources>
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="250"/>
@@ -36,10 +42,10 @@
                >
                 <StackPanel  Width="250" Background="#575a59" HorizontalAlignment="Left" >
                     <Image Source="img/proba.png" Stretch="Fill" Height="88"/>
-                    <Button Padding="5" FontWeight="Bold" Name="btn_erkezes" Background="Black" Margin="15,10,15,10" Click="btn_erkezes_Click">
+                    <Button Padding="5" Name="btn_erkezes" Margin="15,10,15,10" Click="btn_erkezes_Click">
                         <Button.Resources>
                             <Style TargetType="Border">
-                                <Setter Property="CornerRadius" Value="5"/>
+                                <Setter Property="CornerRadius" Value="15"/>
                             </Style>
                         </Button.Resources>
                         <StackPanel Orientation="Horizontal">
@@ -47,10 +53,10 @@
                             <iconPacks:PackIconMaterial Width="20" Height="20" Kind="LocationEnter" Foreground="DarkGoldenrod" VerticalContentAlignment="Center" VerticalAlignment="Center"/>
                         </StackPanel>
                     </Button>
-                    <Button Padding="5" FontWeight="Bold" Name="btn_tavozas" Background="Black"  Margin="15,10,15,10" Click="btn_tavozas_Click">
+                    <Button Padding="5" Name="btn_tavozas"  Margin="15,10,15,10" Click="btn_tavozas_Click">
                         <Button.Resources>
                             <Style TargetType="Border">
-                                <Setter Property="CornerRadius" Value="5"/>
+                                <Setter Property="CornerRadius" Value="15"/>
                             </Style>
                         </Button.Resources>
                         <StackPanel Orientation="Horizontal">
@@ -58,10 +64,10 @@
                             <iconPacks:PackIconMaterial Width="20" Height="20" Kind="ExitRun" Foreground="DarkGoldenrod" VerticalContentAlignment="Center" VerticalAlignment="Center"/>
                         </StackPanel>
                     </Button>
-                    <Button Padding="5" FontWeight="Bold" Name="btn_modosit" Background="Black" Margin="15,10,15,10" Click="btn_modosit_Click">
+                    <Button Padding="5" Name="btn_modosit" Margin="15,10,15,10" Click="btn_modosit_Click">
                         <Button.Resources>
                             <Style TargetType="Border">
-                                <Setter Property="CornerRadius" Value="5"/>
+                                <Setter Property="CornerRadius" Value="15"/>
                             </Style>
                         </Button.Resources>
                         <StackPanel Orientation="Horizontal">
@@ -69,10 +75,10 @@
                             <iconPacks:PackIconMaterial Width="20" Height="20" Kind="BookEdit" Foreground="DarkGoldenrod" VerticalContentAlignment="Center" VerticalAlignment="Center"/>
                         </StackPanel>
                     </Button>
-                    <Button Padding="5" FontWeight="Bold" Name="btn_fogyasztás" Background="Black" Margin="15,10,15,10" Click="btn_fogyasztás_Click">
+                    <Button Padding="5" Name="btn_fogyasztás" Margin="15,10,15,10" Click="btn_fogyasztás_Click">
                         <Button.Resources>
                             <Style TargetType="Border">
-                                <Setter Property="CornerRadius" Value="5"/>
+                                <Setter Property="CornerRadius" Value="15"/>
                             </Style>
                         </Button.Resources>
                         <StackPanel Orientation="Horizontal">
@@ -80,10 +86,10 @@
                             <iconPacks:PackIconMaterial Width="20" Height="20" Kind="FoodForkDrink" Foreground="DarkGoldenrod" VerticalContentAlignment="Center" VerticalAlignment="Center"/>
                         </StackPanel>
                     </Button>
-                    <Button Padding="5" FontWeight="Bold" Name="btn_reciept" Background="Black" Margin="15,10,15,10" Click="btn_reciept_Click">
+                    <Button Padding="5" Name="btn_reciept" Margin="15,10,15,10" Click="btn_reciept_Click">
                         <Button.Resources>
                             <Style TargetType="Border">
-                                <Setter Property="CornerRadius" Value="5"/>
+                                <Setter Property="CornerRadius" Value="15"/>
                             </Style>
                         </Button.Resources>
                         <StackPanel Orientation="Horizontal">
