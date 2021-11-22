@@ -25,6 +25,7 @@
 	<link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans'>
 	<!--<link rel="stylesheet" href="/style.css">-->
 	<link rel="stylesheet" href="../src/styles.css">
+	<link rel="stylesheet" href="../book/button-hover/dist/style.css">
 	<title>Peaceful Paradise</title>
 </head>
 
@@ -37,7 +38,7 @@
 
 	<nav class="navbar navbar-expand-lg sticky-top" id="navbarrr" style="background-color: black;">
 		<a class="custom-btn btn-5" id="logo" href="../mainpage/mainpage.html">
-			<img  src="../pictures/korulvagott_logo.png" id="logo" class="float-left" alt="">
+			<img src="../pictures/korulvagott_logo.png" id="logo" class="float-left" alt="">
 		</a>
 		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#dropdown">
 			<span class="navbar-toggler-icon "></span>
@@ -62,41 +63,77 @@
 
 		</div>
 	</nav>
-		<div class="book">
-			<div class="datas" id="box">
-				<form>
-					<div class="form-group row div1">
-					  <label  class="col-sm-2 col-form-label" for="adultsnumber">Adults number</label>
-					  <div class="col-sm-2">
-						<input type="number" class="form-control " id="adultsnumber" placeholder="Adults">				
-					  </div>
-					  <label  class="col-sm-2 col-form-label" for="childrennumber">Children number</label>
-					  <div class="col-sm-2">
-						<input type="number" class="form-control " id="childrennumber" placeholder="Children">				
-						</div>
-						<label  class="col-sm-2 col-form-label" for="roomnumber">Room number</label>
-					  <div class="col-sm-2">
-						<input type="number" class="form-control " id="roomnumber" placeholder="Rooms">				
+	<div class="book">
+		<div class="datas" id="box">
+			<form>
+				<div class="form-group div1">
+					<div class="first ">
+						<div class="second">
+							<div class="third">
+								<label class="col-form-label" for="adultsnumber">Adults number</label>
+							</div>
+							<div class="third">
+								<input class="form-control" type="number" id="adultsnumber" placeholder="Adults">
+							</div>
 						</div>
 					</div>
-					<div class="form-group row">
-						<label  class="col-sm-2 col-form-label" for="arrivaldate">Arrival date</label>
-						<div class="col-sm-4">
-						  <input type="date" class="form-control " id="arrivaldate" >				
+					<div class="first">
+						<div class="second">
+							<div class="third">
+								<label class="col-form-label" for="childrennumber">Children number</label>
+							</div>
+							<div class="third">
+								<input class="form-control" type="number" id="childrennumber" placeholder="Children">
+							</div>
 						</div>
-						<label  class="col-sm-2 col-form-label" for="leavingdate">Leaving date</label>
-						<div class="col-sm-4">
-						  <input type="date" class="form-control " id="leavingdate" >				
-						  </div>
-					  </div>
-				
-				
-					<button type="submit" class="btn btn-primary">Submit</button>
-				  </form>
-			</div>
+					</div>
+					<div class="first">
+						<div class="second">
+							<div class="third">
+								<label class="col-form-label" for="roomnumber">Room number</label>
+							</div>
+							<div class="third">
+								<input class="form-control" type="number" id="roomnumber" placeholder="Rooms">
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="form-group div2">
+					<div class="first ">
+						<div class="second">
+							<div class="third">
+								<label class="col-form-label" for="arrivaldate">Check-in</label>
+							</div>
+							<div class="third">
+								<input type="date" class="form-control " id="arrivaldate">
+							</div>
+						</div>
+					</div>
+					<div class="first ">
+						<div class="second">
+							<div class="third">
+								<label class="col-form-label" for="leavingdate">Check-out</label>
+							</div>
+							<div class="third">
+								<input type="date" class="form-control " id="leavingdate">
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="form-group div3">
+					<!-- <button type="submit" class="btn btn-primary">Submit</button> -->
+					<button class="learn-more" id="button">
+						<span class="circle" aria-hidden="true">
+							<span class="icon arrow"></span>
+						</span>
+						<a class="button-text" href="">Search rooms</a>
+					</button>
+				</div>
+			</form>
 		</div>
-		
-	
+	</div>
+
+
 	<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
 	<!--<script src="../src/index.js"></script>-->
 
