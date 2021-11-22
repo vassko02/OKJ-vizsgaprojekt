@@ -15,7 +15,10 @@ namespace Recepcio_alkalmazas.Models
         public room() { }
         public room(MySqlDataReader reader)
         {
-
+            this.RoomID = Convert.ToInt32(reader["RoomID"]);
+            this.Capacity = Convert.ToInt32(reader["Capacity"]);
+            this.Description = reader["Description"].ToString();
+            this.Price = Convert.ToDouble(reader["Price"]);
         }  
     }
 }

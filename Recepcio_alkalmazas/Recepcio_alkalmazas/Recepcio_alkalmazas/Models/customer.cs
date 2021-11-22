@@ -15,7 +15,10 @@ namespace Recepcio_alkalmazas.Models
         public customer(){ }
         public customer(MySqlDataReader reader)
         {
-
+            this.CustomerID = Convert.ToInt32(reader["CustomerID"]);
+            this.Name = reader["Name"].ToString();
+            this.PhoneNumber = reader["PhoneNumber"].ToString();
+            this.IDNumber = reader["IDNumber"].ToString();
         }
     }
 }

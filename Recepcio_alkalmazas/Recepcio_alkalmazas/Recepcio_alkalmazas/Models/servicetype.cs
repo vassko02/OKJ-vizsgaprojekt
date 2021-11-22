@@ -15,7 +15,9 @@ namespace Recepcio_alkalmazas.Models
         public servicetype(){ }
         public servicetype(MySqlDataReader reader)
         {
-
+            this.ServiceID = Convert.ToInt32(reader["ServiceID"]);
+            this.Price = Convert.ToDouble(reader["Price"]);
+            this.ServiceType = reader["ServiceType"].ToString();
         }
     }
 }
