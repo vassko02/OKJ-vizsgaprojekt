@@ -30,39 +30,28 @@ html{
     width: 60%;
     margin-top: 20vh;
     margin-bottom: 20vh;
-    height: 30vh;
-    
+    height: 30%;
+    text-align: center;
 }
 .datas:hover{
     border: 3px solid #C5B358;
     border-radius: 50;
-   
-  
 }
-.book{
-    height: 94%;
 
-  
-}
-.col-sm-4{
-    width: 30%;
 
-}
+
+
 
 
 .div1{
-    margin-top: 1vh;
-    margin-bottom: 1vh;
     overflow: hidden;
     text-align: center;
 }
 .div1 .first{
     float: left;
-    margin-left: 3vw;
     background-color: #C5B358;
     color: black;
     border: 3px solid black;
-    padding: 0.5vw;
     border-radius: 15px;
     text-align: center;
     font-weight: bold;
@@ -72,37 +61,38 @@ html{
 }
 .div1 .third{
     float: left;
-    margin-left: 1vw;
     padding: auto;
+    padding: 0.5vh;
 }
 
 .div2{
-    margin-top: 1vh;
-    margin-bottom: 1vh;
     overflow: hidden;
     text-align: center;
 }
 .div2 .first{
     float: left;
-    margin-left: 11vw;
-    margin-top: 3vh;
     background-color: #C5B358;
     color: black;
     border: 3px solid black;
-    padding: 0.5vw;
     border-radius: 15px;
     text-align: center;
     font-weight: bold;
+    margin-top: 2vh;
 }
 .div2 .second{
     overflow: hidden;
 }
 .div2 .third{
     float: left;
-    margin-left: 1vw;
     padding: auto;
+    padding: 1vh;
 }
-
+.div2 input{
+    margin-left: 1.5vw;
+}
+.div2 label{
+    width: 7vw;
+}
 
 
 
