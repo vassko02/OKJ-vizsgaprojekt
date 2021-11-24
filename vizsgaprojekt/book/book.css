@@ -37,7 +37,10 @@ html{
     border: 3px solid #C5B358;
     border-radius: 50;
 }
-
+.rooms{
+    width: 75vw !important;
+    height: 35vh !important;
+}
 
 
 
