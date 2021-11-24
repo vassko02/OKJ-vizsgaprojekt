@@ -21,79 +21,43 @@
 	<link href="https://fonts.googleapis.com/css2?family=Teko:wght@300&display=swap" rel="stylesheet">
 
 	<link rel="stylesheet" href="book.css">
-	<link rel="stylesheet" href="../css/header.css">
 	<link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans'>
 	<!--<link rel="stylesheet" href="/style.css">-->
-	<link rel="stylesheet" href="../src/styles.css">
 	<link rel="stylesheet" href="../book/button-hover/dist/style.css">
 	<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css'>
 	<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css'><link rel="stylesheet" href="./style.css">
 	<link rel="stylesheet" href="../css/bookingroomscards.css">
+	<link rel="stylesheet" href="header.css">
 	<title>Peaceful Paradise</title>
 </head>
-
-<head>
-	<title>Booking</title>
-	<meta charset="UTF-8" />
-</head>
-
 <body>
-	<!-- <nav class="navbar navbar-expand-lg navbar-light bg-light">
-		<a class="navbar-brand" href="#">Navbar</a>
-		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-		  <span class="navbar-toggler-icon"></span>
-		</button>
-		<div class="collapse navbar-collapse" id="navbarNavDropdown">
-		  <ul class="navbar-nav">
-			<li class="nav-item active">
-			  <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-			</li>
-			<li class="nav-item">
-			  <a class="nav-link" href="#">Features</a>
-			</li>
-			<li class="nav-item">
-			  <a class="nav-link" href="#">Pricing</a>
-			</li>
-		
-		  </ul>
-		</div>
-	  </nav>  -->
-	<nav class="navbar navbar-expand-lg sticky-top" id="navbarrr" style="background-color: black;">
+	<nav class="nav">
+        <div class="container">
+            <div class="logo">
+                <a href="#"><img src="../pictures/small_rounded.png" alt=""></a>
+            </div>
+            <div id="mainListDiv " class="main_list ">
+                <ul class="navlinks">
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Portfolio</a></li>
+                    <li><a href="#">Services</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </div>
+            <span class="navTrigger">
+                <i></i>
+                <i></i>
+                <i></i>
+            </span>
+        </div>
+    </nav>
 
-		<button class="navbar-toggler " type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
-			aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-			<span class="navbar-toggler-icon"><svg xmlns="http://www.w3.org/2000/svg" width="30" height="30"
-					fill="white" class="bi bi-list" viewBox="0 0 16 16">
-					<path fill-rule="evenodd"
-						d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z" />
-				</svg></span>
 
-		</button>
-		<div class="collapse navbar-collapse" id="navbarNavDropdown">
-			<ul class="navbar-nav">
-				<li class="nav-item logo">
-					<a class="custom-btn btn-5" id="logo" href="../mainpage/mainpage.html">
-						<img src="../pictures/korulvagott_logo.png" id="logo" alt="">
-					</a>
-				</li>
-			</ul>
-			<ul class="navbar-nav ms-auto itemek">
-				<li class="nav-item ">
-					<a class="custom-btn btn-5 nav-link" href="../mainpage/mainpage.html">Hotel</a>
-				</li>
-				<li class="nav-item ">
-					<a class="custom-btn btn-5 nav-link">Casino</a>
-				</li>
-				<li class="nav-item ">
-					<a class="custom-btn btn-5 nav-link" href="Z:\2.0\vizsgaprojekt\book.html">Book</a>
-				</li>
-				<li class="nav-item lastitem">
-					<a class="custom-btn btn-5 nav-link ">Restaurant</a>
-				</li>
-			</ul>
 
-		</div>
-	</nav>
+
+
+
+
 	<div class="book">
 		<div class="datas" id="box">
 			<form>
@@ -259,26 +223,25 @@
 			</article>
 		</div>
 	</section>
-	
-
-
-
-
-
-
-
-
-
-
-
-
-	<!-- -->
-
 
 
 
 	<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
 	<!--<script src="../src/index.js"></script>-->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+	<script src="js/scripts.js"></script>
+	<script>
+		$(window).scroll(function() {
+			if ($(document).scrollTop() > 10) {
+				$('.nav').addClass('affix');
+				console.log("OK");
+			} else {
+				$('.nav').removeClass('affix');
+			}
+		});
+	</script>
+	<script  src="./script.js"></script>
+
 
 </body>
 
