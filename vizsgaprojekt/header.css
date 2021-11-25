@@ -1,0 +1,30 @@
+#logo {
+    max-height: 5vh;
+    z-index: 10;
+}
+#vonal{
+    color: black;
+    background-color: black;
+    width: 100%;
+    height: auto;
+}
+#navbarull{
+    margin-left: auto;
+    margin-right: 5vh;
+}
+#navbarrr{
+    height: 100%;
+  
+}
+@font-face{
+    font-family: stereogothic;
+    src: url("Stereo Gothic 500.ttf");
+}
+#navbaritemm{
+   
+    color: #C5B358;
+    margin: 2vh;
+    font-family: stereogothic;
+    font-size: 1.7vh;
+    letter-spacing: 0.4vh;
+}
