@@ -11,6 +11,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.IO;
+using Recepcio_alkalmazas.Models;
 
 namespace Recepcio_alkalmazas.pages
 {
@@ -19,18 +20,16 @@ namespace Recepcio_alkalmazas.pages
     /// </summary>
     public partial class guestarrives : Page
     {
-
-        List<foglalas> foglalasok = new List<foglalas>();
-        List<string> filterednevek = new List<string>();
-        foglalas ujfoglalas = new foglalas();
+        List<reservation> foglalasok = new List<reservation>();
+        reservation egyfoglalas = new reservation();
         public guestarrives()
         {
             InitializeComponent();
-            foglalasokbeolvasasa("foglalas.txt");
-            vendeknevbetolt();
-            lb_guests.DataContext = filterednevek;
-            sp_adatok.DataContext = ujfoglalas;
-            lb_guests.SelectedItem = "";
+            btn_fizetes.IsEnabled = false;
+            foglalasok = reservation.selectByGuestName(null);
+            dg_nevek.DataContext = foglalasok;
+            sp_adatok.DataContext = egyfoglalas;
+            dg_nevek.SelectedIndex = 0;
             btn_fizetes.IsEnabled = false;
         }
         private void btn_keszpenz_Click(object sender, RoutedEventArgs e)
@@ -43,7 +42,7 @@ namespace Recepcio_alkalmazas.pages
             {
                 btn_kartya.IsEnabled = true;
             }
-            if (btn_keszpenz.IsChecked==false&&btn_kartya.IsChecked==false)
+            if ((btn_keszpenz.IsChecked==false&&btn_kartya.IsChecked==false)||tb_fizetett.Text=="")
             {
                 btn_fizetes.IsEnabled = false;
             }
@@ -77,59 +76,61 @@ namespace Recepcio_alkalmazas.pages
                 btn_fizetes.IsEnabled = true;
             }
         }
-        private void vendeknevbetolt()
-        {
-            foreach (var item in foglalasok)
-            {
-                filterednevek.Add(item.guestname);
-            }
-            filterednevek.Sort();
-        }
-
-        private void foglalasokbeolvasasa(string fajlnev)
-        {
-            StreamReader sr = new StreamReader(fajlnev);
-            do
-            {
-                foglalasok.Add(new foglalas(sr.ReadLine()));
-            } while (!sr.EndOfStream);
-            sr.Close();
-        }
         private void tb_guestinput_TextChanged(object sender, TextChangedEventArgs e)
         {
-            string input = tb_guestinput.Text.ToLower();
-            filterednevek.Clear();
-            foreach (var item in foglalasok)
-            {
-                if (item.guestname.ToLower().Contains(input))
-                {
-                    filterednevek.Add(item.guestname);
-                }
-            }
-            filterednevek.Sort();
-            lb_guests.Items.Refresh();
+            foglalasok = reservation.selectByGuestName(tb_guestinput.Text);
+            dg_nevek.ItemsSource = foglalasok;
+        }
+        private void dg_nevek_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+             egyfoglalas=(reservation)dg_nevek.SelectedItem;
+            sp_adatok.DataContext = egyfoglalas;
+            tb_change.Text = tb_fizetett.Text = "";
+
+        }
+        private void btn_utofizetes_Click(object sender, RoutedEventArgs e)
+        {
+            consumption uj = new consumption(egyfoglalas.Price, "Accomodation", egyfoglalas.ReservationID);
+            consumption.insert(uj);
         }
 
-        private void lb_guests_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void tb_fizetett_TextChanged(object sender, TextChangedEventArgs e)
         {
-
-            foreach (var item in foglalasok)
+            if (tb_fizetett.Text!="")
             {
-                if (lb_guests.SelectedItem.ToString() == item.guestname)
+                string osszeg = (double.Parse(tb_fizetett.Text) - egyfoglalas.Price).ToString();
+                tb_change.Text = "$ "+osszeg;
+                if (double.Parse(tb_fizetett.Text)<egyfoglalas.Price)
                 {
-                    ujfoglalas.guestname = item.guestname;
-                    ujfoglalas.IDnumber = item.IDnumber;
-                    ujfoglalas.arrivedate = item.arrivedate;
-                    ujfoglalas.LeaveDate = item.LeaveDate;
-                    ujfoglalas.guestnumber = item.guestnumber;
-                    ujfoglalas.childrennumber = item.childrennumber;
-                    ujfoglalas.adoultnumber = item.adoultnumber;
-                    ujfoglalas.servicetype = item.servicetype;
-                    ujfoglalas.roomtype = item.roomtype;
-                    ujfoglalas.price = item.price;
-                    ujfoglalas.phone = item.phone;
+                    btn_fizetes.IsEnabled = false;
+                }
+                else
+                {
+                    btn_fizetes.IsEnabled = true;
                 }
             }
+        }
+
+        private void btn_fizetes_Click(object sender, RoutedEventArgs e)
+        {
+            if (btn_kartya.IsChecked==true)
+            {
+                var cardpayment = new CardPayment();
+                if (cardpayment.ShowDialog()==true)
+                {
+                    MessageBox.Show("Payment successful!","Payment Information",MessageBoxButton.OK,MessageBoxImage.Information);
+                }
+                else
+                {
+                    MessageBox.Show("Payment cancelled!", "Payment Information", MessageBoxButton.OK, MessageBoxImage.Information);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Payment successful!", "Payment Information", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
+            tb_change.Text = tb_fizetett.Text = "";
+
         }
     }
 }

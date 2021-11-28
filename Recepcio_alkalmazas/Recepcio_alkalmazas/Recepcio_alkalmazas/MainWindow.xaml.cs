@@ -44,7 +44,7 @@ namespace Recepcio_alkalmazas
         }
         private void reset(string melyikgomb)
         {
-            btn_tavozas.BorderBrush = btn_reciept.BorderBrush = btn_modosit.BorderBrush = btn_erkezes.BorderBrush=btn_fogyasztás.BorderBrush = Brushes.Black;
+            btn_tavozas.BorderBrush = btn_erkezes.BorderBrush=btn_fogyasztás.BorderBrush = Brushes.Black;
             switch (melyikgomb)
             {
                 case "tavozas":
@@ -52,10 +52,7 @@ namespace Recepcio_alkalmazas
                     break;
                 case "erkezes":
                     btn_erkezes.BorderBrush = Brushes.DarkGoldenrod;
-                    break;
-                case "recipe":
-                    btn_reciept.BorderBrush = Brushes.DarkGoldenrod;
-                    break;
+                    break;             
                 case "modify":
                     btn_modosit.BorderBrush = Brushes.DarkGoldenrod;
                     break;
@@ -89,13 +86,6 @@ namespace Recepcio_alkalmazas
             reset("erkezes");
             frm_main.Content = new guestarrives();
         }
-
-        private void btn_reciept_Click(object sender, RoutedEventArgs e)
-        {
-            reset("recipe");
-            frm_main.Content = new recipe();
-        }
-
         private void btn_close_Click(object sender, RoutedEventArgs e)
         {
             this.Close();

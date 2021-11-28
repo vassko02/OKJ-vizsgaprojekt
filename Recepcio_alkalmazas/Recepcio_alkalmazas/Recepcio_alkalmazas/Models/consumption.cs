@@ -20,5 +20,28 @@ namespace Recepcio_alkalmazas.Models
             this.ItemName = reader["ItemName"].ToString();
             this.ReservationID = Convert.ToInt32(reader["ReservationID"]);
         }
+        public consumption(double p,string i,int resid)
+        {
+            this.Price = p;
+            this.ItemName = i;
+            this.ReservationID = resid;
+        }
+        public static int insert(consumption model)
+        {
+            using (var con = new MySqlConnection(ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString))
+            {
+                con.Open();
+                var sql = "INSERT INTO consumption (Price,ItemName,ReservationID) VALUES " +
+                    "(@Price,@ItemName,@ReservationID)";
+                using (var cmd = new MySqlCommand(sql, con))
+                {
+                    cmd.Parameters.AddWithValue("@Price", model.Price);
+                    cmd.Parameters.AddWithValue("@ItemName", model.ItemName);
+                    cmd.Parameters.AddWithValue("@ReservationID", model.ReservationID);
+                    cmd.ExecuteNonQuery();
+                    return (int)cmd.LastInsertedId;
+                }
+            }
+        }
     }
 }

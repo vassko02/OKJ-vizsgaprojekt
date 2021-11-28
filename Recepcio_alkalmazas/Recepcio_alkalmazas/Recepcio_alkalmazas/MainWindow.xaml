@@ -29,8 +29,6 @@
                 <Button Width="20" Height="20" Content="❌" Margin="0,0,5,0" HorizontalAlignment="Right" Background="Transparent" BorderThickness="0" Click="btn_close_Click" Name="btn_close" Foreground="White"/>
                 <Button Width="20" Height="20" Content="🗖" Margin="0,0,25,0" HorizontalAlignment="Right" Background="Transparent" BorderThickness="0" Name="btn_fullscreen" Click="btn_fullscreen_Click" Foreground="White"/>
                 <Button Width="20" Height="20" Content="🗕" Margin="0,0,45,3" HorizontalAlignment="Right" Background="Transparent" BorderThickness="0" Name="btn_mini" Click="btn_mini_Click" Foreground="White"/>
-
-
             </Grid>
         </Border>
 
@@ -84,17 +82,6 @@
                         <StackPanel Orientation="Horizontal">
                             <Label Content="Consumption" Foreground="DarkGoldenrod" Margin="0,0,5,0"/>
                             <iconPacks:PackIconMaterial Width="20" Height="20" Kind="FoodForkDrink" Foreground="DarkGoldenrod" VerticalContentAlignment="Center" VerticalAlignment="Center"/>
-                        </StackPanel>
-                    </Button>
-                    <Button Padding="5" Name="btn_reciept" Margin="15,10,15,10" Click="btn_reciept_Click">
-                        <Button.Resources>
-                            <Style TargetType="Border">
-                                <Setter Property="CornerRadius" Value="15"/>
-                            </Style>
-                        </Button.Resources>
-                        <StackPanel Orientation="Horizontal">
-                            <Label Content="Reciept" Foreground="DarkGoldenrod" Margin="0,0,5,0"/>
-                            <iconPacks:PackIconMaterial Width="20" Height="20" Kind="FormatListNumbered" Foreground="DarkGoldenrod" VerticalContentAlignment="Center" VerticalAlignment="Center"/>
                         </StackPanel>
                     </Button>
                     <StackPanel Margin="0,40,0,0">

@@ -119,7 +119,6 @@ D:\asd\OKJ-vizsgaprojekt\Recepcio_alkalmazas\Recepcio_alkalmazas\Recepcio_alkalm
 D:\asd\OKJ-vizsgaprojekt\Recepcio_alkalmazas\Recepcio_alkalmazas\Recepcio_alkalmazas\obj\Debug\netcoreapp3.1\pages\editreservation.g.cs
 D:\asd\OKJ-vizsgaprojekt\Recepcio_alkalmazas\Recepcio_alkalmazas\Recepcio_alkalmazas\obj\Debug\netcoreapp3.1\pages\guestarrives.g.cs
 D:\asd\OKJ-vizsgaprojekt\Recepcio_alkalmazas\Recepcio_alkalmazas\Recepcio_alkalmazas\obj\Debug\netcoreapp3.1\pages\guestleaves.g.cs
-D:\asd\OKJ-vizsgaprojekt\Recepcio_alkalmazas\Recepcio_alkalmazas\Recepcio_alkalmazas\obj\Debug\netcoreapp3.1\pages\recipe.g.cs
 D:\asd\OKJ-vizsgaprojekt\Recepcio_alkalmazas\Recepcio_alkalmazas\Recepcio_alkalmazas\obj\Debug\netcoreapp3.1\App.g.cs
 D:\asd\OKJ-vizsgaprojekt\Recepcio_alkalmazas\Recepcio_alkalmazas\Recepcio_alkalmazas\obj\Debug\netcoreapp3.1\Recepcio_alkalmazas_MarkupCompile.cache
 D:\asd\OKJ-vizsgaprojekt\Recepcio_alkalmazas\Recepcio_alkalmazas\Recepcio_alkalmazas\obj\Debug\netcoreapp3.1\Recepcio_alkalmazas_MarkupCompile.lref
@@ -127,7 +126,6 @@ D:\asd\OKJ-vizsgaprojekt\Recepcio_alkalmazas\Recepcio_alkalmazas\Recepcio_alkalm
 D:\asd\OKJ-vizsgaprojekt\Recepcio_alkalmazas\Recepcio_alkalmazas\Recepcio_alkalmazas\obj\Debug\netcoreapp3.1\pages\editreservation.baml
 D:\asd\OKJ-vizsgaprojekt\Recepcio_alkalmazas\Recepcio_alkalmazas\Recepcio_alkalmazas\obj\Debug\netcoreapp3.1\pages\guestarrives.baml
 D:\asd\OKJ-vizsgaprojekt\Recepcio_alkalmazas\Recepcio_alkalmazas\Recepcio_alkalmazas\obj\Debug\netcoreapp3.1\pages\guestleaves.baml
-D:\asd\OKJ-vizsgaprojekt\Recepcio_alkalmazas\Recepcio_alkalmazas\Recepcio_alkalmazas\obj\Debug\netcoreapp3.1\pages\recipe.baml
 D:\asd\OKJ-vizsgaprojekt\Recepcio_alkalmazas\Recepcio_alkalmazas\Recepcio_alkalmazas\obj\Debug\netcoreapp3.1\Recepcio_alkalmazas.g.resources
 D:\asd\OKJ-vizsgaprojekt\Recepcio_alkalmazas\Recepcio_alkalmazas\Recepcio_alkalmazas\obj\Debug\netcoreapp3.1\Recepcio_alkalmazas.GeneratedMSBuildEditorConfig.editorconfig
 D:\asd\OKJ-vizsgaprojekt\Recepcio_alkalmazas\Recepcio_alkalmazas\Recepcio_alkalmazas\obj\Debug\netcoreapp3.1\Recepcio_alkalmazas.AssemblyInfoInputs.cache
@@ -205,3 +203,5 @@ D:\asd\OKJ-vizsgaprojekt\Recepcio_alkalmazas\Recepcio_alkalmazas\Recepcio_alkalm
 D:\asd\OKJ-vizsgaprojekt\Recepcio_alkalmazas\Recepcio_alkalmazas\Recepcio_alkalmazas\obj\Debug\netcoreapp3.1\pages\cons.g.cs
 D:\asd\OKJ-vizsgaprojekt\Recepcio_alkalmazas\Recepcio_alkalmazas\Recepcio_alkalmazas\obj\Debug\netcoreapp3.1\pages\cons.baml
 D:\asd\OKJ-vizsgaprojekt\Recepcio_alkalmazas\Recepcio_alkalmazas\Recepcio_alkalmazas\bin\Debug\netcoreapp3.1\Recepcio_alkalmazas.dll.config
+D:\asd\OKJ-vizsgaprojekt\Recepcio_alkalmazas\Recepcio_alkalmazas\Recepcio_alkalmazas\obj\Debug\netcoreapp3.1\CardPayment.g.cs
+D:\asd\OKJ-vizsgaprojekt\Recepcio_alkalmazas\Recepcio_alkalmazas\Recepcio_alkalmazas\obj\Debug\netcoreapp3.1\CardPayment.baml
