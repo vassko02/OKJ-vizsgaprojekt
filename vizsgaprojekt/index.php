@@ -44,6 +44,7 @@
         if ($m == 'contactus') {echo '';}
     ?>
     <link rel="stylesheet" href="./navbar/style.css">
+    <link rel="icon" href="./pictures/small_rounded.png">
     <title>Peaceful Paradise</title>
 </head>
 <body>
