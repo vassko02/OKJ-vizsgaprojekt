@@ -33,7 +33,7 @@
 					<div class="first col">
 						<div class="second">
 							<div class="third">
-								<label class="col-form-label" for="roomnumber">Room number   </label>
+								<label class="col-form-label" for="roomnumber">Room number</label>
 							</div>
 							<div class="third">
 								<input class="form-control" type="number" id="roomnumber" placeholder="Rooms">

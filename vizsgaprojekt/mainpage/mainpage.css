@@ -1,7 +1,6 @@
 body{
     height: 100%;
     background-color: #575a59;
-    width: 100%;
     
 }
 a{
@@ -21,13 +20,11 @@ html{
 
 .pic1 {
     content: url('../pictures/hatter1.jpg');
-    max-height: 92vh;
+    
 }
 .pic2 {
-    content: url('../pictures/hatter2.jpg');
-    max-height: 92vh;
+    content: url('../pictures/hatter1.jpg');
 }
 .pic3 {
-    content: url('../pictures/hatter3.jpg');
-    max-height: 92vh;
+    content: url('../pictures/hatter1.jpg');
 }
