@@ -29,8 +29,7 @@
             <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
             <link href="https://fonts.googleapis.com/css2?family=Teko:wght@300&display=swap" rel="stylesheet">
           
-            <link rel="stylesheet" href="./mainpage/mainpage.css">
-            <link rel="stylesheet" href="./css/header.css">
+            <link rel="stylesheet" href="./mainpage/mainpage.css"> 
             <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans">
             <link rel="stylesheet" href="./mainpage/style.css">';}
         if ($m == 'casino') {echo '';}
@@ -43,8 +42,8 @@
         if ($m == 'restaurant') {echo '';}
         if ($m == 'contactus') {echo '';}
     ?>
-    <link rel="stylesheet" href="./navbar/style.css">
     <link rel="icon" href="./pictures/small_rounded.png">
+    <link rel="stylesheet" href="./navbar/style.css">
     <title>Peaceful Paradise</title>
 </head>
 <body>

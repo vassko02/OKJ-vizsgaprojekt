@@ -13,21 +13,21 @@
     </div>
     <div class="carousel-inner">
       <div class="carousel-item active" data-bs-interval="5000">
-        <img src="../pictures/hatter3.jpg" class="d-block w-100" style="max-height: 93.4vh;" alt="...">
+        <img class="d-block w-100 pic1"  alt="...">
         <div class="carousel-caption d-none d-md-block">
           <h4>First slide label</h4>
           <p>Some representative placeholder content for the first slide.</p>
         </div>
       </div>
       <div class="carousel-item" data-bs-interval="5000">
-        <img src="../pictures/hatter2.jpg" class="d-block  w-100" style="max-height: 93.4vh;" alt="...">
+        <img class="d-block pic2 w-100" alt="...">
         <div class="carousel-caption d-none d-md-block">
           <h4>Second slide label</h4>
           <p>Some representative placeholder content for the first slide.</p>
         </div>
       </div>
       <div class="carousel-item" data-bs-interval="5000">
-        <img src="../pictures/hatter1.jpg" class="d-block w-100" style="max-height: 93.4vh;" alt="...">
+        <img class="d-block pic3 w-100" alt="...">
         <div class="carousel-caption d-none d-md-block">
           <h4>Third slide label</h4>
           <p>Some representative placeholder content for the first slide.</p>
@@ -96,8 +96,6 @@
   </div>
   <!-- partial -->
   <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
-  <script src="./script.js"></script>
-  <script src="../navbar/script.js"></script>
 
 
 

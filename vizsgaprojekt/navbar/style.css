@@ -5,7 +5,7 @@ ul {
     margin: 0;
 }
 nav{
-    height: 6rem;
+    height: 10vh;
     width: 100vw;
     background-color: black;
     box-shadow: 0 3px 20px rgba(0, 0, 0, 0.2);
@@ -18,11 +18,10 @@ nav{
 }
 /*Styling logo*/
 .logo{
-    padding:1vh 1vh;
     text-align: center;
 }
 .logo img {
-    height: 5rem;
+    max-height: 5vh;
 }
 
 /*Styling Links*/
