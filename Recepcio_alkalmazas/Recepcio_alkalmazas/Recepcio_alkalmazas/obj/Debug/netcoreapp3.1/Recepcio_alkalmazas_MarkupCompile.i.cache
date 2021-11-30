@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NETCOREAPP;NETCOREAPP3_1;
 D:\asd\OKJ-vizsgaprojekt\Recepcio_alkalmazas\Recepcio_alkalmazas\Recepcio_alkalmazas\App.xaml
-6-758658108
+61600912199
 
-17-1988749144
+17-2101568270
 202232796382
-CardPayment.xaml;MainWindow.xaml;pages\cons.xaml;pages\editreservation.xaml;pages\guestarrives.xaml;pages\guestleaves.xaml;
+CardPayment.xaml;MainWindow.xaml;Views\cons.xaml;Views\editreservation.xaml;Views\guestarrives.xaml;Views\guestleaves.xaml;
 
-True
+False
 

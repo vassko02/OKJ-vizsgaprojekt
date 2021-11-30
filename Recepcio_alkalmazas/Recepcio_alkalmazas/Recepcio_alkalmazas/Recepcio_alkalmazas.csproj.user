@@ -10,16 +10,16 @@
     <Compile Update="CardPayment.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="pages\cons.xaml.cs">
+    <Compile Update="Views\cons.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="pages\editreservation.xaml.cs">
+    <Compile Update="Views\editreservation.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="pages\guestarrives.xaml.cs">
+    <Compile Update="Views\guestarrives.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="pages\guestleaves.xaml.cs">
+    <Compile Update="Views\guestleaves.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
@@ -30,16 +30,16 @@
     <Page Update="MainWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="pages\cons.xaml">
+    <Page Update="Views\cons.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="pages\editreservation.xaml">
+    <Page Update="Views\editreservation.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="pages\guestarrives.xaml">
+    <Page Update="Views\guestarrives.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="pages\guestleaves.xaml">
+    <Page Update="Views\guestleaves.xaml">
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>
