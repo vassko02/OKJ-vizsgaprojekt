@@ -1,48 +1,6 @@
-<!DOCTYPE html>
-<html lang="hu">
-
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet">
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
-    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
-    crossorigin="anonymous"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js"
-    integrity="sha384-oesi62hOLfzrys4LxRF63OJCXdXDipiYWBnvTl9Y9/TRlw5xlKIEHpNyvvDShgf/"
-    crossorigin="anonymous"></script>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Teko:wght@300&display=swap" rel="stylesheet">
-
-  <link rel="stylesheet" href="mainpage.css">
-  <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans'>
-  <link rel="stylesheet" href="./style.css">
-  <link rel="stylesheet" href="../navbar/style.css">
-  <title>Peaceful Paradise</title>
-</head>
 
 <body id="body">
 
-  <nav>
-    <div class="logo">
-      <img class="kep" alt="Logo Image">
-    </div>
-    <div class="hamburger">
-      <div class="line1"></div>
-      <div class="line2"></div>
-      <div class="line3"></div>
-    </div>
-    <ul class="navlinks">
-      <li><a href="../mainpage/mainpage.html">Home</a></li>
-      <li><a href="../casino/index.html">Casino</a></li>
-      <li><a href="../book/book.html">Book</a></li>
-      <li><a href="../restaurant/restaurant.html">Restaurant</a></li>
-      <li><a href="../contact/contact.html">Contact Us</a></li>
-    </ul>
-  </nav>
 
   <div id="carouselExampleFade" class="carousel slide carousel-fade" data-bs-ride="carousel">
     <div class="carousel-indicators">
@@ -55,21 +13,21 @@
     </div>
     <div class="carousel-inner">
       <div class="carousel-item active" data-bs-interval="5000">
-        <img src="../pictures/hatter3.jpg" class="d-block w-100" style="max-height: 93.4vh;" alt="...">
+        <img class="d-block w-100 pic1"  alt="...">
         <div class="carousel-caption d-none d-md-block">
           <h4>First slide label</h4>
           <p>Some representative placeholder content for the first slide.</p>
         </div>
       </div>
       <div class="carousel-item" data-bs-interval="5000">
-        <img src="../pictures/hatter2.jpg" class="d-block  w-100" style="max-height: 93.4vh;" alt="...">
+        <img class="d-block pic2 w-100" alt="...">
         <div class="carousel-caption d-none d-md-block">
           <h4>Second slide label</h4>
           <p>Some representative placeholder content for the first slide.</p>
         </div>
       </div>
       <div class="carousel-item" data-bs-interval="5000">
-        <img src="../pictures/hatter1.jpg" class="d-block w-100" style="max-height: 93.4vh;" alt="...">
+        <img class="d-block pic3 w-100" alt="...">
         <div class="carousel-caption d-none d-md-block">
           <h4>Third slide label</h4>
           <p>Some representative placeholder content for the first slide.</p>
@@ -138,8 +96,6 @@
   </div>
   <!-- partial -->
   <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
-  <script src="./script.js"></script>
-  <script src="../navbar/script.js"></script>
 
 
 

@@ -1,48 +1,4 @@
-<!DOCTYPE html>
-<html>
-<html lang="hu">
 
-</html>
-
-<head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta http-equiv="X-UA-Compatible" content="ie=edge">
-	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet">
-	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"></script>
-	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
-		integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
-		crossorigin="anonymous"></script>
-	<script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js"
-		integrity="sha384-oesi62hOLfzrys4LxRF63OJCXdXDipiYWBnvTl9Y9/TRlw5xlKIEHpNyvvDShgf/"
-		crossorigin="anonymous"></script>
-
-	<link rel="stylesheet" href="book.css">
-	<link rel="stylesheet" href="../book/button-hover/dist/style.css">
-	<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css'>
-	<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css'>
-	<link rel="stylesheet" href="../css/bookingroomscards.css">
-	<link rel="stylesheet" href="../navbar/style.css">
-	<title>Peaceful Paradise</title>
-</head>
-<body>
-	<nav>
-        <div class="logo">
-            <img class="kep" alt="Logo Image">
-        </div>
-        <div class="hamburger">
-            <div class="line1"></div>
-            <div class="line2"></div>
-            <div class="line3"></div>
-        </div>
-        <ul class="navlinks">
-            <li><a href="../mainpage/mainpage.html">Home</a></li>
-            <li><a href="../casino/index.html">Casino</a></li>
-            <li><a href="../book/book.html">Book</a></li>
-            <li><a href="../restaurant/restaurant.html">Restaurant</a></li>
-            <li><a href="../contact/contact.html">Contact Us</a></li>
-        </ul>
-    </nav>
 
 
 
@@ -218,24 +174,4 @@
 
 
 
-	<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
-	<!--<script src="../src/index.js"></script>-->
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-	<script src="js/scripts.js"></script>
-	<script src="../navbar/script.js"></script>
-	<script>
-		$(window).scroll(function() {
-			if ($(document).scrollTop() > 10) {
-				$('.nav').addClass('affix');
-				console.log("OK");
-			} else {
-				$('.nav').removeClass('affix');
-			}
-		});
-	</script>
-	<script  src="./script.js"></script>
-
-
-</body>
-
-</html>
+	

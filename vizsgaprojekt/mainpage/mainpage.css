@@ -18,4 +18,13 @@ html{
     max-width: 80%;
 }
 
-
+.pic1 {
+    content: url('../pictures/hatter1.jpg');
+    
+}
+.pic2 {
+    content: url('../pictures/hatter1.jpg');
+}
+.pic3 {
+    content: url('../pictures/hatter1.jpg');
+}
