@@ -5,7 +5,7 @@ ul {
     margin: 0;
 }
 nav{
-    height: 10vh;
+    height: 8vh;
     width: 100vw;
     background-color: black;
     box-shadow: 0 3px 20px rgba(0, 0, 0, 0.2);
@@ -17,11 +17,8 @@ nav{
     content: url('../pictures/korulvagott_logo.png') !important;
 }
 /*Styling logo*/
-.logo{
-    text-align: center;
-}
 .logo img {
-    max-height: 5vh;
+    max-height: 8vh;
 }
 
 /*Styling Links*/
@@ -46,7 +43,7 @@ nav{
 .navlinks li {
     position: relative;
 }
-.navlinks li a::before {
+.navlinks li a::after {
     content: "";
     display: block;
     height: 3px;
@@ -56,7 +53,7 @@ nav{
     transition: all ease-in-out 250ms;
     margin: 0 0 0 10%;
 }
-.navlinks li a:hover::before{
+.navlinks li a:hover::after{
     width: 80%;
 }
 
