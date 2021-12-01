@@ -1,0 +1,13 @@
+.gif {
+    width: 100%;
+    background-image: url('../pictures/roulette1.gif');
+    height: 92vh;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+h1,h2 {
+    text-align: center;
+    padding-top: 25vh;
+    font-weight: bold;
+    color: white;
+}
