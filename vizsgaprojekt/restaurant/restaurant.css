@@ -1,0 +1,25 @@
+body{
+    height: 100%;
+    background-color: #575a59;
+    width: 100%;
+}
+.hatter {
+    
+    background-image: url("./foodpics/bg1.jpg");
+    width: 100vw;
+    height: 92vh;
+    background-repeat: no-repeat;
+    background-size: cover;
+    
+}
+.title h1{
+    background-color: black;
+    color: white;
+    font-size: 5rem;
+    width: 100%;
+    margin-top: 10vh;
+    text-align: center;
+    float: left;
+    font-family: 'Lobster', cursive;
+}
+

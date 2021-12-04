@@ -32,14 +32,22 @@
             <link rel="stylesheet" href="./mainpage/mainpage.css"> 
             <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans">
             <link rel="stylesheet" href="./mainpage/style.css">';}
-        if ($m == 'casino') {echo '';}
+        if ($m == 'casino') {echo '
+            <link rel="stylesheet" href="./casino/casino.css">
+            <link rel="preconnect" href="https://fonts.googleapis.com">
+            <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+            <link href="https://fonts.googleapis.com/css2?family=Changa:wght@700&display=swap" rel="stylesheet"> 
+            ';}
         if ($m == 'book') { echo '<link rel="stylesheet" href="./book/book.css">
             <link rel="stylesheet" href="./book/button-hover/dist/style.css">
             <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
             <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css">
             <link rel="stylesheet" href="./css/bookingroomscards.css">
             <script src="./book/script.js"></script>';}
-        if ($m == 'restaurant') {echo '';}
+        if ($m == 'restaurant') {echo '
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
+            <link rel="stylesheet" href="./restaurant/restaurant.css">
+            ';}
         if ($m == 'contactus') {echo '';}
     ?>
     <link rel="icon" href="./pictures/small_rounded.png">
@@ -56,7 +64,6 @@
         if ($m=='contactus') { include('./contact/contact.php');}
     ?>
 <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 <script src="./navbar/script.js"></script>
 </body>
 </html>

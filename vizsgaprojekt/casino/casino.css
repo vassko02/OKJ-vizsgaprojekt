@@ -1,0 +1,111 @@
+body {
+    background-color: black !important;
+}
+
+/*Nyitó GIF és cím*/
+.gifdiv {
+    background-image: url('../pictures/Casino_v06.gif');
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+    height: 92vh;
+}
+.cim {
+    padding-top: 30vh;
+}
+h1 {
+    font-family: 'Changa', sans-serif;
+    text-align: center;
+    color: hsl(0, 0%, 100%);
+    font-size: 8vh;
+    text-shadow:       0 1px 0 hsl(0, 62%, 80%),
+                       0 2px 0 hsl(0, 62%, 75%),
+                       0 3px 0 hsl(0, 62%, 70%),
+                       0 4px 0 hsl(0, 62%, 65%),
+                       0 5px 0 hsl(0, 62%, 60%),
+                       0 6px 0 hsl(0, 62%, 55%),
+                       0 7px 0 hsl(0, 62%, 50%),
+                       0 8px 0 hsl(0, 62%, 45%),
+      
+                       0 0 5px rgba(0,0,0,.05),
+                      0 1px 3px rgba(0,0,0,.2),
+                      0 3px 5px rgba(0,0,0,.2),
+                     0 5px 10px rgba(0,0,0,.2),
+                    0 10px 10px rgba(0,0,0,.2),
+                    0 20px 20px rgba(0,0,0,.3);
+}
+h2 {
+    color: hsl(0, 62%, 45%);
+    text-align: center;
+    font-weight: bold;
+    font-size: 4vh;
+}
+
+/*Általános infó*/
+.basic {
+    width: 100%;
+    background-color: black;
+    color: white !important;
+    text-align: center;
+}
+.basicszoveg {
+    min-height: 20vh;
+    padding-top: 5vh;
+}
+.basicszoveg h3 {
+    font-size: 6vh;
+    font-family: 'Changa', sans-serif;
+    text-transform: uppercase;
+}
+.basicszoveg h4 {
+    font-size: 4vh;
+    padding-bottom: 3vh !important;
+}
+.basicinfo {
+    height: 20vh;
+}
+.info {
+    padding-bottom: 5vh;
+    padding-top: 5vh;
+}
+.info p {
+    height: 100%;
+    margin-bottom: 0;
+    vertical-align: middle;
+    font-size: 3vh;
+}
+.info p svg {
+    height: 3vh;
+
+}
+.red {
+    color: hsl(0, 62%, 45%);
+}
+.green {
+    color: hsl(120, 65%, 30%);
+}
+.gold {
+    color: #C5B358;
+}
+
+/*Játékok, kártyák*/
+.games {
+    background-color: hsl(120, 65%, 30%);
+}
+.cards {
+    padding: 3vh;
+}
+.games .card {
+    width: 20vw;
+    margin-top: 1vh;
+    margin-bottom: 1vh;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+
+
+@media screen and (max-width: 1300px){
+    
+}
