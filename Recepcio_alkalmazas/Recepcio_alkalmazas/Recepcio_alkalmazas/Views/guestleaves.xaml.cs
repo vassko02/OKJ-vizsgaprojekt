@@ -11,6 +11,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.IO;
+using Recepcio_alkalmazas.Models;
 
 namespace Recepcio_alkalmazas.pages
 {
@@ -19,52 +20,24 @@ namespace Recepcio_alkalmazas.pages
     /// </summary>
     public partial class guestleaves : Page
     {
-        List<string> filterednevek = new List<string>();
-        List<foglalas> foglalasok = new List<foglalas>();
-        List<string> vendegnevek = new List<string>();
+        List<reservation> foglalasok = reservation.selectByGuestName(null);
+        List<consumption> fogyasztasok = new List<consumption>();
+        List<consumption> osszeg = new List<consumption>();
+        reservation egyfoglalas = new reservation();
+        double x;
         public guestleaves()
         {
             InitializeComponent();
-            foglalasokbeolvasasa("foglalas.txt");
-            vendeknevbetolt();
-            lb_guests.DataContext = filterednevek;
-            lb_guests.SelectedItem = "";
+            dg_nevek.DataContext = foglalasok;
             btn_fizetes.IsEnabled = false;
-        }
-        private void vendeknevbetolt()
-        {
-            foreach (var item in foglalasok)
-            {
-                vendegnevek.Add(item.guestname);
-            }
-            foreach (var item in foglalasok)
-            {
-                filterednevek.Add(item.guestname);
-            }
-            filterednevek.Sort();
-        }
-        private void foglalasokbeolvasasa(string fajlnev)
-        {
-            StreamReader sr = new StreamReader(fajlnev);
-            do
-            {
-                foglalasok.Add(new foglalas(sr.ReadLine()));
-            } while (!sr.EndOfStream);
-            sr.Close();
+            dg_fogyasztas.DataContext = fogyasztasok;
+            dg_nevek.SelectedIndex = 0;
         }
         private void tb_guestinput_TextChanged(object sender, TextChangedEventArgs e)
         {
-            string input = tb_guestinput.Text.ToLower();
-            filterednevek.Clear();
-            foreach (var item in foglalasok)
-            {
-                if (item.guestname.ToLower().Contains(input))
-                {
-                    filterednevek.Add(item.guestname);
-                }
-            }
-            filterednevek.Sort();
-            lb_guests.Items.Refresh();
+            foglalasok = reservation.selectByGuestName(tb_guestinput.Text);
+            dg_nevek.ItemsSource = foglalasok;
+
         }
 
         private void btn_keszpenz_Click(object sender, RoutedEventArgs e)
@@ -77,7 +50,7 @@ namespace Recepcio_alkalmazas.pages
             {
                 btn_kartya.IsEnabled = true;
             }
-            if (btn_keszpenz.IsChecked == false && btn_kartya.IsChecked == false)
+            if ((btn_keszpenz.IsChecked == false && btn_kartya.IsChecked == false) || tb_fizetett.Text == "")
             {
                 btn_fizetes.IsEnabled = false;
             }
@@ -109,6 +82,77 @@ namespace Recepcio_alkalmazas.pages
             else
             {
                 btn_fizetes.IsEnabled = true;
+            }
+        }
+
+        private void dg_nevek_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (dg_nevek.SelectedIndex != -1)
+            {
+                reservation valasztott = (reservation)dg_nevek.SelectedItem;
+                int id = valasztott.ReservationID;
+                fogyasztasok = consumption.selectItemByReservationID(id);
+                dg_fogyasztas.DataContext = fogyasztasok;
+                osszeg = consumption.selectSumByID(id);
+                x = osszeg[0].osszeg;
+                lbl_vegosszeg.Content = string.Format("${0}", x.ToString());
+                egyfoglalas = (reservation)dg_nevek.SelectedItem;
+                tb_change.Text = tb_fizetett.Text = "";
+                btn_kartya.IsChecked = btn_keszpenz.IsChecked = false;
+            }
+        }
+
+        private void btn_remove_Click(object sender, RoutedEventArgs e)
+        {
+            if (dg_fogyasztas.SelectedItem != null)
+            {
+                consumption valasztott = (consumption)dg_fogyasztas.SelectedItem;
+                int id = valasztott.ConsumptionID;
+                consumption.delete(id);
+                reservation valasztottres = (reservation)dg_nevek.SelectedItem;
+                int id2 = valasztottres.ReservationID;
+                fogyasztasok = consumption.selectItemByReservationID(id2);
+                dg_fogyasztas.DataContext = fogyasztasok;
+            }
+        }
+
+        private void btn_fizetes_Click(object sender, RoutedEventArgs e)
+        {
+            if (btn_kartya.IsChecked == true)
+            {
+                var cardpayment = new CardPayment();
+                if (cardpayment.ShowDialog() == true)
+                {
+                    MessageBox.Show("Payment successful!", "Payment Information", MessageBoxButton.OK, MessageBoxImage.Information);
+                }
+                else
+                {
+                    MessageBox.Show("Payment cancelled!", "Payment Information", MessageBoxButton.OK, MessageBoxImage.Information);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Payment successful!", "Payment Information", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
+            tb_change.Text = tb_fizetett.Text = "";
+        }
+
+        private void tb_fizetett_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (tb_fizetett.Text != "")
+            {
+                string osszeg = (double.Parse(tb_fizetett.Text) - x).ToString("F");
+
+                tb_change.Text = "$ " + osszeg;
+                if (double.Parse(tb_fizetett.Text) < x)
+                {
+                    tb_change.Text = "Not enough!";
+                    btn_fizetes.IsEnabled = false;
+                }
+                else
+                {
+                    btn_fizetes.IsEnabled = true;
+                }
             }
         }
     }

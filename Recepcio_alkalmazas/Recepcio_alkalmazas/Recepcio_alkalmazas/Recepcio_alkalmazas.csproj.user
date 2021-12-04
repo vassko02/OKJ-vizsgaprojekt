@@ -10,6 +10,9 @@
     <Compile Update="CardPayment.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="Views\cashreg.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Views\cons.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -28,6 +31,9 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="MainWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\cashreg.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Views\cons.xaml">

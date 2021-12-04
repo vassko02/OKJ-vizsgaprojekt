@@ -84,7 +84,18 @@
                             <iconPacks:PackIconMaterial Width="20" Height="20" Kind="FoodForkDrink" Foreground="DarkGoldenrod" VerticalContentAlignment="Center" VerticalAlignment="Center"/>
                         </StackPanel>
                     </Button>
-                    <StackPanel Margin="0,40,0,0">
+                    <Button Padding="5" Name="btn_cashier" Margin="15,10,15,10" Click="btn_cashier_Click">
+                        <Button.Resources>
+                            <Style TargetType="Border">
+                                <Setter Property="CornerRadius" Value="15"/>
+                            </Style>
+                        </Button.Resources>
+                        <StackPanel Orientation="Horizontal">
+                            <Label Content="Cash register" Foreground="DarkGoldenrod" Margin="0,0,5,0"/>
+                            <iconPacks:PackIconMaterial Width="20" Height="20" Kind="CashLockOpen" Foreground="DarkGoldenrod" VerticalContentAlignment="Center" VerticalAlignment="Center"/>
+                        </StackPanel>
+                    </Button>
+                    <StackPanel Margin="0,35,0,0">
                         <Label Content="Current date/time:" HorizontalAlignment="Center" HorizontalContentAlignment="Center" Width="250" FontSize="20" FontWeight="Bold" Foreground="White" />
                         <Label Name="LiveDateLabel" Content="" HorizontalAlignment="Center" HorizontalContentAlignment="Center" VerticalAlignment="Bottom" Margin="0,-6,0,0" Width="250" FontSize="20" FontWeight="Bold" Foreground="White" />
                         <Label Name="LiveTimeLabel" Content="" HorizontalAlignment="Center" HorizontalContentAlignment="Center" VerticalAlignment="Bottom" Margin="0,-6,0,0" Width="250" FontSize="20" FontWeight="Bold" Foreground="White" />

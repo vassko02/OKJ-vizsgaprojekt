@@ -44,7 +44,7 @@ namespace Recepcio_alkalmazas
         }
         private void reset(string melyikgomb)
         {
-            btn_tavozas.BorderBrush = btn_erkezes.BorderBrush=btn_fogyasztás.BorderBrush = Brushes.Black;
+            btn_tavozas.BorderBrush = btn_erkezes.BorderBrush = btn_fogyasztás.BorderBrush = Brushes.Black;
             switch (melyikgomb)
             {
                 case "tavozas":
@@ -52,12 +52,15 @@ namespace Recepcio_alkalmazas
                     break;
                 case "erkezes":
                     btn_erkezes.BorderBrush = Brushes.DarkGoldenrod;
-                    break;             
+                    break;
                 case "modify":
                     btn_modosit.BorderBrush = Brushes.DarkGoldenrod;
                     break;
                 case "fogyasztas":
                     btn_fogyasztás.BorderBrush = Brushes.DarkGoldenrod;
+                    break;
+                case "cash":
+                    btn_cashier.BorderBrush = Brushes.DarkGoldenrod;
                     break;
                 default:
                     break;
@@ -86,6 +89,11 @@ namespace Recepcio_alkalmazas
             reset("erkezes");
             frm_main.Content = new guestarrives();
         }
+        private void btn_cashier_Click(object sender, RoutedEventArgs e)
+        {
+            reset("cash");
+            frm_main.Content = new Views.cashreg();
+        }
         private void btn_close_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
@@ -93,8 +101,9 @@ namespace Recepcio_alkalmazas
 
         private void btn_fullscreen_Click(object sender, RoutedEventArgs e)
         {
-            if (Application.Current.MainWindow.WindowState != WindowState.Maximized) {
-                Application.Current.MainWindow.WindowState=WindowState.Maximized; 
+            if (Application.Current.MainWindow.WindowState != WindowState.Maximized)
+            {
+                Application.Current.MainWindow.WindowState = WindowState.Maximized;
             }
             else
                 Application.Current.MainWindow.WindowState = WindowState.Normal;
@@ -102,15 +111,16 @@ namespace Recepcio_alkalmazas
 
         private void btn_mini_Click(object sender, RoutedEventArgs e)
         {
-            Application.Current.MainWindow.WindowState= WindowState.Minimized;
+            Application.Current.MainWindow.WindowState = WindowState.Minimized;
         }
 
         private void Grid_MouseDown(object sender, MouseButtonEventArgs e)
         {
-            if (e.LeftButton==MouseButtonState.Pressed)
+            if (e.LeftButton == MouseButtonState.Pressed)
             {
                 DragMove();
             }
         }
+
     }
 }

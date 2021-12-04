@@ -12,6 +12,7 @@ namespace Recepcio_alkalmazas.Models
         public double Price { get; set; }
         public string ItemName { get; set; }
         public int ReservationID { get; set; }
+        public double osszeg { get; set; }
         public consumption() { }
         public consumption(MySqlDataReader reader)
         {
@@ -26,6 +27,7 @@ namespace Recepcio_alkalmazas.Models
             this.ItemName = i;
             this.ReservationID = resid;
         }
+
         public static int insert(consumption model)
         {
             using (var con = new MySqlConnection(ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString))
@@ -79,6 +81,33 @@ namespace Recepcio_alkalmazas.Models
                 }
                 con.Close();
             }
+        }
+        public static List<consumption> selectSumByID(int id)
+        {
+            var lista = new List<consumption>();
+            using (var con = new MySqlConnection(ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString))
+            {
+                con.Open();
+                var sql = "SELECT SUM(consumption.Price) as osszeg FROM consumption WHERE consumption.ReservationID = @id GROUP BY consumption.ReservationID";
+                using (var cmd = new MySqlCommand(sql, con))
+                {
+                    cmd.Parameters.AddWithValue("@id", id);
+                    using (var reader = cmd.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            lista.Add(new consumption()
+                            {
+                                osszeg = Convert.ToDouble(reader["osszeg"])
+                            }
+
+                                );
+                        }
+                    }
+                }
+                con.Close();
+            }
+            return lista;
         }
     }
 }
