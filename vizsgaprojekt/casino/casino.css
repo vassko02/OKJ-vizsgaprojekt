@@ -1,3 +1,8 @@
+body {
+    background-color: black !important;
+}
+
+/*Nyitó GIF és cím*/
 .gifdiv {
     background-image: url('../pictures/Casino_v06.gif');
     background-repeat: no-repeat;
@@ -35,16 +40,16 @@ h2 {
     font-weight: bold;
     font-size: 4vh;
 }
+
+/*Általános infó*/
 .basic {
     width: 100%;
-    height: 40vh;
     background-color: black;
     color: white !important;
     text-align: center;
-    
 }
 .basicszoveg {
-    height: 20vh;
+    min-height: 20vh;
     padding-top: 5vh;
 }
 .basicszoveg h3 {
@@ -54,6 +59,7 @@ h2 {
 }
 .basicszoveg h4 {
     font-size: 4vh;
+    padding-bottom: 3vh !important;
 }
 .basicinfo {
     height: 20vh;
@@ -68,6 +74,10 @@ h2 {
     vertical-align: middle;
     font-size: 3vh;
 }
+.info p svg {
+    height: 3vh;
+
+}
 .red {
     color: hsl(0, 62%, 45%);
 }
@@ -76,4 +86,26 @@ h2 {
 }
 .gold {
     color: #C5B358;
+}
+
+/*Játékok, kártyák*/
+.games {
+    background-color: hsl(120, 65%, 30%);
+}
+.cards {
+    padding: 3vh;
+}
+.games .card {
+    width: 20vw;
+    margin-top: 1vh;
+    margin-bottom: 1vh;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+
+
+@media screen and (max-width: 1300px){
+    
 }
