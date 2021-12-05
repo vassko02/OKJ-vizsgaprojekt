@@ -118,12 +118,17 @@ namespace Recepcio_alkalmazas.pages
 
         private void btn_fizetes_Click(object sender, RoutedEventArgs e)
         {
+
+            reservation valasztott = (reservation)dg_nevek.SelectedItem;
+            string name = customer.selectGuestNameByResID(valasztott.ReservationID)[0].Name;
             if (btn_kartya.IsChecked == true)
             {
                 var cardpayment = new CardPayment();
                 if (cardpayment.ShowDialog() == true)
                 {
                     MessageBox.Show("Payment successful!", "Payment Information", MessageBoxButton.OK, MessageBoxImage.Information);
+                    cashregister.insert(new cashregister(name, x, "Guest paying when checking-out (CARD)", x, 0));
+                    tb_change.Text = tb_fizetett.Text = "";
                 }
                 else
                 {
@@ -133,8 +138,11 @@ namespace Recepcio_alkalmazas.pages
             else
             {
                 MessageBox.Show("Payment successful!", "Payment Information", MessageBoxButton.OK, MessageBoxImage.Information);
+                double paid = double.Parse(tb_fizetett.Text);
+                double change = double.Parse(tb_change.Text.Split(' ')[1]);
+                cashregister.insert(new cashregister(name,x,"Guest paying when checking-out",paid, change));
+                tb_change.Text = tb_fizetett.Text = "";
             }
-            tb_change.Text = tb_fizetett.Text = "";
         }
 
         private void tb_fizetett_TextChanged(object sender, TextChangedEventArgs e)

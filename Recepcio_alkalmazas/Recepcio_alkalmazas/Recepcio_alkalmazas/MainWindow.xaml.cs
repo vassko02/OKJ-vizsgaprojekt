@@ -44,7 +44,7 @@ namespace Recepcio_alkalmazas
         }
         private void reset(string melyikgomb)
         {
-            btn_tavozas.BorderBrush = btn_erkezes.BorderBrush = btn_fogyasztás.BorderBrush = Brushes.Black;
+            btn_modosit.BorderBrush = btn_cashier.BorderBrush=btn_tavozas.BorderBrush = btn_erkezes.BorderBrush = btn_fogyasztás.BorderBrush = Brushes.Black;
             switch (melyikgomb)
             {
                 case "tavozas":

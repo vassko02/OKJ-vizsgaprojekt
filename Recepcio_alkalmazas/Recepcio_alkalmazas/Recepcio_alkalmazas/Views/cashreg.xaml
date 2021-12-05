@@ -7,8 +7,31 @@
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="cashreg">
-
     <Grid>
-        
+        <StackPanel>
+            <Label Margin="25,5,5,5" Content="Revenue:" FontWeight="Bold" FontSize="16" Foreground="DarkGoldenrod"/>
+            <DataGrid Margin="5" Foreground="White" FontWeight="Bold" Width="700" ItemsSource="{Binding}" AutoGenerateColumns="False" Height="300" Name="dg_adatok" CanUserAddRows="False"
+                      GridLinesVisibility="None" RowBackground="#36393f" Background="#36393f" HorizontalAlignment="Center" 
+                      SelectionUnit="FullRow" IsReadOnly="True" HeadersVisibility="Column" AlternatingRowBackground="#36393f" HorizontalContentAlignment="Center">
+                <DataGrid.Resources>
+                    <Style BasedOn="{StaticResource {x:Type DataGridColumnHeader}}" TargetType="{x:Type DataGridColumnHeader}">
+                        <Setter Property="Background" Value="#353638"/>
+                        <Setter Property="Height" Value="25"/>
+                        <Setter Property="FontSize" Value="16"/>
+
+                    </Style>
+                    <Style BasedOn="{StaticResource {x:Type DataGridRow}}" TargetType="{x:Type DataGridRow}">
+                        <Setter Property="Height" Value="25"/>
+                    </Style>
+                </DataGrid.Resources>
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Guest name" Binding="{Binding GuestName}" Width="150"/>
+                    <DataGridTextColumn Header="Title" Binding="{Binding Title}" Width="230"/>
+                    <DataGridTextColumn Header="Price" Binding="{Binding Amount}" Width="70"/>
+                    <DataGridTextColumn Header="Amount payed" Binding="{Binding Paid}" Width="140"/>
+                    <DataGridTextColumn Header="Change" Binding="{Binding Changee}" Width="100"/>
+                </DataGrid.Columns>
+            </DataGrid>
+        </StackPanel>
     </Grid>
 </Page>

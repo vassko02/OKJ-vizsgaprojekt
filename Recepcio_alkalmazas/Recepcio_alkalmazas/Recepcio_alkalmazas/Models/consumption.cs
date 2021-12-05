@@ -100,7 +100,6 @@ namespace Recepcio_alkalmazas.Models
                             {
                                 osszeg = Convert.ToDouble(reader["osszeg"])
                             }
-
                                 );
                         }
                     }

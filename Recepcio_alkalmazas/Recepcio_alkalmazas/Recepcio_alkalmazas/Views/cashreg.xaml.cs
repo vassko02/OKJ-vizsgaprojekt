@@ -10,6 +10,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Recepcio_alkalmazas.Models;
 
 namespace Recepcio_alkalmazas.Views
 {
@@ -18,9 +19,12 @@ namespace Recepcio_alkalmazas.Views
     /// </summary>
     public partial class cashreg : Page
     {
+        List<cashregister> bevetek = new List<cashregister>();
         public cashreg()
         {
             InitializeComponent();
+            bevetek = cashregister.select();
+            dg_adatok.ItemsSource = bevetek;
         }
     }
 }

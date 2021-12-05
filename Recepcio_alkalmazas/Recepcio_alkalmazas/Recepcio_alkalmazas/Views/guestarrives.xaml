@@ -18,10 +18,17 @@
                 <Label Content="Guest name:" HorizontalAlignment="Center" FontSize="16" FontWeight="Bold" Margin="5" Foreground="DarkGoldenrod" Width="200"/>
                 <TextBox Width="200" FontWeight="Bold" Foreground="DarkGoldenrod" Name="tb_guestinput" HorizontalAlignment="Center" Margin="5" 
                              TextChanged="tb_guestinput_TextChanged" />
-                <DataGrid Margin="5" Foreground="DarkGoldenrod" FontWeight="Bold" Width="200" ItemsSource="{Binding}" AutoGenerateColumns="False" Height="150" Name="dg_nevek" CanUserAddRows="False"
-                          GridLinesVisibility="None" SelectionChanged="dg_nevek_SelectionChanged" IsReadOnly="True" HeadersVisibility="None">
+                <DataGrid Margin="5" Foreground="White" FontWeight="Bold" Width="200" ItemsSource="{Binding}" AutoGenerateColumns="False" Height="150" Name="dg_nevek" CanUserAddRows="False"
+                          GridLinesVisibility="None" RowBackground="#36393f" Background="#36393f" SelectionChanged="dg_nevek_SelectionChanged"
+                      HorizontalAlignment="Center" SelectionUnit="FullRow" IsReadOnly="True" HeadersVisibility="Column">
+                    <DataGrid.Resources>
+                        <Style BasedOn="{StaticResource {x:Type DataGridColumnHeader}}" TargetType="{x:Type DataGridColumnHeader}">
+                            <Setter Property="Background" Value="#353638" />
+                        </Style>
+                    </DataGrid.Resources>
                     <DataGrid.Columns>
-                        <DataGridTextColumn Binding="{Binding Name}" Width="*"/>
+                        <DataGridTextColumn Header="Guest name" Binding="{Binding Name}" Width="*"/>
+                        <DataGridTextColumn Header="Room number" Binding="{Binding RoomID}" Width="100"/>
                     </DataGrid.Columns>
                 </DataGrid>
                 <Label Content="Payment:" HorizontalAlignment="Center" FontSize="16" FontWeight="Bold" Margin="5" Foreground="DarkGoldenrod" Width="200"/>
