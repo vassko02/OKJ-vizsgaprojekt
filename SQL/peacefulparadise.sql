@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Gép: 127.0.0.1
--- Létrehozás ideje: 2021. Dec 05. 14:05
+-- Létrehozás ideje: 2021. Dec 06. 20:06
 -- Kiszolgáló verziója: 10.4.21-MariaDB
 -- PHP verzió: 7.3.31
 
@@ -191,8 +191,9 @@ CREATE TABLE `servicetype` (
 --
 
 INSERT INTO `servicetype` (`ServiceID`, `Price`, `ServiceType`) VALUES
-(1, 1, 'Test'),
-(2, 1, 'Test');
+(1, 19.99, 'Breakfast only'),
+(2, 29.99, 'Half Board'),
+(3, 39.99, 'Full Board');
 
 --
 -- Indexek a kiírt táblákhoz
@@ -276,7 +277,7 @@ ALTER TABLE `room`
 -- AUTO_INCREMENT a táblához `servicetype`
 --
 ALTER TABLE `servicetype`
-  MODIFY `ServiceID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `ServiceID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- Megkötések a kiírt táblákhoz
