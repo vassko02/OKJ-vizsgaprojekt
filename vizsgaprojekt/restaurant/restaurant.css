@@ -1,6 +1,6 @@
 body{
     height: 100%;
-    background-color: #575a59;
+    background-color: goldenrod;
     width: 100%;
 }
 .hatter {
@@ -12,6 +12,17 @@ body{
     background-size: cover;
     
 }
+.favoritefood{
+    width: 100vw;
+    height: 10vh;
+    color: whitesmoke;
+    text-align: center;
+    font-size: 50px;
+    font-weight: bold;
+    background-color: black;
+    font-family: 'Lobster', cursive;
+    letter-spacing: 10px;
+}
 .title h1{
     background-color: black;
     color: white;
@@ -22,4 +33,24 @@ body{
     float: left;
     font-family: 'Lobster', cursive;
 }
-
+.card{
+    
+    margin: 1vw;
+    padding-top: 1vh;
+    background-color: black;
+    color: whitesmoke;
+    text-align: center;
+    border: 1px solid black ;
+    border-radius: 15px;
+}
+.card-img-top{
+    border: 2px solid white;
+    border-radius: 10px;
+}
+.card-text{
+    margin: auto;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+.card-img-top:hover{
+    opacity: 70%;
+}

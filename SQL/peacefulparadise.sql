@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.0.1
+-- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
 -- Gép: 127.0.0.1
--- Létrehozás ideje: 2021. Nov 24. 10:28
--- Kiszolgáló verziója: 10.4.6-MariaDB
--- PHP verzió: 7.3.9
+-- Létrehozás ideje: 2021. Dec 06. 20:06
+-- Kiszolgáló verziója: 10.4.21-MariaDB
+-- PHP verzió: 7.3.31
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -27,6 +26,36 @@ USE `peacefulparadise`;
 -- --------------------------------------------------------
 
 --
+-- Tábla szerkezet ehhez a táblához `cashregister`
+--
+
+CREATE TABLE `cashregister` (
+  `CashRegisterID` int(11) NOT NULL,
+  `GuestName` varchar(50) NOT NULL,
+  `Amount` double NOT NULL,
+  `Title` varchar(100) NOT NULL,
+  `Paid` double NOT NULL,
+  `Changee` double NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- A tábla adatainak kiíratása `cashregister`
+--
+
+INSERT INTO `cashregister` (`CashRegisterID`, `GuestName`, `Amount`, `Title`, `Paid`, `Changee`) VALUES
+(1, 'TestUser', 1, 'Guest paying at chack-in', 0, 0),
+(2, 'TestUser', 8.45, 'Guest paying when checking-out', 0, 0),
+(3, 'TestUser', 1, 'Guest paying at check-in', 0, 0),
+(4, 'TestUser', 1, 'Guest paying at check-in', 0, 0),
+(5, 'TestUser', 1, 'Guest paying at check-in', 10, 9),
+(6, 'TestUser', 1, 'Guest paying when checking-out', 1, 0),
+(7, 'TestUser', 1, 'Guest paying at check-in', 10, 9),
+(8, 'TestUser', 8.45, 'Guest paying when checking-out', 10, 1.55),
+(9, 'TestUser', 8.45, 'Guest paying when checking-out', 8.45, 0);
+
+-- --------------------------------------------------------
+
+--
 -- Tábla szerkezet ehhez a táblához `consumption`
 --
 
@@ -36,6 +65,17 @@ CREATE TABLE `consumption` (
   `ItemName` varchar(50) NOT NULL,
   `ReservationID` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- A tábla adatainak kiíratása `consumption`
+--
+
+INSERT INTO `consumption` (`ConsumptionID`, `Price`, `ItemName`, `ReservationID`) VALUES
+(1, 1.49, 'Coca-Cola', 1),
+(3, 1.49, 'Coca-Cola', 1),
+(4, 1.49, 'Coca-Cola', 1),
+(5, 1.49, 'Coca-Cola', 1),
+(6, 1, 'Accomodation', 1);
 
 -- --------------------------------------------------------
 
@@ -49,6 +89,14 @@ CREATE TABLE `customer` (
   `PhoneNumber` varchar(15) NOT NULL,
   `IDNumber` varchar(15) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='Customer data';
+
+--
+-- A tábla adatainak kiíratása `customer`
+--
+
+INSERT INTO `customer` (`CustomerID`, `Name`, `PhoneNumber`, `IDNumber`) VALUES
+(1, 'TestUser', '123', '123'),
+(2, 'TestUser', '123', '123');
 
 -- --------------------------------------------------------
 
@@ -68,6 +116,13 @@ CREATE TABLE `reservation` (
   `RoomID` int(11) NOT NULL,
   `ServiceID` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- A tábla adatainak kiíratása `reservation`
+--
+
+INSERT INTO `reservation` (`ReservationID`, `GuestNumber`, `Price`, `Children`, `Adults`, `ArrivalDate`, `LeavingDate`, `CustomerID`, `RoomID`, `ServiceID`) VALUES
+(1, 4, 1, 1, 1, '2021-12-08', '2021-12-16', 1, 3, 1);
 
 -- --------------------------------------------------------
 
@@ -132,8 +187,23 @@ CREATE TABLE `servicetype` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
+-- A tábla adatainak kiíratása `servicetype`
+--
+
+INSERT INTO `servicetype` (`ServiceID`, `Price`, `ServiceType`) VALUES
+(1, 19.99, 'Breakfast only'),
+(2, 29.99, 'Half Board'),
+(3, 39.99, 'Full Board');
+
+--
 -- Indexek a kiírt táblákhoz
 --
+
+--
+-- A tábla indexei `cashregister`
+--
+ALTER TABLE `cashregister`
+  ADD PRIMARY KEY (`CashRegisterID`);
 
 --
 -- A tábla indexei `consumption`
@@ -174,22 +244,28 @@ ALTER TABLE `servicetype`
 --
 
 --
+-- AUTO_INCREMENT a táblához `cashregister`
+--
+ALTER TABLE `cashregister`
+  MODIFY `CashRegisterID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+
+--
 -- AUTO_INCREMENT a táblához `consumption`
 --
 ALTER TABLE `consumption`
-  MODIFY `ConsumptionID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `ConsumptionID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT a táblához `customer`
 --
 ALTER TABLE `customer`
-  MODIFY `CustomerID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `CustomerID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT a táblához `reservation`
 --
 ALTER TABLE `reservation`
-  MODIFY `ReservationID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `ReservationID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT a táblához `room`
@@ -201,7 +277,7 @@ ALTER TABLE `room`
 -- AUTO_INCREMENT a táblához `servicetype`
 --
 ALTER TABLE `servicetype`
-  MODIFY `ServiceID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `ServiceID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- Megkötések a kiírt táblákhoz
