@@ -16,6 +16,9 @@
     <Compile Update="Views\cons.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="Views\editres.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Views\editreservation.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -37,6 +40,9 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Views\cons.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\editres.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Views\editreservation.xaml">

@@ -7,7 +7,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="foglalas.txt" />
     <None Remove="img\fogyasztas\aperol-spritz.png" />
     <None Remove="img\fogyasztas\bloodymary.png" />
     <None Remove="img\fogyasztas\cappy.png" />
@@ -33,9 +32,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Resource Include="foglalas.txt">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
     <Resource Include="img\fogyasztas\aperol-spritz.png" />
     <Resource Include="img\fogyasztas\bloodymary.png" />
     <Resource Include="img\fogyasztas\cappy.png" />

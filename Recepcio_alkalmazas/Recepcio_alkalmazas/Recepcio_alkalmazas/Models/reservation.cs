@@ -20,7 +20,7 @@ namespace Recepcio_alkalmazas.Models
         public string Name { get; set; }
         public string PhoneNumber { get; set; }
         public string IDNumber { get; set; }
-        public string Description { get; set; }
+        public string RoomName { get; set; }
         public string ServiceType { get; set; }
 
 
@@ -40,7 +40,7 @@ namespace Recepcio_alkalmazas.Models
             this.Name = reader["Name"].ToString();
             this.PhoneNumber = reader["PhoneNumber"].ToString();
             this.IDNumber = reader["IDNumber"].ToString();
-            this.Description = reader["Description"].ToString();
+            this.RoomName = reader["RoomName"].ToString();
             this.ServiceType = reader["ServiceType"].ToString();
         }
         public static List<reservation> selectByGuestName(string name)
@@ -49,7 +49,7 @@ namespace Recepcio_alkalmazas.Models
             using (var con= new MySqlConnection(ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString))
             {
                 con.Open();
-                var sql = "SELECT reservation.*,customer.Name,customer.PhoneNumber,customer.IDNumber,room.Description,servicetype.ServiceType " +
+                var sql = "SELECT reservation.*,customer.Name,customer.PhoneNumber,customer.IDNumber,room.RoomName,servicetype.ServiceType " +
                     "FROM reservation INNER JOIN customer ON reservation.CustomerID=customer.CustomerID "+
                     "join room ON `reservation`.`RoomID` = room.RoomID " +
                     "join servicetype ON `reservation`.ServiceID = servicetype.ServiceID Where 1=1";
@@ -72,6 +72,20 @@ namespace Recepcio_alkalmazas.Models
             con.Close();
             }
             return lista;
+        }
+        public static void delete(int id)
+        {
+            using (var con = new MySqlConnection(ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString))
+            {
+                con.Open();
+                var sql = "DELETE FROM reservation WHERE ReservationID=@id";
+                using (var cmd = new MySqlCommand(sql, con))
+                {
+                    cmd.Parameters.AddWithValue("@id", id);
+                    cmd.ExecuteNonQuery();
+                }
+                con.Close();
+            }
         }
     }
 }

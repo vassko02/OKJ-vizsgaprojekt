@@ -13,26 +13,61 @@
         </Style>
     </Page.Resources>
     <Grid>
-        <StackPanel x:Name="sp_jobb">
-            <Grid>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="270"/>
-                    <ColumnDefinition Width="*"/>
-                </Grid.ColumnDefinitions>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="auto"/>
-                    <RowDefinition Height="*"/>
-                </Grid.RowDefinitions>
-                <StackPanel Orientation="Vertical" Grid.Column="0" Width="260" HorizontalAlignment="Left">
-                    <Label Content="Guest name:" HorizontalAlignment="Center" FontSize="16" FontWeight="Bold" Margin="5" Foreground="DarkGoldenrod" Width="200"/>
-                    <TextBox Width="200" FontWeight="Bold" Foreground="DarkGoldenrod" Name="tb_guestinput" HorizontalAlignment="Center" Margin="5" 
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="270"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <StackPanel Orientation="Vertical" VerticalAlignment="Center" Grid.Column="0" Width="260" HorizontalAlignment="Left">
+            <Label Content="Guest name:" HorizontalAlignment="Center" FontSize="16" FontWeight="Bold" Margin="5" Foreground="DarkGoldenrod" Width="200"/>
+            <TextBox Width="200" FontWeight="Bold" Height="25" FontSize="18" Foreground="DarkGoldenrod" Name="tb_guestinput" HorizontalAlignment="Center" Margin="5" 
                              TextChanged="tb_guestinput_TextChanged"/>
-                </StackPanel>
-                <StackPanel Grid.Row="1" Grid.ColumnSpan="2">
-                    <Label Content="Reservations:" FontSize="20" FontWeight="Bold" Foreground="DarkGoldenrod" Margin="5"/>
-                    <DataGrid Height="200" Margin="35,10,35,10" ColumnHeaderHeight="30" ItemsSource="{Binding}" Name="dg_foglalasok"/>
-                </StackPanel>
-            </Grid>
+        </StackPanel>
+        <StackPanel Grid.Row="1" Grid.ColumnSpan="2">
+            <Label Content="Reservations:" FontSize="20" FontWeight="Bold" Foreground="DarkGoldenrod" Margin="5"/>
+            <DataGrid Margin="5" Foreground="White" FontWeight="Bold" Width="700" ItemsSource="{Binding}" AutoGenerateColumns="False" Height="300" Name="dg_foglalasok"
+                            GridLinesVisibility="None" RowBackground="#36393f" Background="#36393f"
+                            HorizontalAlignment="Center" SelectionUnit="FullRow" IsReadOnly="True" HeadersVisibility="Column" SelectionChanged="dg_foglalasok_SelectionChanged">
+                <DataGrid.Resources>
+                    <Style BasedOn="{StaticResource {x:Type DataGridColumnHeader}}" TargetType="{x:Type DataGridColumnHeader}">
+                        <Setter Property="Background" Value="#353638" />
+                    </Style>
+                </DataGrid.Resources>
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Guest name" Binding="{Binding Name}" Width="90"/>
+                    <DataGridTextColumn Header="Check-in" Width="100" Binding="{Binding ArrivalDate,StringFormat=yyyy.MM.dd.}"/>
+                    <DataGridTextColumn Header="Check-out" Width="100" Binding="{Binding LeavingDate,StringFormat=yyyy.MM.dd.}"/>
+                    <DataGridTextColumn Header="Service" Width="100" Binding="{Binding ServiceType}"/>
+                    <DataGridTextColumn Header="Room type" Width="220" Binding="{Binding RoomName}"/>
+                    <DataGridTextColumn Header="Price" Binding="{Binding Price}"/>
+                </DataGrid.Columns>
+            </DataGrid>
+        </StackPanel>
+        <StackPanel Grid.Column="1">
+            <Button Padding="5" FontWeight="Bold" Width="300" Name="btn_hozzaad" Content="Add new reservation" Background="Black" Foreground="DarkGoldenrod" Margin="30,10,30,10" Click="btn_hozzaad_Click">
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="5"/>
+                    </Style>
+                </Button.Resources>
+            </Button>
+            <Button Padding="5" FontWeight="Bold" Width="300" Name="btn_edit" Content="Edit selected reservation" Background="Black" Foreground="DarkGoldenrod" Margin="30,10,30,10" Click="btn_edit_Click">
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="5"/>
+                    </Style>
+                </Button.Resources>
+            </Button>
+            <Button Padding="5" FontWeight="Bold" Width="300" Name="btn_torles" Content="Delete selected reservation" Background="Black" Foreground="DarkGoldenrod" Margin="30,10,30,10" Click="btn_torles_Click">
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="5"/>
+                    </Style>
+                </Button.Resources>
+            </Button>
         </StackPanel>
     </Grid>
 </Page>

@@ -11,6 +11,8 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.IO;
 using System.Windows.Shapes;
+using Recepcio_alkalmazas.Models;
+using Recepcio_alkalmazas.Views;
 
 namespace Recepcio_alkalmazas.pages
 {
@@ -19,52 +21,53 @@ namespace Recepcio_alkalmazas.pages
     /// </summary>
     public partial class editreservation : Page
     {
-        List<string> filterednevek = new List<string>();
-        List<foglalas> foglalasok = new List<foglalas>();
-        List<string> vendegnevek = new List<string>();
-        foglalas ujfoglalas = new foglalas();
+        List<reservation> foglalasok = new List<reservation>();
+        reservation egyfoglalas = new reservation();
         public editreservation()
         {
             InitializeComponent();
-            foglalasokbeolvasasa("foglalas.txt");
-            vendeknevbetolt();
-            sp_jobb.DataContext = ujfoglalas;
-            dg_foglalasok.DataContext = foglalasok;
-        }
-        private void vendeknevbetolt()
-        {
-            foreach (var item in foglalasok)
-            {
-                vendegnevek.Add(item.guestname);
-            }
-            foreach (var item in foglalasok)
-            {
-                filterednevek.Add(item.guestname);
-            }
-            filterednevek.Sort();
-
-        }
-        private void foglalasokbeolvasasa(string fajlnev)
-        {
-            StreamReader sr = new StreamReader(fajlnev);
-            do
-            {
-                foglalasok.Add(new foglalas(sr.ReadLine()));
-            } while (!sr.EndOfStream);
-            sr.Close();
+            foglalasok = reservation.selectByGuestName(null);
+            dg_foglalasok.ItemsSource = foglalasok;
+            dg_foglalasok.SelectedIndex = 0;
         }
         private void tb_guestinput_TextChanged(object sender, TextChangedEventArgs e)
         {
-            string input = tb_guestinput.Text.ToLower();
-            filterednevek.Clear();
-            foreach (var item in foglalasok)
+            foglalasok = reservation.selectByGuestName(tb_guestinput.Text);
+            dg_foglalasok.ItemsSource = foglalasok;
+        }
+
+        private void btn_edit_Click(object sender, RoutedEventArgs e)
+        {
+            if (dg_foglalasok.SelectedIndex != -1)
             {
-                if (item.guestname.ToLower().Contains(input))
-                {
-                    filterednevek.Add(item.guestname);
-                }
+
             }
-            filterednevek.Sort();
+        }
+        private void btn_torles_Click(object sender, RoutedEventArgs e)
+        {
+            if (dg_foglalasok.SelectedIndex != -1)
+            {
+                if (MessageBox.Show("Are you sure you wnat to delete the selected reservation?", "Confirmation", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
+                {
+                    reservation.delete(egyfoglalas.ReservationID);
+                    tb_guestinput.Text = "";
+                    foglalasok = reservation.selectByGuestName(null);
+                    dg_foglalasok.ItemsSource = foglalasok;
+                }
+
+            }
+        }
+        private void dg_foglalasok_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            egyfoglalas = (reservation)dg_foglalasok.SelectedItem;
+        }
+
+        private void btn_hozzaad_Click(object sender, RoutedEventArgs e)
+        {
+            var hozzaad = new editres();
+            hozzaad.Show();
+
+
         }
     }
 }
