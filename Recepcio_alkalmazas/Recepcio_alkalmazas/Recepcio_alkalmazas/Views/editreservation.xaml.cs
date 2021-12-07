@@ -36,13 +36,6 @@ namespace Recepcio_alkalmazas.pages
             dg_foglalasok.ItemsSource = foglalasok;
         }
 
-        private void btn_edit_Click(object sender, RoutedEventArgs e)
-        {
-            if (dg_foglalasok.SelectedIndex != -1)
-            {
-
-            }
-        }
         private void btn_torles_Click(object sender, RoutedEventArgs e)
         {
             if (dg_foglalasok.SelectedIndex != -1)
@@ -61,12 +54,29 @@ namespace Recepcio_alkalmazas.pages
         {
             egyfoglalas = (reservation)dg_foglalasok.SelectedItem;
         }
-
+        private void btn_edit_Click(object sender, RoutedEventArgs e)
+        {
+            if (dg_foglalasok.SelectedIndex==null)
+            {
+                return;
+            }
+            reservation foglalasmodosit = (reservation)dg_foglalasok.SelectedItem;
+            var modositasablak = new editres(foglalasmodosit);
+            if (modositasablak.ShowDialog()==true)
+            {
+                foglalasok = reservation.selectByGuestName(null);
+                dg_foglalasok.ItemsSource = foglalasok;
+            }
+        }
         private void btn_hozzaad_Click(object sender, RoutedEventArgs e)
         {
-            var hozzaad = new editres();
+            if (dg_foglalasok.SelectedIndex == null)
+            {
+                return;
+            }
+            reservation foglalasad = new reservation();
+            var hozzaad = new editres(foglalasad);
             hozzaad.Show();
-
 
         }
     }

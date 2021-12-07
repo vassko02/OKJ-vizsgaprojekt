@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Text;
+using System.Collections.ObjectModel;
 
 namespace Recepcio_alkalmazas.Models
 {
@@ -21,6 +22,27 @@ namespace Recepcio_alkalmazas.Models
             this.Capacity = Convert.ToInt32(reader["Capacity"]);
             this.Description = reader["Description"].ToString();
             this.Price = Convert.ToDouble(reader["Price"]);
-        }  
+        }
+        public static ObservableCollection<room> selectAllRooms()
+        {
+            var lista = new ObservableCollection<room>();
+            using (var con = new MySqlConnection(ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString))
+            {
+                con.Open();
+                var sql = "SELECT * from room";
+                using (var cmd = new MySqlCommand(sql, con))
+                {
+                    using (var reader = cmd.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            lista.Add(new room(reader));
+                        }
+                    }
+                }
+                con.Close();
+            }
+            return lista;
+        }
     }
 }

@@ -19,5 +19,27 @@ namespace Recepcio_alkalmazas.Models
             this.Price = Convert.ToDouble(reader["Price"]);
             this.ServiceType = reader["ServiceType"].ToString();
         }
+        public static List<servicetype> selectAllNames()
+        {
+            var lista = new List<servicetype>();
+            using (var con = new MySqlConnection(ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString))
+            {
+                con.Open();
+                var sql = "Select * from servicetype";
+                using (var cmd = new MySqlCommand(sql, con))
+                {
+                    using (var reader = cmd.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            lista.Add(new servicetype(reader));
+                        }
+                    }
+                }
+                con.Close();
+            }
+            return lista;
+        }
     }
+
 }
