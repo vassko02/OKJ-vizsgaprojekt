@@ -1,10 +1,14 @@
+* {
+    transition: all 0.3s ease-out;
+  }
+
 body {
     background-color: black !important;
 }
 
 /*Nyitó GIF és cím*/
 .gifdiv {
-    background-image: url('../pictures/Casino_v06.gif');
+    background-image: url('../pictures/casino/Casino_v06.gif');
     background-repeat: no-repeat;
     background-size: cover;
     width: 100%;
@@ -13,7 +17,7 @@ body {
 .cim {
     padding-top: 30vh;
 }
-h1 {
+.gifdiv h1 {
     font-family: 'Changa', sans-serif;
     text-align: center;
     color: hsl(0, 0%, 100%);
@@ -34,7 +38,7 @@ h1 {
                     0 10px 10px rgba(0,0,0,.2),
                     0 20px 20px rgba(0,0,0,.3);
 }
-h2 {
+.gifdiv h2 {
     color: hsl(0, 62%, 45%);
     text-align: center;
     font-weight: bold;
@@ -90,21 +94,47 @@ h2 {
 
 /*Játékok, kártyák*/
 .games {
-    background-color: hsl(120, 65%, 30%);
+    background-color: black;
+    background-image: url('../pictures/casino/fullcasino5.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
 }
-.cards {
-    padding: 3vh;
+.gamesitems {
+    justify-content: center;
 }
-.games .card {
-    width: 20vw;
-    margin-top: 1vh;
+.gamesitems h1 {
+    font-family: 'Changa', sans-serif;
+    font-size: 4vh;
+    letter-spacing: 0.1vh;
     margin-bottom: 1vh;
-    margin-left: auto;
-    margin-right: auto;
+}
+.gamesitems p {
+    font-size: 2vh;
+    padding-left: 1vh;
+    padding-right: 1vh;
+    text-align: justify;
 }
 
+/*Poker típusok*/
+.pokers {
+    background-color: hsl(0, 2%, 16%);
+    height: 50vh;
+    width: 100%;
+    color: white;
+    text-align: center;
+    padding-top: 10vh;
+}
 
-
+/*Slot Machine*/
+.slotmachine {
+    background-color: black;
+    height: 50vh;
+    width: 100%;
+    color: white;
+    text-align: center;
+    padding-top: 10vh;
+}
 
 @media screen and (max-width: 1300px){
     
