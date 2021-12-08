@@ -1,6 +1,7 @@
 ﻿using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Configuration;
 using System.Text;
 
@@ -15,7 +16,6 @@ namespace Recepcio_alkalmazas.Models
         public string  Title { get; set; }
         public double Paid { get; set; }
         public double Changee { get; set; }
-
         public cashregister(){}
         public cashregister(MySqlDataReader reader)
         {
@@ -53,9 +53,9 @@ namespace Recepcio_alkalmazas.Models
                 }
             }
         }
-        public static List<cashregister> select( )
+        public static ObservableCollection<cashregister> select( )
         {
-            var lista = new List<cashregister>();
+            var lista = new ObservableCollection<cashregister>();
             using (var con = new MySqlConnection(ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString))
             {
                 con.Open();

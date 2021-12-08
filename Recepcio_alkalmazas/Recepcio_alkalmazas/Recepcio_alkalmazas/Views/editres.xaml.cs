@@ -22,29 +22,75 @@ namespace Recepcio_alkalmazas.Views
     public partial class editres : Window
     {
         public reservation egyfoglalas { get; private set; }
-        List<servicetype> tipusok = new List<servicetype>();
+        ObservableCollection<servicetype> tipusok = new ObservableCollection<servicetype>();
         ObservableCollection<room> szobak = new ObservableCollection<room>();
+        ObservableCollection<room> szabadszobak = new ObservableCollection<room>();
+        bool editlesz = true;
         public editres(reservation model)
         {
             InitializeComponent();
             egyfoglalas = model;
             szobak = room.selectAllRooms();
             this.DataContext = egyfoglalas;
+            if (egyfoglalas.ReservationID == 0)
+            {
+                editlesz = false;
+                egyfoglalas.ArrivalDate = DateTime.Today;
+                egyfoglalas.LeavingDate = DateTime.Today;
+            }
             tipusok = servicetype.selectAllNames();
             cb_services.ItemsSource = tipusok;
-            cb_rooms.ItemsSource = szobak.Select(x=>x.RoomName).Distinct();
+            cb_rooms.ItemsSource = szobak.Select(x => x.RoomName).Distinct();
             foreach (var item in szobak)
             {
-                if (item.RoomName==egyfoglalas.RoomName)
+                if (item.RoomName == egyfoglalas.RoomName)
                 {
                     cb_rooms.SelectedItem = item.RoomName;
                 }
             }
-            
         }
         private void btn_save_Click(object sender, RoutedEventArgs e)
         {
-            //adatok mentése
+            reservation aktualis = new reservation();
+            aktualis.ReservationID = egyfoglalas.ReservationID;
+            aktualis.CustomerID = egyfoglalas.CustomerID;
+            aktualis.Adults = int.Parse(tb_adults.Text);
+            aktualis.Children = int.Parse(tb_childer.Text);
+            aktualis.ArrivalDate = Convert.ToDateTime(dp_checkin.SelectedDate);
+            aktualis.LeavingDate = Convert.ToDateTime(dp_checkout.SelectedDate);
+            aktualis.GuestNumber = aktualis.Children + aktualis.Adults;
+            aktualis.ServiceID = servicetype.selectIDbyName(cb_services.Text)[0].ServiceID;
+            szabadszobak = room.selectCorrectRoom(aktualis);
+            aktualis.ServiceType = servicetype.selectNameByID(aktualis.ServiceID)[0].ServiceType;
+            aktualis.RoomName = cb_rooms.Text;
+            int napok = (int)aktualis.LeavingDate.Subtract(aktualis.ArrivalDate).TotalDays;
+            //service price hozzáadása (fv már kész)
+            bool vanolyanszoba = false;
+            foreach (var item in szabadszobak)
+            {
+                if (item.RoomName==aktualis.RoomName)
+                {
+                    aktualis.RoomID = item.RoomID;
+                    aktualis.RoomPrice = room.selectPriceByID(aktualis.RoomID)[0].RoomPrice;
+                    aktualis.Price = aktualis.RoomPrice * napok;
+                    aktualis.RoomName = room.selectRoomByID(aktualis.RoomID)[0].RoomName;
+                    vanolyanszoba = true;
+                    break;
+                }               
+            }
+            if(vanolyanszoba==false)
+            {
+                MessageBox.Show("There is no free room of that type in the selected interval!", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+            if (editlesz == true)
+            {
+                //update valamit akkor is updatel ha nem kell de valamit meg nem updatel csak a databaseben
+                reservation.update(aktualis);
+            }
+            else
+            {
+                //reservation.insert(aktualis);
+            }
             this.Close();
         }
         private void btn_cancel_Click(object sender, RoutedEventArgs e)

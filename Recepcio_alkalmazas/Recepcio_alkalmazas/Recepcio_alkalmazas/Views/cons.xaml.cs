@@ -22,8 +22,8 @@ namespace Recepcio_alkalmazas.pages
     public partial class cons : Page
     {
         Dictionary<string, double> lehetosegek = new Dictionary<string, double>();
-        List<reservation> foglalasok = new List<reservation>();
-        List<consumption> fogyasztasok = new List<consumption>();
+        ObservableCollection<reservation> foglalasok = new ObservableCollection<reservation>();
+        ObservableCollection<consumption> fogyasztasok = new ObservableCollection<consumption>();
 
         public cons()
         {

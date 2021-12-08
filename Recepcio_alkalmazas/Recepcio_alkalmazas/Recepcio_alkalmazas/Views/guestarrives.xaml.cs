@@ -12,6 +12,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.IO;
 using Recepcio_alkalmazas.Models;
+using System.Collections.ObjectModel;
 
 namespace Recepcio_alkalmazas.pages
 {
@@ -20,7 +21,7 @@ namespace Recepcio_alkalmazas.pages
     /// </summary>
     public partial class guestarrives : Page
     {
-        List<reservation> foglalasok = new List<reservation>();
+        ObservableCollection<reservation> foglalasok = new ObservableCollection<reservation>();
         reservation egyfoglalas = new reservation();
         double x;
         public guestarrives()

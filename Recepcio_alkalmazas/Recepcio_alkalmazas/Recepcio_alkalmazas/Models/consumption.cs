@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Text;
+using System.Collections.ObjectModel;
 
 namespace Recepcio_alkalmazas.Models
 {
@@ -27,7 +28,6 @@ namespace Recepcio_alkalmazas.Models
             this.ItemName = i;
             this.ReservationID = resid;
         }
-
         public static int insert(consumption model)
         {
             using (var con = new MySqlConnection(ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString))
@@ -45,9 +45,9 @@ namespace Recepcio_alkalmazas.Models
                 }
             }
         }
-        public static List<consumption> selectItemByReservationID(int id)
+        public static ObservableCollection<consumption> selectItemByReservationID(int id)
         {
-            var lista = new List<consumption>();
+            var lista = new ObservableCollection<consumption>();
             using (var con = new MySqlConnection(ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString))
             {
                 con.Open();
@@ -82,9 +82,9 @@ namespace Recepcio_alkalmazas.Models
                 con.Close();
             }
         }
-        public static List<consumption> selectSumByID(int id)
+        public static ObservableCollection<consumption> selectSumByID(int id)
         {
-            var lista = new List<consumption>();
+            var lista = new ObservableCollection<consumption>();
             using (var con = new MySqlConnection(ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString))
             {
                 con.Open();

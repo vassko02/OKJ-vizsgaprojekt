@@ -13,6 +13,7 @@ using System.IO;
 using System.Windows.Shapes;
 using Recepcio_alkalmazas.Models;
 using Recepcio_alkalmazas.Views;
+using System.Collections.ObjectModel;
 
 namespace Recepcio_alkalmazas.pages
 {
@@ -21,7 +22,7 @@ namespace Recepcio_alkalmazas.pages
     /// </summary>
     public partial class editreservation : Page
     {
-        List<reservation> foglalasok = new List<reservation>();
+        ObservableCollection<reservation> foglalasok = new ObservableCollection<reservation>();
         reservation egyfoglalas = new reservation();
         public editreservation()
         {
@@ -47,7 +48,6 @@ namespace Recepcio_alkalmazas.pages
                     foglalasok = reservation.selectByGuestName(null);
                     dg_foglalasok.ItemsSource = foglalasok;
                 }
-
             }
         }
         private void dg_foglalasok_SelectionChanged(object sender, SelectionChangedEventArgs e)

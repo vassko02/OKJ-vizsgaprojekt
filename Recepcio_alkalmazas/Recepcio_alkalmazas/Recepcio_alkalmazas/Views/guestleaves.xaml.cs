@@ -12,6 +12,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.IO;
 using Recepcio_alkalmazas.Models;
+using System.Collections.ObjectModel;
 
 namespace Recepcio_alkalmazas.pages
 {
@@ -20,9 +21,9 @@ namespace Recepcio_alkalmazas.pages
     /// </summary>
     public partial class guestleaves : Page
     {
-        List<reservation> foglalasok = reservation.selectByGuestName(null);
-        List<consumption> fogyasztasok = new List<consumption>();
-        List<consumption> osszeg = new List<consumption>();
+        ObservableCollection<reservation> foglalasok = reservation.selectByGuestName(null);
+        ObservableCollection<consumption> fogyasztasok = new ObservableCollection<consumption>();
+        ObservableCollection<consumption> osszeg = new ObservableCollection<consumption>();
         reservation egyfoglalas = new reservation();
         double x;
         public guestleaves()

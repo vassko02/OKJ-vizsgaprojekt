@@ -1,15 +1,27 @@
 ﻿using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Configuration;
 using System.Text;
 
 namespace Recepcio_alkalmazas.Models
 {
-    public class customer
+    public class customer:NotifyPropertyChangedBase
     {
-        public int CustomerID { get; set; }
-        public string Name { get; set; }
+        private int _CustomerID;
+        public int CustomerID
+        {
+            get { return _CustomerID; }
+            set { _CustomerID = value; onPropertyChanged(); }
+        }
+        private string _Name;
+
+        public string Name
+        {
+            get { return _Name; }
+            set { _Name = value; onPropertyChanged(); }
+        }
         public string PhoneNumber { get; set; }
         public string IDNumber { get; set; }
         public customer(){ }
@@ -20,9 +32,9 @@ namespace Recepcio_alkalmazas.Models
             this.PhoneNumber = reader["PhoneNumber"].ToString();
             this.IDNumber = reader["IDNumber"].ToString();
         }
-        public static List<customer> selectGuestNameByResID(int id)
+        public static ObservableCollection<customer> selectGuestNameByResID(int id)
         {
-            var lista = new List<customer>();
+            var lista = new ObservableCollection<customer>();
             using (var con = new MySqlConnection(ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString))
             {
                 con.Open();

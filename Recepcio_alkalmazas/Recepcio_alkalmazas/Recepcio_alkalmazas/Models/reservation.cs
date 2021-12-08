@@ -3,27 +3,109 @@ using System.Collections.Generic;
 using System.Text;
 using MySql.Data.MySqlClient;
 using System.Configuration;
+using System.Collections.ObjectModel;
+using Recepcio_alkalmazas.Models;
+
 namespace Recepcio_alkalmazas.Models
 {
-    public class reservation
+    public class reservation: NotifyPropertyChangedBase
     {
-        public int ReservationID { get; set; }
-        public int GuestNumber { get; set; }
-        public double Price { get; set; }
-        public int Children { get; set; }
-        public int Adults { get; set; }
-        public DateTime ArrivalDate { get; set; }
-        public DateTime LeavingDate { get; set; }
-        public int CustomerID { get; set; }
-        public int ServiceID { get; set; }
-        public int RoomID { get; set; }
+        private int _ReservationID;
+        public int ReservationID
+        {
+            get { return _ReservationID; }
+            set { _ReservationID = value; onPropertyChanged(); }
+        }
+        private int _GuestNumber;
+        public int GuestNumber
+        {
+            get { return _GuestNumber; }
+            set { _GuestNumber = value; onPropertyChanged(); }
+        }
+        private double _Price;
+
+        public double Price
+        {
+            get { return _Price; }
+            set { _Price = value; onPropertyChanged(); }
+        }
+        private int _Children;
+
+        public int Children
+        {
+            get { return _Children; }
+            set { _Children = value; onPropertyChanged(); }
+        }
+        private int _Adults;
+
+        public int Adults
+        {
+            get { return _Adults; }
+            set { _Adults = value; onPropertyChanged(); }
+        }
+        private DateTime _ArrivalDate;
+
+        public DateTime ArrivalDate
+        {
+            get { return _ArrivalDate; }
+            set { _ArrivalDate = value; onPropertyChanged(); }
+        }
+        private DateTime _LeavingDate;
+
+        public DateTime LeavingDate
+        {
+            get { return _LeavingDate; }
+            set { _LeavingDate = value; onPropertyChanged(); }
+        }
+        private int _CustomerID;
+
+        public int CustomerID
+        {
+            get { return _CustomerID; }
+            set { _CustomerID = value; onPropertyChanged(); }
+        }
+
+        private int _ServiceID;
+
+        public int ServiceID
+        {
+            get { return _ServiceID; }
+            set { _ServiceID = value; onPropertyChanged(); }
+        }
+
+        private int _RoomID;
+
+        public int RoomID
+        {
+            get { return _RoomID; }
+            set { _RoomID = value; onPropertyChanged(); }
+        }
+
         public string Name { get; set; }
         public string PhoneNumber { get; set; }
         public string IDNumber { get; set; }
-        public string RoomName { get; set; }
-        public string ServiceType { get; set; }
 
+        private string _RoomName;
+        public string RoomName
+        {
+            get { return _RoomName; }
+            set { _RoomName = value; onPropertyChanged(); }
+        }
+        private string _ServiceType;
 
+        public string ServiceType
+        {
+            get { return _ServiceType; }
+            set { _ServiceType = value; onPropertyChanged(); }
+        }
+
+        private double _RoomPrice;
+
+        public double RoomPrice
+        {
+            get { return _RoomPrice; }
+            set { _RoomPrice = value; onPropertyChanged(); }
+        }
         public reservation() { }
         public reservation(MySqlDataReader reader)
         {
@@ -42,14 +124,16 @@ namespace Recepcio_alkalmazas.Models
             this.IDNumber = reader["IDNumber"].ToString();
             this.RoomName = reader["RoomName"].ToString();
             this.ServiceType = reader["ServiceType"].ToString();
+            this.RoomPrice = Convert.ToDouble(reader["RoomPrice"]);
+
         }
-        public static List<reservation> selectByGuestName(string name)
+        public static ObservableCollection<reservation> selectByGuestName(string name)
         {
-            var lista = new List<reservation>();
+            var lista = new ObservableCollection<reservation>();
             using (var con= new MySqlConnection(ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString))
             {
                 con.Open();
-                var sql = "SELECT reservation.*,customer.Name,customer.PhoneNumber,customer.IDNumber,room.RoomName,servicetype.ServiceType " +
+                var sql = "SELECT reservation.*,customer.Name,customer.PhoneNumber,customer.IDNumber,room.RoomName,room.RoomPrice,servicetype.ServiceType " +
                     "FROM reservation INNER JOIN customer ON reservation.CustomerID=customer.CustomerID "+
                     "join room ON `reservation`.`RoomID` = room.RoomID " +
                     "join servicetype ON `reservation`.ServiceID = servicetype.ServiceID Where 1=1";
@@ -82,6 +166,53 @@ namespace Recepcio_alkalmazas.Models
                 using (var cmd = new MySqlCommand(sql, con))
                 {
                     cmd.Parameters.AddWithValue("@id", id);
+                    cmd.ExecuteNonQuery();
+                }
+                con.Close();
+            }
+        }
+        public static int insert(reservation model)
+        {
+            using (var con = new MySqlConnection(ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString))
+            {
+                con.Open();
+                var sql = "INSERT INTO reservation (GuestNumber,Price,Children,Adults,ArrivalDate,LeavingDate,CustomerID,RoomID,ServiceID) VALUES " +
+                    "(@GuestNumber,@Price,@Children,@Children,@ArrivalDate,@LeavingDate,@CustomerID,@RoomID,@ServiceID)";
+                using (var cmd = new MySqlCommand(sql, con))
+                {
+                    cmd.Parameters.AddWithValue("@GuestNumber", model.GuestNumber);
+                    cmd.Parameters.AddWithValue("@Price", model.Price);
+                    cmd.Parameters.AddWithValue("@Children", model.Children);
+                    cmd.Parameters.AddWithValue("@Adults", model.Adults);
+                    cmd.Parameters.AddWithValue("@ArrivalDate", model.ArrivalDate);
+                    cmd.Parameters.AddWithValue("@LeavingDate", model.LeavingDate);
+                    cmd.Parameters.AddWithValue("@CustomerID", model.CustomerID);
+                    cmd.Parameters.AddWithValue("@RoomID", model.RoomID);
+                    cmd.Parameters.AddWithValue("@ServiceID", model.ServiceID);
+                    cmd.ExecuteNonQuery();
+                    return (int)cmd.LastInsertedId;
+                }
+            }
+        }
+        public static void update(reservation model)
+        {
+            using (var con = new MySqlConnection(ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString))
+            {
+                con.Open();
+                var sql = "UPDATE reservation SET GuestNumber=@GuestNumber,Price=@Price,Children=@Children,Adults=@Adults,ArrivalDate=@ArrivalDate," +
+                    "LeavingDate=@LeavingDate,CustomerID=@CustomerID,RoomID=@RoomID,ServiceID=@ServiceID WHERE ReservationID=@id";
+                using (var cmd = new MySqlCommand(sql, con))
+                {
+                    cmd.Parameters.AddWithValue("@GuestNumber", model.GuestNumber);
+                    cmd.Parameters.AddWithValue("@Price", model.Price);
+                    cmd.Parameters.AddWithValue("@Children", model.Children);
+                    cmd.Parameters.AddWithValue("@Adults", model.Adults);
+                    cmd.Parameters.AddWithValue("@ArrivalDate", model.ArrivalDate);
+                    cmd.Parameters.AddWithValue("@LeavingDate", model.LeavingDate);
+                    cmd.Parameters.AddWithValue("@CustomerID", model.CustomerID);
+                    cmd.Parameters.AddWithValue("@RoomID", model.RoomID);
+                    cmd.Parameters.AddWithValue("@ServiceID", model.ServiceID);
+                    cmd.Parameters.AddWithValue("@id", model.ReservationID);
                     cmd.ExecuteNonQuery();
                 }
                 con.Close();

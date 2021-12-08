@@ -29,7 +29,6 @@
             <DatePicker Margin="5" Name="dp_checkin" SelectedDate="{Binding ArrivalDate}" Foreground="Black" Background="DarkGray"/>
             <Label Content="Check Out:" Margin="5" Foreground="DarkGoldenrod" FontSize="15" FontWeight="Bold"/>
             <DatePicker Margin="5" Name="dp_checkout" SelectedDate="{Binding LeavingDate}" Foreground="Black" Background="DarkGray"/>
-            
         </StackPanel>
         <StackPanel Grid.Row="1" Grid.Column="1" Grid.RowSpan="3">
             <Label Content="Room type:" Margin="5" Foreground="DarkGoldenrod" FontSize="15" FontWeight="Bold"/>
