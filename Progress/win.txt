@@ -1,0 +1,6 @@
+SELECT * FROM `room` 
+	LEFT JOIN reservation on room.RoomID = reservation.RoomID
+    WHERE room.Capacity >= 2 and 
+    	 (reservation.LeavingDate <= '2021.12.01' or 
+          reservation.ArrivalDate >= '2021.12.10' OR
+          reservation.ArrivalDate is null)
