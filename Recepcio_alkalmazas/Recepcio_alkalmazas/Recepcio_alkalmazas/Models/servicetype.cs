@@ -18,12 +18,12 @@ namespace Recepcio_alkalmazas.Models
             set { _ServiceID = value; onPropertyChanged(); }
         }
 
-        private double _Price;
+        private double _ServicePrice;
 
-        public double Price
+        public double ServicePrice
         {
-            get { return _Price; }
-            set { _Price = value; onPropertyChanged(); }
+            get { return _ServicePrice; }
+            set { _ServicePrice = value; onPropertyChanged(); }
         }
         private string _ServiceType;
 
@@ -36,7 +36,7 @@ namespace Recepcio_alkalmazas.Models
         public servicetype(MySqlDataReader reader)
         {
             this.ServiceID = Convert.ToInt32(reader["ServiceID"]);
-            this.Price = Convert.ToDouble(reader["Price"]);
+            this.ServicePrice = Convert.ToDouble(reader["ServicePrice"]);
             this.ServiceType = reader["ServiceType"].ToString();
         }
         public static ObservableCollection<servicetype> selectAllNames()
@@ -78,8 +78,7 @@ namespace Recepcio_alkalmazas.Models
                             lista.Add(new servicetype()
                             {
                                 ServiceID = Convert.ToInt32( reader["ServiceID"])
-                            }
-                                                       );
+                            });
                         }
                     }
                 }

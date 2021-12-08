@@ -48,14 +48,14 @@ namespace Recepcio_alkalmazas.Models
         public DateTime ArrivalDate
         {
             get { return _ArrivalDate; }
-            set { _ArrivalDate = value; onPropertyChanged(); }
+            set { _ArrivalDate = value;  }
         }
         private DateTime _LeavingDate;
 
         public DateTime LeavingDate
         {
             get { return _LeavingDate; }
-            set { _LeavingDate = value; onPropertyChanged(); }
+            set { _LeavingDate = value;  }
         }
         private int _CustomerID;
 
@@ -106,6 +106,13 @@ namespace Recepcio_alkalmazas.Models
             get { return _RoomPrice; }
             set { _RoomPrice = value; onPropertyChanged(); }
         }
+        private double _ServicePrice;
+
+        public double ServicePrice
+        {
+            get { return _ServicePrice; }
+            set { _ServicePrice = value; onPropertyChanged(); }
+        }
         public reservation() { }
         public reservation(MySqlDataReader reader)
         {
@@ -125,7 +132,7 @@ namespace Recepcio_alkalmazas.Models
             this.RoomName = reader["RoomName"].ToString();
             this.ServiceType = reader["ServiceType"].ToString();
             this.RoomPrice = Convert.ToDouble(reader["RoomPrice"]);
-
+            this.ServicePrice = Convert.ToDouble(reader["ServicePrice"]);
         }
         public static ObservableCollection<reservation> selectByGuestName(string name)
         {
@@ -133,7 +140,7 @@ namespace Recepcio_alkalmazas.Models
             using (var con= new MySqlConnection(ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString))
             {
                 con.Open();
-                var sql = "SELECT reservation.*,customer.Name,customer.PhoneNumber,customer.IDNumber,room.RoomName,room.RoomPrice,servicetype.ServiceType " +
+                var sql = "SELECT reservation.*,customer.Name,customer.PhoneNumber,customer.IDNumber,room.RoomName,room.RoomPrice,servicetype.ServiceType,servicetype.ServicePrice " +
                     "FROM reservation INNER JOIN customer ON reservation.CustomerID=customer.CustomerID "+
                     "join room ON `reservation`.`RoomID` = room.RoomID " +
                     "join servicetype ON `reservation`.ServiceID = servicetype.ServiceID Where 1=1";

@@ -85,10 +85,14 @@ namespace Recepcio_alkalmazas.pages
         }
         private void dg_nevek_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            egyfoglalas=(reservation)dg_nevek.SelectedItem;
-            sp_adatok.DataContext = egyfoglalas;
-            tb_change.Text = tb_fizetett.Text = "";
-            x=egyfoglalas.Price;
+            if (dg_nevek.SelectedItem!=null)
+            {
+                egyfoglalas=(reservation)dg_nevek.SelectedItem;
+                sp_adatok.DataContext = egyfoglalas;
+                tb_change.Text = tb_fizetett.Text = "";
+                x=egyfoglalas.Price;
+
+            }
         }
         private void btn_utofizetes_Click(object sender, RoutedEventArgs e)
         {

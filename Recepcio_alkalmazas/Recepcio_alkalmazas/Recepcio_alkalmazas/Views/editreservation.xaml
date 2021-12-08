@@ -33,7 +33,7 @@
                             HorizontalAlignment="Center" SelectionUnit="FullRow" IsReadOnly="True" HeadersVisibility="Column" SelectionChanged="dg_foglalasok_SelectionChanged">
                 <DataGrid.Resources>
                     <Style BasedOn="{StaticResource {x:Type DataGridColumnHeader}}" TargetType="{x:Type DataGridColumnHeader}">
-                        <Setter Property="Background" Value="#353638" />
+                        <Setter Property="Background" Value="#353638"/>
                     </Style>
                 </DataGrid.Resources>
                 <DataGrid.Columns>

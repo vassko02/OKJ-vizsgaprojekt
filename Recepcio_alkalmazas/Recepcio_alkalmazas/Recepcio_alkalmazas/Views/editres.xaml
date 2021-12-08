@@ -38,10 +38,6 @@
         </StackPanel>
         <StackPanel Grid.Row="2" Grid.ColumnSpan="2">
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                <Label Content="Number of guests:"  Margin="5"  Foreground="DarkGoldenrod" FontSize="15" FontWeight="Bold"/>
-                <TextBox Name="tb_guestnumber" Text="{Binding GuestNumber}" Width="50" Margin="5"/>
-            </StackPanel>
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
                 <Label Content="Number of children:"  Margin="5"  Foreground="DarkGoldenrod" FontSize="15" FontWeight="Bold"/>
                 <TextBox Name="tb_childer" Width="50"  Text="{Binding Children}" Margin="5"/>
             </StackPanel>

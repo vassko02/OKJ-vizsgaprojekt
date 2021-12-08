@@ -96,11 +96,11 @@
                         <Label Foreground="DarkGoldenrod" HorizontalAlignment="Left" Content="{Binding PhoneNumber, UpdateSourceTrigger=PropertyChanged}" Name="lbl_phone" Margin="5" FontWeight="Bold" FontSize="14"/>
                     </StackPanel>
                     <StackPanel Grid.Row="3" Orientation="Horizontal">
-                        <Label Content="Arrival date:" Width="200"  HorizontalContentAlignment="Right"  Foreground="DarkGoldenrod" HorizontalAlignment="Right" Margin="5" FontWeight="Bold" FontSize="14"/>
+                        <Label Content="Check in:" Width="200"  HorizontalContentAlignment="Right"  Foreground="DarkGoldenrod" HorizontalAlignment="Right" Margin="5" FontWeight="Bold" FontSize="14"/>
                     <TextBlock Foreground="DarkGoldenrod" HorizontalAlignment="Left" Text="{Binding ArrivalDate, StringFormat=yyyy.MM.dd., UpdateSourceTrigger=PropertyChanged}" Name="lbl_arrive" Margin="5,10,5,5" FontWeight="Bold" FontSize="14"/>
                     </StackPanel>
                     <StackPanel Grid.Row="4" Orientation="Horizontal">
-                        <Label Content="Leaving date:" Width="200"  HorizontalContentAlignment="Right"  Foreground="DarkGoldenrod" HorizontalAlignment="Right" Margin="5" FontWeight="Bold" FontSize="14"/>
+                        <Label Content="Check out:" Width="200"  HorizontalContentAlignment="Right"  Foreground="DarkGoldenrod" HorizontalAlignment="Right" Margin="5" FontWeight="Bold" FontSize="14"/>
                     <TextBlock Foreground="DarkGoldenrod" HorizontalAlignment="Left" Text="{Binding LeavingDate, StringFormat=yyyy.MM.dd., UpdateSourceTrigger=PropertyChanged}" Name="lbl_leave" Margin="5,11,5,5" FontWeight="Bold" FontSize="14"/>
                     </StackPanel>
                     <StackPanel Grid.Row="5" Orientation="Horizontal">

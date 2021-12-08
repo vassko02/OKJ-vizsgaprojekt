@@ -88,18 +88,22 @@ namespace Recepcio_alkalmazas.pages
 
         private void dg_nevek_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            if (dg_nevek.SelectedIndex != -1)
+            if (dg_nevek.SelectedItem != null)
             {
                 reservation valasztott = (reservation)dg_nevek.SelectedItem;
                 int id = valasztott.ReservationID;
                 fogyasztasok = consumption.selectItemByReservationID(id);
                 dg_fogyasztas.DataContext = fogyasztasok;
-                osszeg = consumption.selectSumByID(id);
-                x = osszeg[0].osszeg;
-                lbl_vegosszeg.Content = string.Format("${0}", x.ToString());
-                egyfoglalas = (reservation)dg_nevek.SelectedItem;
-                tb_change.Text = tb_fizetett.Text = "";
-                btn_kartya.IsChecked = btn_keszpenz.IsChecked = false;
+                if (fogyasztasok.Count!=0)
+                {
+                    osszeg = consumption.selectSumByID(id);
+                    x = osszeg[0].osszeg;
+
+                }
+                    lbl_vegosszeg.Content = string.Format("${0}", x.ToString());
+                    egyfoglalas = (reservation)dg_nevek.SelectedItem;
+                    tb_change.Text = tb_fizetett.Text = "";
+                    btn_kartya.IsChecked = btn_keszpenz.IsChecked = false;
             }
         }
 

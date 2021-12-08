@@ -21,10 +21,11 @@ namespace Recepcio_alkalmazas.Views
     /// </summary>
     public partial class editres : Window
     {
-        public reservation egyfoglalas { get; private set; }
+        reservation egyfoglalas = new reservation();
         ObservableCollection<servicetype> tipusok = new ObservableCollection<servicetype>();
         ObservableCollection<room> szobak = new ObservableCollection<room>();
         ObservableCollection<room> szabadszobak = new ObservableCollection<room>();
+        reservation eredeti = new reservation();
         bool editlesz = true;
         public editres(reservation model)
         {
@@ -64,7 +65,7 @@ namespace Recepcio_alkalmazas.Views
             aktualis.ServiceType = servicetype.selectNameByID(aktualis.ServiceID)[0].ServiceType;
             aktualis.RoomName = cb_rooms.Text;
             int napok = (int)aktualis.LeavingDate.Subtract(aktualis.ArrivalDate).TotalDays;
-            //service price hozzáadása (fv már kész)
+            aktualis.ServicePrice = servicetype.selectPrice(aktualis.ServiceID)[0].ServicePrice;
             bool vanolyanszoba = false;
             foreach (var item in szabadszobak)
             {
@@ -72,7 +73,7 @@ namespace Recepcio_alkalmazas.Views
                 {
                     aktualis.RoomID = item.RoomID;
                     aktualis.RoomPrice = room.selectPriceByID(aktualis.RoomID)[0].RoomPrice;
-                    aktualis.Price = aktualis.RoomPrice * napok;
+                    aktualis.Price = aktualis.RoomPrice * napok+aktualis.ServicePrice;
                     aktualis.RoomName = room.selectRoomByID(aktualis.RoomID)[0].RoomName;
                     vanolyanszoba = true;
                     break;
@@ -83,18 +84,21 @@ namespace Recepcio_alkalmazas.Views
                 MessageBox.Show("There is no free room of that type in the selected interval!", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
             if (editlesz == true)
-            {
-                //update valamit akkor is updatel ha nem kell de valamit meg nem updatel csak a databaseben
+            {             
                 reservation.update(aktualis);
             }
             else
             {
                 //reservation.insert(aktualis);
             }
+            DialogResult = true;
             this.Close();
         }
         private void btn_cancel_Click(object sender, RoutedEventArgs e)
         {
+            DialogResult = false;
+            reservation.update(egyfoglalas);
+
             this.Close();
         }
 

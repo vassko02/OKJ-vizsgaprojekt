@@ -20,7 +20,7 @@
                              Text="{Binding SearchText, UpdateSourceTrigger=PropertyChanged}" TextChanged="tb_guestinput_TextChanged" />
             <DataGrid Margin="5" Foreground="White" FontWeight="Bold" Width="200" ItemsSource="{Binding}" AutoGenerateColumns="False" Height="150" Name="dg_nevek" CanUserAddRows="False"
                           GridLinesVisibility="None" RowBackground="#36393f" Background="#36393f" SelectionChanged="dg_nevek_SelectionChanged"
-                      HorizontalAlignment="Center" SelectionUnit="FullRow" IsReadOnly="True" HeadersVisibility="Column">
+                      HorizontalAlignment="Center" SelectionUnit="FullRow" IsReadOnly="True" IsSynchronizedWithCurrentItem="True" HeadersVisibility="Column">
                 <DataGrid.Resources>
                     <Style BasedOn="{StaticResource {x:Type DataGridColumnHeader}}" TargetType="{x:Type DataGridColumnHeader}">
                         <Setter Property="Background" Value="#353638" />
