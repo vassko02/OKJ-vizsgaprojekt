@@ -1,0 +1,40 @@
+* {
+  transition: all 0.3s ease-out;
+}
+
+p.small {
+  font-size: 14px;
+}
+
+.customcard1,.customcard2,.customcard3 {
+  border: none !important;
+  border-radius: none !important;
+  width: 25vw !important;
+  padding: 2vw;
+  margin: 2vw;
+}
+.customcard1 {
+  background-color: hsl(120, 65%, 30%);;
+}
+.customcard1 img{
+  content: url('../../pictures/casino/blackjack1.jpg');
+}
+.customcard2 {
+  background-color: hsl(0, 62%, 45%);
+}
+.customcard2 img{
+  content: url('../../pictures/casino/roulette1.jpg');
+}
+.customcard3 {
+  background-color: hsl(120, 65%, 30%);;
+}
+.customcard3 img{
+  content: url('../../pictures/casino/craps1.jpg');
+}
+.customcard1:hover,.customcard2:hover,.customcard3:hover {
+  box-shadow: 0px 0px 3000px 3000px rgba(0, 0, 0, 0.7);
+  z-index: 500;
+}
+/* .customcard1:hover p {
+  color: #00838d;
+} */

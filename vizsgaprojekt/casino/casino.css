@@ -4,7 +4,7 @@ body {
 
 /*Nyitó GIF és cím*/
 .gifdiv {
-    background-image: url('../pictures/Casino_v06.gif');
+    background-image: url('../pictures/casino/Casino_v06.gif');
     background-repeat: no-repeat;
     background-size: cover;
     width: 100%;
@@ -13,7 +13,7 @@ body {
 .cim {
     padding-top: 30vh;
 }
-h1 {
+.gifdiv h1 {
     font-family: 'Changa', sans-serif;
     text-align: center;
     color: hsl(0, 0%, 100%);
@@ -34,7 +34,7 @@ h1 {
                     0 10px 10px rgba(0,0,0,.2),
                     0 20px 20px rgba(0,0,0,.3);
 }
-h2 {
+.gifdiv h2 {
     color: hsl(0, 62%, 45%);
     text-align: center;
     font-weight: bold;
@@ -90,17 +90,11 @@ h2 {
 
 /*Játékok, kártyák*/
 .games {
-    background-color: hsl(120, 65%, 30%);
-}
-.cards {
-    padding: 3vh;
-}
-.games .card {
-    width: 20vw;
-    margin-top: 1vh;
-    margin-bottom: 1vh;
-    margin-left: auto;
-    margin-right: auto;
+    background-color: black;
+    justify-content: center;
+    background-image: url('../pictures/casino/fullcasino5.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 

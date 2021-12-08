@@ -37,6 +37,7 @@
             <link rel="preconnect" href="https://fonts.googleapis.com">
             <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
             <link href="https://fonts.googleapis.com/css2?family=Changa:wght@700&display=swap" rel="stylesheet"> 
+            <link rel="stylesheet" href="./casino/gamescards/style.css">
             ';}
         if ($m == 'book') { echo '<link rel="stylesheet" href="./book/book.css">
             <link rel="stylesheet" href="./book/button-hover/dist/style.css">
