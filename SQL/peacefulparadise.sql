@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Gép: 127.0.0.1
--- Létrehozás ideje: 2021. Dec 06. 20:06
+-- Létrehozás ideje: 2021. Dec 10. 19:16
 -- Kiszolgáló verziója: 10.4.21-MariaDB
 -- PHP verzió: 7.3.31
 
@@ -71,9 +71,6 @@ CREATE TABLE `consumption` (
 --
 
 INSERT INTO `consumption` (`ConsumptionID`, `Price`, `ItemName`, `ReservationID`) VALUES
-(1, 1.49, 'Coca-Cola', 1),
-(3, 1.49, 'Coca-Cola', 1),
-(4, 1.49, 'Coca-Cola', 1),
 (5, 1.49, 'Coca-Cola', 1),
 (6, 1, 'Accomodation', 1);
 
@@ -87,16 +84,16 @@ CREATE TABLE `customer` (
   `CustomerID` int(11) NOT NULL,
   `Name` varchar(50) NOT NULL,
   `PhoneNumber` varchar(15) NOT NULL,
-  `IDNumber` varchar(15) NOT NULL
+  `Email` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='Customer data';
 
 --
 -- A tábla adatainak kiíratása `customer`
 --
 
-INSERT INTO `customer` (`CustomerID`, `Name`, `PhoneNumber`, `IDNumber`) VALUES
+INSERT INTO `customer` (`CustomerID`, `Name`, `PhoneNumber`, `Email`) VALUES
 (1, 'TestUser', '123', '123'),
-(2, 'TestUser', '123', '123');
+(3, 'TestUser2', '123', '123');
 
 -- --------------------------------------------------------
 
@@ -122,7 +119,7 @@ CREATE TABLE `reservation` (
 --
 
 INSERT INTO `reservation` (`ReservationID`, `GuestNumber`, `Price`, `Children`, `Adults`, `ArrivalDate`, `LeavingDate`, `CustomerID`, `RoomID`, `ServiceID`) VALUES
-(1, 4, 1, 1, 1, '2021-12-08', '2021-12-16', 1, 3, 1);
+(1, 4, 9139.99, 3, 1, '2021-12-05', '2021-12-12', 1, 16, 2);
 
 -- --------------------------------------------------------
 
@@ -135,14 +132,14 @@ CREATE TABLE `room` (
   `RoomName` varchar(100) NOT NULL,
   `Capacity` int(11) NOT NULL,
   `Description` varchar(1000) NOT NULL,
-  `Price` double NOT NULL
+  `RoomPrice` double NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- A tábla adatainak kiíratása `room`
 --
 
-INSERT INTO `room` (`RoomID`, `RoomName`, `Capacity`, `Description`, `Price`) VALUES
+INSERT INTO `room` (`RoomID`, `RoomName`, `Capacity`, `Description`, `RoomPrice`) VALUES
 (1, 'Classic Room | 1 King | Non-Smoking', 2, 'One of our most popular rooms in the entire hotel, equipped with a 4K TV, a smart fridge, and a microwave. Outside on the balcony you will se on of the best sceneries that you have ever seen. The room has a classic look, with some modern touches to it. This is one of our non smoking rooms with unlimited Wifi access.', 600),
 (2, 'Classic Room | 1 King | Non-Smoking', 2, 'One of our most popular rooms in the entire hotel, equipped with a 4K TV, a smart fridge, and a microwave. Outside on the balcony you will se on of the best sceneries that you have ever seen. The room has a classic look, with some modern touches to it. This is one of our non smoking rooms with unlimited Wifi access.', 600),
 (3, 'Classic Room | 1 King | Non-Smoking', 2, 'One of our most popular rooms in the entire hotel, equipped with a 4K TV, a smart fridge, and a microwave. Outside on the balcony you will se on of the best sceneries that you have ever seen. The room has a classic look, with some modern touches to it. This is one of our non smoking rooms with unlimited Wifi access.', 600),
@@ -182,7 +179,7 @@ INSERT INTO `room` (`RoomID`, `RoomName`, `Capacity`, `Description`, `Price`) VA
 
 CREATE TABLE `servicetype` (
   `ServiceID` int(11) NOT NULL,
-  `Price` double NOT NULL,
+  `ServicePrice` double NOT NULL,
   `ServiceType` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -190,7 +187,7 @@ CREATE TABLE `servicetype` (
 -- A tábla adatainak kiíratása `servicetype`
 --
 
-INSERT INTO `servicetype` (`ServiceID`, `Price`, `ServiceType`) VALUES
+INSERT INTO `servicetype` (`ServiceID`, `ServicePrice`, `ServiceType`) VALUES
 (1, 19.99, 'Breakfast only'),
 (2, 29.99, 'Half Board'),
 (3, 39.99, 'Full Board');
@@ -253,19 +250,19 @@ ALTER TABLE `cashregister`
 -- AUTO_INCREMENT a táblához `consumption`
 --
 ALTER TABLE `consumption`
-  MODIFY `ConsumptionID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `ConsumptionID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT a táblához `customer`
 --
 ALTER TABLE `customer`
-  MODIFY `CustomerID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `CustomerID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT a táblához `reservation`
 --
 ALTER TABLE `reservation`
-  MODIFY `ReservationID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `ReservationID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT a táblához `room`
