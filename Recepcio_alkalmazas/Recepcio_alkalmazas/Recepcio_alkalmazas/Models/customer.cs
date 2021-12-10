@@ -39,7 +39,7 @@ namespace Recepcio_alkalmazas.Models
             {
                 con.Open();
                 var sql = "Select customer.Name from customer inner join reservation on customer.CustomerID=reservation.CustomerID where 1=1";
-                sql += " AND reservation.ReservationID LIKE @id";
+                    sql += " AND reservation.ReservationID LIKE @id";
                 using (var cmd = new MySqlCommand(sql, con))
                 {
                     cmd.Parameters.AddWithValue("@id", id);
@@ -59,6 +59,44 @@ namespace Recepcio_alkalmazas.Models
                 con.Close();
             }
             return lista;
+        }
+        public static ObservableCollection<customer> selectGuestNames()
+        {
+            var lista = new ObservableCollection<customer>();
+            using (var con = new MySqlConnection(ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString))
+            {
+                con.Open();
+                var sql = "Select * from customer";
+                using (var cmd = new MySqlCommand(sql, con))
+                {
+                    using (var reader = cmd.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            lista.Add(new customer(reader));
+                        }
+                    }
+                }
+                con.Close();
+            }
+            return lista;
+        }
+        public static int insert(customer model)
+        {
+            using (var con = new MySqlConnection(ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString))
+            {
+                con.Open();
+                var sql = "INSERT INTO customer (Name,PhoneNumber,Email) VALUES " +
+                    "(@Name,@PhoneNumber,@Email)";
+                using (var cmd = new MySqlCommand(sql, con))
+                {
+                    cmd.Parameters.AddWithValue("@Name", model.Name);
+                    cmd.Parameters.AddWithValue("@PhoneNumber", model.PhoneNumber);
+                    cmd.Parameters.AddWithValue("@Email", model.Email);
+                    cmd.ExecuteNonQuery();
+                    return (int)cmd.LastInsertedId;
+                }
+            }
         }
     }
 }

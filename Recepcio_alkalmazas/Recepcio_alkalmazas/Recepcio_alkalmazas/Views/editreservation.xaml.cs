@@ -79,10 +79,7 @@ namespace Recepcio_alkalmazas.pages
         private void btn_guestadd_Click(object sender, RoutedEventArgs e)
         {
             var vendegadd = new AddGuest();
-            if (vendegadd.ShowDialog() == true)
-            {
-                
-            }
+            vendegadd.ShowDialog();
         }
     }
 }

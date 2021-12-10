@@ -25,6 +25,7 @@ namespace Recepcio_alkalmazas.Views
         ObservableCollection<servicetype> tipusok = new ObservableCollection<servicetype>();
         ObservableCollection<room> szobak = new ObservableCollection<room>();
         ObservableCollection<room> szabadszobak = new ObservableCollection<room>();
+        ObservableCollection<customer> vendegek = new ObservableCollection<customer>();
         reservation eredeti = new reservation();
         bool editlesz = true;
         public editres(reservation model)
@@ -33,11 +34,19 @@ namespace Recepcio_alkalmazas.Views
             egyfoglalas = model;
             szobak = room.selectAllRooms();
             this.DataContext = egyfoglalas;
+            cb_vendegek.ItemsSource = customer.selectGuestNames().Select(x=>x.Name).Distinct();
+            //nem jelenik meg a vendég nevek a cbben
+
             if (egyfoglalas.ReservationID == 0)
             {
                 editlesz = false;
                 egyfoglalas.ArrivalDate = DateTime.Today;
                 egyfoglalas.LeavingDate = DateTime.Today;
+                cb_vendegek.SelectedIndex = 0;
+            }
+            else
+            {
+                cb_vendegek.IsEditable = false;
             }
             tipusok = servicetype.selectAllNames();
             cb_services.ItemsSource = tipusok;

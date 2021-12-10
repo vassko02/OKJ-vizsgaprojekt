@@ -48,14 +48,14 @@
         </StackPanel>
         <StackPanel Grid.Column="1">
             <StackPanel Orientation="Horizontal">
-                <Button Padding="5" FontWeight="Bold" Width="300" Name="btn_hozzaad" Content="Add new reservation" Background="Black" Foreground="DarkGoldenrod" Margin="30,10,30,10" Click="btn_hozzaad_Click">
+                <Button Padding="5" FontWeight="Bold" Width="180" Name="btn_hozzaad" Content="Add new reservation" Background="Black" Foreground="DarkGoldenrod" Margin="30,10,30,10" Click="btn_hozzaad_Click">
                     <Button.Resources>
                         <Style TargetType="Border">
                             <Setter Property="CornerRadius" Value="5"/>
                         </Style>
                     </Button.Resources>
                 </Button>
-                <Button Padding="5" FontWeight="Bold" Width="300" Name="btn_edit" Content="Edit selected reservation" Background="Black" Foreground="DarkGoldenrod" Margin="30,10,30,10" Click="btn_edit_Click">
+                <Button Padding="5" FontWeight="Bold" Width="180" Name="btn_edit" Content="Edit selected reservation" Background="Black" Foreground="DarkGoldenrod" Margin="30,10,30,10" Click="btn_edit_Click">
                     <Button.Resources>
                         <Style TargetType="Border">
                             <Setter Property="CornerRadius" Value="5"/>
@@ -64,14 +64,14 @@
                 </Button>
             </StackPanel>
             <StackPanel Orientation="Horizontal">
-                <Button Padding="5" FontWeight="Bold" Width="300" Name="btn_guestadd" Content="Add new guest" Background="Black" Foreground="DarkGoldenrod" Margin="30,10,30,10" Click="btn_guestadd_Click">
+                <Button Padding="5" FontWeight="Bold" Width="180" Name="btn_guestadd" Content="Add new guest" Background="Black" Foreground="DarkGoldenrod" Margin="30,10,30,10" Click="btn_guestadd_Click">
                     <Button.Resources>
                         <Style TargetType="Border">
                             <Setter Property="CornerRadius" Value="5"/>
                         </Style>
                     </Button.Resources>
                 </Button>
-                <Button Padding="5" FontWeight="Bold" Width="300" Name="btn_torles" Content="Delete selected reservation" Background="Black" Foreground="DarkGoldenrod" Margin="30,10,30,10" Click="btn_torles_Click">
+                <Button Padding="5" FontWeight="Bold" Width="180" Name="btn_torles" Content="Delete selected reservation" Background="Black" Foreground="DarkGoldenrod" Margin="30,10,30,10" Click="btn_torles_Click">
                     <Button.Resources>
                         <Style TargetType="Border">
                             <Setter Property="CornerRadius" Value="5"/>

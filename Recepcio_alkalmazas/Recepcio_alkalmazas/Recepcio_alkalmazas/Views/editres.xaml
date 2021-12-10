@@ -9,7 +9,7 @@
         Title="editres" Height="460" Width="400" WindowStartupLocation="CenterScreen" WindowStyle="None" ResizeMode="NoResize" AllowsTransparency="False">
     <Grid MouseDown="Grid_MouseDown">
         <Grid.RowDefinitions>
-            <RowDefinition Height="50"/>
+            <RowDefinition Height="auto"/>
             <RowDefinition Height="160"/>
             <RowDefinition Height="auto"/>
             <RowDefinition Height="100"/>
@@ -23,6 +23,10 @@
         </Grid.Background>
         <StackPanel Grid.ColumnSpan="2">
             <Label Content="Reservation data:" FontSize="20" Foreground="DarkGoldenrod" FontWeight="Bold" Margin="5" HorizontalAlignment="Center"/>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                <Label Content="Guest name:" Foreground="DarkGoldenrod" FontWeight="Bold" Margin="5" FontSize="15"/>
+                <ComboBox Name="cb_vendegek"  DisplayMemberPath="Name" SelectedValuePath="CustomerID" Width="150" Margin="5" FontSize="15"/>
+            </StackPanel>
         </StackPanel>
         <StackPanel Grid.Row="1">
             <Label Content="Check In:" Margin="5" Foreground="DarkGoldenrod" FontSize="15" FontWeight="Bold"/>
@@ -47,7 +51,8 @@
             </StackPanel>
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
                 <Label Content="Price:"  Margin="5"  Foreground="DarkGoldenrod" FontSize="15" FontWeight="Bold"/>
-                <Label Name="lbl_ar" Content="{Binding Price}" Width="50" Foreground="DarkGoldenrod" Margin="5"/>
+                <TextBlock Name="lbl_ar" Text="{Binding Price, UpdateSourceTrigger=PropertyChanged, StringFormat=$ \{0\}}" FontSize="15" 
+                           FontWeight="Bold" VerticalAlignment="Center" Width="100" Foreground="DarkGoldenrod" Margin="5"/>
             </StackPanel>
         </StackPanel>
         <Button Padding="5" Grid.Row="3" Height="40" FontWeight="Bold" Name="btn_save" Background="Black" Margin="30,10,30,10" Click="btn_save_Click">
