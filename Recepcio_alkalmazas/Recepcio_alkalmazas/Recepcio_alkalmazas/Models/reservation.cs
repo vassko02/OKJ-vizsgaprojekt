@@ -83,7 +83,7 @@ namespace Recepcio_alkalmazas.Models
 
         public string Name { get; set; }
         public string PhoneNumber { get; set; }
-        public string IDNumber { get; set; }
+        public string Email { get; set; }
 
         private string _RoomName;
         public string RoomName
@@ -128,7 +128,7 @@ namespace Recepcio_alkalmazas.Models
             this.RoomID = Convert.ToInt32(reader["RoomID"]);
             this.Name = reader["Name"].ToString();
             this.PhoneNumber = reader["PhoneNumber"].ToString();
-            this.IDNumber = reader["IDNumber"].ToString();
+            this.Email = reader["Email"].ToString();
             this.RoomName = reader["RoomName"].ToString();
             this.ServiceType = reader["ServiceType"].ToString();
             this.RoomPrice = Convert.ToDouble(reader["RoomPrice"]);
@@ -140,7 +140,7 @@ namespace Recepcio_alkalmazas.Models
             using (var con= new MySqlConnection(ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString))
             {
                 con.Open();
-                var sql = "SELECT reservation.*,customer.Name,customer.PhoneNumber,customer.IDNumber,room.RoomName,room.RoomPrice,servicetype.ServiceType,servicetype.ServicePrice " +
+                var sql = "SELECT reservation.*,customer.Name,customer.PhoneNumber,customer.Email,room.RoomName,room.RoomPrice,servicetype.ServiceType,servicetype.ServicePrice " +
                     "FROM reservation INNER JOIN customer ON reservation.CustomerID=customer.CustomerID "+
                     "join room ON `reservation`.`RoomID` = room.RoomID " +
                     "join servicetype ON `reservation`.ServiceID = servicetype.ServiceID Where 1=1";

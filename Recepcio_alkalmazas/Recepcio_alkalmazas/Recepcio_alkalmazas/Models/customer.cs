@@ -23,14 +23,14 @@ namespace Recepcio_alkalmazas.Models
             set { _Name = value; onPropertyChanged(); }
         }
         public string PhoneNumber { get; set; }
-        public string IDNumber { get; set; }
+        public string Email { get; set; }
         public customer(){ }
         public customer(MySqlDataReader reader)
         {
             this.CustomerID = Convert.ToInt32(reader["CustomerID"]);
             this.Name = reader["Name"].ToString();
             this.PhoneNumber = reader["PhoneNumber"].ToString();
-            this.IDNumber = reader["IDNumber"].ToString();
+            this.Email = reader["Email"].ToString();
         }
         public static ObservableCollection<customer> selectGuestNameByResID(int id)
         {

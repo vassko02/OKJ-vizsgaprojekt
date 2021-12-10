@@ -41,7 +41,7 @@ namespace Recepcio_alkalmazas.pages
         {
             if (dg_foglalasok.SelectedIndex != -1)
             {
-                if (MessageBox.Show("Are you sure you wnat to delete the selected reservation?", "Confirmation", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
+                if (MessageBox.Show("Are you sure you want to delete the selected reservation?", "Confirmation", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
                 {
                     reservation.delete(egyfoglalas.ReservationID);
                     tb_guestinput.Text = "";
@@ -74,6 +74,15 @@ namespace Recepcio_alkalmazas.pages
             reservation foglalasad = new reservation();
             var hozzaad = new editres(foglalasad);
             hozzaad.ShowDialog();
+        }
+
+        private void btn_guestadd_Click(object sender, RoutedEventArgs e)
+        {
+            var vendegadd = new AddGuest();
+            if (vendegadd.ShowDialog() == true)
+            {
+                
+            }
         }
     }
 }
