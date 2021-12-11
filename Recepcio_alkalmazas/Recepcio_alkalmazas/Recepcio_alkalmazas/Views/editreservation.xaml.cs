@@ -72,10 +72,14 @@ namespace Recepcio_alkalmazas.pages
         private void btn_hozzaad_Click(object sender, RoutedEventArgs e)
         {
             reservation foglalasad = new reservation();
-            var hozzaad = new editres(foglalasad);
-            hozzaad.ShowDialog();
+            var hozzaad = new editres(foglalasad);         
+            if (hozzaad.ShowDialog()==true)
+            {
+                foglalasok = reservation.selectByGuestName(null);
+                dg_foglalasok.ItemsSource = foglalasok;
+                dg_foglalasok.SelectedIndex = 0;
+            }
         }
-
         private void btn_guestadd_Click(object sender, RoutedEventArgs e)
         {
             var vendegadd = new AddGuest();

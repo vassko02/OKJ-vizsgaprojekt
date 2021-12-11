@@ -104,38 +104,13 @@ namespace Recepcio_alkalmazas.Models
             }
             return lista;
         }
-        public static ObservableCollection<room> selectPriceByID(int id)
-        {
-            var lista = new ObservableCollection<room>();
-            using (var con = new MySqlConnection(ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString))
-            {
-                con.Open();
-                var sql = "SELECT RoomPrice from room where room.RoomID=@id";
-                using (var cmd = new MySqlCommand(sql, con))
-                {
-                    cmd.Parameters.AddWithValue("@id", id);
-                    using (var reader = cmd.ExecuteReader())
-                    {
-                        while (reader.Read())
-                        {
-                            lista.Add(new room()
-                            {
-                                RoomPrice = Convert.ToDouble(reader["RoomPrice"]),
-                            });
-                        }
-                    }
-                }
-                con.Close();
-            }
-            return lista;
-        }
         public static ObservableCollection<room> selectRoomByID(int id)
         {
             var lista = new ObservableCollection<room>();
             using (var con = new MySqlConnection(ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString))
             {
                 con.Open();
-                var sql = "SELECT RoomName from room where room.RoomID=@id";
+                var sql = "SELECT * from room where room.RoomID=@id";
                 using (var cmd = new MySqlCommand(sql, con))
                 {
                     cmd.Parameters.AddWithValue("@id", id);
@@ -143,10 +118,7 @@ namespace Recepcio_alkalmazas.Models
                     {
                         while (reader.Read())
                         {
-                            lista.Add(new room()
-                            {
-                                RoomName = reader["RoomName"].ToString()
-                            });
+                            lista.Add(new room(reader));
                         }
                     }
                 }

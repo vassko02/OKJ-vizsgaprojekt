@@ -34,9 +34,7 @@ namespace Recepcio_alkalmazas.Views
             egyfoglalas = model;
             szobak = room.selectAllRooms();
             this.DataContext = egyfoglalas;
-            cb_vendegek.ItemsSource = customer.selectGuestNames().Select(x=>x.Name).Distinct();
-            //nem jelenik meg a vendég nevek a cbben
-
+            cb_vendegek.ItemsSource = customer.selectGuestNames();
             if (egyfoglalas.ReservationID == 0)
             {
                 editlesz = false;
@@ -46,7 +44,8 @@ namespace Recepcio_alkalmazas.Views
             }
             else
             {
-                cb_vendegek.IsEditable = false;
+                cb_vendegek.SelectedValue = egyfoglalas.CustomerID;
+                cb_vendegek.IsEnabled = false;
             }
             tipusok = servicetype.selectAllNames();
             cb_services.ItemsSource = tipusok;
@@ -63,7 +62,8 @@ namespace Recepcio_alkalmazas.Views
         {
             reservation aktualis = new reservation();
             aktualis.ReservationID = egyfoglalas.ReservationID;
-            aktualis.CustomerID = egyfoglalas.CustomerID;
+            customer a = (customer)cb_vendegek.SelectedItem;
+            aktualis.CustomerID = a.CustomerID;
             aktualis.Adults = int.Parse(tb_adults.Text);
             aktualis.Children = int.Parse(tb_childer.Text);
             aktualis.ArrivalDate = Convert.ToDateTime(dp_checkin.SelectedDate);
@@ -76,32 +76,53 @@ namespace Recepcio_alkalmazas.Views
             int napok = (int)aktualis.LeavingDate.Subtract(aktualis.ArrivalDate).TotalDays;
             aktualis.ServicePrice = servicetype.selectPrice(aktualis.ServiceID)[0].ServicePrice;
             bool vanolyanszoba = false;
+            bool vanerror = false;
             foreach (var item in szabadszobak)
             {
                 if (item.RoomName==aktualis.RoomName)
                 {
                     aktualis.RoomID = item.RoomID;
-                    aktualis.RoomPrice = room.selectPriceByID(aktualis.RoomID)[0].RoomPrice;
+                    aktualis.RoomPrice = room.selectRoomByID(aktualis.RoomID)[0].RoomPrice;
                     aktualis.Price = aktualis.RoomPrice * napok+aktualis.ServicePrice;
                     aktualis.RoomName = room.selectRoomByID(aktualis.RoomID)[0].RoomName;
+                    aktualis.Capacity = room.selectRoomByID(aktualis.RoomID)[0].Capacity;
                     vanolyanszoba = true;
                     break;
                 }               
             }
+            //nem működik a 3->4 helyes zoba foglalása
+
             if(vanolyanszoba==false)
             {
                 MessageBox.Show("There is no free room of that type in the selected interval!", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
-            }
-            if (editlesz == true)
-            {             
-                reservation.update(aktualis);
+                vanerror = true;
             }
             else
             {
-                //reservation.insert(aktualis);
+
             }
-            DialogResult = true;
-            this.Close();
+            int szam = aktualis.GuestNumber;
+            if (aktualis.GuestNumber%2==1)
+            {
+                szam++;
+            }
+            if (szam!=aktualis.Capacity)
+            {
+                MessageBox.Show("The number of guests and the capacity of the selected room is not appropriate!", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                vanerror = true;
+            }
+            if (editlesz == true&&vanerror==false)
+            {             
+                reservation.update(aktualis);
+                DialogResult = true;
+                this.Close();
+            }
+            if (editlesz != true && vanerror == false)
+            {
+                reservation.insert(aktualis);
+                DialogResult = true;
+                this.Close();
+            }
         }
         private void btn_cancel_Click(object sender, RoutedEventArgs e)
         {
@@ -110,7 +131,6 @@ namespace Recepcio_alkalmazas.Views
 
             this.Close();
         }
-
         private void Grid_MouseDown(object sender, MouseButtonEventArgs e)
         {
             if (e.LeftButton == MouseButtonState.Pressed)

@@ -30,7 +30,7 @@
         </StackPanel>
         <StackPanel Grid.Row="1">
             <Label Content="Check In:" Margin="5" Foreground="DarkGoldenrod" FontSize="15" FontWeight="Bold"/>
-            <DatePicker Margin="5" Name="dp_checkin" SelectedDate="{Binding ArrivalDate}" Foreground="Black" Background="DarkGray"/>
+            <DatePicker Margin="5" Name="dp_checkin" SelectedDate="{Binding ArrivalDate}"  Foreground="Black" Background="DarkGray"/>
             <Label Content="Check Out:" Margin="5" Foreground="DarkGoldenrod" FontSize="15" FontWeight="Bold"/>
             <DatePicker Margin="5" Name="dp_checkout" SelectedDate="{Binding LeavingDate}" Foreground="Black" Background="DarkGray"/>
         </StackPanel>
@@ -43,16 +43,11 @@
         <StackPanel Grid.Row="2" Grid.ColumnSpan="2">
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
                 <Label Content="Number of children:"  Margin="5"  Foreground="DarkGoldenrod" FontSize="15" FontWeight="Bold"/>
-                <TextBox Name="tb_childer" Width="50"  Text="{Binding Children}" Margin="5"/>
+                <TextBox Name="tb_childer" Width="50"  Text="{Binding Children}" Margin="5" />
             </StackPanel>
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                <Label Content="Number of adults:"  Margin="5"  Foreground="DarkGoldenrod" FontSize="15" FontWeight="Bold"/>
-                <TextBox Name="tb_adults" Width="50" Margin="5"  Text="{Binding Adults}"/>
-            </StackPanel>
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                <Label Content="Price:"  Margin="5"  Foreground="DarkGoldenrod" FontSize="15" FontWeight="Bold"/>
-                <TextBlock Name="lbl_ar" Text="{Binding Price, UpdateSourceTrigger=PropertyChanged, StringFormat=$ \{0\}}" FontSize="15" 
-                           FontWeight="Bold" VerticalAlignment="Center" Width="100" Foreground="DarkGoldenrod" Margin="5"/>
+                <Label Content="Number of adults:" Margin="5" Foreground="DarkGoldenrod" FontSize="15" FontWeight="Bold"/>
+                <TextBox Name="tb_adults" Width="50" Margin="5" Text="{Binding Adults}"/>
             </StackPanel>
         </StackPanel>
         <Button Padding="5" Grid.Row="3" Height="40" FontWeight="Bold" Name="btn_save" Background="Black" Margin="30,10,30,10" Click="btn_save_Click">
@@ -77,6 +72,5 @@
                 <iconPacks:PackIconMaterial Width="15" Height="14" Kind="Cancel" Foreground="DarkGoldenrod" VerticalContentAlignment="Center" VerticalAlignment="Center"/>
             </StackPanel>
         </Button>
-        
     </Grid>
 </Window>

@@ -80,6 +80,13 @@ namespace Recepcio_alkalmazas.Models
             get { return _RoomID; }
             set { _RoomID = value; onPropertyChanged(); }
         }
+        private int _Capacity;
+
+        public int Capacity
+        {
+            get { return _Capacity; }
+            set { _Capacity = value; onPropertyChanged(); }
+        }
 
         public string Name { get; set; }
         public string PhoneNumber { get; set; }
@@ -140,7 +147,7 @@ namespace Recepcio_alkalmazas.Models
             using (var con= new MySqlConnection(ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString))
             {
                 con.Open();
-                var sql = "SELECT reservation.*,customer.Name,customer.PhoneNumber,customer.Email,room.RoomName,room.RoomPrice,servicetype.ServiceType,servicetype.ServicePrice " +
+                var sql = "SELECT reservation.*,customer.Name,customer.PhoneNumber,customer.Email,room.RoomName,room.RoomPrice,room.Capacity,servicetype.ServiceType,servicetype.ServicePrice " +
                     "FROM reservation INNER JOIN customer ON reservation.CustomerID=customer.CustomerID "+
                     "join room ON `reservation`.`RoomID` = room.RoomID " +
                     "join servicetype ON `reservation`.ServiceID = servicetype.ServiceID Where 1=1";
