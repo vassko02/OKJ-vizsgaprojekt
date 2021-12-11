@@ -79,7 +79,7 @@ namespace Recepcio_alkalmazas.Models
             {
                 con.Open();
                 var sql = "SELECT room.RoomID,Room.RoomName FROM `room` LEFT JOIN reservation on room.RoomID = reservation.RoomID" +
-                    " WHERE room.Capacity = @guestnumber and (reservation.LeavingDate <= @ArrivalDate " +
+                    " WHERE (room.Capacity = @guestnumber or room.Capacity-1=@guestnumber) and (reservation.LeavingDate <= @ArrivalDate " +
                     "or reservation.ArrivalDate >= @LeavingDate OR reservation.ArrivalDate is null)";
                 using (var cmd = new MySqlCommand(sql, con))
                 {
@@ -95,7 +95,6 @@ namespace Recepcio_alkalmazas.Models
                             {
                                 RoomID = Convert.ToInt32(reader["RoomID"]),
                                 RoomName = reader["RoomName"].ToString(),
-
                             });
                         }
                     }

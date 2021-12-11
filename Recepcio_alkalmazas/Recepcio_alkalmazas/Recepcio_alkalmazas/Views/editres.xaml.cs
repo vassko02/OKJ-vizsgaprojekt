@@ -77,38 +77,24 @@ namespace Recepcio_alkalmazas.Views
             aktualis.ServicePrice = servicetype.selectPrice(aktualis.ServiceID)[0].ServicePrice;
             bool vanolyanszoba = false;
             bool vanerror = false;
+            ObservableCollection<room> egyszoba = room.selectRoomByID(aktualis.RoomID);
             foreach (var item in szabadszobak)
             {
                 if (item.RoomName==aktualis.RoomName)
                 {
                     aktualis.RoomID = item.RoomID;
+                    
                     aktualis.RoomPrice = room.selectRoomByID(aktualis.RoomID)[0].RoomPrice;
                     aktualis.Price = aktualis.RoomPrice * napok+aktualis.ServicePrice;
                     aktualis.RoomName = room.selectRoomByID(aktualis.RoomID)[0].RoomName;
                     aktualis.Capacity = room.selectRoomByID(aktualis.RoomID)[0].Capacity;
                     vanolyanszoba = true;
                     break;
-                }               
+                }         
             }
-            //nem működik a 3->4 helyes zoba foglalása
-
-            if(vanolyanszoba==false)
+            if(vanolyanszoba==false||dp_checkout.SelectedDate<dp_checkin.SelectedDate)
             {
-                MessageBox.Show("There is no free room of that type in the selected interval!", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
-                vanerror = true;
-            }
-            else
-            {
-
-            }
-            int szam = aktualis.GuestNumber;
-            if (aktualis.GuestNumber%2==1)
-            {
-                szam++;
-            }
-            if (szam!=aktualis.Capacity)
-            {
-                MessageBox.Show("The number of guests and the capacity of the selected room is not appropriate!", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show("There is something wrong with the provided data!", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                 vanerror = true;
             }
             if (editlesz == true&&vanerror==false)
@@ -137,6 +123,14 @@ namespace Recepcio_alkalmazas.Views
             {
                 DragMove();
             }
+        }
+        private void tb_childer_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            
+        }
+        private void tb_adults_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
         }
     }
 }
