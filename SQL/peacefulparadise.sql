@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Gép: 127.0.0.1
--- Létrehozás ideje: 2021. Dec 10. 19:16
+-- Létrehozás ideje: 2021. Dec 12. 15:19
 -- Kiszolgáló verziója: 10.4.21-MariaDB
 -- PHP verzió: 7.3.31
 
@@ -51,7 +51,12 @@ INSERT INTO `cashregister` (`CashRegisterID`, `GuestName`, `Amount`, `Title`, `P
 (6, 'TestUser', 1, 'Guest paying when checking-out', 1, 0),
 (7, 'TestUser', 1, 'Guest paying at check-in', 10, 9),
 (8, 'TestUser', 8.45, 'Guest paying when checking-out', 10, 1.55),
-(9, 'TestUser', 8.45, 'Guest paying when checking-out', 8.45, 0);
+(9, 'TestUser', 8.45, 'Guest paying when checking-out', 8.45, 0),
+(10, 'TestUser2', 8419.99, 'Guest paying at check-in', 9000, 580.0100000000002),
+(11, 'Béla', 8129.99, 'Guest paying at check-in', 8200, 70.01000000000022),
+(12, 'TestUser', 9129.99, 'Guest paying at check-in', 9200, 70.01000000000022),
+(13, 'TestUser', 1, 'Guest paying when checking-out', 1, 0),
+(14, 'Béla', 0, 'Guest paying when checking-out', 0, 0);
 
 -- --------------------------------------------------------
 
@@ -71,8 +76,11 @@ CREATE TABLE `consumption` (
 --
 
 INSERT INTO `consumption` (`ConsumptionID`, `Price`, `ItemName`, `ReservationID`) VALUES
-(5, 1.49, 'Coca-Cola', 1),
-(6, 1, 'Accomodation', 1);
+(6, 1, 'Accomodation', 1),
+(12, 3619.99, 'Accomodation', 10),
+(13, 1.49, 'Coca-Cola', 4),
+(14, 1.49, 'Coca-Cola', 4),
+(15, 1.49, 'Cappy', 4);
 
 -- --------------------------------------------------------
 
@@ -93,7 +101,9 @@ CREATE TABLE `customer` (
 
 INSERT INTO `customer` (`CustomerID`, `Name`, `PhoneNumber`, `Email`) VALUES
 (1, 'TestUser', '123', '123'),
-(3, 'TestUser2', '123', '123');
+(3, 'TestUser2', '123', '123'),
+(4, 'Béla', '+3620123456', 'a@a.hu'),
+(5, 'János', '123', '123');
 
 -- --------------------------------------------------------
 
@@ -111,15 +121,21 @@ CREATE TABLE `reservation` (
   `LeavingDate` date NOT NULL,
   `CustomerID` int(11) NOT NULL,
   `RoomID` int(11) NOT NULL,
-  `ServiceID` int(11) NOT NULL
+  `ServiceID` int(11) NOT NULL,
+  `IsCheckedIn` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- A tábla adatainak kiíratása `reservation`
 --
 
-INSERT INTO `reservation` (`ReservationID`, `GuestNumber`, `Price`, `Children`, `Adults`, `ArrivalDate`, `LeavingDate`, `CustomerID`, `RoomID`, `ServiceID`) VALUES
-(1, 4, 9139.99, 3, 1, '2021-12-05', '2021-12-12', 1, 16, 2);
+INSERT INTO `reservation` (`ReservationID`, `GuestNumber`, `Price`, `Children`, `Adults`, `ArrivalDate`, `LeavingDate`, `CustomerID`, `RoomID`, `ServiceID`, `IsCheckedIn`) VALUES
+(1, 4, 9129.99, 3, 1, '2021-12-05', '2021-12-12', 1, 17, 2, 0),
+(4, 3, 8419.99, 2, 1, '2021-12-17', '2021-12-24', 3, 26, 1, 1),
+(8, 3, 8129.99, 1, 2, '2021-12-20', '2021-12-29', 4, 6, 2, 0),
+(10, 4, 3619.99, 2, 2, '2021-12-12', '2021-12-16', 4, 6, 1, 1),
+(11, 2, 1019.99, 1, 1, '2021-12-14', '2021-12-15', 1, 11, 1, 0),
+(12, 3, 8129.99, 2, 2, '2021-12-14', '2021-12-23', 4, 7, 2, 0);
 
 -- --------------------------------------------------------
 
@@ -244,25 +260,25 @@ ALTER TABLE `servicetype`
 -- AUTO_INCREMENT a táblához `cashregister`
 --
 ALTER TABLE `cashregister`
-  MODIFY `CashRegisterID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `CashRegisterID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT a táblához `consumption`
 --
 ALTER TABLE `consumption`
-  MODIFY `ConsumptionID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `ConsumptionID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT a táblához `customer`
 --
 ALTER TABLE `customer`
-  MODIFY `CustomerID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `CustomerID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT a táblához `reservation`
 --
 ALTER TABLE `reservation`
-  MODIFY `ReservationID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `ReservationID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT a táblához `room`
