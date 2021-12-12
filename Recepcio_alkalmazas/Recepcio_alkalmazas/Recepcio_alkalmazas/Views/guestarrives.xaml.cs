@@ -28,7 +28,7 @@ namespace Recepcio_alkalmazas.pages
         {
             InitializeComponent();
             btn_fizetes.IsEnabled = false;
-            foglalasok = reservation.selectByGuestName(null);
+            foglalasok = reservation.selectByGuestName(null,0,false);
             dg_nevek.DataContext = foglalasok;
             sp_adatok.DataContext = egyfoglalas;
             dg_nevek.SelectedIndex = 0;
@@ -80,7 +80,7 @@ namespace Recepcio_alkalmazas.pages
         }
         private void tb_guestinput_TextChanged(object sender, TextChangedEventArgs e)
         {
-            foglalasok = reservation.selectByGuestName(tb_guestinput.Text);
+            foglalasok = reservation.selectByGuestName(tb_guestinput.Text,0, false);
             dg_nevek.ItemsSource = foglalasok;
         }
         private void dg_nevek_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -98,6 +98,9 @@ namespace Recepcio_alkalmazas.pages
         {
             consumption uj = new consumption(egyfoglalas.Price, "Accomodation", egyfoglalas.ReservationID);
             consumption.insert(uj);
+            reservation.updateCheckedin(egyfoglalas.ReservationID,1);
+            foglalasok = reservation.selectByGuestName(null, 0, false);
+            dg_nevek.DataContext = foglalasok;
         }
         private void tb_fizetett_TextChanged(object sender, TextChangedEventArgs e)
         {
@@ -126,7 +129,10 @@ namespace Recepcio_alkalmazas.pages
                 {
                     MessageBox.Show("Payment successful!","Payment Information",MessageBoxButton.OK,MessageBoxImage.Information);
                     cashregister.insert(new cashregister(name, x, "Guest paying when checking-in (CARD)", x, 0));
+                    reservation.updateCheckedin(egyfoglalas.ReservationID,1);
                     tb_change.Text = tb_fizetett.Text = "";
+                    foglalasok = reservation.selectByGuestName(null, 0, false);
+                    dg_nevek.DataContext = foglalasok;
                 }
                 else
                 {
@@ -136,10 +142,13 @@ namespace Recepcio_alkalmazas.pages
             else
             {
                 MessageBox.Show("Payment successful!", "Payment Information", MessageBoxButton.OK, MessageBoxImage.Information);
+                reservation.updateCheckedin(egyfoglalas.ReservationID,1);
                 double paid = double.Parse(tb_fizetett.Text);
                 double change = double.Parse(tb_change.Text.Split(' ')[1]);
                 cashregister.insert(new cashregister(name, x, "Guest paying at check-in", paid, change));
                 tb_change.Text = tb_fizetett.Text = "";
+                foglalasok = reservation.selectByGuestName(null, 0, false);
+                dg_nevek.DataContext = foglalasok;
             }
 
         }

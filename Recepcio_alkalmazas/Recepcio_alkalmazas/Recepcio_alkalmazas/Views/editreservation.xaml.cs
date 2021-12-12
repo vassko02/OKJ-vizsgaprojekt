@@ -27,13 +27,13 @@ namespace Recepcio_alkalmazas.pages
         public editreservation()
         {
             InitializeComponent();
-            foglalasok = reservation.selectByGuestName(null);
+            foglalasok = reservation.selectByGuestName(null,0,true);
             dg_foglalasok.ItemsSource = foglalasok;
             dg_foglalasok.SelectedIndex = 0;
         }
         private void tb_guestinput_TextChanged(object sender, TextChangedEventArgs e)
         {
-            foglalasok = reservation.selectByGuestName(tb_guestinput.Text);
+            foglalasok = reservation.selectByGuestName(tb_guestinput.Text,0, true);
             dg_foglalasok.ItemsSource = foglalasok;
         }
 
@@ -45,7 +45,7 @@ namespace Recepcio_alkalmazas.pages
                 {
                     reservation.delete(egyfoglalas.ReservationID);
                     tb_guestinput.Text = "";
-                    foglalasok = reservation.selectByGuestName(null);
+                    foglalasok = reservation.selectByGuestName(null,0, true);
                     dg_foglalasok.ItemsSource = foglalasok;
                 }
             }
@@ -64,7 +64,7 @@ namespace Recepcio_alkalmazas.pages
             var modositasablak = new editres(foglalasmodosit);
             if (modositasablak.ShowDialog()==true)
             {
-                foglalasok = reservation.selectByGuestName(null);
+                foglalasok = reservation.selectByGuestName(null,0, true);
                 dg_foglalasok.ItemsSource = foglalasok;
                 dg_foglalasok.SelectedIndex = 0;
              }
@@ -75,7 +75,7 @@ namespace Recepcio_alkalmazas.pages
             var hozzaad = new editres(foglalasad);         
             if (hozzaad.ShowDialog()==true)
             {
-                foglalasok = reservation.selectByGuestName(null);
+                foglalasok = reservation.selectByGuestName(null,0, true);
                 dg_foglalasok.ItemsSource = foglalasok;
                 dg_foglalasok.SelectedIndex = 0;
             }

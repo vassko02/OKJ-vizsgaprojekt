@@ -60,6 +60,7 @@ namespace Recepcio_alkalmazas.Views
         }
         private void btn_save_Click(object sender, RoutedEventArgs e)
         {
+            bool vanerror = false;
             reservation aktualis = new reservation();
             aktualis.ReservationID = egyfoglalas.ReservationID;
             customer a = (customer)cb_vendegek.SelectedItem;
@@ -69,30 +70,42 @@ namespace Recepcio_alkalmazas.Views
             aktualis.ArrivalDate = Convert.ToDateTime(dp_checkin.SelectedDate);
             aktualis.LeavingDate = Convert.ToDateTime(dp_checkout.SelectedDate);
             aktualis.GuestNumber = aktualis.Children + aktualis.Adults;
-            aktualis.ServiceID = servicetype.selectIDbyName(cb_services.Text)[0].ServiceID;
-            szabadszobak = room.selectCorrectRoom(aktualis);
-            aktualis.ServiceType = servicetype.selectNameByID(aktualis.ServiceID)[0].ServiceType;
-            aktualis.RoomName = cb_rooms.Text;
-            int napok = (int)aktualis.LeavingDate.Subtract(aktualis.ArrivalDate).TotalDays;
-            aktualis.ServicePrice = servicetype.selectPrice(aktualis.ServiceID)[0].ServicePrice;
-            bool vanolyanszoba = false;
-            bool vanerror = false;
-            ObservableCollection<room> egyszoba = room.selectRoomByID(aktualis.RoomID);
-            foreach (var item in szabadszobak)
+            if (cb_services.SelectedItem!=null)
             {
-                if (item.RoomName==aktualis.RoomName)
-                {
-                    aktualis.RoomID = item.RoomID;
-                    
-                    aktualis.RoomPrice = room.selectRoomByID(aktualis.RoomID)[0].RoomPrice;
-                    aktualis.Price = aktualis.RoomPrice * napok+aktualis.ServicePrice;
-                    aktualis.RoomName = room.selectRoomByID(aktualis.RoomID)[0].RoomName;
-                    aktualis.Capacity = room.selectRoomByID(aktualis.RoomID)[0].Capacity;
-                    vanolyanszoba = true;
-                    break;
-                }         
+                aktualis.ServiceID = servicetype.selectIDbyName(cb_services.Text)[0].ServiceID;
+                aktualis.ServiceType = servicetype.selectNameByID(aktualis.ServiceID)[0].ServiceType;
+                aktualis.ServicePrice = servicetype.selectPrice(aktualis.ServiceID)[0].ServicePrice;
             }
-            if(vanolyanszoba==false||dp_checkout.SelectedDate<dp_checkin.SelectedDate)
+            else
+            {
+                vanerror = true;
+            }
+            szabadszobak = room.selectCorrectRoom(aktualis);
+            bool vanolyanszoba = false;
+            int napok = (int)aktualis.LeavingDate.Subtract(aktualis.ArrivalDate).TotalDays;
+            if (cb_rooms.SelectedItem != null)
+            {
+                aktualis.RoomName = cb_rooms.Text;
+                ObservableCollection<room> egyszoba = room.selectRoomByID(aktualis.RoomID);
+                foreach (var item in szabadszobak)
+                {
+                    if (item.RoomName == aktualis.RoomName)
+                    {
+                        aktualis.RoomID = item.RoomID;
+                        aktualis.RoomPrice = room.selectRoomByID(aktualis.RoomID)[0].RoomPrice;
+                        aktualis.Price = aktualis.RoomPrice * napok + aktualis.ServicePrice;
+                        aktualis.RoomName = room.selectRoomByID(aktualis.RoomID)[0].RoomName;
+                        aktualis.Capacity = room.selectRoomByID(aktualis.RoomID)[0].Capacity;
+                        vanolyanszoba = true;
+                        break;
+                    }
+                } 
+            }
+            else
+            {
+                vanerror = true;           
+            }
+            if(vanolyanszoba==false||dp_checkout.SelectedDate<=dp_checkin.SelectedDate||vanerror==true||dp_checkin.SelectedDate<DateTime.Today || dp_checkout.SelectedDate < DateTime.Today)
             {
                 MessageBox.Show("There is something wrong with the provided data!", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                 vanerror = true;

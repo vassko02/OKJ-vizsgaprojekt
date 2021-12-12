@@ -21,7 +21,7 @@ namespace Recepcio_alkalmazas.pages
     /// </summary>
     public partial class guestleaves : Page
     {
-        ObservableCollection<reservation> foglalasok = reservation.selectByGuestName(null);
+        ObservableCollection<reservation> foglalasok = reservation.selectByGuestName(null,1, false);
         ObservableCollection<consumption> fogyasztasok = new ObservableCollection<consumption>();
         ObservableCollection<consumption> osszeg = new ObservableCollection<consumption>();
         reservation egyfoglalas = new reservation();
@@ -36,7 +36,7 @@ namespace Recepcio_alkalmazas.pages
         }
         private void tb_guestinput_TextChanged(object sender, TextChangedEventArgs e)
         {
-            foglalasok = reservation.selectByGuestName(tb_guestinput.Text);
+            foglalasok = reservation.selectByGuestName(tb_guestinput.Text,1, false);
             dg_nevek.ItemsSource = foglalasok;
 
         }
@@ -123,7 +123,6 @@ namespace Recepcio_alkalmazas.pages
 
         private void btn_fizetes_Click(object sender, RoutedEventArgs e)
         {
-
             reservation valasztott = (reservation)dg_nevek.SelectedItem;
             string name = customer.selectGuestNameByResID(valasztott.ReservationID)[0].Name;
             if (btn_kartya.IsChecked == true)
@@ -134,6 +133,9 @@ namespace Recepcio_alkalmazas.pages
                     MessageBox.Show("Payment successful!", "Payment Information", MessageBoxButton.OK, MessageBoxImage.Information);
                     cashregister.insert(new cashregister(name, x, "Guest paying when checking-out (CARD)", x, 0));
                     tb_change.Text = tb_fizetett.Text = "";
+                    reservation.updateCheckedin(egyfoglalas.ReservationID, 0);
+                    foglalasok = reservation.selectByGuestName(null, 1, false);
+                    dg_nevek.DataContext = foglalasok;
                 }
                 else
                 {
@@ -147,6 +149,9 @@ namespace Recepcio_alkalmazas.pages
                 double change = double.Parse(tb_change.Text.Split(' ')[1]);
                 cashregister.insert(new cashregister(name,x,"Guest paying when checking-out",paid, change));
                 tb_change.Text = tb_fizetett.Text = "";
+                reservation.updateCheckedin(egyfoglalas.ReservationID, 0);
+                foglalasok = reservation.selectByGuestName(null, 1, false);
+                dg_nevek.DataContext = foglalasok;
             }
         }
 

@@ -29,7 +29,7 @@ namespace Recepcio_alkalmazas.pages
         {
             InitializeComponent();
             italfeltolt();
-            foglalasok = reservation.selectByGuestName(null);
+            foglalasok = reservation.selectByGuestName(null,1,false);
             dg_nevek.DataContext = foglalasok;
             dg_nevek.SelectedIndex = 0;
             dg_fogyasztas.DataContext = fogyasztasok;
@@ -60,7 +60,7 @@ namespace Recepcio_alkalmazas.pages
         }
         private void tb_guestinput_TextChanged(object sender, TextChangedEventArgs e)
         {
-            foglalasok = reservation.selectByGuestName(tb_guestinput.Text);
+            foglalasok = reservation.selectByGuestName(tb_guestinput.Text,1, false);
             dg_nevek.ItemsSource = foglalasok;
             if (dg_nevek.Items.Count == 0)
             {

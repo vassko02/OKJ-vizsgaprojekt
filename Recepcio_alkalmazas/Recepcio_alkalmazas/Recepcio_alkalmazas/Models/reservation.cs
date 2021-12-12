@@ -120,6 +120,12 @@ namespace Recepcio_alkalmazas.Models
             get { return _ServicePrice; }
             set { _ServicePrice = value; onPropertyChanged(); }
         }
+        private int _IsCheckedIn;
+        public int IsCheckedIn
+        {
+            get { return _IsCheckedIn; }
+            set { _IsCheckedIn = value; onPropertyChanged(); }
+        }
         public reservation() { }
         public reservation(MySqlDataReader reader)
         {
@@ -140,8 +146,9 @@ namespace Recepcio_alkalmazas.Models
             this.ServiceType = reader["ServiceType"].ToString();
             this.RoomPrice = Convert.ToDouble(reader["RoomPrice"]);
             this.ServicePrice = Convert.ToDouble(reader["ServicePrice"]);
+            this.IsCheckedIn = Convert.ToInt32(reader["IsCheckedIn"]);
         }
-        public static ObservableCollection<reservation> selectByGuestName(string name)
+        public static ObservableCollection<reservation> selectByGuestName(string name,int becheckolt,bool editlesz)
         {
             var lista = new ObservableCollection<reservation>();
             using (var con= new MySqlConnection(ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString))
@@ -155,10 +162,19 @@ namespace Recepcio_alkalmazas.Models
                 {
                     sql += " AND customer.Name LIKE @name";
                 }
-                sql += " ORDER BY customer.Name";
+                if (becheckolt==0&&editlesz==false)
+                {
+                    sql += " AND reservation.ArrivalDate = current_date";
+                }
+                if (editlesz==true)
+                {
+                    sql += " AND reservation.ArrivalDate > current_date";
+                }
+                sql += " AND reservation.IsCheckedIn = @checkedin ORDER BY customer.Name";
                 using (var cmd = new MySqlCommand(sql,con))
                 {
                     cmd.Parameters.AddWithValue("@name","%"+name+"%");
+                    cmd.Parameters.AddWithValue("@checkedin",becheckolt);
                     using (var reader = cmd.ExecuteReader())
                     {
                         while (reader.Read())
@@ -227,6 +243,22 @@ namespace Recepcio_alkalmazas.Models
                     cmd.Parameters.AddWithValue("@RoomID", model.RoomID);
                     cmd.Parameters.AddWithValue("@ServiceID", model.ServiceID);
                     cmd.Parameters.AddWithValue("@id", model.ReservationID);
+                    cmd.ExecuteNonQuery();
+                }
+                con.Close();
+            }
+        }
+        public static void updateCheckedin(int id,int bevagyki)
+        {
+            using (var con = new MySqlConnection(ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString))
+            {
+                con.Open();
+                var sql = "UPDATE reservation SET IsCheckedIn=@bevagyki WHERE ReservationID=@id";
+                using (var cmd = new MySqlCommand(sql, con))
+                {
+                    cmd.Parameters.AddWithValue("@bevagyki", bevagyki);
+                    cmd.Parameters.AddWithValue("@id", id);
+
                     cmd.ExecuteNonQuery();
                 }
                 con.Close();
