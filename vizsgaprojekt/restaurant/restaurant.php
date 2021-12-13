@@ -22,29 +22,32 @@
         <p class="card-text">Smoky Cauliflower Tacos</p>
       </div>
     </div>
-    <div class="card col" style="width: 18rem;">
+    <div class="card col" style="width: 17rem;">
       <img class="card-img-top" src="./restaurant/foodpics/menuitem2.jpg" alt="Card image cap">
       <div class="card-body">
         <p class="card-text">Epic Crispy Quinoa Burgers</p>
       </div>
     </div>
-    <div class="card col" style="width: 18rem;">
+    <div class="card col" style="width: 17rem;">
       <img class="card-img-top" src="./restaurant/foodpics/menuitem3.jpg" alt="Card image cap">
       <div class="card-body">
         <p class="card-text">Garlic Butter Shrimp Pad Thai</p>
       </div>
     </div>
-    <div class="card col" style="width: 18rem;">
+    <div class="card col" style="width: 17rem;">
       <img class="card-img-top" src="./restaurant/foodpics/menuitem4.jpg" alt="Card image cap">
       <div class="card-body">
         <p class="card-text"> Baked Gnocchi with Vodka Sauce</p>
       </div>
     </div>
-    <div class="card col" style="width: 18rem;">
+    <div class="card col" style="width: 17rem;">
       <img class="card-img-top" src="./restaurant/foodpics/menuitem5.jpg" alt="Card image cap">
       <div class="card-body">
         <p class="card-text"> Juicy Lucy Burger</p>
       </div>
     </div>
+  </div>
+  <div class="menu">
+    <a class=" btn w-100" href="index.php?m=foodmenu">Menu</a>
   </div>
 </body>
