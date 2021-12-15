@@ -70,7 +70,7 @@ nav{
 }
 
 /*Stying for small screens*/
-@media screen and (max-width: 1135px){
+@media screen and (max-width: 1270px){
     nav{
         position: sticky;
         z-index: 3;
