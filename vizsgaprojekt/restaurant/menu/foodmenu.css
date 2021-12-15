@@ -1,3 +1,6 @@
+body{
+    background-color: rgb(230, 221, 221)
+}
 .eloetelcim{
     text-align: center;
     width: 100%;
@@ -6,16 +9,19 @@
     background-repeat: no-repeat;
     background-size: cover;
 }
-.eloetelek{
+.cardss{
     padding-right: 0.5vw;
     padding-left: 1.3vw;
-
 }
 h1{
- 
-    color: white;
+    padding-top: 3vh;
+    background-color: rgba(15, 15, 15, 0.7);
+    vertical-align: middle;
+    height: 30vh;
+    color: #FFFFFF;
     font-size: 4vw;
     text-align: center;
+    font-family: 'Lobster', cursive;
 }
 .card{
     text-align: center;
@@ -39,6 +45,23 @@ h1{
     width: 100%;
     height: 30vh;
     background-image: url('../menu/pictures/soups.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.foetelcim{
+    text-align: center;
+    width: 100%;
+    height: 30vh;
+    background-image: url('../menu/pictures/foetelek.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.dessertcim{
+   
+    text-align: center;
+    width: 100%;
+    height: 30vh;
+    background-image: url('../menu/pictures/dessert.jpg');
     background-repeat: no-repeat;
     background-size: cover;
 }
