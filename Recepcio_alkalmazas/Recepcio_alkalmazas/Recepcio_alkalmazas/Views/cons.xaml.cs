@@ -24,15 +24,18 @@ namespace Recepcio_alkalmazas.pages
         Dictionary<string, double> lehetosegek = new Dictionary<string, double>();
         ObservableCollection<reservation> foglalasok = new ObservableCollection<reservation>();
         ObservableCollection<consumption> fogyasztasok = new ObservableCollection<consumption>();
+        ObservableCollection<storage> fogylehetoseg = new ObservableCollection<storage>();
 
         public cons()
         {
             InitializeComponent();
             italfeltolt();
-            foglalasok = reservation.selectByGuestName(null,1,false);
+            fogylehetoseg = storage.select();
+            foglalasok = reservation.selectByGuestName(null, 1, false);
             dg_nevek.DataContext = foglalasok;
             dg_nevek.SelectedIndex = 0;
             dg_fogyasztas.DataContext = fogyasztasok;
+            lb_itemek.DataContext = fogylehetoseg;
         }
         private void italfeltolt()
         {
@@ -60,7 +63,7 @@ namespace Recepcio_alkalmazas.pages
         }
         private void tb_guestinput_TextChanged(object sender, TextChangedEventArgs e)
         {
-            foglalasok = reservation.selectByGuestName(tb_guestinput.Text,1, false);
+            foglalasok = reservation.selectByGuestName(tb_guestinput.Text, 1, false);
             dg_nevek.ItemsSource = foglalasok;
             if (dg_nevek.Items.Count == 0)
             {
@@ -78,6 +81,7 @@ namespace Recepcio_alkalmazas.pages
                 consumption.insert(new consumption(price, valasztottitem, id));
                 fogyasztasok = consumption.selectItemByReservationID(id);
                 dg_fogyasztas.DataContext = fogyasztasok;
+                arfrissit(id);
             }
         }
 
@@ -90,6 +94,7 @@ namespace Recepcio_alkalmazas.pages
             int id2 = valasztottres.ReservationID;
             fogyasztasok = consumption.selectItemByReservationID(id2);
             dg_fogyasztas.DataContext = fogyasztasok;
+            arfrissit(id2);
         }
 
         private void dg_nevek_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -100,8 +105,17 @@ namespace Recepcio_alkalmazas.pages
                 int id = valasztott.ReservationID;
                 fogyasztasok = consumption.selectItemByReservationID(id);
                 dg_fogyasztas.DataContext = fogyasztasok;
-
+                arfrissit(id);
             }
+        }
+        private void arfrissit(int id)
+        {
+            string osszeg = consumption.selectSumByID(id)[0].osszeg.ToString("F");
+            lbl_osszeg.Content = string.Format("$ " + osszeg);
+        }
+
+        private void lb_itemek_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
 
         }
     }

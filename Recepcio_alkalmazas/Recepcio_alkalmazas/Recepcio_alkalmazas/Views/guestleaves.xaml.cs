@@ -13,6 +13,7 @@ using System.Windows.Shapes;
 using System.IO;
 using Recepcio_alkalmazas.Models;
 using System.Collections.ObjectModel;
+using System.Text.RegularExpressions;
 
 namespace Recepcio_alkalmazas.pages
 {
@@ -21,7 +22,7 @@ namespace Recepcio_alkalmazas.pages
     /// </summary>
     public partial class guestleaves : Page
     {
-        ObservableCollection<reservation> foglalasok = reservation.selectByGuestName(null,1, false);
+        ObservableCollection<reservation> foglalasok = reservation.selectByGuestName(null, 1, false);
         ObservableCollection<consumption> fogyasztasok = new ObservableCollection<consumption>();
         ObservableCollection<consumption> osszeg = new ObservableCollection<consumption>();
         reservation egyfoglalas = new reservation();
@@ -33,10 +34,11 @@ namespace Recepcio_alkalmazas.pages
             btn_fizetes.IsEnabled = false;
             dg_fogyasztas.DataContext = fogyasztasok;
             dg_nevek.SelectedIndex = 0;
+
         }
         private void tb_guestinput_TextChanged(object sender, TextChangedEventArgs e)
         {
-            foglalasok = reservation.selectByGuestName(tb_guestinput.Text,1, false);
+            foglalasok = reservation.selectByGuestName(tb_guestinput.Text, 1, false);
             dg_nevek.ItemsSource = foglalasok;
 
         }
@@ -94,16 +96,16 @@ namespace Recepcio_alkalmazas.pages
                 int id = valasztott.ReservationID;
                 fogyasztasok = consumption.selectItemByReservationID(id);
                 dg_fogyasztas.DataContext = fogyasztasok;
-                if (fogyasztasok.Count!=0)
+                if (fogyasztasok.Count != 0)
                 {
                     osszeg = consumption.selectSumByID(id);
                     x = osszeg[0].osszeg;
 
                 }
-                    lbl_vegosszeg.Content = string.Format("${0}", x.ToString());
-                    egyfoglalas = (reservation)dg_nevek.SelectedItem;
-                    tb_change.Text = tb_fizetett.Text = "";
-                    btn_kartya.IsChecked = btn_keszpenz.IsChecked = false;
+                lbl_vegosszeg.Content = string.Format("${0:ff}", x.ToString());
+                egyfoglalas = (reservation)dg_nevek.SelectedItem;
+                tb_change.Text = tb_fizetett.Text = "";
+                btn_kartya.IsChecked = btn_keszpenz.IsChecked = false;
             }
         }
 
@@ -147,7 +149,7 @@ namespace Recepcio_alkalmazas.pages
                 MessageBox.Show("Payment successful!", "Payment Information", MessageBoxButton.OK, MessageBoxImage.Information);
                 double paid = double.Parse(tb_fizetett.Text);
                 double change = double.Parse(tb_change.Text.Split(' ')[1]);
-                cashregister.insert(new cashregister(name,x,"Guest paying when checking-out",paid, change));
+                cashregister.insert(new cashregister(name, x, "Guest paying when checking-out", paid, change));
                 tb_change.Text = tb_fizetett.Text = "";
                 reservation.updateCheckedin(egyfoglalas.ReservationID, 0);
                 foglalasok = reservation.selectByGuestName(null, 1, false);
@@ -172,6 +174,17 @@ namespace Recepcio_alkalmazas.pages
                     btn_fizetes.IsEnabled = true;
                 }
             }
+        }
+
+        private static readonly Regex _regex = new Regex("[^0-9,]"); //regex that matches disallowed text
+        private static bool IsTextAllowed(string text)
+        {
+            return !_regex.IsMatch(text);
+        }
+
+        private void tb_fizetett_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            e.Handled = !IsTextAllowed(e.Text);
         }
     }
 }

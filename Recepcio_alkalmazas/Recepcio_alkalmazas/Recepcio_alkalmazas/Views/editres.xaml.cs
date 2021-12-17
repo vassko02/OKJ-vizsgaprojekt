@@ -13,6 +13,7 @@ using System.Windows.Shapes;
 using System.Collections.ObjectModel;
 using Recepcio_alkalmazas.Models;
 using System.Linq;
+using System.Text.RegularExpressions;
 
 namespace Recepcio_alkalmazas.Views
 {
@@ -25,8 +26,6 @@ namespace Recepcio_alkalmazas.Views
         ObservableCollection<servicetype> tipusok = new ObservableCollection<servicetype>();
         ObservableCollection<room> szobak = new ObservableCollection<room>();
         ObservableCollection<room> szabadszobak = new ObservableCollection<room>();
-        ObservableCollection<customer> vendegek = new ObservableCollection<customer>();
-        reservation eredeti = new reservation();
         bool editlesz = true;
         public editres(reservation model)
         {
@@ -70,7 +69,7 @@ namespace Recepcio_alkalmazas.Views
             aktualis.ArrivalDate = Convert.ToDateTime(dp_checkin.SelectedDate);
             aktualis.LeavingDate = Convert.ToDateTime(dp_checkout.SelectedDate);
             aktualis.GuestNumber = aktualis.Children + aktualis.Adults;
-            if (cb_services.SelectedItem!=null)
+            if (cb_services.SelectedItem != null)
             {
                 aktualis.ServiceID = servicetype.selectIDbyName(cb_services.Text)[0].ServiceID;
                 aktualis.ServiceType = servicetype.selectNameByID(aktualis.ServiceID)[0].ServiceType;
@@ -99,19 +98,19 @@ namespace Recepcio_alkalmazas.Views
                         vanolyanszoba = true;
                         break;
                     }
-                } 
+                }
             }
             else
             {
-                vanerror = true;           
+                vanerror = true;
             }
-            if(vanolyanszoba==false||dp_checkout.SelectedDate<=dp_checkin.SelectedDate||vanerror==true||dp_checkin.SelectedDate<DateTime.Today || dp_checkout.SelectedDate < DateTime.Today)
+            if (vanolyanszoba == false || dp_checkout.SelectedDate <= dp_checkin.SelectedDate || vanerror == true || dp_checkin.SelectedDate < DateTime.Today || dp_checkout.SelectedDate < DateTime.Today)
             {
                 MessageBox.Show("There is something wrong with the provided data!", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                 vanerror = true;
             }
-            if (editlesz == true&&vanerror==false)
-            {             
+            if (editlesz == true && vanerror == false)
+            {
                 reservation.update(aktualis);
                 DialogResult = true;
                 this.Close();
@@ -137,13 +136,19 @@ namespace Recepcio_alkalmazas.Views
                 DragMove();
             }
         }
-        private void tb_childer_TextChanged(object sender, TextChangedEventArgs e)
+        private static readonly Regex _regex = new Regex("[^0-9-]+"); //regex that matches disallowed text
+        private static bool IsTextAllowed(string text)
         {
-            
+            return !_regex.IsMatch(text);
         }
-        private void tb_adults_TextChanged(object sender, TextChangedEventArgs e)
+        private void tb_childer_PreviewTextInput(object sender, TextCompositionEventArgs e)
         {
+            e.Handled = !IsTextAllowed(e.Text);
+        }
 
+        private void tb_adults_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            e.Handled = !IsTextAllowed(e.Text);
         }
     }
 }
