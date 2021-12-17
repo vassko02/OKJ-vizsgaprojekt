@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Gép: 127.0.0.1
--- Létrehozás ideje: 2021. Dec 12. 15:19
+-- Létrehozás ideje: 2021. Dec 17. 12:56
 -- Kiszolgáló verziója: 10.4.21-MariaDB
--- PHP verzió: 7.3.31
+-- PHP verzió: 8.0.10
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -208,6 +208,28 @@ INSERT INTO `servicetype` (`ServiceID`, `ServicePrice`, `ServiceType`) VALUES
 (2, 29.99, 'Half Board'),
 (3, 39.99, 'Full Board');
 
+-- --------------------------------------------------------
+
+--
+-- Tábla szerkezet ehhez a táblához `storage`
+--
+
+CREATE TABLE `storage` (
+  `StorageID` int(11) NOT NULL,
+  `ItemName` varchar(100) NOT NULL,
+  `Price` double NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- A tábla adatainak kiíratása `storage`
+--
+
+INSERT INTO `storage` (`StorageID`, `ItemName`, `Price`) VALUES
+(2, 'Snickers', 1.49),
+(3, 'Planters Mixed Nuts', 7.99),
+(4, 'Pringles', 2.49),
+(5, 'LIFE WTR Purified Water', 7.99);
+
 --
 -- Indexek a kiírt táblákhoz
 --
@@ -253,6 +275,12 @@ ALTER TABLE `servicetype`
   ADD PRIMARY KEY (`ServiceID`);
 
 --
+-- A tábla indexei `storage`
+--
+ALTER TABLE `storage`
+  ADD PRIMARY KEY (`StorageID`);
+
+--
 -- A kiírt táblák AUTO_INCREMENT értéke
 --
 
@@ -291,6 +319,12 @@ ALTER TABLE `room`
 --
 ALTER TABLE `servicetype`
   MODIFY `ServiceID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT a táblához `storage`
+--
+ALTER TABLE `storage`
+  MODIFY `StorageID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- Megkötések a kiírt táblákhoz
