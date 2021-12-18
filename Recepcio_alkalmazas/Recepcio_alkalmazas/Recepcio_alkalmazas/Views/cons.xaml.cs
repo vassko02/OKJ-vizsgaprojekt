@@ -21,7 +21,6 @@ namespace Recepcio_alkalmazas.pages
     /// </summary>
     public partial class cons : Page
     {
-        Dictionary<string, double> lehetosegek = new Dictionary<string, double>();
         ObservableCollection<reservation> foglalasok = new ObservableCollection<reservation>();
         ObservableCollection<consumption> fogyasztasok = new ObservableCollection<consumption>();
         ObservableCollection<storage> fogylehetoseg = new ObservableCollection<storage>();
@@ -29,7 +28,6 @@ namespace Recepcio_alkalmazas.pages
         public cons()
         {
             InitializeComponent();
-            italfeltolt();
             fogylehetoseg = storage.select();
             foglalasok = reservation.selectByGuestName(null, 1, false);
             dg_nevek.DataContext = foglalasok;
@@ -37,30 +35,7 @@ namespace Recepcio_alkalmazas.pages
             dg_fogyasztas.DataContext = fogyasztasok;
             lb_itemek.DataContext = fogylehetoseg;
         }
-        private void italfeltolt()
-        {
-            lehetosegek.Add("Coca-Cola", 1.49);
-            lehetosegek.Add("Fanta", 1.49);
-            lehetosegek.Add("Sprite", 1.49);
-            lehetosegek.Add("Natur Aqua", 1.49);
-            lehetosegek.Add("Kinley", 1.49);
-            lehetosegek.Add("Cappy", 1.49);
-            lehetosegek.Add("Aperol spritz", 5.99);
-            lehetosegek.Add("Bloody Mary", 9.99);
-            lehetosegek.Add("Cosmopolitan", 7.99);
-            lehetosegek.Add("Gin Fizz", 6.99);
-            lehetosegek.Add("Long Island Ice Tea", 8.99);
-            lehetosegek.Add("Margarita", 8.99);
-            lehetosegek.Add("Mojito", 9.99);
-            lehetosegek.Add("Pina Colada", 7.49);
-            lehetosegek.Add("Zombie", 10.49);
-            lehetosegek.Add("Massage", 14.99);
-            lehetosegek.Add("Hairdresser", 22.99);
-            lehetosegek.Add("Billiard", 15.99);
-            lehetosegek.Add("Bowling", 14.99);
-            lehetosegek.Add("Tennis", 16.99);
-            lehetosegek.Add("Breakfast in bead", 8.99);
-        }
+
         private void tb_guestinput_TextChanged(object sender, TextChangedEventArgs e)
         {
             foglalasok = reservation.selectByGuestName(tb_guestinput.Text, 1, false);
@@ -74,11 +49,11 @@ namespace Recepcio_alkalmazas.pages
         {
             if (dg_nevek.SelectedIndex != -1)
             {
-                string valasztottitem = ((StackPanel)sender).Tag.ToString();
-                double price = lehetosegek[valasztottitem];
+                string valasztottnev = ((StackPanel)sender).Tag.ToString();
+                storage valasztottitem = storage.selectClickedItem(valasztottnev)[0];
                 reservation valasztottRes = (reservation)dg_nevek.SelectedItem;
                 int id = valasztottRes.ReservationID;
-                consumption.insert(new consumption(price, valasztottitem, id));
+                consumption.insert(new consumption(valasztottitem.Price, valasztottnev, id));
                 fogyasztasok = consumption.selectItemByReservationID(id);
                 dg_fogyasztas.DataContext = fogyasztasok;
                 arfrissit(id);
@@ -110,13 +85,16 @@ namespace Recepcio_alkalmazas.pages
         }
         private void arfrissit(int id)
         {
-            string osszeg = consumption.selectSumByID(id)[0].osszeg.ToString("F");
-            lbl_osszeg.Content = string.Format("$ " + osszeg);
-        }
+            if (consumption.selectSumByID(id).Count!=0)
+            {
+                string osszeg = consumption.selectSumByID(id)[0].osszeg.ToString("F");
+                lbl_osszeg.Content = string.Format("Price: $" + osszeg);
+            }
+            else
+            {
+                lbl_osszeg.Content = string.Format("Price: $0");
 
-        private void lb_itemek_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-
+            }
         }
     }
 }

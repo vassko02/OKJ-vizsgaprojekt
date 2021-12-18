@@ -53,7 +53,7 @@
         </StackPanel>
         <StackPanel Grid.Column="1" Orientation="Vertical">
             <Label Content="Select an item" HorizontalAlignment="Center" FontSize="20" Foreground="DarkGoldenrod" FontWeight="Bold" Margin="5"/>
-            <ListBox Name="lb_itemek" Background="Transparent" SelectionChanged="lb_itemek_SelectionChanged"
+            <ListBox Name="lb_itemek" Background="Transparent"
                      ScrollViewer.HorizontalScrollBarVisibility="Disabled" ItemsSource="{Binding}" Width="436" Height="430">
                 <ListBox.ItemsPanel>
                     <ItemsPanelTemplate>
@@ -62,7 +62,7 @@
                 </ListBox.ItemsPanel>
                 <ListBox.ItemTemplate>
                     <DataTemplate>
-                        <StackPanel Background="Gray" Width="100" Height="70">
+                        <StackPanel Tag="{Binding Path=ItemName}" MouseUp="StackPanel_MouseUp" Background="Gray" Width="125" Height="70">
                             <TextBlock Foreground="White" Margin="5" FontWeight="Bold" TextWrapping="WrapWithOverflow" Text="{Binding Path=ItemName}"/>
                             <TextBlock Foreground="White" Margin="5" FontWeight="Bold" TextWrapping="WrapWithOverflow" Text="{Binding Path=Price, StringFormat=$\{0\}}"/>
                         </StackPanel>

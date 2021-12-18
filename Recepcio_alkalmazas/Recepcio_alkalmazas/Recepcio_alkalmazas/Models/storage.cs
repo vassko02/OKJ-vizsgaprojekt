@@ -60,5 +60,27 @@ namespace Recepcio_alkalmazas.Models
             }
             return lista;
         }
+        public static ObservableCollection<storage> selectClickedItem(string itemname)
+        {
+            var lista = new ObservableCollection<storage>();
+            using (var con = new MySqlConnection(ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString))
+            {
+                con.Open();
+                var sql = "select * from storage where ItemName=@name order by Type,ItemName";
+                using (var cmd = new MySqlCommand(sql, con))
+                {
+                    cmd.Parameters.AddWithValue("@name", itemname);
+                    using (var reader = cmd.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            lista.Add(new storage(reader));
+                        }
+                    }
+                }
+                con.Close();
+            }
+            return lista;
+        }
     }
 }
