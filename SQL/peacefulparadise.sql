@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Gép: 127.0.0.1
--- Létrehozás ideje: 2021. Dec 17. 12:56
+-- Létrehozás ideje: 2021. Dec 18. 19:37
 -- Kiszolgáló verziója: 10.4.21-MariaDB
--- PHP verzió: 8.0.10
+-- PHP verzió: 7.3.31
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -78,9 +78,11 @@ CREATE TABLE `consumption` (
 INSERT INTO `consumption` (`ConsumptionID`, `Price`, `ItemName`, `ReservationID`) VALUES
 (6, 1, 'Accomodation', 1),
 (12, 3619.99, 'Accomodation', 10),
-(13, 1.49, 'Coca-Cola', 4),
 (14, 1.49, 'Coca-Cola', 4),
-(15, 1.49, 'Cappy', 4);
+(15, 1.49, 'Cappy', 4),
+(16, 1.49, 'Snickers', 10),
+(19, 1.49, 'Snickers', 10),
+(20, 1.49, 'Snickers', 10);
 
 -- --------------------------------------------------------
 
@@ -217,18 +219,45 @@ INSERT INTO `servicetype` (`ServiceID`, `ServicePrice`, `ServiceType`) VALUES
 CREATE TABLE `storage` (
   `StorageID` int(11) NOT NULL,
   `ItemName` varchar(100) NOT NULL,
-  `Price` double NOT NULL
+  `Price` double NOT NULL,
+  `Type` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- A tábla adatainak kiíratása `storage`
 --
 
-INSERT INTO `storage` (`StorageID`, `ItemName`, `Price`) VALUES
-(2, 'Snickers', 1.49),
-(3, 'Planters Mixed Nuts', 7.99),
-(4, 'Pringles', 2.49),
-(5, 'LIFE WTR Purified Water', 7.99);
+INSERT INTO `storage` (`StorageID`, `ItemName`, `Price`, `Type`) VALUES
+(2, 'Snickers', 1.49, 'Snack'),
+(3, 'Planters Mixed Nuts', 7.99, 'Snack'),
+(4, 'Pringles', 2.49, 'Snack'),
+(5, 'LIFE WTR Purified Water', 7.99, 'Drink'),
+(6, 'Red Bull Energy Drink (4 Pack)', 6.99, 'Drink'),
+(7, 'M&M\'s', 6.49, 'Snack'),
+(8, 'Coca Cola (1l)', 4.49, 'Drink'),
+(9, 'Sprite (1l)', 4.49, 'Drink'),
+(10, 'Fanta (1l)', 4.49, 'Drink'),
+(11, 'Kinley Tonic (1l)', 4.49, 'Drink'),
+(13, 'Aperol spritz', 5.99, 'Cocktail'),
+(14, 'Bloody Mary', 9.99, 'Cocktail'),
+(15, 'Cosmopolitan', 7.99, 'Cocktail'),
+(16, 'Gin fizz', 6.99, 'Cocktail'),
+(17, 'Long Island Ice Tea', 8.99, 'Cocktail'),
+(18, 'Margarita', 8.99, 'Cocktail'),
+(19, 'Mojito', 9.99, 'Cocktail'),
+(20, 'Pina Colada', 7.49, 'Cocktail'),
+(21, 'Zombie', 10.49, 'Cocktail'),
+(22, 'Massage', 14.99, 'Service'),
+(23, 'Billiard', 15.99, 'Service'),
+(24, 'Hairdresser', 22.99, 'Service'),
+(25, 'Bowling', 14.99, 'Service'),
+(26, 'Tennis', 16.99, 'Service'),
+(27, 'Breakfast in bed', 8.99, 'Service'),
+(28, 'Natur Aqua', 3.99, 'Drink'),
+(29, 'Kit Kat ', 10.79, 'Snack'),
+(30, 'Cheez-It', 5.49, 'Snack'),
+(31, 'Cheetos', 5.99, 'Snack'),
+(32, 'Oreo Cookies', 3.99, 'Snack');
 
 --
 -- Indexek a kiírt táblákhoz
@@ -294,7 +323,7 @@ ALTER TABLE `cashregister`
 -- AUTO_INCREMENT a táblához `consumption`
 --
 ALTER TABLE `consumption`
-  MODIFY `ConsumptionID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `ConsumptionID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- AUTO_INCREMENT a táblához `customer`
@@ -324,7 +353,7 @@ ALTER TABLE `servicetype`
 -- AUTO_INCREMENT a táblához `storage`
 --
 ALTER TABLE `storage`
-  MODIFY `StorageID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `StorageID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
 
 --
 -- Megkötések a kiírt táblákhoz
