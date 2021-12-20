@@ -4,6 +4,11 @@ if (isset($_GET['m'])) {
 } else {
     $m = 'home';
 }
+
+include('dbconnect.php');
+include('models/guest.php');
+$GuestObj = new Guest();
+include('action.php');
 ?>
 <!DOCTYPE html>
 <html lang="en">
