@@ -1,0 +1,51 @@
+.contact{
+	height: 100vh;
+}
+.urlap{
+	padding: 2vh;
+	text-align: center;
+	padding-top: 1vh;
+	margin-top: 20vh;
+	width: 50vw;
+	height: 40vh;
+	border: 2px solid black;
+	border-radius: 15px;
+	background-color: black;
+}
+.urlap:hover{
+	box-shadow: 5px 10px 5px 10px rgba(255, 255, 255, 0.3);
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+body {
+	background: linear-gradient(-45deg, #ffa600, #ff9900, #2e2c2c, #a3acaa);
+	background-size: 700% 700%;
+	animation: gradient 15s ease infinite;
+	height: 100vh;
+}
+@keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
