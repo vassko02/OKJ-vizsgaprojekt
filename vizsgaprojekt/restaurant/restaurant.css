@@ -34,7 +34,7 @@ body{
     font-family: 'Lobster', cursive;
 }
 .card{
-    
+    width: 345px;
     margin: 1vw;
     padding-top: 1vh;
     background-color: black;
@@ -44,10 +44,13 @@ body{
     border-radius: 15px;
 }
 .card-img-top{
+    height: 50vh;
     border: 2px solid white;
     border-radius: 10px;
 }
 .card-text{
+ 
+    font-size: large;
     margin: auto;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
