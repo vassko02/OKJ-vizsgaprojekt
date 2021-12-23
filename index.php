@@ -43,6 +43,7 @@ if (isset($_GET['m'])) {
             <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
             <link href="https://fonts.googleapis.com/css2?family=Changa:wght@700&display=swap" rel="stylesheet"> 
             <link rel="stylesheet" href="./casino/gamescards/style.css">
+            <link rel="stylesheet" href="./casino/pokercards/style.css">
             ';
     }
     if ($m == 'book') {

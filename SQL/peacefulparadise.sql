@@ -1,13 +1,14 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.1
+-- version 4.9.0.1
 -- https://www.phpmyadmin.net/
 --
 -- Gép: 127.0.0.1
--- Létrehozás ideje: 2021. Dec 18. 19:37
--- Kiszolgáló verziója: 10.4.21-MariaDB
--- PHP verzió: 7.3.31
+-- Létrehozás ideje: 2021. Dec 20. 09:17
+-- Kiszolgáló verziója: 10.4.6-MariaDB
+-- PHP verzió: 7.3.9
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -82,7 +83,9 @@ INSERT INTO `consumption` (`ConsumptionID`, `Price`, `ItemName`, `ReservationID`
 (15, 1.49, 'Cappy', 4),
 (16, 1.49, 'Snickers', 10),
 (19, 1.49, 'Snickers', 10),
-(20, 1.49, 'Snickers', 10);
+(20, 1.49, 'Snickers', 10),
+(22, 10.79, 'Kit Kat ', 10),
+(23, 7.99, 'Planters Mixed Nuts', 10);
 
 -- --------------------------------------------------------
 
@@ -106,6 +109,19 @@ INSERT INTO `customer` (`CustomerID`, `Name`, `PhoneNumber`, `Email`) VALUES
 (3, 'TestUser2', '123', '123'),
 (4, 'Béla', '+3620123456', 'a@a.hu'),
 (5, 'János', '123', '123');
+
+-- --------------------------------------------------------
+
+--
+-- Tábla szerkezet ehhez a táblához `reports`
+--
+
+CREATE TABLE `reports` (
+  `ReportID` int(11) NOT NULL,
+  `GuestName` varchar(100) NOT NULL,
+  `Email` varchar(100) NOT NULL,
+  `Problem` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -283,6 +299,12 @@ ALTER TABLE `customer`
   ADD PRIMARY KEY (`CustomerID`);
 
 --
+-- A tábla indexei `reports`
+--
+ALTER TABLE `reports`
+  ADD PRIMARY KEY (`ReportID`);
+
+--
 -- A tábla indexei `reservation`
 --
 ALTER TABLE `reservation`
@@ -323,13 +345,19 @@ ALTER TABLE `cashregister`
 -- AUTO_INCREMENT a táblához `consumption`
 --
 ALTER TABLE `consumption`
-  MODIFY `ConsumptionID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `ConsumptionID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
 -- AUTO_INCREMENT a táblához `customer`
 --
 ALTER TABLE `customer`
   MODIFY `CustomerID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
+-- AUTO_INCREMENT a táblához `reports`
+--
+ALTER TABLE `reports`
+  MODIFY `ReportID` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT a táblához `reservation`

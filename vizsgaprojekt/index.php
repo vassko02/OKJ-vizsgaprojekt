@@ -4,6 +4,11 @@ if (isset($_GET['m'])) {
 } else {
     $m = 'home';
 }
+
+include('dbconnect.php');
+include('models/guest.php');
+$GuestObj = new Guest();
+include('action.php');
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -66,7 +71,7 @@ if (isset($_GET['m'])) {
                 ';
     }
     if ($m == 'contactus') {
-        echo '';
+        echo '  <link rel="stylesheet" href="./contact/contact.css">';
     }
     ?>
     <link rel="icon" href="./pictures/small_rounded.png">
