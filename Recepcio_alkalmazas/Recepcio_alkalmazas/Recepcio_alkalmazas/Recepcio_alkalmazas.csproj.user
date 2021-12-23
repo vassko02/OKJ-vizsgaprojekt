@@ -16,7 +16,13 @@
     <Compile Update="Views\cashreg.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="Views\ComsumptionAdd.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Views\cons.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\editcons.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="Views\editres.xaml.cs">
@@ -45,7 +51,13 @@
     <Page Update="Views\cashreg.xaml">
       <SubType>Designer</SubType>
     </Page>
+    <Page Update="Views\ComsumptionAdd.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="Views\cons.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\editcons.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Views\editres.xaml">

@@ -102,7 +102,7 @@ namespace Recepcio_alkalmazas.pages
                     x = osszeg[0].osszeg;
 
                 }
-                lbl_vegosszeg.Content = string.Format("${0:ff}", x.ToString());
+                lbl_vegosszeg.Content ="$"+x.ToString("F");
                 egyfoglalas = (reservation)dg_nevek.SelectedItem;
                 tb_change.Text = tb_fizetett.Text = "";
                 btn_kartya.IsChecked = btn_keszpenz.IsChecked = false;
@@ -176,7 +176,7 @@ namespace Recepcio_alkalmazas.pages
             }
         }
 
-        private static readonly Regex _regex = new Regex("[^0-9,]"); //regex that matches disallowed text
+        private static readonly Regex _regex = new Regex("[^0-9.]"); //regex that matches disallowed text
         private static bool IsTextAllowed(string text)
         {
             return !_regex.IsMatch(text);

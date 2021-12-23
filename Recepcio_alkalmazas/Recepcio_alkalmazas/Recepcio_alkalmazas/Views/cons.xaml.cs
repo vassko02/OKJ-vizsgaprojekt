@@ -12,7 +12,9 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.IO;
 using System.Collections.ObjectModel;
+using System.Linq;
 using Recepcio_alkalmazas.Models;
+using Recepcio_alkalmazas.Views;
 
 namespace Recepcio_alkalmazas.pages
 {
@@ -24,7 +26,7 @@ namespace Recepcio_alkalmazas.pages
         ObservableCollection<reservation> foglalasok = new ObservableCollection<reservation>();
         ObservableCollection<consumption> fogyasztasok = new ObservableCollection<consumption>();
         ObservableCollection<storage> fogylehetoseg = new ObservableCollection<storage>();
-
+        List<string> tipusok = new List<string>();
         public cons()
         {
             InitializeComponent();
@@ -34,8 +36,11 @@ namespace Recepcio_alkalmazas.pages
             dg_nevek.SelectedIndex = 0;
             dg_fogyasztas.DataContext = fogyasztasok;
             lb_itemek.DataContext = fogylehetoseg;
+            tipusok = fogylehetoseg.Select(x => x.Type).Distinct().ToList();
+            tipusok.Add("All");
+            cb_typefilter.ItemsSource = tipusok;
+            cb_typefilter.SelectedIndex = tipusok.Count - 1;
         }
-
         private void tb_guestinput_TextChanged(object sender, TextChangedEventArgs e)
         {
             foglalasok = reservation.selectByGuestName(tb_guestinput.Text, 1, false);
@@ -85,7 +90,7 @@ namespace Recepcio_alkalmazas.pages
         }
         private void arfrissit(int id)
         {
-            if (consumption.selectSumByID(id).Count!=0)
+            if (consumption.selectSumByID(id).Count != 0)
             {
                 string osszeg = consumption.selectSumByID(id)[0].osszeg.ToString("F");
                 lbl_osszeg.Content = string.Format("Price: $" + osszeg);
@@ -93,7 +98,29 @@ namespace Recepcio_alkalmazas.pages
             else
             {
                 lbl_osszeg.Content = string.Format("Price: $0");
+            }
+        }
 
+        private void cb_typefilter_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            fogylehetoseg = storage.selectByType(cb_typefilter.SelectedItem.ToString());
+            lb_itemek.DataContext = fogylehetoseg;
+        }
+
+        private void btn_uj_Click(object sender, RoutedEventArgs e)
+        {
+            storage valasztott = new storage();
+            var itemadd = new ComsumptionAdd(valasztott);
+            itemadd.ShowDialog();
+        }
+
+        private void btn_edit_Click(object sender, RoutedEventArgs e)
+        {
+            var modositasablak = new editcons();
+            if (modositasablak.ShowDialog() == true)
+            {
+                fogylehetoseg = storage.selectByType(cb_typefilter.SelectedItem.ToString());
+                lb_itemek.DataContext = fogylehetoseg;
             }
         }
     }

@@ -3,7 +3,7 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-      xmlns:local="clr-namespace:Recepcio_alkalmazas.pages"
+      xmlns:local="clr-namespace:Recepcio_alkalmazas.pages" xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
       mc:Ignorable="d" 
       d:DesignHeight="500" d:DesignWidth="800"
       Title="cons">
@@ -42,19 +42,23 @@
                     <DataGridTextColumn Header="Price" Width="50" Binding="{Binding Price,StringFormat=$ {0}}"/>
                 </DataGrid.Columns>
             </DataGrid>
-            <Button Padding="5" FontWeight="Bold" Name="btn_eltavolit" Content="Remove selected item" Background="Black" Foreground="DarkGoldenrod" Margin="30,10,30,10" Click="btn_eltavolit_Click">
+            <Button Padding="5" FontWeight="Bold" Name="btn_eltavolit" Background="Black" Foreground="DarkGoldenrod" Margin="30,10,30,10" Click="btn_eltavolit_Click">
                 <Button.Resources>
                     <Style TargetType="Border">
                         <Setter Property="CornerRadius" Value="5"/>
                     </Style>
                 </Button.Resources>
+                <StackPanel Orientation="Horizontal">
+                    <Label Content="Remove selected item" Foreground="DarkGoldenrod" Margin="0,0,5,0"/>
+                    <iconPacks:PackIconMaterial Width="20" Height="20" Kind="Delete" Foreground="DarkGoldenrod" VerticalContentAlignment="Center" VerticalAlignment="Center"/>
+                </StackPanel>
             </Button>
             <Label Content="Price: " Name="lbl_osszeg" Foreground="DarkGoldenrod" FontWeight="Bold" Margin="25,5,20,5" Width="200"/>
         </StackPanel>
         <StackPanel Grid.Column="1" Orientation="Vertical">
             <Label Content="Select an item" HorizontalAlignment="Center" FontSize="20" Foreground="DarkGoldenrod" FontWeight="Bold" Margin="5"/>
             <ListBox Name="lb_itemek" Background="Transparent"
-                     ScrollViewer.HorizontalScrollBarVisibility="Disabled" ItemsSource="{Binding}" Width="436" Height="430">
+                     ScrollViewer.HorizontalScrollBarVisibility="Disabled" ItemsSource="{Binding}" Width="436" Height="380">
                 <ListBox.ItemsPanel>
                     <ItemsPanelTemplate>
                         <WrapPanel IsItemsHost="True" HorizontalAlignment="Center"/>
@@ -69,6 +73,32 @@
                     </DataTemplate>
                 </ListBox.ItemTemplate>
             </ListBox>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                <Button Padding="5" FontWeight="Bold" Name="btn_uj" Width="150" Background="Black" Foreground="DarkGoldenrod" Margin="5,15,15,5" Click="btn_uj_Click">
+                    <Button.Resources>
+                        <Style TargetType="Border">
+                            <Setter Property="CornerRadius" Value="5"/>
+                        </Style>
+                    </Button.Resources>
+                    <StackPanel Orientation="Horizontal">
+                        <Label Content="Insert new item" Foreground="DarkGoldenrod" Margin="0,0,5,0"/>
+                        <iconPacks:PackIconMaterial Width="20" Height="20" Kind="PlusBox" Foreground="DarkGoldenrod" VerticalContentAlignment="Center" VerticalAlignment="Center"/>
+                    </StackPanel>
+                </Button>
+                <Button Padding="5" FontWeight="Bold" Name="btn_edit" Width="110" Background="Black" Foreground="DarkGoldenrod" Margin="5,15,15,5" Click="btn_edit_Click">
+                    <Button.Resources>
+                        <Style TargetType="Border">
+                            <Setter Property="CornerRadius" Value="5"/>
+                        </Style>
+                    </Button.Resources>
+                    <StackPanel Orientation="Horizontal">
+                        <Label Content="Edit items" Foreground="DarkGoldenrod" Margin="0,0,5,0"/>
+                        <iconPacks:PackIconMaterial Width="20" Height="20" Kind="ClipboardEdit" Foreground="DarkGoldenrod" VerticalContentAlignment="Center" VerticalAlignment="Center"/>
+                    </StackPanel>
+                </Button>
+                <Label Content="Type:" Foreground="DarkGoldenrod" Margin="5,15,0,5" VerticalAlignment="Center" FontWeight="Bold"/>
+                <ComboBox Name="cb_typefilter" Margin="0,15,5,5" Width="75" Height="25" SelectionChanged="cb_typefilter_SelectionChanged"/>
+            </StackPanel>
         </StackPanel>
     </Grid>
 </Page>

@@ -27,6 +27,11 @@ namespace Recepcio_alkalmazas.Views
 
         private void btn_save_Click(object sender, RoutedEventArgs e)
         {
+            if (tb_email.Text==""|| tb_guestname.Text == "" || tb_phonenumber.Text == "" ||!tb_email.Text.Contains("@"))
+            {
+                MessageBox.Show("Incorrect data!", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
             customer.insert(ujguest);
             DialogResult = true;
             this.Close();
