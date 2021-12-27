@@ -1,4 +1,5 @@
 <?php
+session_start();
 if (isset($_GET['m'])) {
     $m = $_GET['m'];
 } else {
@@ -7,7 +8,9 @@ if (isset($_GET['m'])) {
 
 include('dbconnect.php');
 include('models/guest.php');
+include('models/room.php');
 $GuestObj = new Guest();
+$RoomObj = new Room();
 include('action.php');
 ?>
 <!DOCTYPE html>
@@ -70,7 +73,7 @@ include('action.php');
                 <link rel="stylesheet" href="./restaurant/menu/foodmenu.css">
                 ';
     }
-    if ($m == 'contactus') {
+    if ($m == 'contactus' || $m == 'contactusREPORT') {
         echo '  <link rel="stylesheet" href="./contact/contact.css">';
     }
     ?>
@@ -101,9 +104,16 @@ include('action.php');
     if ($m == 'contactus') {
         include('./contact/contact.php');
     }
+    if ($m == 'contactusREPORT') {
+        include('./contact/contact.php');
+        $message = "The report was sent succesfully! We will reply soon as possible";
+        echo "<script type='text/javascript'>alert('$message');</script>";
+     
+    }
     if ($m != 'casino') {
         include('./footer/footer.php');
     }
+    
 
     ?>
     <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>

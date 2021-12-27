@@ -34,14 +34,14 @@
       Please provide a valid city.
     </div>
   </div>
-
+   
   <div class="col-12">
     <button class="btn btn-primary w-25" name="btn_send" type="submit">Send</button>
   </div>
 
 </form>
-<h1>ADATOK</h1>
-<!-- <?php
+<!-- <h1>ADATOK</h1>
+<?php
 echo ('<pre>');
  print_r($_POST);
 
