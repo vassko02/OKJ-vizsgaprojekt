@@ -5,7 +5,7 @@ if (isset($_GET['m'])) {
 } else {
     $m = 'home';
 }
-
+if (isset($_GET['roomid'])) {$mid=$_GET['roomid']; } else {$mid=0;}
 include('dbconnect.php');
 include('models/guest.php');
 include('models/room.php');
@@ -95,6 +95,9 @@ include('action.php');
     if ($m == 'book') {
         include('./book/book.php');
     }
+    if ($m == 'roomdetail') {
+        include('./book/roomdetail.php');
+    }
     if ($m == 'restaurant') {
         include('./restaurant/restaurant.php');
     }
@@ -113,6 +116,7 @@ include('action.php');
     if ($m != 'casino') {
         include('./footer/footer.php');
     }
+  
     
 
     ?>

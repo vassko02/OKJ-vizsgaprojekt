@@ -3,7 +3,7 @@
     {
       public function selectrooms($adatok){
           
-        $sql = "SELECT * FROM `room`LEFT JOIN reservation on room.RoomID = reservation.RoomID WHERE (room.Capacity = ? OR room.Capacity-1 = ?) and (reservation.LeavingDate <= ? or reservation.ArrivalDate >= ? 
+        $sql = "SELECT room.*,reservation.GuestNumber,reservation.ArrivalDate,reservation.LeavingDate FROM `room` LEFT JOIN reservation on room.RoomID = reservation.RoomID WHERE (room.Capacity = ? OR room.Capacity-1 = ?) and (reservation.LeavingDate <= ? or reservation.ArrivalDate >= ? 
         OR reservation.ArrivalDate is null)";
         $stmt = $this->con->prepare($sql);
         $guestnumber = (int)$adatok['adultnumber'] + (int)$adatok['childrennumber'];
