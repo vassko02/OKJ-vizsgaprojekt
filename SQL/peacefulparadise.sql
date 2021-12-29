@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.0.1
+-- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
 -- Gép: 127.0.0.1
--- Létrehozás ideje: 2021. Dec 20. 09:17
--- Kiszolgáló verziója: 10.4.6-MariaDB
--- PHP verzió: 7.3.9
+-- Létrehozás ideje: 2021. Dec 29. 13:39
+-- Kiszolgáló verziója: 10.4.21-MariaDB
+-- PHP verzió: 7.3.31
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -79,13 +78,12 @@ CREATE TABLE `consumption` (
 INSERT INTO `consumption` (`ConsumptionID`, `Price`, `ItemName`, `ReservationID`) VALUES
 (6, 1, 'Accomodation', 1),
 (12, 3619.99, 'Accomodation', 10),
-(14, 1.49, 'Coca-Cola', 4),
-(15, 1.49, 'Cappy', 4),
 (16, 1.49, 'Snickers', 10),
-(19, 1.49, 'Snickers', 10),
 (20, 1.49, 'Snickers', 10),
-(22, 10.79, 'Kit Kat ', 10),
-(23, 7.99, 'Planters Mixed Nuts', 10);
+(22, 9.99, 'Bloody Mary', 10),
+(24, 7.99, 'LIFE WTR Purified Water', 4),
+(25, 4.49, 'Coca Cola (1l)', 4),
+(26, 1.49, 'Snickers', 4);
 
 -- --------------------------------------------------------
 
@@ -97,31 +95,19 @@ CREATE TABLE `customer` (
   `CustomerID` int(11) NOT NULL,
   `Name` varchar(50) NOT NULL,
   `PhoneNumber` varchar(15) NOT NULL,
-  `Email` varchar(100) NOT NULL
+  `Email` varchar(100) NOT NULL,
+  `Adress` varchar(300) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='Customer data';
 
 --
 -- A tábla adatainak kiíratása `customer`
 --
 
-INSERT INTO `customer` (`CustomerID`, `Name`, `PhoneNumber`, `Email`) VALUES
-(1, 'TestUser', '123', '123'),
-(3, 'TestUser2', '123', '123'),
-(4, 'Béla', '+3620123456', 'a@a.hu'),
-(5, 'János', '123', '123');
-
--- --------------------------------------------------------
-
---
--- Tábla szerkezet ehhez a táblához `reports`
---
-
-CREATE TABLE `reports` (
-  `ReportID` int(11) NOT NULL,
-  `GuestName` varchar(100) NOT NULL,
-  `Email` varchar(100) NOT NULL,
-  `Problem` text NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+INSERT INTO `customer` (`CustomerID`, `Name`, `PhoneNumber`, `Email`, `Adress`) VALUES
+(1, 'TestUser', '123', '123', ''),
+(3, 'TestUser2', '123', '123', ''),
+(4, 'Béla', '+3620123456', 'a@a.hu', ''),
+(5, 'János', '123', '123', '');
 
 -- --------------------------------------------------------
 
@@ -153,7 +139,7 @@ INSERT INTO `reservation` (`ReservationID`, `GuestNumber`, `Price`, `Children`, 
 (8, 3, 8129.99, 1, 2, '2021-12-20', '2021-12-29', 4, 6, 2, 0),
 (10, 4, 3619.99, 2, 2, '2021-12-12', '2021-12-16', 4, 6, 1, 1),
 (11, 2, 1019.99, 1, 1, '2021-12-14', '2021-12-15', 1, 11, 1, 0),
-(12, 3, 8129.99, 2, 2, '2021-12-14', '2021-12-23', 4, 7, 2, 0);
+(15, 3, 7229.99, 2, 1, '2022-01-05', '2022-01-13', 1, 6, 2, 0);
 
 -- --------------------------------------------------------
 
@@ -299,12 +285,6 @@ ALTER TABLE `customer`
   ADD PRIMARY KEY (`CustomerID`);
 
 --
--- A tábla indexei `reports`
---
-ALTER TABLE `reports`
-  ADD PRIMARY KEY (`ReportID`);
-
---
 -- A tábla indexei `reservation`
 --
 ALTER TABLE `reservation`
@@ -345,7 +325,7 @@ ALTER TABLE `cashregister`
 -- AUTO_INCREMENT a táblához `consumption`
 --
 ALTER TABLE `consumption`
-  MODIFY `ConsumptionID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `ConsumptionID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 
 --
 -- AUTO_INCREMENT a táblához `customer`
@@ -354,16 +334,10 @@ ALTER TABLE `customer`
   MODIFY `CustomerID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
--- AUTO_INCREMENT a táblához `reports`
---
-ALTER TABLE `reports`
-  MODIFY `ReportID` int(11) NOT NULL AUTO_INCREMENT;
-
---
 -- AUTO_INCREMENT a táblához `reservation`
 --
 ALTER TABLE `reservation`
-  MODIFY `ReservationID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `ReservationID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT a táblához `room`
@@ -381,7 +355,7 @@ ALTER TABLE `servicetype`
 -- AUTO_INCREMENT a táblához `storage`
 --
 ALTER TABLE `storage`
-  MODIFY `StorageID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
+  MODIFY `StorageID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
 
 --
 -- Megkötések a kiírt táblákhoz
