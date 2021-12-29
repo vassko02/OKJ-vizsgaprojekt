@@ -1,11 +1,10 @@
-
 body {
     background-color: black !important;
 }
 
 /*Nyitó GIF és cím*/
 .gifdiv {
-    background-image: url('../pictures/casino/Casino_v06.gif');
+    background-image: url('../pictures/casino/Casinogif/Casino_v06.gif');
     background-repeat: no-repeat;
     background-size: cover;
     width: 100%;
@@ -27,7 +26,7 @@ body {
                        0 6px 0 hsl(0, 62%, 55%),
                        0 7px 0 hsl(0, 62%, 50%),
                        0 8px 0 hsl(0, 62%, 45%),
-      
+
                        0 0 5px rgba(0,0,0,.05),
                       0 1px 3px rgba(0,0,0,.2),
                       0 3px 5px rgba(0,0,0,.2),
@@ -59,8 +58,10 @@ body {
     text-transform: uppercase;
 }
 .basicszoveg h4 {
-    font-size: 4vh;
+    font-size: 3vh;
     padding-bottom: 3vh !important;
+    margin-left: 10vh;
+    margin-right: 10vh;
 }
 .basicinfo {
     height: 20vh;
@@ -115,24 +116,67 @@ body {
 
 /*Poker típusok*/
 .pokers {
-    background-color: hsl(0, 2%, 16%);
-    height: 50vh;
     width: 100%;
-    color: white;
-    text-align: center;
-    padding-top: 10vh;
+}
+.pokercards {
+    justify-content: center;
+}
+.pokerheader {
+    justify-content: center;
+    padding-top: 1vh;
+}
+.pokerheader img {
+    width: 100%;
+    max-width: 100%;
+}
+.pokerheadszoveg {
+    margin-top: auto;
+    margin-bottom: auto;
+    text-align: right;
+}
+.pokerheadszoveg h1 {
+    font-weight: bold;
+    font-size: 5vh;
+    font-family: 'Changa', sans-serif;
+}
+.pokerheadszoveg p {
+    font-size: 2.5vh;
 }
 
 /*Slot Machine*/
 .slotmachine {
-    background-color: black;
-    height: 50vh;
     width: 100%;
-    color: white;
-    text-align: center;
-    padding-top: 10vh;
+    padding-bottom: 3vh;
+}
+.slotcards {
+    justify-content: center;
+}
+.slotheader {
+    justify-content: center;
+    padding-top: 1vh;
+}
+.slotheader img {
+    width: 100%;
+    max-width: 100%;
+}
+.slotheadszoveg {
+    margin-top: auto;
+    margin-bottom: auto;
+    text-align: left;
+}
+.slotheadszoveg h1 {
+    font-weight: bold;
+    font-size: 5vh;
+    font-family: 'Changa', sans-serif;
+}
+.slotheadszoveg h2 {
+    font-size: 3vh;
+    padding-bottom: 2vh;
+}
+.slotheadszoveg p {
+    font-size: 2vh;
 }
 
 @media screen and (max-width: 1300px){
-    
-}
+
+} 

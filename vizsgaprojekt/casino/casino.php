@@ -47,6 +47,10 @@
         </div>
         <!-- Table games types -->
         <div class="games col-12 col-sm-12 col-md-12 col-lg-12">
+            <div class="basicszoveg">
+                <h3>PARADISE TABLE GAMES</h3>
+                <h4>Win in spectacular fashion playing your favorite Las Vegas casino table games at Peaceful Paradise. When you're gambling in Las Vegas casinos, the excitement rises as you face off with lady luck and test your skill with games of chance.</h4>
+            </div>
             <div class="row gamesitems">
                 <div class="customcard1 col-12 col-sm-6 col-md-6 col-lg-4">
                     <img src="pictures\casino\blackjack1.jpg" class="card-img-top" alt="...">
@@ -73,10 +77,48 @@
 
         </div>
         <div class="pokers col-12 col-sm-12 col-md-12 col-lg-12">
-            <h1>Ide jönnek majd a poker fajtái</h1>
+            <div class="row pokerheader">
+                <div class="col-12 col-sm-6 col-md-6 col-lg-4 pokerheadszoveg">
+                    <h1>POKER GAMES</h1>
+                    <p>Step into our 450-square-meter casino poker room and let the excitement spread.</p>
+                </div>
+                <div class="col-12 col-sm-6 col-md-6 col-lg-4 pokerheadkep">
+                    <img class="" src="pictures\casino\poker1.jpg" alt="">
+                </div>
+            </div>
+            <div class="row pokercards">
+                <div class="card col-12 col-sm-6 col-md-6 col-lg-4">
+                    <div class="content">
+                        <h2 class="title">PAI GOW POKER</h2>
+                        <p class="copy">Pai Gow Poker is an East-meets-West game that combines the strategy of poker with the structure of Pai Gow Tiles.</p>
+                    </div>
+                </div>
+                <div class="card col-12 col-sm-6 col-md-6 col-lg-4">
+                    <div class="content">
+                        <h2 class="title">TEXAS HOLD'EM</h2>
+                        <p class="copy">All the excitement and betting strategy of the American classic, Texas Hold'em, comes to life in this exciting table game.</p>
+                    </div>
+                </div>
+                <div class="card col-12 col-sm-6 col-md-6 col-lg-4">
+                    <div class="content">
+                        <h2 class="title">LET IT RIDE POKER</h2>
+                        <p class="copy">When you have a good hand in this exciting table game, just Let It Ride. You could win a cash jackpot of up to $25000.</p>
+                    </div>
+                </div>
+
+            </div>
         </div>
         <div class="slotmachine col-12 col-sm-12 col-md-12 col-lg-12">
-            <h1>Ide jönnek majd a Slot Machine-ek dolgai</h1>
+            <div class="row slotheader">
+                <div class="col-12 col-sm-6 col-md-6 col-lg-4 pokerheadkep">
+                    <img class="" src="pictures\casino\slotmachine1.jpg" alt="">
+                </div>
+                <div class="col-12 col-sm-6 col-md-6 col-lg-4 slotheadszoveg">
+                    <h1>SLOT MACHINES</h1>
+                    <h2>Slots from 1¢ to $500</h2>
+                    <p>Las Vegas slots players have a wide variety of options to choose from at Peaceful Paradise Royale Casino. You can play from penny slots up to $500 on your choice of traditional reel-type slot machines, video reel machines, the latest video poker games, video blackjack or keno.</p>
+                </div>
+            </div>
         </div>
         <!--Footer-->
         <div class="col-12 col-sm-12 col-md-12 col-lg-12">
