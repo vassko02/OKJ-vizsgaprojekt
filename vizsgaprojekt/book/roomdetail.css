@@ -1,0 +1,25 @@
+.roooom{
+    height: 75vh;
+    padding-top: 10vh;
+}
+.carousel-inner img{
+    height: 55vh;
+   
+}
+body {
+	background: linear-gradient(-45deg, #646464, #646464, #646464, #646464);
+	background-size: 1000% 1000%;
+	animation: gradient 15s ease infinite;
+	height: 100vh;
+}
+h1{
+    font-weight: bold !important;
+}
+h5{
+    font-style: italic !important;
+}
+.btn{
+    margin-top: 3.1vh;
+    margin-right: 2vw;
+    float: right !important;
+}

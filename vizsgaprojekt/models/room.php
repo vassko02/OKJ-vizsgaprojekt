@@ -71,6 +71,16 @@
       
         $filteredrooms = array();
       }
+
+
+      public function selectoneroom($id){
+          $sql = 'SELECT * FROM room WHERE room.RoomID = ?';
+          $stmt = $this->con->prepare($sql);
+          $stmt->bind_param("i",$id);
+          $stmt->execute();
+          $result = $stmt->get_result();
+          return $result;
+      }
       
   }
  

@@ -9,9 +9,12 @@ if (isset($_GET['roomid'])) {$mid=$_GET['roomid']; } else {$mid=0;}
 include('dbconnect.php');
 include('models/guest.php');
 include('models/room.php');
+include('models/service.php');
+$ServiceObj = new Service();
 $GuestObj = new Guest();
 $RoomObj = new Room();
 include('action.php');
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -61,6 +64,13 @@ include('action.php');
             <link rel="stylesheet" href="./css/bookingroomscards.css">
             <script src="./book/script.js"></script>';
     }
+    if ($m == 'roomdetail') {
+        echo '<link rel="stylesheet" href="./book/roomdetail.css">';
+    }
+    if ($m == 'customerdetails') {
+        echo ' <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
+        <link rel="stylesheet" href="./book/customerdetails.css">';
+    }
     if ($m == 'restaurant') {
         echo '
             <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
@@ -97,6 +107,9 @@ include('action.php');
     }
     if ($m == 'roomdetail') {
         include('./book/roomdetail.php');
+    }
+    if ($m == 'customerdetails') {
+        include('./book/customerdetails.php');
     }
     if ($m == 'restaurant') {
         include('./restaurant/restaurant.php');

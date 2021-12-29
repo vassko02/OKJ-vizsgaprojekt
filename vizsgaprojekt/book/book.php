@@ -1,8 +1,12 @@
 <?php
 	$Roomslist = $RoomObj->selectallrooms();
 	if (isset($_POST['btn_srch'])) {
-		
+		session_unset();
 		$filteredrooms = $RoomObj->selectrooms($_POST);
+		$_SESSION['adult'] = $_POST['adultnumber'];
+		$_SESSION['children'] = $_POST['childrennumber'];
+		$_SESSION['checkin'] = $_POST['checkin'];
+		$_SESSION['checkout'] = $_POST['checkout'];
 		// echo ('<pre>');
 		//  print_r($filteredrooms);
 		//  echo ('</pre>');
