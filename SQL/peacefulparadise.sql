@@ -1,4 +1,4 @@
--- phpMyAdmin SQL Dump
+﻿-- phpMyAdmin SQL Dump
 -- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
@@ -103,7 +103,7 @@ CREATE TABLE `customer` (
 -- A tábla adatainak kiíratása `customer`
 --
 
-INSERT INTO `customer` (`CustomerID`, `Name`, `PhoneNumber`, `Email`, `Adress`) VALUES
+INSERT INTO `customer` (`CustomerID`, `Name`, `PhoneNumber`, `Email`, `Address`) VALUES
 (1, 'TestUser', '123', '123', ''),
 (3, 'TestUser2', '123', '123', ''),
 (4, 'Béla', '+3620123456', 'a@a.hu', ''),
