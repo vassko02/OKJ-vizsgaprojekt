@@ -33,5 +33,11 @@ namespace Recepcio_alkalmazas
             DialogResult = false;
             Close();
         }
+
+        private void PackIconMaterial_MouseUp(object sender, MouseButtonEventArgs e)
+        {
+            DialogResult = true;
+            this.Close();
+        }
     }
 }

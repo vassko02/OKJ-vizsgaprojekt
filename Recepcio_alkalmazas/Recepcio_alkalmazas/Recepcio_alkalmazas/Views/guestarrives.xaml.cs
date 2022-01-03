@@ -53,6 +53,7 @@ namespace Recepcio_alkalmazas.pages
             {
                 btn_fizetes.IsEnabled = true;
             }
+
         }
 
         private void btn_kartya_Click(object sender, RoutedEventArgs e)
@@ -97,11 +98,14 @@ namespace Recepcio_alkalmazas.pages
         }
         private void btn_utofizetes_Click(object sender, RoutedEventArgs e)
         {
-            consumption uj = new consumption(egyfoglalas.Price, "Accomodation", egyfoglalas.ReservationID);
-            consumption.insert(uj);
-            reservation.updateCheckedin(egyfoglalas.ReservationID, 1);
-            foglalasok = reservation.selectByGuestName(null, 0, false);
-            dg_nevek.DataContext = foglalasok;
+            if (dg_nevek.Items.Count!=0)
+            {
+                consumption uj = new consumption(egyfoglalas.Price, "Accomodation", egyfoglalas.ReservationID);
+                consumption.insert(uj);
+                reservation.updateCheckedin(egyfoglalas.ReservationID, 1);
+                foglalasok = reservation.selectByGuestName(null, 0, false);
+                dg_nevek.DataContext = foglalasok;
+            }
         }
         private void tb_fizetett_TextChanged(object sender, TextChangedEventArgs e)
         {
@@ -122,35 +126,38 @@ namespace Recepcio_alkalmazas.pages
         }
         private void btn_fizetes_Click(object sender, RoutedEventArgs e)
         {
-            reservation valasztott = (reservation)dg_nevek.SelectedItem;
-            string name = customer.selectGuestNameByResID(valasztott.ReservationID)[0].Name;
-            if (btn_kartya.IsChecked == true)
+            if (dg_nevek.Items.Count!=0)
             {
-                var cardpayment = new CardPayment();
-                if (cardpayment.ShowDialog() == true)
+                reservation valasztott = (reservation)dg_nevek.SelectedItem;
+                string name = customer.selectGuestNameByResID(valasztott.ReservationID)[0].Name;
+                if (btn_kartya.IsChecked == true)
+                {
+                    var cardpayment = new CardPayment();
+                    if (cardpayment.ShowDialog() == true)
+                    {
+                        MessageBox.Show("Payment successful!", "Payment Information", MessageBoxButton.OK, MessageBoxImage.Information);
+                        cashregister.insert(new cashregister(name, x, "Guest paying when checking-in (CARD)", x, 0));
+                        reservation.updateCheckedin(egyfoglalas.ReservationID, 1);
+                        tb_change.Text = tb_fizetett.Text = "";
+                        foglalasok = reservation.selectByGuestName(null, 0, false);
+                        dg_nevek.DataContext = foglalasok;
+                    }
+                    else
+                    {
+                        MessageBox.Show("Payment cancelled!", "Payment Information", MessageBoxButton.OK, MessageBoxImage.Information);
+                    }
+                }
+                else
                 {
                     MessageBox.Show("Payment successful!", "Payment Information", MessageBoxButton.OK, MessageBoxImage.Information);
-                    cashregister.insert(new cashregister(name, x, "Guest paying when checking-in (CARD)", x, 0));
                     reservation.updateCheckedin(egyfoglalas.ReservationID, 1);
+                    double paid = double.Parse(tb_fizetett.Text);
+                    double change = double.Parse(tb_change.Text.Split(' ')[1]);
+                    cashregister.insert(new cashregister(name, x, "Guest paying at check-in", paid, change));
                     tb_change.Text = tb_fizetett.Text = "";
                     foglalasok = reservation.selectByGuestName(null, 0, false);
                     dg_nevek.DataContext = foglalasok;
                 }
-                else
-                {
-                    MessageBox.Show("Payment cancelled!", "Payment Information", MessageBoxButton.OK, MessageBoxImage.Information);
-                }
-            }
-            else
-            {
-                MessageBox.Show("Payment successful!", "Payment Information", MessageBoxButton.OK, MessageBoxImage.Information);
-                reservation.updateCheckedin(egyfoglalas.ReservationID, 1);
-                double paid = double.Parse(tb_fizetett.Text);
-                double change = double.Parse(tb_change.Text.Split(' ')[1]);
-                cashregister.insert(new cashregister(name, x, "Guest paying at check-in", paid, change));
-                tb_change.Text = tb_fizetett.Text = "";
-                foglalasok = reservation.selectByGuestName(null, 0, false);
-                dg_nevek.DataContext = foglalasok;
             }
         }
         private static readonly Regex _regex = new Regex("[^0-9,-]+"); //regex that matches disallowed text

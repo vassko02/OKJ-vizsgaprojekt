@@ -3,7 +3,7 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-      xmlns:local="clr-namespace:Recepcio_alkalmazas.pages"
+      xmlns:local="clr-namespace:Recepcio_alkalmazas.pages" xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
       mc:Ignorable="d" 
       d:DesignHeight="600" d:DesignWidth="1000"
       Title="editreservation">
@@ -48,35 +48,52 @@
         </StackPanel>
         <StackPanel Grid.Column="1">
             <StackPanel Orientation="Horizontal">
-                <Button Padding="5" FontWeight="Bold" Width="180" Name="btn_hozzaad" Content="Add new reservation" Background="Black" Foreground="DarkGoldenrod" Margin="30,10,30,10" Click="btn_hozzaad_Click">
+                <Button Padding="5" FontWeight="Bold" Width="180" Name="btn_hozzaad" Background="Black" Foreground="DarkGoldenrod" Margin="20,10,30,10" Click="btn_hozzaad_Click">
                     <Button.Resources>
                         <Style TargetType="Border">
                             <Setter Property="CornerRadius" Value="5"/>
                         </Style>
                     </Button.Resources>
+                    <StackPanel Orientation="Horizontal">
+                        <Label Content="Add new reservation" Foreground="DarkGoldenrod" Margin="0,0,5,0"/>
+                        <iconPacks:PackIconMaterial Width="15" Height="14" Kind="PlusBox" Foreground="DarkGoldenrod" VerticalContentAlignment="Center" VerticalAlignment="Center"/>
+                    </StackPanel>
                 </Button>
-                <Button Padding="5" FontWeight="Bold" Width="180" Name="btn_edit" Content="Edit selected reservation" Background="Black" Foreground="DarkGoldenrod" Margin="30,10,30,10" Click="btn_edit_Click">
+                <Button Padding="5" FontWeight="Bold" Width="200" Name="btn_edit" Background="Black" Foreground="DarkGoldenrod" Margin="30,10,30,10" Click="btn_edit_Click">
                     <Button.Resources>
                         <Style TargetType="Border">
                             <Setter Property="CornerRadius" Value="5"/>
                         </Style>
                     </Button.Resources>
+                    <StackPanel Orientation="Horizontal">
+                        <Label Content="Edit selected reservation"  Foreground="DarkGoldenrod" Margin="0,0,5,0"/>
+                        <iconPacks:PackIconMaterial Width="15" Height="14" Kind="BookEdit" Foreground="DarkGoldenrod" VerticalContentAlignment="Center" VerticalAlignment="Center"/>
+                    </StackPanel>
                 </Button>
             </StackPanel>
             <StackPanel Orientation="Horizontal">
-                <Button Padding="5" FontWeight="Bold" Width="180" Name="btn_guestadd" Content="Add new guest" Background="Black" Foreground="DarkGoldenrod" Margin="30,10,30,10" Click="btn_guestadd_Click">
+                <Button Padding="5" FontWeight="Bold" Width="180" Name="btn_guestadd" Background="Black" Foreground="DarkGoldenrod" Margin="20,10,30,10" Click="btn_guestadd_Click">
                     <Button.Resources>
                         <Style TargetType="Border">
                             <Setter Property="CornerRadius" Value="5"/>
                         </Style>
                     </Button.Resources>
+                    <StackPanel Orientation="Horizontal">
+                        <Label Content="Add new guest"  Foreground="DarkGoldenrod" Margin="0,0,5,0"/>
+                        <iconPacks:PackIconMaterial Width="15" Height="14" Kind="PlusBox" Foreground="DarkGoldenrod" VerticalContentAlignment="Center" VerticalAlignment="Center"/>
+                    </StackPanel>
+
                 </Button>
-                <Button Padding="5" FontWeight="Bold" Width="180" Name="btn_torles" Content="Delete selected reservation" Background="Black" Foreground="DarkGoldenrod" Margin="30,10,30,10" Click="btn_torles_Click">
+                <Button Padding="5" FontWeight="Bold" Width="200" Name="btn_torles" Background="Black" Foreground="DarkGoldenrod" Margin="30,10,30,10" Click="btn_torles_Click">
                     <Button.Resources>
                         <Style TargetType="Border">
                             <Setter Property="CornerRadius" Value="5"/>
                         </Style>
                     </Button.Resources>
+                    <StackPanel Orientation="Horizontal">
+                        <Label  Content="Delete selected reservation"  Foreground="DarkGoldenrod" Margin="0,0,5,0"/>
+                        <iconPacks:PackIconMaterial Width="15" Height="14" Kind="Delete" Foreground="DarkGoldenrod" VerticalContentAlignment="Center" VerticalAlignment="Center"/>
+                    </StackPanel>
                 </Button>
             </StackPanel>
         </StackPanel>

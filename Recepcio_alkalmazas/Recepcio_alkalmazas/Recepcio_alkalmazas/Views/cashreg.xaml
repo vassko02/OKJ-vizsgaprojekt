@@ -25,11 +25,11 @@
                     </Style>
                 </DataGrid.Resources>
                 <DataGrid.Columns>
-                    <DataGridTextColumn Header="Guest name" Binding="{Binding GuestName}" Width="150"/>
+                    <DataGridTextColumn Header="Guest name" Binding="{Binding GuestName}" Width="140"/>
                     <DataGridTextColumn Header="Title" Binding="{Binding Title}" Width="230"/>
-                    <DataGridTextColumn Header="Price" Binding="{Binding Amount}" Width="70"/>
-                    <DataGridTextColumn Header="Amount payed" Binding="{Binding Paid}" Width="140"/>
-                    <DataGridTextColumn Header="Change" Binding="{Binding Changee}" Width="100"/>
+                    <DataGridTextColumn Header="Price" Binding="{Binding Amount,StringFormat=$\{0\}}" Width="70"/>
+                    <DataGridTextColumn Header="Amount payed" Binding="{Binding Paid,StringFormat=$\{0\}}" Width="140"/>
+                    <DataGridTextColumn Header="Change" Binding="{Binding Changee,StringFormat=$\{0\}}" Width="90"/>
                 </DataGrid.Columns>
             </DataGrid>
         </StackPanel>

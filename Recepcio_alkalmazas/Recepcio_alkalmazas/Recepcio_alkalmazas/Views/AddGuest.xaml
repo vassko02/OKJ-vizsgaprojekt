@@ -29,6 +29,10 @@
                 <TextBox Name="tb_email" Width="100" Text="{Binding Email}" Margin="5"/>
             </StackPanel>
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                <Label Content="Address:" Width="100" Foreground="DarkGoldenrod" FontWeight="Bold"/>
+                <TextBox Name="tb_address" Width="100" Text="{Binding Address}" Margin="5"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
                 <Button Width="80" FontWeight="Bold" Name="btn_save" Background="Black" Margin="30,10,10,10" Click="btn_save_Click">
                     <Button.Resources>
                         <Style TargetType="Border">

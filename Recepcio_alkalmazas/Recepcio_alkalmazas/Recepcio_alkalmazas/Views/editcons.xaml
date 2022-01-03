@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:Recepcio_alkalmazas.Views" xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
         mc:Ignorable="d"
         Title="Add" Height="300" Width="300" WindowStartupLocation="CenterScreen" WindowStyle="None" ResizeMode="NoResize" AllowsTransparency="False">
-        <Grid>
+        <Grid MouseDown="Grid_MouseDown">
             <Grid.RowDefinitions>
                 <RowDefinition Height="auto"/>
             <RowDefinition Height="auto"/>
@@ -15,7 +15,7 @@
             <Grid.Background>
                 <ImageBrush ImageSource="../img/hatter.jpg"/>
             </Grid.Background>
-            <Label Content="Opportunity data:" Foreground="DarkGoldenrod" FontWeight="Bold" FontSize="20" Margin="5" HorizontalAlignment="Center"/>
+            <Label Content="Item data:" Foreground="DarkGoldenrod" FontWeight="Bold" FontSize="20" Margin="5" HorizontalAlignment="Center"/>
         
             <StackPanel Grid.Row="1" Orientation="Horizontal">
                 <Label Content="Type:" Foreground="DarkGoldenrod" Margin="5" FontWeight="Bold"/>

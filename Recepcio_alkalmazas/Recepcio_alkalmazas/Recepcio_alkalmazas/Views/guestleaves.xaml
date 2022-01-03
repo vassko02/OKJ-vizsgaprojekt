@@ -80,15 +80,15 @@
                 </ToggleButton>
             </StackPanel>
             <StackPanel Orientation="Horizontal">
-                <Label Content="Amount payed:" HorizontalAlignment="Left" FontSize="14" FontWeight="Bold" Margin="0,5,5,5" Foreground="DarkGoldenrod" Width="120"/>
+                <Label Content="Amount payed:" HorizontalAlignment="Left" FontSize="16" FontWeight="Bold" Margin="0,5,5,5" Foreground="DarkGoldenrod" Width="125"/>
                 <Label Content="$" HorizontalAlignment="Left" FontSize="14" FontWeight="Bold" Margin="5,5,0,5" Foreground="DarkGoldenrod" Width="20"/>
                 <TextBox Margin="0,5,5,5" PreviewTextInput="tb_fizetett_PreviewTextInput"  
-                         Name="tb_fizetett" Foreground="DarkGoldenrod" FontWeight="Bold" FontSize="14"
+                         Name="tb_fizetett" Foreground="DarkGoldenrod" FontWeight="Bold" FontSize="16"
                          IsEnabled="{Binding ElementName=btn_keszpenz,Path=IsChecked}" Width="50" TextChanged="tb_fizetett_TextChanged"/>            
             </StackPanel>
             <StackPanel Orientation="Horizontal">
-                <Label Content="Change:" HorizontalAlignment="Left" FontSize="14" FontWeight="Bold" Margin="5" Foreground="DarkGoldenrod" Width="120"/>
-                <TextBlock Margin="5" Name="tb_change" Text="$" FontSize="14" Foreground="DarkGoldenrod" FontWeight="Bold" VerticalAlignment="Center" Width="100"/>
+                <Label Content="Change:" HorizontalAlignment="Left" FontSize="16" FontWeight="Bold" Margin="5" Foreground="DarkGoldenrod" Width="125"/>
+                <TextBlock Margin="5" Name="tb_change" Text="$" FontSize="16" Foreground="DarkGoldenrod" FontWeight="Bold" VerticalAlignment="Center" Width="100"/>
             </StackPanel>
             <Button Padding="5" FontWeight="Bold" Name="btn_fizetes" Background="Black" Margin="30,10,30,10" Click="btn_fizetes_Click">
                 <Button.Resources>

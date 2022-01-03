@@ -125,35 +125,38 @@ namespace Recepcio_alkalmazas.pages
 
         private void btn_fizetes_Click(object sender, RoutedEventArgs e)
         {
-            reservation valasztott = (reservation)dg_nevek.SelectedItem;
-            string name = customer.selectGuestNameByResID(valasztott.ReservationID)[0].Name;
-            if (btn_kartya.IsChecked == true)
+            if (dg_nevek.Items.Count!=0)
             {
-                var cardpayment = new CardPayment();
-                if (cardpayment.ShowDialog() == true)
+                reservation valasztott = (reservation)dg_nevek.SelectedItem;
+                string name = customer.selectGuestNameByResID(valasztott.ReservationID)[0].Name;
+                if (btn_kartya.IsChecked == true)
+                {
+                    var cardpayment = new CardPayment();
+                    if (cardpayment.ShowDialog() == true)
+                    {
+                        MessageBox.Show("Payment successful!", "Payment Information", MessageBoxButton.OK, MessageBoxImage.Information);
+                        cashregister.insert(new cashregister(name, x, "Guest paying when checking-out (CARD)", x, 0));
+                        tb_change.Text = tb_fizetett.Text = "";
+                        reservation.updateCheckedin(egyfoglalas.ReservationID, 0);
+                        foglalasok = reservation.selectByGuestName(null, 1, false);
+                        dg_nevek.DataContext = foglalasok;
+                    }
+                    else
+                    {
+                        MessageBox.Show("Payment cancelled!", "Payment Information", MessageBoxButton.OK, MessageBoxImage.Information);
+                    }
+                }
+                else
                 {
                     MessageBox.Show("Payment successful!", "Payment Information", MessageBoxButton.OK, MessageBoxImage.Information);
-                    cashregister.insert(new cashregister(name, x, "Guest paying when checking-out (CARD)", x, 0));
+                    double paid = double.Parse(tb_fizetett.Text);
+                    double change = double.Parse(tb_change.Text.Split(' ')[1]);
+                    cashregister.insert(new cashregister(name, x, "Guest paying when checking-out", paid, change));
                     tb_change.Text = tb_fizetett.Text = "";
                     reservation.updateCheckedin(egyfoglalas.ReservationID, 0);
                     foglalasok = reservation.selectByGuestName(null, 1, false);
                     dg_nevek.DataContext = foglalasok;
                 }
-                else
-                {
-                    MessageBox.Show("Payment cancelled!", "Payment Information", MessageBoxButton.OK, MessageBoxImage.Information);
-                }
-            }
-            else
-            {
-                MessageBox.Show("Payment successful!", "Payment Information", MessageBoxButton.OK, MessageBoxImage.Information);
-                double paid = double.Parse(tb_fizetett.Text);
-                double change = double.Parse(tb_change.Text.Split(' ')[1]);
-                cashregister.insert(new cashregister(name, x, "Guest paying when checking-out", paid, change));
-                tb_change.Text = tb_fizetett.Text = "";
-                reservation.updateCheckedin(egyfoglalas.ReservationID, 0);
-                foglalasok = reservation.selectByGuestName(null, 1, false);
-                dg_nevek.DataContext = foglalasok;
             }
         }
 

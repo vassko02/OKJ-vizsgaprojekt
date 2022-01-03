@@ -24,6 +24,8 @@ namespace Recepcio_alkalmazas.Models
         }
         public string PhoneNumber { get; set; }
         public string Email { get; set; }
+        public string Address { get; set; }
+
         public customer(){ }
         public customer(MySqlDataReader reader)
         {
@@ -31,6 +33,8 @@ namespace Recepcio_alkalmazas.Models
             this.Name = reader["Name"].ToString();
             this.PhoneNumber = reader["PhoneNumber"].ToString();
             this.Email = reader["Email"].ToString();
+            this.Address = reader["Address"].ToString();
+
         }
         public static ObservableCollection<customer> selectGuestNameByResID(int id)
         {
@@ -93,6 +97,7 @@ namespace Recepcio_alkalmazas.Models
                     cmd.Parameters.AddWithValue("@Name", model.Name);
                     cmd.Parameters.AddWithValue("@PhoneNumber", model.PhoneNumber);
                     cmd.Parameters.AddWithValue("@Email", model.Email);
+                    cmd.Parameters.AddWithValue("@Address", model.Address);
                     cmd.ExecuteNonQuery();
                     return (int)cmd.LastInsertedId;
                 }

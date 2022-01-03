@@ -168,7 +168,7 @@ namespace Recepcio_alkalmazas.Models
                 }
                 if (editlesz==true)
                 {
-                    sql += " AND reservation.ArrivalDate > current_date";
+                    sql += " AND reservation.ArrivalDate >= current_date";
                 }
                 sql += " AND reservation.IsCheckedIn = @checkedin ORDER BY customer.Name";
                 using (var cmd = new MySqlCommand(sql,con))
@@ -207,7 +207,7 @@ namespace Recepcio_alkalmazas.Models
             {
                 con.Open();
                 var sql = "INSERT INTO reservation (GuestNumber,Price,Children,Adults,ArrivalDate,LeavingDate,CustomerID,RoomID,ServiceID) VALUES " +
-                    "(@GuestNumber,@Price,@Children,@Children,@ArrivalDate,@LeavingDate,@CustomerID,@RoomID,@ServiceID)";
+                    "(@GuestNumber,@Price,@Children,@Adults,@ArrivalDate,@LeavingDate,@CustomerID,@RoomID,@ServiceID)";
                 using (var cmd = new MySqlCommand(sql, con))
                 {
                     cmd.Parameters.AddWithValue("@GuestNumber", model.GuestNumber);

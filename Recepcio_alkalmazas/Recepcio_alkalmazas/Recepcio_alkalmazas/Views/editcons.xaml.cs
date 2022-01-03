@@ -89,5 +89,10 @@ namespace Recepcio_alkalmazas.Views
             e.Handled = !IsTextAllowed(e.Text);
 
         }
+
+        private void Grid_MouseDown_1(object sender, MouseButtonEventArgs e)
+        {
+
+        }
     }
 }
