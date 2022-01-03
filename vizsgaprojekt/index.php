@@ -113,6 +113,9 @@ include('action.php');
     if ($m == 'customerdetails') {
         include('./book/customerdetails.php');
     }
+    if ($m == 'confirm') {
+        include('./book/confirm.php');
+    }
     if ($m == 'restaurant') {
         include('./restaurant/restaurant.php');
     }

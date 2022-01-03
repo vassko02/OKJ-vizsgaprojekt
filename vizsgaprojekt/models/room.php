@@ -34,6 +34,7 @@
     
       }
 
+
       public function selectallrooms(){
         $sql = 'SELECT * FROM  room  LEFT JOIN reservation on room.RoomID = reservation.RoomID';
 
@@ -81,6 +82,8 @@
           $result = $stmt->get_result();
           return $result;
       }
+
+      
       
   }
  
