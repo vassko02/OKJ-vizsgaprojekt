@@ -114,7 +114,7 @@
 			
 				<article class="postcard dark blue">
 				<a class="postcard__img_link" href="index.php?m=roomdetail&">
-					<img class="postcard__img" src="./book/pictures/room1.jpeg" alt="Image Title" />
+					<img class="postcard__img" src="'.$room['ImageURL1'].'" alt="Image Title" />
 				</a>
 				<div class="postcard__text">
 					<h1 class="postcard__title blue"><a href="index.php?m=roomdetail">'.$room['RoomName'].'</a></h1>
@@ -145,7 +145,7 @@
 				echo'
 				<article class="postcard dark blue">
 				<a class="postcard__img_link" href="#">
-					<img class="postcard__img" src="./book/pictures/room1.jpeg" alt="Image Title" />
+					<img class="postcard__img" src="'.$room['ImageURL1'].'" alt="Image Title" />
 				</a>
 				<div class="postcard__text">
 					<h1 class="postcard__title blue"><a href="#">'.$room['RoomName'].'</a></h1>
