@@ -1,33 +1,9 @@
-body{
-    height: 100%;
-    background-color: #575a59;
-    width: 100%;
-    
+.elso{
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    padding-top: 75vh;
 }
-a{
-    text-decoration: none;
-    color: #C5B358;
-}
-a:hover {
-    color: hsl(50, 90%, 56%);
-}
-html{
-    height: 100%;
-}
-
-#sliderpic{
-    max-width: 80%;
-}
-
-.pic1 {
-    content: url('../pictures/hatter1.jpg');
-    max-height: 92vh;
-}
-.pic2 {
-    content: url('../pictures/hatter2.jpg');
-    max-height: 92vh;
-}
-.pic3 {
-    content: url('../pictures/hatter3.jpg');
-    max-height: 92vh;
+.elso h1{
+    color: white;
 }

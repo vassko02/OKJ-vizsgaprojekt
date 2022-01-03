@@ -45,7 +45,8 @@ include('action.php');
           
             <link rel="stylesheet" href="./mainpage/mainpage.css"> 
             <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans">
-            <link rel="stylesheet" href="./mainpage/style.css">';
+            <link rel="stylesheet" href="./mainpage/slider/style.css">';
+            
     }
     if ($m == 'casino') {
         echo '
