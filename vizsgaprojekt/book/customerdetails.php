@@ -1,9 +1,15 @@
 <?php
+     echo '<pre>';
+     if (isset($_POST['select'])) {
+        $_SESSION['serviceid'] = $_POST['select'];
+
+     }
+     print_r($_SESSION);
+     print_r($_POST);
+     echo '</pre>'; 
+  
     if (isset($_POST['btn_send'])) {
-        $_SESSION['customername'] = $_POST['name'];
-        $_SESSION['email'] = $_POST['email'];
-        $_SESSION['phonenumber'] = $_POST['tel'];
-        $_SESSION['address'] = $_POST['address'];
+      
         if ($GuestObj->findcustomerbyemail($_POST['email'])== 0) {
             $GuestObj->savecustomer($_POST);
         }
@@ -18,7 +24,7 @@
     <div class="row">
         <h1 class="mt-3">Some information about you</h1>
         <div class="col">
-            <form action="" method="post">
+            <form action="index.php?m=confirm" method="post">
                      <div class="mb-3 mt-3">
                         <label for="name" class="form-label">Name</label>
                         <input type="text" class="form-control"  placeholder="Cicz Imre" name="name" id="name">

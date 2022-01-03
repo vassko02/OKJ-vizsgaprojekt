@@ -6,12 +6,12 @@
    
      echo '<pre>';
       print_r($_POST);
+      print_r($_SESSION);
       echo '</pre>'; 
-     $serviceid = $_POST['select'];
-     echo $serviceid;
-     if (isset($serviceid)) {
-         $_SESSION['serviceid'] = $serviceid;
-     }
+    //  $serviceid = $_POST['select'];
+    //  echo $serviceid;
+    
+    
 ?>
 
 <form action="index.php?m=customerdetails" method="post">

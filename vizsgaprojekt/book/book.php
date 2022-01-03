@@ -1,7 +1,10 @@
 <?php
 	$Roomslist = $RoomObj->selectallrooms();
+	echo ('<pre>');
+	 print_r($_SESSION);
+	 echo ('</pre>');
 	if (isset($_POST['btn_srch'])) {
-		session_unset();
+		//session_unset();
 		$filteredrooms = $RoomObj->selectrooms($_POST);
 		$_SESSION['adult'] = $_POST['adultnumber'];
 		$_SESSION['children'] = $_POST['childrennumber'];
