@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Gép: 127.0.0.1
--- Létrehozás ideje: 2022. Jan 03. 21:23
+-- Létrehozás ideje: 2022. Jan 04. 20:52
 -- Kiszolgáló verziója: 10.4.21-MariaDB
 -- PHP verzió: 7.3.31
 
@@ -264,7 +264,27 @@ INSERT INTO `storage` (`StorageID`, `ItemName`, `Price`, `Type`) VALUES
 (29, 'Kit Kat ', 10.79, 'Snack'),
 (30, 'Cheez-It', 5.49, 'Snack'),
 (31, 'Cheetos', 5.99, 'Snack'),
-(32, 'Oreo Cookies', 3.99, 'Snack');
+(32, 'Oreo Cookies', 3.99, 'Snack'),
+(34, 'Heineken', 10.49, 'Drink'),
+(35, 'Corona Beer', 17.99, 'Drink'),
+(36, 'Moet & Chandon Imperial Champagne', 54.99, 'Drink'),
+(37, 'Pol Roger Brut Champagne', 59.99, 'Drink'),
+(38, 'Taittinger Brut Champagne', 54.99, 'Drink'),
+(39, 'Ruinart Blanc de Blancs Champagne', 59.99, 'Drink'),
+(40, '2020 Small Lot Savignon Blanc', 29.99, 'Drink'),
+(41, 'Cellar Master Michael Cabernet Sauvignon', 34.99, 'Drink'),
+(42, 'Cellar Master Ashley Cabernet Sauvignon\r\n', 33.99, 'Drink'),
+(43, 'Cavalie 7 Cabernet Sauvignon\r\n', 36.99, 'Drink'),
+(44, 'Jack Daniel\'s (2uz)', 6.99, 'Drink'),
+(45, 'Jim Beam Kentucky Fire Bourbon (2uz)', 8.99, 'Drink'),
+(46, 'Jameson Whiskey (2uz)', 7.49, 'Drink'),
+(47, 'Absolut Vodka (1uz)\r\n', 5.99, 'Drink'),
+(48, 'Finlandia Vodka (1uz)', 5.49, 'Drink'),
+(49, 'Grey Goose Vodka (1uz)', 6.49, 'Drink'),
+(50, 'Teremana Tequila (1uz)', 4.99, 'Drink'),
+(51, 'Don Julio Tequila (1uz)', 5.99, 'Drink'),
+(52, 'Ocho Tequila (1uz)', 5.49, 'Drink'),
+(53, 'TartaTea (1uz)', 7.99, 'Drink');
 
 --
 -- Indexek a kiírt táblákhoz
@@ -360,7 +380,7 @@ ALTER TABLE `servicetype`
 -- AUTO_INCREMENT a táblához `storage`
 --
 ALTER TABLE `storage`
-  MODIFY `StorageID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
+  MODIFY `StorageID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=54;
 
 --
 -- Megkötések a kiírt táblákhoz
