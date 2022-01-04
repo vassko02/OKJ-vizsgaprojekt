@@ -7,20 +7,16 @@
         <div class="slide">
           <div class="elso">
             <h1>Peaceful Paradise Royale Hotel Las Vegas</h1>
+            <h2>"Who's prepared to pay the price <br> For a trip to paradise?"</h2>
           </div>
         </div>
         <div class="slide">
-          <div class="elso">
+          <div class="masodik">
             <h1>Peaceful Paradise Royale Hotel Las Vegas</h1>
           </div>
         </div>
         <div class="slide">
-          <div class="elso">
-            <h1>Peaceful Paradise Royale Hotel Las Vegas</h1>
-          </div>
-        </div>
-        <div class="slide">
-          <div class="elso">
+          <div class="harmadik">
             <h1>Peaceful Paradise Royale Hotel Las Vegas</h1>
           </div>
         </div>

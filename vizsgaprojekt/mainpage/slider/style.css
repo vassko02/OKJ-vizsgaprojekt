@@ -1,5 +1,5 @@
 html, body {
-  background: #2c2c2b;
+  background: #1a1919;
   height: 100%;
   margin: 0;
   padding: 0;
@@ -55,9 +55,6 @@ html, body {
   background-size: cover;
 }
 
-.slide:nth-of-type(4) {
-  background: #D1D1D4;
-}
 
 .slide_buttons {
   left: 0;

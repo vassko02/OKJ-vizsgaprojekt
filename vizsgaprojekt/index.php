@@ -5,7 +5,11 @@ if (isset($_GET['m'])) {
 } else {
     $m = 'home';
 }
-if (isset($_GET['roomid'])) {$mid=$_GET['roomid']; } else {$mid=0;}
+if (isset($_GET['roomid'])) {
+    $mid = $_GET['roomid'];
+} else {
+    $mid = 0;
+}
 include('dbconnect.php');
 include('models/guest.php');
 include('models/room.php');
@@ -45,8 +49,10 @@ include('action.php');
           
             <link rel="stylesheet" href="./mainpage/mainpage.css"> 
             <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans">
-            <link rel="stylesheet" href="./mainpage/slider/style.css">';
-            
+            <link rel="stylesheet" href="./mainpage/slider/style.css">
+            <link rel="preconnect" href="https://fonts.googleapis.com">
+            <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+            <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700&display=swap" rel="stylesheet"> ';
     }
     if ($m == 'casino') {
         echo '
@@ -71,7 +77,6 @@ include('action.php');
     }
     if ($m == 'confirm') {
         echo '<link rel="stylesheet" href="./book/confirm.css">';
-        
     }
     if ($m == 'customerdetails') {
         echo ' <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
@@ -123,7 +128,7 @@ include('action.php');
     if ($m == 'restaurant') {
         include('./restaurant/restaurant.php');
     }
-    if ($m == 'foodmenu') {   
+    if ($m == 'foodmenu') {
         include('./restaurant/menu/foodmenu.php');
     }
     if ($m == 'contactus') {
@@ -133,13 +138,12 @@ include('action.php');
         include('./contact/contact.php');
         $message = "The report was sent succesfully! We will reply soon as possible";
         echo "<script type='text/javascript'>alert('$message');</script>";
-     
     }
     if ($m != 'casino') {
         include('./footer/footer.php');
     }
-  
-    
+
+
 
     ?>
     <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
