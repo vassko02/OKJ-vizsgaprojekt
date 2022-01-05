@@ -17,7 +17,7 @@ echo '</pre>';
 <form action="index.php?m=customerdetails" method="post">
     <div class="container roooom mt-5 bg-light">
         <div class="row">
-            <div class="col">
+            <div class="col ">
                 <div id="carouselExampleCaptions" class="carousel slide carousel-fade" data-bs-ride="carousel">
                     <div class="carousel-indicators">
                         <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
@@ -57,6 +57,7 @@ echo '</pre>';
             <div class="col">
                 <h1><?php foreach ($room as $item) {
                         echo $item['RoomName'];
+                        $_SESSION['roomname'] = $item['RoomName'];
                     } ?></h1>
                 <h4 class="mt-3">Room capacity: <?php foreach ($room as $item) {
                                                     echo $item['Capacity'];
@@ -64,14 +65,15 @@ echo '</pre>';
                 <p class="text-justify mt-5 fs-5"><?php foreach ($room as $item) {
                                                         echo $item['Description'];
                                                     } ?></p>
-                <h5> Room price: $<?php foreach ($room as $item) {
+                <h5 class="float-right"> Room price: $<?php foreach ($room as $item) {
                                         echo $item['RoomPrice'];
+                                        $_SESSION['RoomPrice'] = $item['RoomPrice'];
                                     } ?>/day
                 </h5>
                 <select class="form-select" name="select" aria-label="Default select example">
 
                     <?php foreach ($services as $service) {
-                        echo ' <option value="' . $service['ServiceID'] . '">' . $service['ServiceType'] . '</option>';
+                        echo ' <option value="' . $service['ServiceID'] . '">' . $service['ServiceType'] . ' $'.$service['ServicePrice'].' /day </option>';
                     } ?>
 
                 </select>
@@ -80,7 +82,7 @@ echo '</pre>';
                 </button>
 
             </div>
-
+                        
         </div>
     </div>
 </form>

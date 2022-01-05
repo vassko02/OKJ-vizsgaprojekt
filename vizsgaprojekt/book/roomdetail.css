@@ -1,6 +1,7 @@
 .roooom{
     height: 75vh;
     padding-top: 10vh;
+    width: 100vw !important;
 }
 .carousel-inner img{
     height: 55vh;
@@ -20,6 +21,9 @@ h5{
 }
 .btn{
     margin-top: 3.1vh;
-    margin-right: 2vw;
+
     float: right !important;
+}
+.jobbra{
+    text-align: right !important;
 }

@@ -2,7 +2,7 @@
      echo '<pre>';
      if (isset($_POST['select'])) {
         $_SESSION['serviceid'] = $_POST['select'];
-
+        
      }
      print_r($_SESSION);
      print_r($_POST);

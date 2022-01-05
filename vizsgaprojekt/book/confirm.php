@@ -8,6 +8,12 @@
 //  print_r($_POST);
 //  echo '</pre>'; 
      $services = $ServiceObj->getallservice();
+     $servicebyid = $ServiceObj->getservicebyid($_SESSION['serviceid']);
+    echo '<pre>';
+  print_r($servicebyid);
+
+ echo '</pre>'; 
+     
 ?>
 <body>
 <form action="index.php?m=customerdetails" class="text-center" method="post">
@@ -40,6 +46,17 @@
 <div class="rowmx-auto mt-5 mb-5"><h1 class="col ">Reservation informations</h1>
 </div>
 <div class="mb-3 keret">
+  <label for="roomname" class="form-label">Room Type:</label>
+  <span><?php echo $_SESSION['roomname']; echo' $'.$_SESSION['RoomPrice'].'  /day'?></span>
+</div>
+<div class="mb-3 keret">
+  <label for="type" class="form-label">Service Type: </label>
+    <span><?php foreach ($servicebyid as $oneservice) {
+      echo $oneservice['ServiceType']; echo' $'.$oneservice['ServicePrice'].'/day';
+    }
+     ?></span>
+</div>
+<div class="mb-3 keret">
   <label for="adult" class="form-label">Adult number:</label>
   <span><?php echo $_SESSION['adult'] ?></span>
 </div>
@@ -60,6 +77,6 @@
   <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"/>
 </svg> Edit</button>
 
-</form>
+
 </body>
 
