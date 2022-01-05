@@ -1,18 +1,34 @@
 <?php
+	
 	$Roomslist = $RoomObj->selectallrooms();
-	echo ('<pre>');
-	 print_r($_SESSION);
-	 echo ('</pre>');
+ 		echo ('<pre>');
+		print_r($_POST);
+		echo ('</pre>');
+		if (isset($_GET['edit'])) {
+			$edit =$_GET['edit'];
+			if ($edit == "true") {
+		
+			}
+			else{
+				session_unset();
+			}
+		}
+		else{
+			session_unset();
+			$edit = "false";
+
+		}
+
 	if (isset($_POST['btn_srch'])) {
-		//session_unset();
+		
 		$filteredrooms = $RoomObj->selectrooms($_POST);
 		$_SESSION['adult'] = $_POST['adultnumber'];
 		$_SESSION['children'] = $_POST['childrennumber'];
 		$_SESSION['checkin'] = $_POST['checkin'];
 		$_SESSION['checkout'] = $_POST['checkout'];
-		// echo ('<pre>');
-		//  print_r($filteredrooms);
-		//  echo ('</pre>');
+		//  echo ('<pre>');
+		//   print_r($filteredrooms);
+		//   echo ('</pre>');
 	}
 ?>
 
@@ -26,8 +42,8 @@
 							<label class="col-form-label" for="adultsnumber">Adults number</label>
 						</div>
 						<div class="third">
-							<input class="form-control" required value="<?php if (isset($_POST['adultnumber'])) {
-									echo $_POST['adultnumber'];
+							<input class="form-control" required value="<?php if (isset($_SESSION['adult'])) {
+									echo $_SESSION['adult'];
 								} ?>" type="number" name="adultnumber" id="adultsnumber" placeholder="Adults">
 						</div>
 					</div>
@@ -38,22 +54,13 @@
 							<label class="col-form-label" for="childrennumber">Children number</label>
 						</div>
 						<div class="third">
-							<input class="form-control" required value="<?php if (isset($_POST['childrennumber'])) {
-									echo $_POST['childrennumber'];
+							<input class="form-control" required value="<?php if (isset($_SESSION['children'])) {
+									echo $_SESSION['children'];
 								} ?>" type="number" name="childrennumber" id="childrennumber" placeholder="Children">
 						</div>
 					</div>
 				</div>
-				<div class="first col">
-					<div class="second">
-						<div class="third">
-							<label class="col-form-label" for="roomnumber">Room number </label>
-						</div>
-						<div class="third">
-							<input class="form-control" type="number" name="roomnumber" id="roomnumber" placeholder="Rooms">
-						</div>
-					</div>
-				</div>
+		
 			</div>
 			<div class="form-group div2 row">
 				<div class="first col">
@@ -62,8 +69,8 @@
 							<label class="col-form-label" for="arrivaldate">Check-in</label>
 						</div>
 						<div class="third">
-							<input type="date" required value="<?php if (isset($_POST['checkin'])) {
-									echo $_POST['checkin'];
+							<input type="date" required value="<?php if (isset($_SESSION['checkin'])) {
+									echo $_SESSION['checkin'];
 								} ?>"  class="form-control " name="checkin" id="arrivaldate">
 						</div>
 					</div>
@@ -74,15 +81,15 @@
 							<label class="col-form-label" for="leavingdate">Check-out</label>
 						</div>
 						<div class="third">
-							<input type="date" required value="<?php if (isset($_POST['checkout'])) {
-									echo $_POST['checkout'];
+							<input type="date" required value="<?php if (isset($_SESSION['checkout'])) {
+									echo $_SESSION['checkout'];
 								} ?>" class="form-control " name="checkout" id="leavingdate">
 						</div>
 					</div>
 				</div>
 			</div>
 			<div class="form-group div3">
-			<button  class="btn btn-primary" type="submit" name="btn_srch">Submit</button>  
+			<button  class="btn src" type="submit" name="btn_srch">Submit</button>  
 				<!-- <button class="learn-more btn" type="submit" name="btn_srch" id="button">
 					<span class="circle" aria-hidden="true">
 						<span class="icon arrow"></span>
@@ -104,7 +111,7 @@
 		<h1 class="h1 text-center" id="pageHeaderTitle">All of our Rooms</h1>
 		<?php
 		if (isset($_POST['btn_srch'])) {
-
+			
 			// $_POST = array();
 			//  echo ('<pre>');
  			// print_r($_POST);
@@ -114,7 +121,7 @@
 			
 				<article class="postcard dark blue">
 				<a class="postcard__img_link" href="index.php?m=roomdetail&">
-					<img class="postcard__img" src="./book/pictures/room1.jpeg" alt="Image Title" />
+					<img class="postcard__img" src="'.$room['ImageURL1'].'" alt="Image Title" />
 				</a>
 				<div class="postcard__text">
 					<h1 class="postcard__title blue"><a href="index.php?m=roomdetail">'.$room['RoomName'].'</a></h1>
@@ -145,7 +152,7 @@
 				echo'
 				<article class="postcard dark blue">
 				<a class="postcard__img_link" href="#">
-					<img class="postcard__img" src="./book/pictures/room1.jpeg" alt="Image Title" />
+					<img class="postcard__img" src="'.$room['ImageURL1'].'" alt="Image Title" />
 				</a>
 				<div class="postcard__text">
 					<h1 class="postcard__title blue"><a href="#">'.$room['RoomName'].'</a></h1>

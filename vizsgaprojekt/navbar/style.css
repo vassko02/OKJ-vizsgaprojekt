@@ -1,3 +1,26 @@
+html {
+    scrollbar-color: grey black !important;
+}
+html::-webkit-scrollbar {
+  width: 1.5em;
+  height: 1em;
+}
+html::-webkit-scrollbar-track {
+  background: black;
+  border-radius: 100vw;
+  margin-block: 0.2em;
+}
+html::-webkit-scrollbar-thumb {
+  background: grey;
+  border: 0.25em solid black;
+  border-radius: 100vw;
+}
+html::-webkit-scrollbar-thumb:hover {
+  background: hsl(0, 0%, 35%);
+}
+
+
+
 body{
     overflow-x: hidden;
 }

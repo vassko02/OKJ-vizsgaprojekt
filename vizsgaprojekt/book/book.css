@@ -1,6 +1,7 @@
 html,body{
     height: 100%;
     width: 100%;
+    background-color: black;
 }
 html{
     height: 100%;
@@ -26,6 +27,11 @@ html{
 .rooms{
     width: 75vw !important;
     height: 35vh !important;
+}
+.src{
+    background-color: #C5B358 !important;
+    width: 10vw;
+    border: 30px solid #C5B358;
 }
 
 
