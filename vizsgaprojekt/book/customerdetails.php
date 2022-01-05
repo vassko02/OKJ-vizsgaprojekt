@@ -27,19 +27,19 @@
             <form action="index.php?m=confirm" method="post">
                      <div class="mb-3 mt-3">
                         <label for="name" class="form-label">Name</label>
-                        <input type="text" class="form-control"  placeholder="Cicz Imre" name="name" id="name">
+                        <input type="text" class="form-control"  placeholder="Cicz Imre" name="name" value="<?php if(isset($_SESSION['customername'])) echo $_SESSION['customername']; ?>" id="name">
                     </div>
                     <div class="mb-3">
                         <label for="exampleFormControlInput1" class="form-label">Email address</label>
-                        <input type="email" name="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
+                        <input type="email" name="email" class="form-control" value="<?php if(isset($_SESSION['email'])) echo $_SESSION['email']; ?>" id="exampleFormControlInput1" placeholder="name@example.com">
                     </div>
                     <div class="mb-3">
                         <label for="tel" class="form-label">Phone number</label>
-                        <input type="tel" name="tel" class="form-control" id="tel" placeholder="+36301234567">
+                        <input type="tel" name="tel" class="form-control" value="<?php if(isset($_SESSION['phonenumber'])) echo $_SESSION['phonenumber']; ?>" id="tel" placeholder="+36301234567">
                     </div>
                     <div class="mb-3 mt-3">
                         <label for="address" class="form-label">Address</label>
-                        <input type="text" class="form-control"  placeholder="9232 Darnózseli, Táncsics u. 33" name="address" id="address">
+                        <input type="text" class="form-control" value="<?php if(isset($_SESSION['address'])) echo $_SESSION['address']; ?>"  placeholder="9232 Darnózseli, Táncsics u. 33" name="address" id="address">
                      </div>  
                      <button type="submit" name="btn_send" class="btn btn-warning mb-3">Continue</button>
             </form>
