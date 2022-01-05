@@ -107,6 +107,12 @@ namespace Recepcio_alkalmazas.pages
                 tb_change.Text = tb_fizetett.Text = "";
                 btn_kartya.IsChecked = btn_keszpenz.IsChecked = false;
             }
+            if (dg_nevek.Items.Count==0)
+            {
+                lbl_vegosszeg.Content = "";
+                fogyasztasok.Clear();
+                dg_fogyasztas.ItemsSource = fogyasztasok;
+            }
         }
 
         private void btn_remove_Click(object sender, RoutedEventArgs e)

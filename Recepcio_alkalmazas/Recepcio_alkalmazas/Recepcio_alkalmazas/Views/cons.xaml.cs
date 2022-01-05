@@ -67,14 +67,17 @@ namespace Recepcio_alkalmazas.pages
 
         private void btn_eltavolit_Click(object sender, RoutedEventArgs e)
         {
-            consumption valasztott = (consumption)dg_fogyasztas.SelectedItem;
-            int id = valasztott.ConsumptionID;
-            consumption.delete(id);
-            reservation valasztottres = (reservation)dg_nevek.SelectedItem;
-            int id2 = valasztottres.ReservationID;
-            fogyasztasok = consumption.selectItemByReservationID(id2);
-            dg_fogyasztas.DataContext = fogyasztasok;
-            arfrissit(id2);
+            if (dg_fogyasztas.SelectedItem!=null)
+            {
+                consumption valasztott = (consumption)dg_fogyasztas.SelectedItem;
+                int id = valasztott.ConsumptionID;
+                consumption.delete(id);
+                reservation valasztottres = (reservation)dg_nevek.SelectedItem;
+                int id2 = valasztottres.ReservationID;
+                fogyasztasok = consumption.selectItemByReservationID(id2);
+                dg_fogyasztas.DataContext = fogyasztasok;
+                arfrissit(id2);
+            }
         }
 
         private void dg_nevek_SelectionChanged(object sender, SelectionChangedEventArgs e)
