@@ -20,6 +20,11 @@
             <h1>Peaceful Paradise Royale Hotel Las Vegas</h1>
           </div>
         </div>
+        <div class="slide">
+          <div class="harmadik">
+            <h1>Peaceful Paradise Royale Hotel Las Vegas</h1>
+          </div>
+        </div>
       </div>
     </div>
   </div><!-- End // .slider -->

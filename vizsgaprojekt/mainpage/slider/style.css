@@ -1,5 +1,5 @@
 html, body {
-  background: #1a1919;
+  background: #313030;
   height: 100%;
   margin: 0;
   padding: 0;
@@ -43,7 +43,7 @@ html, body {
 
 .slide:nth-of-type(2) {
   background: #F4E4CD;
-  background-image: url('../../pictures/mainpage/reception1.jpg');
+  background-image: url('../../pictures/mainpage/reception1v1.jpg');
   background-repeat: no-repeat;
   background-size: cover;
 }
