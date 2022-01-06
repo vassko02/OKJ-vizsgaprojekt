@@ -1,4 +1,4 @@
-<div>
+<div class="lapozo">
 
   <!-- partial:index.partial.html -->
   <div class="slider">
@@ -12,17 +12,17 @@
         </div>
         <div class="slide">
           <div class="masodik">
-            <h1>Peaceful Paradise Royale Hotel Las Vegas</h1>
+            <h1>Stay in our hotel to go through <br> a phenomenal experience</h1>
           </div>
         </div>
         <div class="slide">
           <div class="harmadik">
-            <h1>Peaceful Paradise Royale Hotel Las Vegas</h1>
+            <h1>Indulge and treat yourself <br> like you are in paradise</h1>
           </div>
         </div>
         <div class="slide">
           <div class="harmadik">
-            <h1>Peaceful Paradise Royale Hotel Las Vegas</h1>
+            <h1>Taste the most tempting and heavenly <br> foods on the Earth</h1>
           </div>
         </div>
       </div>
@@ -45,6 +45,41 @@
     </div>
   </div>
 </div>
+<div class="icons">
+  <div class="row">
+    <a href="index.php?m=book" class="col btn button">
+      <div class="row">
+        <i class="col-12 fas fa-bed"></i>
+        <p class="col-12">Accommodation</p>
+      </div>
+    </a>
+    <a href="index.php?m=casino" class="col btn button">
+      <div class="row">
+        <i class="col-12 fas fa-dice"></i>
+        <p class="col-12">Casino</p>
+      </div>
+    </a>
+    <a href="index.php?m=restaurant" class="col btn button">
+      <div class="row">
+        <i class="col-12 fas fa-utensils"></i>
+        <p class="col-12">Dining</p>
+      </div>
+    </a>
+    <a href="index.php?m=contactus" class="col btn button">
+      <div class="row">
+        <i class="col-12 fab fa-accessible-icon"></i>
+        <p class="col-12">Contact us</p>
+      </div>
+    </a>
+  </div>
+</div>
+<div class="rooms">
+  <h1>Accommodation</h1>
+</div>
+
+
+
+
 <!-- End // .directional_nav -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 <!-- partial -->

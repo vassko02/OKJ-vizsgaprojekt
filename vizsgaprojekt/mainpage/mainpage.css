@@ -1,3 +1,7 @@
+.lapozo {
+    height: 90%;
+}
+
 .elso,.masodik,.harmadik{
     margin-left: auto;
     margin-right: auto;
@@ -32,13 +36,74 @@
       -1px 1px 0 #000,
        1px 1px 0 #000;
 }
+.masodik {
+    padding-top: 65vh;
+}
 .masodik h1{
     color: white;
     font-family: 'Big Shoulders Display', cursive;
     font-size: 5.5vh;
+    -webkit-text-stroke: 2px black;
+    text-shadow:
+       2px 2px 0 #000,
+     -1px -1px 0 #000,  
+      1px -1px 0 #000,
+      -1px 1px 0 #000,
+       1px 1px 0 #000;
+}
+.harmadik {
+    padding-top: 65vh;
 }
 .harmadik h1{
     color: white;
     font-family: 'Big Shoulders Display', cursive;
     font-size: 5.5vh;
+    -webkit-text-stroke: 2px black;
+    text-shadow:
+       2px 2px 0 #000,
+     -1px -1px 0 #000,  
+      1px -1px 0 #000,
+      -1px 1px 0 #000,
+       1px 1px 0 #000;
+}
+
+.icons {
+    text-align: center;
+    width: 50vw;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 5vh;
+}
+.icons a {
+    margin-left: 1vw;
+    margin-right: 1vw;
+    color: black;
+    background-color: #C5B358;
+    border: 4px solid black!important;
+    border-radius: 0 !important;
+    transition: 0.3s;
+    font-size: 1.2vh;
+    text-transform: uppercase;
+}
+.icons a:hover{
+    border-radius: 40px !important;
+    transition: 0.3s;
+}
+.icons a:hover p{
+    font-weight: bold !important;
+    transition: 0.3s;
+}
+.icons i {
+    font-size: 2vh;
+}
+.icons p {
+    padding-bottom: 0;
+    margin-bottom: 0;
+    transition: 0.3s;
+}
+
+
+.rooms {
+    height: 80vh;
+    color: white;
 }
