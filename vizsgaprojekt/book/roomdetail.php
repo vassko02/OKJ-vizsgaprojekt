@@ -68,12 +68,12 @@ echo '</pre>';
                 <h5 class="float-right"> Room price: $<?php foreach ($room as $item) {
                                         echo $item['RoomPrice'];
                                         $_SESSION['RoomPrice'] = $item['RoomPrice'];
-                                    } ?>/day
+                                    } ?>/night
                 </h5>
                 <select class="form-select" name="select" aria-label="Default select example">
 
                     <?php foreach ($services as $service) {
-                        echo ' <option value="' . $service['ServiceID'] . '">' . $service['ServiceType'] . ' $'.$service['ServicePrice'].' /day </option>';
+                        echo ' <option value="' . $service['ServiceID'] . '">' . $service['ServiceType'] . ' $'.$service['ServicePrice'].' /night </option>';
                     } ?>
 
                 </select>

@@ -9,12 +9,8 @@
      echo '</pre>'; 
   
     if (isset($_POST['btn_send'])) {
-      
-        if ($GuestObj->findcustomerbyemail($_POST['email'])== 0) {
-            $GuestObj->savecustomer($_POST);
-        }
-        $customer = $GuestObj->findcustomerbyemail($_POST['email']);
-        $_SESSION['customerid'] = $customer['CustomerID'];
+        
+
             echo '<pre>';
             print_r($_SESSION);
             echo '</pre>'; 

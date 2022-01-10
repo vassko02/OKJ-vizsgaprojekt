@@ -7,6 +7,12 @@ class Guest extends Dbconnect
         $stmt->bind_param("ssss",$adatok['name'],$adatok['tel'],$adatok['email'],$adatok['address']);
         $stmt->execute();
     }
+    public function updatecustomer($adatok){
+        $sql = "UPDATE customer SET Name=?, PhoneNumber=?, Email=?, Address=? WHERE customer.Email = ?";
+        $stmt = $this->con->prepare($sql);
+        $stmt->bind_param("sssss",$adatok['name'],$adatok['tel'],$adatok['email'],$adatok['address'],$adatok['email']);
+        $stmt->execute();
+    }
     public function findcustomerbyemail($email){
         $sql = 'SELECT * FROM customer WHERE email=?';
         $stmt = $this->con->prepare($sql);

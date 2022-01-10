@@ -14,9 +14,11 @@ include('dbconnect.php');
 include('models/guest.php');
 include('models/room.php');
 include('models/service.php');
+include('models/reservation.php');
 $ServiceObj = new Service();
 $GuestObj = new Guest();
 $RoomObj = new Room();
+$ReservationObj = new reservation();
 include('action.php');
 
 ?>
