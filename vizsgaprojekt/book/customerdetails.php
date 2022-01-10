@@ -23,7 +23,7 @@
             <form action="index.php?m=confirm" method="post">
                      <div class="mb-3 mt-3">
                         <label for="name" class="form-label">Name</label>
-                        <input type="text" class="form-control"  placeholder="Cicz Imre" name="name" value="<?php if(isset($_SESSION['customername'])) echo $_SESSION['customername']; ?>" id="name">
+                        <input type="text" class="form-control"  placeholder="Bac Ilus" name="name" value="<?php if(isset($_SESSION['customername'])) echo $_SESSION['customername']; ?>" id="name">
                     </div>
                     <div class="mb-3">
                         <label for="exampleFormControlInput1" class="form-label">Email address</label>
