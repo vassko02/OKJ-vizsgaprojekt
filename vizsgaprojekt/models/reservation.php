@@ -7,6 +7,7 @@
             $guestnumber = $adatok['adult'] + $adatok['children'];
             $stmt->bind_param("idiissiii",$guestnumber,$adatok['fullprice'],$adatok['children'],$adatok['adult'],$adatok['checkin'],$adatok['checkout'],$adatok['customerid'],$adatok['roomid'],$adatok['serviceid']);
             $stmt->execute();
+        
         }
 
 

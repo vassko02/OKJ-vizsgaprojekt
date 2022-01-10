@@ -1,5 +1,6 @@
 <?php
 session_start();
+
 if (isset($_GET['m'])) {
     $m = $_GET['m'];
 } else {
@@ -20,7 +21,10 @@ $GuestObj = new Guest();
 $RoomObj = new Room();
 $ReservationObj = new reservation();
 include('action.php');
-
+if (isset($_POST['btn_send2'])) {
+ 
+    $ReservationObj->savereservation($_SESSION);
+  }
 ?>
 <!DOCTYPE html>
 <html lang="en">
