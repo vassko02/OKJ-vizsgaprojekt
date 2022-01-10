@@ -77,9 +77,9 @@
 .icons a {
     margin-left: 1vw;
     margin-right: 1vw;
-    color: black;
-    background-color: #C5B358;
-    border: 4px solid black!important;
+    color: white;
+    background-color: black;
+    border: 1px solid white!important;
     border-radius: 0 !important;
     transition: 0.3s;
     font-size: 1.2vh;
@@ -87,11 +87,7 @@
 }
 .icons a:hover{
     border-radius: 40px !important;
-    transition: 0.3s;
-}
-.icons a:hover p{
-    font-weight: bold !important;
-    transition: 0.3s;
+    color: white;
 }
 .icons i {
     font-size: 2vh;
@@ -106,4 +102,34 @@
 .rooms {
     height: 80vh;
     color: white;
+    margin-top: 10vh;
+}
+.roomcim h1{
+    font-size: 9vh;
+    text-transform: uppercase;
+    float: right;
+}
+.roomszoveg {
+    padding-right: 30vh;
+    padding-top: 2vh;
+    font-size: 2vh;
+}
+.roomszoveg a {
+    color: #C5B358;
+}
+
+
+@media screen and (max-width: 1000px){
+    .roomcim h1{
+        font-size: 9vh;
+        text-transform: uppercase;
+        text-align: center !important;
+        float:none !important;
+    }
+    .roomszoveg p{
+        padding-top: 2vh;
+        font-size: 2vh;
+        margin-left: auto;
+        margin-right: auto;
+    }
 }
