@@ -74,7 +74,16 @@
   </div>
 </div>
 <div class="rooms">
-  <h1>Accommodation</h1>
+  <div class="row">
+    <div class="col-lg-4 col-sm-12 roomcim">
+      <h1>Rooms</h1>
+
+    </div>
+    <div class="col-lg-8 col-sm-12 roomszoveg">
+      <p>At Peaceful Paradise, our luxurious rooms welcome you to unwind to your heart's content. Stay in a posh, stylish room, spacious suite or a breathtaking villa.</p>
+      <a href="../book/book.php">View all rooms</a>
+    </div>
+  </div>
 </div>
 
 
