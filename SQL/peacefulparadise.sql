@@ -1,13 +1,14 @@
-﻿-- phpMyAdmin SQL Dump
--- version 5.1.1
+-- phpMyAdmin SQL Dump
+-- version 4.9.0.1
 -- https://www.phpmyadmin.net/
 --
 -- Gép: 127.0.0.1
--- Létrehozás ideje: 2022. Jan 04. 20:52
--- Kiszolgáló verziója: 10.4.21-MariaDB
--- PHP verzió: 7.3.31
+-- Létrehozás ideje: 2022. Jan 10. 08:06
+-- Kiszolgáló verziója: 10.4.6-MariaDB
+-- PHP verzió: 7.3.9
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -68,23 +69,6 @@ CREATE TABLE `consumption` (
   `ReservationID` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
---
--- A tábla adatainak kiíratása `consumption`
---
-
-INSERT INTO `consumption` (`ConsumptionID`, `Price`, `ItemName`, `ReservationID`) VALUES
-(6, 1, 'Accomodation', 1),
-(12, 3619.99, 'Accomodation', 10),
-(16, 1.49, 'Snickers', 10),
-(20, 1.49, 'Snickers', 10),
-(22, 9.99, 'Bloody Mary', 10),
-(24, 7.99, 'LIFE WTR Purified Water', 4),
-(25, 4.49, 'Coca Cola (1l)', 4),
-(26, 1.49, 'Snickers', 4),
-(27, 4.49, 'Coca Cola (1l)', 10),
-(28, 5.99, 'Cheetos', 10),
-(29, 7.99, 'Planters Mixed Nuts', 10);
-
 -- --------------------------------------------------------
 
 --
@@ -130,18 +114,6 @@ CREATE TABLE `reservation` (
   `ServiceID` int(11) NOT NULL,
   `IsCheckedIn` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- A tábla adatainak kiíratása `reservation`
---
-
-INSERT INTO `reservation` (`ReservationID`, `GuestNumber`, `Price`, `Children`, `Adults`, `ArrivalDate`, `LeavingDate`, `CustomerID`, `RoomID`, `ServiceID`, `IsCheckedIn`) VALUES
-(1, 4, 9129.99, 3, 1, '2021-12-05', '2021-12-12', 1, 17, 2, 0),
-(4, 3, 8419.99, 2, 1, '2021-12-17', '2021-12-24', 3, 26, 1, 1),
-(8, 3, 8129.99, 1, 2, '2021-12-20', '2021-12-29', 4, 6, 2, 0),
-(10, 4, 3619.99, 2, 2, '2021-12-12', '2021-12-16', 4, 6, 1, 1),
-(11, 2, 1019.99, 1, 1, '2021-12-14', '2021-12-15', 1, 11, 1, 0),
-(15, 3, 7229.99, 2, 1, '2022-01-05', '2022-01-13', 1, 6, 2, 0);
 
 -- --------------------------------------------------------
 
