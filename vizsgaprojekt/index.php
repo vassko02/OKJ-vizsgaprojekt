@@ -39,6 +39,7 @@ if (isset($_POST['btn_send2'])) {
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js" integrity="sha384-oesi62hOLfzrys4LxRF63OJCXdXDipiYWBnvTl9Y9/TRlw5xlKIEHpNyvvDShgf/" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+    <link rel="stylesheet" href="./404/404.css">
     <?php
     if ($m == 'home') {
         echo '<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -121,41 +122,45 @@ if (isset($_POST['btn_send2'])) {
     if ($m == 'home') {
         include('./mainpage/mainpage.php');
     }
-    if ($m == 'casino') {
+    else if ($m == 'casino') {
         include('./casino/casino.php');
     }
-    if ($m == 'book') {
+    else if ($m == 'book') {
         include('./book/book.php');
     }
-    if ($m == 'roomdetail') {
+    else if ($m == 'roomdetail') {
         include('./book/roomdetail.php');
     }
-    if ($m == 'customerdetails') {
+    else if ($m == 'customerdetails') {
         include('./book/customerdetails.php');
     }
-    if ($m == 'confirm') {
+    else if ($m == 'confirm') {
         include('./book/confirm.php');
     }
-    if ($m == 'resconfirmed') {
+    else if ($m == 'resconfirmed') {
         include('./book/resconfirmed.php');
     }
-    if ($m == 'restaurant') {
+    else if ($m == 'restaurant') {
         include('./restaurant/restaurant.php');
     }
-    if ($m == 'foodmenu') {
+    else if ($m == 'foodmenu') {
         include('./restaurant/menu/foodmenu.php');
     }
-    if ($m == 'contactus') {
+    else if ($m == 'contactus') {
         include('./contact/contact.php');
     }
-    if ($m == 'contactusREPORT') {
+    else if ($m == 'contactusREPORT') {
         include('./contact/contact.php');
         $message = "The report was sent succesfully! We will reply soon as possible";
         echo "<script type='text/javascript'>alert('$message');</script>";
     }
+    else {
+        include('./404/404.php');
+    }
     if ($m != 'casino') {
         include('./footer/footer.php');
     }
+
 
 
 
