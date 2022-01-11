@@ -1,5 +1,5 @@
 <?php
-	
+	$error = false;
 	$Roomslist = $RoomObj->selectallrooms();
  		echo ('<pre>');
 		print_r($_POST);
@@ -20,12 +20,25 @@
 		}
 
 	if (isset($_POST['btn_srch'])) {
-		
-		$filteredrooms = $RoomObj->selectrooms($_POST);
+		$in =  $_POST['checkin'];
+		$out = $_POST['checkout'];
+		$date = date('Y-m-d');
+		echo $date;
+
 		$_SESSION['adult'] = $_POST['adultnumber'];
 		$_SESSION['children'] = $_POST['childrennumber'];
-		$_SESSION['checkin'] = $_POST['checkin'];
-		$_SESSION['checkout'] = $_POST['checkout'];
+		if ($in < $out && $in > $date) {
+			$filteredrooms = $RoomObj->selectrooms($_POST);
+			$_SESSION['checkin'] = $_POST['checkin'];
+			$_SESSION['checkout'] = $_POST['checkout'];
+		}
+		else {
+			$error = true;
+		}
+
+		echo ('<pre>');
+		print_r($_SESSION);
+		echo ('</pre>');
 		//  echo ('<pre>');
 		//   print_r($filteredrooms);
 		//   echo ('</pre>');
@@ -89,7 +102,8 @@
 				</div>
 			</div>
 			<div class="form-group div3">
-			<button  class="btn src" type="submit" name="btn_srch">Submit</button>  
+			<button  class="btn src" type="submit" name="btn_srch">Search rooms</button>
+			<p id="error"><?php if ($error === true) { echo 'Please provide valid dates!'; } else {}?></p>
 				<!-- <button class="learn-more btn" type="submit" name="btn_srch" id="button">
 					<span class="circle" aria-hidden="true">
 						<span class="icon arrow"></span>
@@ -106,11 +120,11 @@
 // echo ('</pre>');
 ?>
 <!-- 	 -->
-<section class="dark">
+<section class="dark hatter">
 	<div class=" py-4">
 		<h1 class="h1 text-center" id="pageHeaderTitle">All of our Rooms</h1>
 		<?php
-		if (isset($_POST['btn_srch'])) {
+		if (isset($_POST['btn_srch']) && isset($_SESSION['checkin'])) {
 			
 			// $_POST = array();
 			//  echo ('<pre>');
