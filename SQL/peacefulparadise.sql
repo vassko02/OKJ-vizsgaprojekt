@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.0.1
+-- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
 -- Gép: 127.0.0.1
--- Létrehozás ideje: 2022. Jan 10. 08:06
--- Kiszolgáló verziója: 10.4.6-MariaDB
--- PHP verzió: 7.3.9
+-- Létrehozás ideje: 2022. Jan 12. 10:08
+-- Kiszolgáló verziója: 10.4.22-MariaDB
+-- PHP verzió: 8.1.1
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -54,7 +53,14 @@ INSERT INTO `cashregister` (`CashRegisterID`, `GuestName`, `Amount`, `Title`, `P
 (8, 'TestUser', 8.45, 'Guest paying when checking-out', 10, 1.55),
 (9, 'TestUser', 8.45, 'Guest paying when checking-out', 8.45, 0),
 (13, 'TestUser', 1, 'Guest paying when checking-out', 1, 0),
-(14, 'Béla', 0, 'Guest paying when checking-out', 0, 0);
+(14, 'Béla', 0, 'Guest paying when checking-out', 0, 0),
+(15, 'TestUser', 629.99, 'Guest paying at check-in', 630, 0.01),
+(16, 'TestUser', 232.38000000000002, 'Guest paying when checking-out (CARD)', 232.38000000000002, 0),
+(17, 'TestUser', 629.99, 'Guest paying at check-in', 700, 70.01),
+(18, 'TestUser', 639.99, 'Guest paying at check-in', 1000, 360.01),
+(19, 'TestUser', 2559.96, 'Guest paying when checking-out', 22222, 19662.04),
+(20, 'TestUser', 66.44999999999999, 'Guest paying when checking-out', 70, 3.55),
+(21, 'TestUser', 696.44, 'Guest paying when checking-out', 700, 3.56);
 
 -- --------------------------------------------------------
 
@@ -80,20 +86,23 @@ CREATE TABLE `customer` (
   `Name` varchar(50) NOT NULL,
   `PhoneNumber` varchar(15) NOT NULL,
   `Email` varchar(100) NOT NULL,
-  `Address` varchar(300) NOT NULL
+  `Address` varchar(300) NOT NULL,
+  `UserName` varchar(100) NOT NULL,
+  `Password` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='Customer data';
 
 --
 -- A tábla adatainak kiíratása `customer`
 --
 
-INSERT INTO `customer` (`CustomerID`, `Name`, `PhoneNumber`, `Email`, `Address`) VALUES
-(1, 'TestUser', '123', '123', ''),
-(3, 'TestUser2', '123', '123', ''),
-(4, 'Béla', '+3620123456', 'a@a.hu', ''),
-(5, 'János', '123', '123', ''),
-(6, 'Vass Kornél', '202483810', 'vass.kornel@gmail.com', 'Táncsics utca 33.'),
-(7, 'teszt', '+32595411', 'a@a@teszt', '');
+INSERT INTO `customer` (`CustomerID`, `Name`, `PhoneNumber`, `Email`, `Address`, `UserName`, `Password`) VALUES
+(1, 'TestUser', '123', '123', '', '', ''),
+(3, 'TestUser2', '123', '123', '', '', ''),
+(4, 'Béla', '+3620123456', 'a@a.hu', '', '', ''),
+(5, 'János', '123', '123', '', '', ''),
+(6, 'Vass Kornél', '202483810', 'vass.kornel@gmail.com', 'Táncsics utca 33.', '', ''),
+(7, 'teszt', '+32595411', 'a@a@teszt', '', '', ''),
+(8, 'asd', 'asd', 'asd@ä', '', '', '');
 
 -- --------------------------------------------------------
 
@@ -316,25 +325,25 @@ ALTER TABLE `storage`
 -- AUTO_INCREMENT a táblához `cashregister`
 --
 ALTER TABLE `cashregister`
-  MODIFY `CashRegisterID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `CashRegisterID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- AUTO_INCREMENT a táblához `consumption`
 --
 ALTER TABLE `consumption`
-  MODIFY `ConsumptionID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
+  MODIFY `ConsumptionID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=71;
 
 --
 -- AUTO_INCREMENT a táblához `customer`
 --
 ALTER TABLE `customer`
-  MODIFY `CustomerID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `CustomerID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT a táblához `reservation`
 --
 ALTER TABLE `reservation`
-  MODIFY `ReservationID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `ReservationID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT a táblához `room`

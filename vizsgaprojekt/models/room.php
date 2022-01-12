@@ -18,19 +18,22 @@
         foreach ($roomslist as $room) {
           $roomnames[] = $room['RoomName'];
         }
-        $filteredrooms = array();
+     
+        $filteredrooms = array();  
         $filteredroomnames = array_unique($roomnames);
+
         foreach ($filteredroomnames as $name) {
           foreach ($roomslist as $room) {
             if ($name == $room['RoomName']) {
-              $filteredrooms[] = $room; 
+              $filteredrooms[] = $room;
+           
               break;            
             }
           }
           
         }
 
-      return $roomslist;
+      return $filteredrooms;
     
       }
 

@@ -13,5 +13,6 @@
             <li><a href="index.php?m=book">Book</a></li>
             <li><a href="index.php?m=restaurant">Restaurant</a></li>
             <li><a href="index.php?m=contactus">Contact Us</a></li>
+            <li><a href="index.php?m=regisztracio">Reg</a></li>
         </ul>
 </nav>

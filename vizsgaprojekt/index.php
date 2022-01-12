@@ -22,9 +22,14 @@ $RoomObj = new Room();
 $ReservationObj = new reservation();
 include('action.php');
 if (isset($_POST['btn_send2'])) {
- 
-    $ReservationObj->savereservation($_SESSION);
-  }
+    if (isset($_SESSION['adult'])) {
+        $ReservationObj->savereservation($_SESSION);
+        session_unset();
+    }
+    else{
+
+    }
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -154,12 +159,16 @@ if (isset($_POST['btn_send2'])) {
         $message = "The report was sent succesfully! We will reply soon as possible";
         echo "<script type='text/javascript'>alert('$message');</script>";
     }
+    elseif ($m == 'regisztracio') {
+        include('./login/regisztracio.php');
+    }
     else {
         include('./404/404.php');
     }
     if ($m != 'casino') {
         include('./footer/footer.php');
     }
+    
 
 
 

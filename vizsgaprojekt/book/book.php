@@ -1,9 +1,7 @@
 <?php
 	$error = false;
 	$Roomslist = $RoomObj->selectallrooms();
- 		echo ('<pre>');
-		print_r($_POST);
-		echo ('</pre>');
+ 	
 		if (isset($_GET['edit'])) {
 			$edit =$_GET['edit'];
 			if ($edit == "true") {
@@ -23,25 +21,22 @@
 		$in =  $_POST['checkin'];
 		$out = $_POST['checkout'];
 		$date = date('Y-m-d');
-		echo $date;
+
 
 		$_SESSION['adult'] = $_POST['adultnumber'];
 		$_SESSION['children'] = $_POST['childrennumber'];
 		if ($in < $out && $in > $date) {
-			$filteredrooms = $RoomObj->selectrooms($_POST);
 			$_SESSION['checkin'] = $_POST['checkin'];
 			$_SESSION['checkout'] = $_POST['checkout'];
+			$filteredrooms = $RoomObj->selectrooms($_POST);
+
 		}
 		else {
 			$error = true;
 		}
 
-		echo ('<pre>');
-		print_r($_SESSION);
-		echo ('</pre>');
-		//  echo ('<pre>');
-		//   print_r($filteredrooms);
-		//   echo ('</pre>');
+	
+		
 	}
 ?>
 
@@ -57,7 +52,7 @@
 						<div class="third">
 							<input class="form-control" required value="<?php if (isset($_SESSION['adult'])) {
 									echo $_SESSION['adult'];
-								} ?>" type="number" name="adultnumber" id="adultsnumber" placeholder="Adults">
+								}else{ echo 2 ;} ?>" type="number" name="adultnumber" id="adultsnumber"  placeholder="Adults">
 						</div>
 					</div>
 				</div>
@@ -69,7 +64,8 @@
 						<div class="third">
 							<input class="form-control" required value="<?php if (isset($_SESSION['children'])) {
 									echo $_SESSION['children'];
-								} ?>" type="number" name="childrennumber" id="childrennumber" placeholder="Children">
+								}
+								else{ echo 0 ;} ?>" type="number" name="childrennumber" id="childrennumber"  placeholder="Children">
 						</div>
 					</div>
 				</div>
@@ -84,7 +80,7 @@
 						<div class="third">
 							<input type="date" required value="<?php if (isset($_SESSION['checkin'])) {
 									echo $_SESSION['checkin'];
-								} ?>"  class="form-control " name="checkin" id="arrivaldate">
+								}else{ echo date('2022-04-20') ;} ?>"  class="form-control " name="checkin"  id="arrivaldate">
 						</div>
 					</div>
 				</div>
@@ -96,7 +92,7 @@
 						<div class="third">
 							<input type="date" required value="<?php if (isset($_SESSION['checkout'])) {
 									echo $_SESSION['checkout'];
-								} ?>" class="form-control " name="checkout" id="leavingdate">
+								}else{ echo date('2022-04-25') ;} ?>" class="form-control " name="checkout" id="leavingdate">
 						</div>
 					</div>
 				</div>
