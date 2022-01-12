@@ -90,6 +90,21 @@ nav{
     display: none;
 }
 
+.dropdown-menu {
+    background-color: black !important;
+    text-transform: none;
+}
+.lenyilogomb {
+    background-color: black;
+    border: 1px solid black;
+}
+.lenyilogomb:hover {
+    background-color: black;
+    color: #C5B358;
+    border: 1px solid black;
+}
+
+
 /*Stying for small screens*/
 @media screen and (max-width: 1270px){
     nav{

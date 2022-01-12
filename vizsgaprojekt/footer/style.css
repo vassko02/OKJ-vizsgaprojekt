@@ -15,6 +15,9 @@ ul {
   float: left;
   margin-top: 8px;
 }
+.single-cta {
+  margin-bottom: 5vh;
+}
 .cta-text {
   padding-left: 15px;
   display: inline-block;
@@ -157,4 +160,28 @@ ul {
 .footer-menu li a {
   font-size: 14px;
   color: #878787;
+}
+
+.kozepre {
+  margin-left: auto;
+  margin-right: auto;
+}
+.balra {
+  text-align: left;
+}
+.jobbra {
+  text-align: right;
+}
+
+
+
+
+@media screen and (max-width: 1000px){
+  .jobbra {
+    text-align: right;
+  }
+  .links {
+    margin-left: auto;
+    margin-right: auto;
+  }
 }

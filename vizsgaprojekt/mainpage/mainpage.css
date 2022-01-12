@@ -131,6 +131,11 @@
 .roomszoveg a:hover::after {
     width: 15vh;
 }
+#roomslider {
+    height: 50vh;
+    margin-left: 2vh;
+    margin-right: 2vh;
+}
 
 
 
