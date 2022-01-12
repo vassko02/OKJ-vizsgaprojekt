@@ -1,35 +1,38 @@
+<?php 
+  $Roomslist = $RoomObj->selectallrooms();
+?>
 <div class="lapozo">
 
   <!-- partial:index.partial.html -->
-  <div class="slider">
-    <div class="slide_viewer">
-      <div class="slide_group">
-        <div class="slide">
+  <div class="slidder">
+    <div class="slidde_viewer">
+      <div class="slidde_group">
+        <div class="slidde">
           <div class="elso">
             <h1>Peaceful Paradise Royale Hotel Las Vegas</h1>
             <h2>"Who's prepared to pay the price <br> For a trip to paradise?"</h2>
           </div>
         </div>
-        <div class="slide">
+        <div class="slidde">
           <div class="masodik">
             <h1>Stay in our hotel to go through <br> a phenomenal experience</h1>
           </div>
         </div>
-        <div class="slide">
+        <div class="slidde">
           <div class="harmadik">
             <h1>Indulge and treat yourself <br> like you are in paradise</h1>
           </div>
         </div>
-        <div class="slide">
+        <div class="slidde">
           <div class="harmadik">
             <h1>Taste the most tempting and heavenly <br> foods on the Earth</h1>
           </div>
         </div>
       </div>
     </div>
-  </div><!-- End // .slider -->
+  </div><!-- End // .slidder -->
 
-  <div class="slide_buttons">
+  <div class="slidde_buttons">
   </div>
 
   <div class="directional_nav">
@@ -45,6 +48,7 @@
     </div>
   </div>
 </div>
+
 <div class="icons">
   <div class="row">
     <a href="index.php?m=book" class="col btn button">
@@ -67,24 +71,56 @@
     </a>
     <a href="index.php?m=contactus" class="col btn button">
       <div class="row">
-        <i class="col-12 fab fa-accessible-icon"></i>
+        <i class="fab fa-telegram-plane"></i>
         <p class="col-12">Contact us</p>
       </div>
     </a>
   </div>
 </div>
+
 <div class="rooms">
   <div class="row">
     <div class="col-lg-4 col-sm-12 roomcim">
       <h1>Rooms</h1>
-
     </div>
     <div class="col-lg-8 col-sm-12 roomszoveg">
       <p>At Peaceful Paradise, our luxurious rooms welcome you to unwind to your heart's content. Stay in a posh, stylish room, spacious suite or a breathtaking villa.</p>
-      <a href="../book/book.php">View all rooms</a>
+      <a href="../book/book.php">View all rooms
+        <i class="fas fa-chevron-right"></i>
+      </a>
     </div>
   </div>
+  <!--room picture slider-->
+
+<div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+  <div class="carousel-indicators">
+    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+  </div>
+  <div class="carousel-inner">
+  <div class="carousel-item active">
+      <img src="<?php foreach ($Roomslist as $room) {echo $room['ImageURL1']; break;} ?>" class="d-block w-100" alt="">
+    </div>
+    <div class="carousel-item">
+      <img src="<?php foreach ($Roomslist as $room) {echo $room['ImageURL2']; break;} ?>" class="d-block w-100" alt="...">
+    </div>
+    <div class="carousel-item">
+      <img src="<?php foreach ($Roomslist as $room) {echo $room['ImageURL3']; break;} ?>" class="d-block w-100" alt="...">
+    </div>
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
 </div>
+
+</div>
+
 
 
 
