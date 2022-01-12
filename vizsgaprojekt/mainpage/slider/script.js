@@ -1,13 +1,13 @@
-$('.slider').each(function() {
+$('.slidder').each(function() {
   var $this = $(this);
-  var $group = $this.find('.slide_group');
-  var $slides = $this.find('.slide');
+  var $group = $this.find('.slidde_group');
+  var $sliddes = $this.find('.slidde');
   var bulletArray = [];
   var currentIndex = 0;
   var timeout;
   
   function move(newIndex) {
-    var animateLeft, slideLeft;
+    var animateLeft, sliddeLeft;
     
     advance();
     
@@ -19,24 +19,24 @@ $('.slider').each(function() {
     bulletArray[newIndex].addClass('active');
     
     if (newIndex > currentIndex) {
-      slideLeft = '100%';
+      sliddeLeft = '100%';
       animateLeft = '-100%';
     } else {
-      slideLeft = '-100%';
+      sliddeLeft = '-100%';
       animateLeft = '100%';
     }
     
-    $slides.eq(newIndex).css({
+    $sliddes.eq(newIndex).css({
       display: 'block',
-      left: slideLeft
+      left: sliddeLeft
     });
     $group.animate({
       left: animateLeft
     }, function() {
-      $slides.eq(currentIndex).css({
+      $sliddes.eq(currentIndex).css({
         display: 'none'
       });
-      $slides.eq(newIndex).css({
+      $sliddes.eq(newIndex).css({
         left: 0
       });
       $group.css({
@@ -49,7 +49,7 @@ $('.slider').each(function() {
   function advance() {
     clearTimeout(timeout);
     timeout = setTimeout(function() {
-      if (currentIndex < ($slides.length - 1)) {
+      if (currentIndex < ($sliddes.length - 1)) {
         move(currentIndex + 1);
       } else {
         move(0);
@@ -58,7 +58,7 @@ $('.slider').each(function() {
   }
   
   $('.next_btn').on('click', function() {
-    if (currentIndex < ($slides.length - 1)) {
+    if (currentIndex < ($sliddes.length - 1)) {
       move(currentIndex + 1);
     } else {
       move(0);
@@ -73,15 +73,15 @@ $('.slider').each(function() {
     }
   });
   
-  $.each($slides, function(index) {
-    var $button = $('<a class="slide_btn">&bull;</a>');
+  $.each($sliddes, function(index) {
+    var $button = $('<a class="slidde_btn">&bull;</a>');
     
     if (index === currentIndex) {
       $button.addClass('active');
     }
     $button.on('click', function() {
       move(index);
-    }).appendTo('.slide_buttons');
+    }).appendTo('.slidde_buttons');
     bulletArray.push($button);
   });
   

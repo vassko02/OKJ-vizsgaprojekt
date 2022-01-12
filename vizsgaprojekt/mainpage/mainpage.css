@@ -96,11 +96,11 @@
     padding-bottom: 0;
     margin-bottom: 0;
     transition: 0.3s;
+    font-family: 'Be Vietnam Pro', sans-serif;
 }
 
 
 .rooms {
-    height: 80vh;
     color: white;
     margin-top: 10vh;
 }
@@ -116,7 +116,23 @@
 }
 .roomszoveg a {
     color: #C5B358;
+    text-decoration: none;
+    font-family: 'Be Vietnam Pro', sans-serif;
 }
+.roomszoveg a::after {
+    content: "";
+    display: block;
+    height: 3px;
+    width: 0%;
+    background-color: #C5B358;
+    position: absolute;
+    transition: all ease-in-out 250ms;
+}
+.roomszoveg a:hover::after {
+    width: 15vh;
+}
+
+
 
 
 @media screen and (max-width: 1000px){
