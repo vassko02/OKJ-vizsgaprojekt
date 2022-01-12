@@ -52,19 +52,19 @@ nav{
     align-items: center;
     text-transform: uppercase;
 }
-.navlinks li a{
+.navlinks li .navlink{
     text-decoration: none;
     margin: 0 0.7vw;
     color: white;
     font-size: 1.5rem !important;
 }
-.navlinks li a:hover {
+.navlinks li .navlink:hover {
     color: #C5B358;
 }
 .navlinks li {
     position: relative;
 }
-.navlinks li a::after {
+.navlinks li .navlink::after {
     content: "";
     display: block;
     height: 3px;
@@ -74,7 +74,7 @@ nav{
     transition: all ease-in-out 250ms;
     margin: 0 0 0 10%;
 }
-.navlinks li a:hover::after{
+.navlinks li .navlink:hover::after{
     width: 80%;
 }
 
@@ -97,11 +97,23 @@ nav{
 .lenyilogomb {
     background-color: black;
     border: 1px solid black;
+    transition: 0.3s;
 }
 .lenyilogomb:hover {
     background-color: black;
     color: #C5B358;
     border: 1px solid black;
+    transition: 0.3s;
+}
+
+.dropdown-menu a {
+    color: white;
+    transition: 0.3s;
+}
+.dropdown-menu a:hover {
+    background-color: black;
+    color: #C5B358;
+    transition: 0.3s;
 }
 
 

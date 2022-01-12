@@ -28,7 +28,7 @@ body {
     background-color: hsl(0, 0%, 10%);
 }
 .pagenotfound a:hover {
-    margin-top: 2.5vh;
+    margin-top: 3.5vh;
     background-color: #C5B358;
     color: black;
 }
