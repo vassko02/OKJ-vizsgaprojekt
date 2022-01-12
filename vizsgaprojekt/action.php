@@ -35,7 +35,7 @@ if(($m=='contactus' || $m=='contactusREPORT') && isset($_POST['btn_send']))
         //nincs hiba
     
         if ($GuestObj->saveuser($_POST) ==1) {
-                header('Location: index.php?m=regsikerult');
+                header('Location: index.php?m=home');
         }
     }
 }

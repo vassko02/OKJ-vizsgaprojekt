@@ -76,9 +76,9 @@ class Guest extends Dbconnect
         echo '<pre>';
         print_r($adatok);
         echo '</pre>';
-        $sql='INSERT INTO customer (Name,Email,UserName,Password) VALUES(?,?,md5(?))';
+        $sql='INSERT INTO customer (Name,Email,UserName,Password) VALUES(?,?,?,md5(?))';
         $stmt = $this->con->prepare($sql);
-        $stmt->bind_param("ssss",$adatok['nev'],$adatok['email'],$adatok['nev'],$adatok['jelszo']);
+        $stmt->bind_param("ssss",$adatok['nev'],$adatok['email'],$adatok['username'],$adatok['jelszo']);
         if ($stmt->execute()) {
             return 1;
         }

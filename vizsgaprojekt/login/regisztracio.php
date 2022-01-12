@@ -1,6 +1,6 @@
 <div class="col-12 col-md-4 mx-auto text-light">
     <h1 class="mt-4">Registration</h1>
-    <form action="index.php?m=regisztracio" method="post">
+    <form action="index.php?m=home" method="post">
             <div class="row mb-3">
                 <label for="nev" class="col-sm-3 col-form-label">Name: </label>
                 <div class="col-sm-9">
@@ -12,7 +12,7 @@
                 <label for="nev" class="col-sm-3 col-form-label">Username: </label>
                 <div class="col-sm-9">
                     <input type="text" class="form-control" id="nev" name="nev"
-                     required value="<?php if(isset($_POST['username'])) {echo $_POST['usernmae'];}?>">
+                     required value="<?php if(isset($_POST['username'])) {echo $_POST['username'];}?>">
                 </div>
             </div>
             <div class="row mb-3">
