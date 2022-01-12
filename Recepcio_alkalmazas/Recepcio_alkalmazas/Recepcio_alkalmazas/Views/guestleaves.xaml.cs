@@ -114,21 +114,6 @@ namespace Recepcio_alkalmazas.pages
                 dg_fogyasztas.ItemsSource = fogyasztasok;
             }
         }
-
-        private void btn_remove_Click(object sender, RoutedEventArgs e)
-        {
-            if (dg_fogyasztas.SelectedItem != null)
-            {
-                consumption valasztott = (consumption)dg_fogyasztas.SelectedItem;
-                int id = valasztott.ConsumptionID;
-                consumption.delete(id);
-                reservation valasztottres = (reservation)dg_nevek.SelectedItem;
-                int id2 = valasztottres.ReservationID;
-                fogyasztasok = consumption.selectItemByReservationID(id2);
-                dg_fogyasztas.DataContext = fogyasztasok;
-            }
-        }
-
         private void btn_fizetes_Click(object sender, RoutedEventArgs e)
         {
             if (dg_nevek.Items.Count!=0)

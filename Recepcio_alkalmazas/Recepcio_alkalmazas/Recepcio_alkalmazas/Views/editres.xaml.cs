@@ -81,7 +81,7 @@ namespace Recepcio_alkalmazas.Views
             }
             szabadszobak = room.selectCorrectRoom(aktualis);
             bool vanolyanszoba = false;
-            int napok = (int)aktualis.LeavingDate.Subtract(aktualis.ArrivalDate).TotalDays;
+            int napok = (int)aktualis.LeavingDate.Subtract(aktualis.ArrivalDate).TotalDays - 1;
             if (cb_rooms.SelectedItem != null)
             {
                 aktualis.RoomName = cb_rooms.Text;
@@ -92,7 +92,9 @@ namespace Recepcio_alkalmazas.Views
                     {
                         aktualis.RoomID = item.RoomID;
                         aktualis.RoomPrice = room.selectRoomByID(aktualis.RoomID)[0].RoomPrice;
-                        aktualis.Price = aktualis.RoomPrice * napok + aktualis.ServicePrice;
+                        aktualis.Price = (aktualis.RoomPrice + aktualis.ServicePrice) * napok;
+                        string x = aktualis.Price.ToString("F2");
+                        aktualis.Price = double.Parse(x);
                         aktualis.RoomName = room.selectRoomByID(aktualis.RoomID)[0].RoomName;
                         aktualis.Capacity = room.selectRoomByID(aktualis.RoomID)[0].Capacity;
                         vanolyanszoba = true;
@@ -104,9 +106,14 @@ namespace Recepcio_alkalmazas.Views
             {
                 vanerror = true;
             }
-            if (vanolyanszoba == false || dp_checkout.SelectedDate <= dp_checkin.SelectedDate || vanerror == true || dp_checkin.SelectedDate < DateTime.Today || dp_checkout.SelectedDate < DateTime.Today)
+            if (dp_checkout.SelectedDate <= dp_checkin.SelectedDate || vanerror == true || dp_checkin.SelectedDate < DateTime.Today || dp_checkout.SelectedDate < DateTime.Today)
             {
                 MessageBox.Show("There is something wrong with the provided data!", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                vanerror = true;
+            }
+            if (vanolyanszoba == false)
+            {
+                MessageBox.Show("All suitable rooms are booked at the specified time!", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                 vanerror = true;
             }
             if (editlesz == true && vanerror == false)

@@ -42,7 +42,7 @@
                     <DataGridTextColumn Header="Check-out" Width="100" Binding="{Binding LeavingDate,StringFormat=yyyy.MM.dd.}"/>
                     <DataGridTextColumn Header="Service" Width="100" Binding="{Binding ServiceType}"/>
                     <DataGridTextColumn Header="Room type" Width="220" Binding="{Binding RoomName}"/>
-                    <DataGridTextColumn Header="Price" Binding="{Binding Price}"/>
+                    <DataGridTextColumn Header="Price" Binding="{Binding Price,StringFormat=$\{0\}}"/>
                 </DataGrid.Columns>
             </DataGrid>
         </StackPanel>

@@ -27,13 +27,13 @@ namespace Recepcio_alkalmazas.pages
         public editreservation()
         {
             InitializeComponent();
-            foglalasok = reservation.selectByGuestName(null,0,true);
+            foglalasok = reservation.selectByGuestName(null, 0, true);
             dg_foglalasok.ItemsSource = foglalasok;
             dg_foglalasok.SelectedIndex = 0;
         }
         private void tb_guestinput_TextChanged(object sender, TextChangedEventArgs e)
         {
-            foglalasok = reservation.selectByGuestName(tb_guestinput.Text,0, true);
+            foglalasok = reservation.selectByGuestName(tb_guestinput.Text, 0, true);
             dg_foglalasok.ItemsSource = foglalasok;
         }
 
@@ -45,7 +45,7 @@ namespace Recepcio_alkalmazas.pages
                 {
                     reservation.delete(egyfoglalas.ReservationID);
                     tb_guestinput.Text = "";
-                    foglalasok = reservation.selectByGuestName(null,0, true);
+                    foglalasok = reservation.selectByGuestName(null, 0, true);
                     dg_foglalasok.ItemsSource = foglalasok;
                 }
             }
@@ -56,26 +56,26 @@ namespace Recepcio_alkalmazas.pages
         }
         private void btn_edit_Click(object sender, RoutedEventArgs e)
         {
-            if (dg_foglalasok.SelectedItem==null)
+            if (dg_foglalasok.SelectedItem == null)
             {
                 return;
             }
             reservation foglalasmodosit = (reservation)dg_foglalasok.SelectedItem;
             var modositasablak = new editres(foglalasmodosit);
-            if (modositasablak.ShowDialog()==true)
+            if (modositasablak.ShowDialog() == true)
             {
-                foglalasok = reservation.selectByGuestName(null,0, true);
+                foglalasok = reservation.selectByGuestName(null, 0, true);
                 dg_foglalasok.ItemsSource = foglalasok;
                 dg_foglalasok.SelectedIndex = 0;
-             }
+            }
         }
         private void btn_hozzaad_Click(object sender, RoutedEventArgs e)
         {
             reservation foglalasad = new reservation();
-            var hozzaad = new editres(foglalasad);         
-            if (hozzaad.ShowDialog()==true)
+            var hozzaad = new editres(foglalasad);
+            if (hozzaad.ShowDialog() == true)
             {
-                foglalasok = reservation.selectByGuestName(null,0, true);
+                foglalasok = reservation.selectByGuestName(null, 0, true);
                 dg_foglalasok.ItemsSource = foglalasok;
                 dg_foglalasok.SelectedIndex = 0;
             }

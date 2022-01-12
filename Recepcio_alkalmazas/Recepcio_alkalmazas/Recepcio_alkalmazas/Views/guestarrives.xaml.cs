@@ -98,7 +98,7 @@ namespace Recepcio_alkalmazas.pages
         }
         private void btn_utofizetes_Click(object sender, RoutedEventArgs e)
         {
-            if (dg_nevek.Items.Count!=0)
+            if (dg_nevek.Items.Count != 0)
             {
                 consumption uj = new consumption(egyfoglalas.Price, "Accomodation", egyfoglalas.ReservationID);
                 consumption.insert(uj);
@@ -126,7 +126,7 @@ namespace Recepcio_alkalmazas.pages
         }
         private void btn_fizetes_Click(object sender, RoutedEventArgs e)
         {
-            if (dg_nevek.Items.Count!=0)
+            if (dg_nevek.Items.Count != 0)
             {
                 reservation valasztott = (reservation)dg_nevek.SelectedItem;
                 string name = customer.selectGuestNameByResID(valasztott.ReservationID)[0].Name;
@@ -140,6 +140,8 @@ namespace Recepcio_alkalmazas.pages
                         reservation.updateCheckedin(egyfoglalas.ReservationID, 1);
                         tb_change.Text = tb_fizetett.Text = "";
                         foglalasok = reservation.selectByGuestName(null, 0, false);
+                        egyfoglalas = new reservation();
+                        sp_adatok.DataContext = egyfoglalas;
                         dg_nevek.DataContext = foglalasok;
                     }
                     else
@@ -156,6 +158,8 @@ namespace Recepcio_alkalmazas.pages
                     cashregister.insert(new cashregister(name, x, "Guest paying at check-in", paid, change));
                     tb_change.Text = tb_fizetett.Text = "";
                     foglalasok = reservation.selectByGuestName(null, 0, false);
+                    egyfoglalas = new reservation();
+                    sp_adatok.DataContext = egyfoglalas;
                     dg_nevek.DataContext = foglalasok;
                 }
             }
