@@ -115,7 +115,21 @@ nav{
     color: #C5B358;
     transition: 0.3s;
 }
-
+.eltuno {
+    display: none !important;
+}
+.lenyilogomb i{
+    font-size: 1.8rem !important;
+}
+.dropdown-toggle::after {
+    margin-bottom: 0.2em;
+}
+.eltuno li:nth-child(1) {
+    margin-top: 2rem !important;
+}
+.eltuno li {
+    margin-bottom: 0.8rem !important;
+}
 
 /*Stying for small screens*/
 @media screen and (max-width: 1270px){
@@ -156,22 +170,37 @@ nav{
         opacity: 0;
     }
     .navlinks li:nth-child(1){
-        transition: all 0.5s ease 0.2s;
+        transition: all 0.5s ease 0.15s;
     }
     .navlinks li:nth-child(2){
-        transition: all 0.5s ease 0.4s;
+        transition: all 0.5s ease 0.3s;
     }
     .navlinks li:nth-child(3){
-        transition: all 0.5s ease 0.6s;
+        transition: all 0.5s ease 0.45s;
     }
     .navlinks li:nth-child(4){
-        transition: all 0.5s ease 0.7s;
+        transition: all 0.5s ease 0.6s;
     }
     .navlinks li:nth-child(5){
-        transition: all 0.5s ease 0.8s;
+        transition: all 0.5s ease 0.75s;
+    }
+    .eltuno li:nth-child(1) {
+        transition: all 0.5s ease 0.9s;
+    }
+    .eltuno li:nth-child(2) {
+        transition: all 0.5s ease 1.05s;
+    }
+    .eltuno li:nth-child(3) {
+        transition: all 0.5s ease 1.3s;
     }
     li.atmenet{
         opacity: 1;
+    }
+    .lenyilo {
+        display: none;
+    }
+    .eltuno {
+        display: initial !important;
     }
 }
 /*Animating Hamburger Icon on Click*/

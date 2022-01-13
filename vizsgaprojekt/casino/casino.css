@@ -177,6 +177,12 @@ body {
     font-size: 2vh;
 }
 
+.foterr {
+    padding-left: 0;
+    padding-right: 0;
+    text-align: left;
+}
+
 @media screen and (max-width: 1300px){
 
 } 
