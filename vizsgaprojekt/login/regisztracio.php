@@ -11,10 +11,12 @@
                 <button class="signgomb">Sign Up</button>
             </form>
         </div>
-        <div class="form-loginout sign-in-loginout">
+        <div class="form-loginout sign-in-loginout urlap">
             <form action="#">
-                <h1>Sign in</h1>
-                <!-- <div class="input-signin">
+                <div id="title">
+                    <h1 class="title">Sign in</h1>
+                </div>
+                <div class="input-signin">
                     <input type="#{type}" id="#{label}" required="required" />
                     <label for="#{label}">Name</label>
                     <div class="bar"></div>
@@ -23,15 +25,15 @@
                     <input type="#{type}" id="#{label}" required="required" />
                     <label for="#{label}">Password</label>
                     <div class="bar"></div>
-                </div> -->
-                <input type="email" placeholder="Username or Email" />
-                <input type="password" placeholder="Password" />
-                <a href="#">Forgot your password?</a>
-                <button class="signgomb">Sign In</button> 
-                <!-- <div class="button-signin">
-                    <button id="logingomb"><span>Sign up</span></button>
                 </div>
-                <div class="footer"><a href="index.php?m=login">Already have an account?</a></div> -->
+                <!-- <input type="email" placeholder="Username or Email" />
+                <input type="password" placeholder="Password" /> -->
+                <!-- <a href="#">Forgot your password?</a>
+                <button class="signgomb">Sign In</button>  -->
+                <div class="button-signin">
+                    <button id="logingomb">Sign in</button>
+                </div>
+                <div class="footer"><a href="index.php?m=login">Already have an account?</a></div>
             </form>
         </div>
         <div class="overlay-loginout">

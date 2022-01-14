@@ -39,7 +39,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-xl-6 col-lg-6 col-md-6 mb-30 links">
+                <div class="col-xl-6 col-lg-6 col-md-6 mb-30 links balra">
                     <div class="footer-widget ">
                         <div class="footer-widget-heading">
                             <h3>Useful Links</h3>
