@@ -81,7 +81,7 @@ namespace Recepcio_alkalmazas.Views
             }
             szabadszobak = room.selectCorrectRoom(aktualis);
             bool vanolyanszoba = false;
-            int napok = (int)aktualis.LeavingDate.Subtract(aktualis.ArrivalDate).TotalDays - 1;
+            int napok = (int)aktualis.LeavingDate.Subtract(aktualis.ArrivalDate).TotalDays;
             if (cb_rooms.SelectedItem != null)
             {
                 aktualis.RoomName = cb_rooms.Text;
