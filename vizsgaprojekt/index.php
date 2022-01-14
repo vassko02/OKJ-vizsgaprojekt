@@ -119,7 +119,11 @@ if (isset($_POST['btn_send2'])) {
                 ';
     }
     if ($m == 'signin'){
-        echo '  <link rel="stylesheet" href="./login/signin.css">';
+        echo '
+            <link rel="stylesheet" href="./login/signin.css">
+            <link rel="stylesheet" href="./login/signup.css">
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css">
+	        <link rel="stylesheet" href="./login/style.css">';
     }
     if ($m == 'contactus' || $m == 'contactusREPORT') {
         echo '  <link rel="stylesheet" href="./contact/contact.css">';
@@ -169,11 +173,8 @@ if (isset($_POST['btn_send2'])) {
         $message = "The report was sent succesfully! We will reply soon as possible";
         echo "<script type='text/javascript'>alert('$message');</script>";
     }
-    else if ($m == 'regisztracio') {
-        include('./login/regisztracio.php');
-    }
     else if ($m == 'signin') {
-        include('./login/signin.php');
+        include('./login/regisztracio.php');
     }
     else {
         include('./404/404.php');

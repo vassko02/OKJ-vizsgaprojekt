@@ -93,14 +93,14 @@
   margin-right: auto;
   height: 92vh;
 }
-.signin .card:first-child {
+.signin .urlap:first-child {
   visibility: hidden;
 }
-.signin .card:nth-child(2) {
+.signin .urlap:nth-child(2) {
   background: #252424;
   margin: 0 10px;
 }
-.signin .card.alt {
+.signin .urlap.alt {
   top: 20px;
   right: 0;
   width: 100%;
@@ -110,7 +110,7 @@
   padding: 60px 0 40px;
   overflow: hidden;
 }
-.signin .card.alt .toggle {
+.signin .urlap.alt .toggle {
   position: absolute;
   top: 40px;
   right: -70px;
@@ -118,35 +118,35 @@
   transform: scale(10);
   transition: transform 0.3s ease;
 }
-.signin .card.alt .toggle:before {
+.signin .urlap.alt .toggle:before {
   content: "";
 }
-.signin .card.alt .title,
-.signin .card.alt .input-signin,
-.signin .card.alt .button-signin {
+.signin .urlap.alt .title,
+.signin .urlap.alt .input-signin,
+.signin .urlap.alt .button-signin {
   left: 0;
   opacity: 1;
   visibility: visible;
   transition: 0.3s ease;
 }
-.signin .card.alt .title {
+.signin .urlap.alt .title {
   transition-delay: 0.3s;
 }
-.signin .card.alt .input-signin {
+.signin .urlap.alt .input-signin {
   transition-delay: 0.4s;
 }
-.signin .card.alt .input-signin:nth-child(2) {
+.signin .urlap.alt .input-signin:nth-child(2) {
   transition-delay: 0.5s;
 }
-.signin .card.alt .input-signin:nth-child(3) {
+.signin .urlap.alt .input-signin:nth-child(3) {
   transition-delay: 0.6s;
 }
-.signin .card.alt .button-signin {
+.signin .urlap.alt .button-signin {
   transition-delay: 0.7s;
 }
 
 /* Card */
-.card {
+.urlap {
   position: relative;
   background: #3f3e3e !important;
   color: white;
@@ -161,14 +161,14 @@
   /* Footer */
   /* Alt Card */
 }
-.card:first-child {
+.urlap:first-child {
   background: #fafafa;
   height: 10px;
   border-radius: 5px 5px 0 0;
   margin: 0 10px;
   padding: 0;
 }
-.card .title {
+.urlap .title {
   position: relative;
   z-index: 1;
   border-left: 5px solid #C5B358;
@@ -179,11 +179,11 @@
   font-weight: 600;
   text-transform: uppercase;
 }
-.card .input-signin {
+.urlap .input-signin {
   position: relative;
   margin: 0 60px 50px;
 }
-.card .input-signin input {
+.urlap .input-signin input {
   outline: none;
   z-index: 1;
   position: relative;
@@ -195,18 +195,18 @@
   font-size: 24px;
   font-weight: 400;
 }
-.card .input-signin input:focus ~ label {
+.urlap .input-signin input:focus ~ label {
   color: white;
   transform: translate(-12%, -50%) scale(0.75);
 }
-.card .input-signin input:focus ~ .bar:before, .card .input-signin input:focus ~ .bar:after {
+.urlap .input-signin input:focus ~ .bar:before, .urlap .input-signin input:focus ~ .bar:after {
   width: 50%;
 }
-.card .input-signin input:valid ~ label {
+.urlap .input-signin input:valid ~ label {
   color: white;
   transform: translate(-12%, -50%) scale(0.75);
 }
-.card .input-signin label {
+.urlap .input-signin label {
   position: absolute;
   top: 0;
   left: 0;
@@ -216,7 +216,7 @@
   line-height: 60px;
   transition: 0.2s ease;
 }
-.card .input-signin .bar {
+.urlap .input-signin .bar {
   position: absolute;
   left: 0;
   bottom: 0;
@@ -224,7 +224,7 @@
   width: 100%;
   height: 1px;
 }
-.card .input-signin .bar:before, .card .input-signin .bar:after {
+.urlap .input-signin .bar:before, .urlap .input-signin .bar:after {
   content: "";
   position: absolute;
   background: #C5B358;
@@ -232,17 +232,17 @@
   height: 2px;
   transition: 0.2s ease;
 }
-.card .input-signin .bar:before {
+.urlap .input-signin .bar:before {
   left: 50%;
 }
-.card .input-signin .bar:after {
+.urlap .input-signin .bar:after {
   right: 50%;
 }
-.card .button-signin {
+.urlap .button-signin {
   margin: 0 60px;
   text-align: center;
 }
-.card .button-signin button {
+.urlap .button-signin button {
   outline: 0;
   cursor: pointer;
   position: relative;
@@ -258,13 +258,13 @@
   overflow: hidden;
   transition: 0.3s ease;
 }
-.card .button-signin button span {
+.urlap .button-signin button span {
   position: relative;
   z-index: 1;
   color: white;
   transition: 0.3s ease;
 }
-.card .button-signin button:before {
+.urlap .button-signin button:before {
   content: "";
   position: absolute;
   top: 50%;
@@ -278,35 +278,35 @@
   opacity: 0;
   transition: 0.3s ease;
 }
-.card .button-signin button:hover, .card .button-signin button, .card .button-signin button:focus {
+.urlap .button-signin button:hover, .urlap .button-signin button, .urlap .button-signin button:focus {
   border-color: #C5B358;
 }
-.card .button-signin button:hover span, .card .button-signin button span, .card .button-signin button:focus span {
+.urlap .button-signin button:hover span, .urlap .button-signin button span, .urlap .button-signin button:focus span {
   color: #C5B358;
 }
-.card .button-signin button span, .card .button-signin button:focus span {
+.urlap .button-signin button span, .urlap .button-signin button:focus span {
   color: white;
 }
-.card .button-signin button:before, .card .button-signin button:focus:before {
+.urlap .button-signin button:before, .urlap .button-signin button:focus:before {
   opacity: 1;
   transform: scale(10);
 }
-.card .footer {
+.urlap .footer {
   margin: 40px 0 0;
   color: white;
   font-size: 24px;
   font-weight: 300;
   text-align: center;
 }
-.card .footer a {
+.urlap .footer a {
   color: inherit;
   text-decoration: none;
   transition: 0.3s ease;
 }
-.card .footer a:hover {
+.urlap .footer a:hover {
   color: #C5B358;
 }
-.card.alt {
+.urlap.alt {
   position: absolute;
   top: 40px;
   right: -70px;
@@ -323,7 +323,7 @@
   /* Input */
   /* Button */
 }
-.card.alt .toggle {
+.urlap.alt .toggle {
   position: relative;
   background: #C5B358;
   width: 140px;
@@ -336,7 +336,7 @@
   text-align: center;
   cursor: pointer;
 }
-.card.alt .toggle:before {
+.urlap.alt .toggle:before {
   content: "";
   display: inline-block;
   font: normal normal normal 14px/1 FontAwesome;
@@ -346,19 +346,19 @@
   -moz-osx-font-smoothing: grayscale;
   transform: translate(0, 0);
 }
-.card.alt .title,
-.card.alt .input-signin,
-.card.alt .button-signin {
+.urlap.alt .title,
+.urlap.alt .input-signin,
+.urlap.alt .button-signin {
   left: 100px;
   opacity: 0;
   visibility: hidden;
 }
-.card.alt .title {
+.urlap.alt .title {
   position: relative;
   border-color: #ffffff;
   color: #ffffff;
 }
-.card.alt .title .close {
+.urlap.alt .title .close {
   cursor: pointer;
   position: absolute;
   top: 0;
@@ -368,39 +368,39 @@
   font-size: 58px;
   font-weight: 400;
 }
-.card.alt .title .close:before {
+.urlap.alt .title .close:before {
   content: "×";
 }
-.card.alt .input-signin input {
+.urlap.alt .input-signin input {
   color: #ffffff;
 }
-.card.alt .input-signin input:focus ~ label {
+.urlap.alt .input-signin input:focus ~ label {
   color: #ffffff;
 }
-.card.alt .input-signin input:focus ~ .bar:before, .card.alt .input-signin input:focus ~ .bar:after {
+.urlap.alt .input-signin input:focus ~ .bar:before, .urlap.alt .input-signin input:focus ~ .bar:after {
   background: #ffffff;
 }
-.card.alt .input-signin input:valid ~ label {
+.urlap.alt .input-signin input:valid ~ label {
   color: #ffffff;
 }
-.card.alt .input-signin label {
+.urlap.alt .input-signin label {
   color: rgba(255, 255, 255, 0.8);
 }
-.card.alt .input-signin .bar {
+.urlap.alt .input-signin .bar {
   background: rgba(255, 255, 255, 0.8);
 }
-.card.alt .button-signin button {
+.urlap.alt .button-signin button {
   width: 100%;
   background: #ffffff;
   border-color: #ffffff;
 }
-.card.alt .button-signin button span {
+.urlap.alt .button-signin button span {
   color: #C5B358;
 }
-.card.alt .button-signin button:hover {
+.urlap.alt .button-signin button:hover {
   background: rgba(255, 255, 255, 0.9);
 }
-.card.alt .button-signin button:active:before, .card.alt .button-signin button:focus:before {
+.urlap.alt .button-signin button:active:before, .urlap.alt .button-signin button:focus:before {
   display: none;
 }
 
