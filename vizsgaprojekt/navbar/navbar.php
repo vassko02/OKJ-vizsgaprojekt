@@ -20,14 +20,14 @@
                 </button>
                 <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
                     <li><a class="dropdown-item" href="index.php?m=regisztracio"><i class="fas fa-user-plus"></i> Sign up</a></li>
-                    <li><a class="dropdown-item" href="index.php?m=signin"><i class="fas fa-sign-in-alt"></i> Sign in</a></li>
+                    <li><a class="dropdown-item" href="index.php?m=signin"><i class="fas fa-sign-in-alt"></i> Log in</a></li>
                     <li><a class="dropdown-item" href="index.php?m=home"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
                 </ul>
             </div>
         </li>
         <div class="eltuno">
             <li><a class="navlink" href="index.php?m=regisztracio"><i class="fas fa-user-plus"></i> Sign up</a></li>
-            <li><a class="navlink" href="index.php?m=signin"><i class="fas fa-sign-in-alt"></i> Sign in</a></li>
+            <li><a class="navlink" href="index.php?m=signin"><i class="fas fa-sign-in-alt"></i> Log in</a></li>
             <li><a class="navlink" href="index.php?m=home"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
         </div>
     </ul>

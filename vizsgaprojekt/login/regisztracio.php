@@ -1,5 +1,5 @@
 <div class="col-12 col-md-4 mx-auto text-light">
-    <h1 class="mt-4">Registration</h1>
+    <h1 class="mt-4">Sign up</h1>
     <form action="index.php?m=home" method="post">
             <div class="row mb-3">
                 <label for="nev" class="col-sm-3 col-form-label">Name: </label>
@@ -48,6 +48,6 @@
                             echo' </div>';
                         }
                     ?>
-            <button type="submit" class="btn btn-warning" name="btn_reg">Registrate</button>
+            <button type="submit" class="btn btn-warning" name="btn_reg">Sign up</button>
         </form>
 </div>
