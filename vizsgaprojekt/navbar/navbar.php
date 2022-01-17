@@ -19,8 +19,21 @@
                     <i class="fas fa-user-circle"></i>
                 </button>
                 <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                    <li><a class="dropdown-item" href="index.php?m=signin"><i class="fas fa-user-plus"></i> Sign in</a></li>
-                    <li><a class="dropdown-item" href="index.php?m=home"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+                      <?php if (isset($_SESSION['username'])) {
+                       
+                    }
+                    else{
+                        echo '<li><a class="dropdown-item" href="index.php?m=signin"><i class="fas fa-user-plus"></i> Sign in</a></li>';
+                    }
+                    ?>
+                    
+                    <li><a class="dropdown-item" href="index.php?m=logout"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+                   
+                    <?php if (isset($_SESSION['username'])) {
+                       echo'
+                       <li class="dropdown-item">Logged in as: '.$_SESSION['username'].'<li>
+                       ';
+                    }?>
                 </ul>
             </div>
         </li>
