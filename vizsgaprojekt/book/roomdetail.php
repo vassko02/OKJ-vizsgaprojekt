@@ -4,10 +4,10 @@ $room = $RoomObj->selectoneroom($id);
 $services = $ServiceObj->getallservice();
 $_SESSION['roomid'] = $_GET['Roomid'];
 
-echo '<pre>';
-print_r($_POST);
-print_r($_SESSION);
-echo '</pre>';
+// echo '<pre>';
+// print_r($_POST);
+// print_r($_SESSION);
+// echo '</pre>';
 //  $serviceid = $_POST['select'];
 //  echo $serviceid;
 
