@@ -93,41 +93,50 @@ $Roomslist = $RoomObj->selectallrooms();
   <div class="row ">
     <div class="col-6">
       <!--room picture slider-->
-
-      <div id="roomslider" class="carousel slide" data-bs-ride="carousel">
-        <div class="carousel-indicators">
-          <button type="button" data-bs-target="#roomslider" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-          <button type="button" data-bs-target="#roomslider" data-bs-slide-to="1" aria-label="Slide 2"></button>
-          <button type="button" data-bs-target="#roomslider" data-bs-slide-to="2" aria-label="Slide 3"></button>
-        </div>
-        <div class="carousel-inner">
-          <div class="carousel-item active">
-            <img src="<?php foreach ($Roomslist as $room) {
+      <div class="card">
+        <div class="slides">
+          <div slide-id="1" slide-color="#D18B49" class="slide active">
+            <div class="thumbnail"><img src="<?php foreach ($Roomslist as $room) {
                         echo $room['ImageURL1'];
                         break;
-                      } ?>" class="d-block w-100" alt="">
+                      } ?>" /></div>
+            <h1 class="title">Room 1</h1>
+            <p class="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
           </div>
-          <div class="carousel-item">
-            <img src="<?php foreach ($Roomslist as $room) {
+          <div slide-id="2" slide-color="#542F13" class="slide">
+            <div class="thumbnail"><img src="<?php foreach ($Roomslist as $room) {
                         echo $room['ImageURL2'];
                         break;
-                      } ?>" class="d-block w-100" alt="...">
+                      } ?>" /></div>
+            <h1 class="title">Room 2</h1>
+            <p class="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
           </div>
-          <div class="carousel-item">
-            <img src="<?php foreach ($Roomslist as $room) {
+          <div slide-id="3" slide-color="#A5AAAE" class="slide">
+            <div class="thumbnail"><img src="<?php foreach ($Roomslist as $room) {
                         echo $room['ImageURL3'];
                         break;
-                      } ?>" class="d-block w-100" alt="...">
+                      } ?>" /></div>
+            <h1 class="title">Room 3</h1>
+            <p class="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
+          </div>
+          <div slide-id="4" slide-color="#ED8D1F" class="slide">
+            <div class="thumbnail"><img src="<?php foreach ($Roomslist as $room) {
+                        echo $room['ImageURL1'];
+                        break;
+                      } ?>" /></div>
+            <h1 class="title">Room 4</h1>
+            <p class="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
+          </div>
+          <div slide-id="5" slide-color="#C4C8CB" class="slide">
+            <div class="thumbnail"><img src="<?php foreach ($Roomslist as $room) {
+                        echo $room['ImageURL2'];
+                        break;
+                      } ?>" /></div>
+            <h1 class="title">Room 5</h1>
+            <p class="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
           </div>
         </div>
-        <button class="carousel-control-prev" type="button" data-bs-target="#roomslider" data-bs-slide="prev">
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Previous</span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#roomslider" data-bs-slide="next">
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Next</span>
-        </button>
+        <div class="footer"><a id="prev" href="#" ripple="" ripple-color="#666666" class="btn">Prev</a><a id="next" href="#" ripple="" ripple-color="#666666" class="btn">Next</a></div>
       </div>
     </div>
     <div class="col-6">
@@ -145,3 +154,4 @@ $Roomslist = $RoomObj->selectallrooms();
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 <!-- partial -->
 <script src="./mainpage/slider/script.js"></script>
+<script src="./mainpage/bookslider/script.js"></script>

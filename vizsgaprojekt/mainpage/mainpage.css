@@ -73,6 +73,7 @@
     margin-left: auto;
     margin-right: auto;
     margin-top: 5vh;
+    margin-bottom: 5vh;
 }
 .icons a {
     margin-left: 1vw;
@@ -102,7 +103,6 @@
 
 .rooms {
     color: white;
-    margin-top: 10vh;
 }
 .roomcim h1{
     font-size: 9vh;
@@ -131,11 +131,7 @@
 .roomszoveg a:hover::after {
     width: 15vh;
 }
-#roomslider {
-    height: 50vh;
-    margin-left: 2vh;
-    margin-right: 2vh;
-}
+
 
 
 

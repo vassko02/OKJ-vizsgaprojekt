@@ -70,7 +70,9 @@ if (isset($_POST['btn_send2'])) {
             <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
             <link rel="stylesheet" href="./mainpage/slider/style.css">
             <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro&display=swap" rel="stylesheet">
-            <link rel="stylesheet" href="./mainpage/mainpage.css"> ';
+            <link rel="stylesheet" href="./mainpage/mainpage.css">
+            
+            <link rel="stylesheet" href="./mainpage/bookslider/style.css">';
             
     }
     if ($m == 'casino') {
