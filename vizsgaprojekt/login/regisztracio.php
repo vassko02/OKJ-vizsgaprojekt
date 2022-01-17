@@ -1,14 +1,38 @@
 <div id="signin">
     <div class="loginout" id="loginout">
-        <div class="form-loginout sign-up-loginout">
+        <div class="form-loginout sign-up-loginout urlap">
             <form action="#">
-                <h1>Sign up</h1>
-                <input type="text" placeholder="Username" />
-                <input type="email" placeholder="Email" />
-                <input type="text" placeholder="Name" />
-                <input type="password" placeholder="Password" />
-                <input type="password" placeholder="Repeat Password" />
-                <button class="signgomb">Sign Up</button>
+            <div id="title">
+                    <h1 class="title">Sign up</h1>
+                </div>
+                <div class="input-signin">
+                    <input type="#{type}" id="#{label}" required="required" />
+                    <label for="#{label}">Username</label>
+                    <div class="bar"></div>
+                </div>
+                <div class="input-signin">
+                    <input type="#{type}" id="#{label}" required="required" />
+                    <label for="#{label}">Name</label>
+                    <div class="bar"></div>
+                </div>
+                <div class="input-signin">
+                    <input type="#{type}" id="#{label}" required="required" />
+                    <label for="#{label}">Email</label>
+                    <div class="bar"></div>
+                </div>
+                <div class="input-signin">
+                    <input type="#{type}" id="#{label}" required="required" />
+                    <label for="#{label}">Password</label>
+                    <div class="bar"></div>
+                </div>
+                <div class="input-signin">
+                    <input type="#{type}" id="#{label}" required="required" />
+                    <label for="#{label}">Repeat Password</label>
+                    <div class="bar"></div>
+                </div>
+                <div class="button-signin">
+                    <button id="logingomb">Sign up</button>
+                </div>
             </form>
         </div>
         <div class="form-loginout sign-in-loginout urlap">

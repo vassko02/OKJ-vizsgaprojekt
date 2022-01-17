@@ -131,7 +131,7 @@ $Roomslist = $RoomObj->selectallrooms();
       </div>
     </div>
     <div class="col-6">
-      asd
+      <h1>Lorem ipsum</h1>
     </div>
   </div>
 
