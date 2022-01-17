@@ -5,14 +5,18 @@ if(($m=='contactus' || $m=='contactusREPORT') && isset($_POST['btn_send']))
      header('Location: index.php?m=contactusREPORT');
    
   }
-  if ($m=='regisztracio' && isset($_POST['btn_reg'])){
+  if ($m=='signin' && isset($_POST['btn_reg'])){
 
     $emailHibauzenet='';
+    $usernamehibauzenet='';
 
     if ($GuestObj->eemailcsekk($_POST['email']) == 1){
         $emailHibauzenet='A megadott e-mail cím már regisztrálva van!';
     }
-
+    if ($GuestObj-> usernamecsekk($_POST['username']) == 1){
+        $usernamehibauzenet='A megadott username már regisztrálva van!';
+    }
+   
     $jelszohibauzenet=array();
 
     if (strlen($_POST['jelszo']) < 8) {
@@ -31,11 +35,12 @@ if(($m=='contactus' || $m=='contactusREPORT') && isset($_POST['btn_send']))
     if ($_POST['jelszo'] != $_POST['jelszoujra']) {
         $jelszohibauzenet[] = 'A két jelszó nem egyforma!';   
          }
-    if ($emailHibauzenet =='' && count($jelszohibauzenet) == 0) {
+    if ($emailHibauzenet =='' && count($jelszohibauzenet) == 0 && $usernamehibauzenet == '') {
         //nincs hiba
-    
+     
         if ($GuestObj->saveuser($_POST) ==1) {
-                header('Location: index.php?m=home');
+         
+                header('Location: index.php?m=regconfirmed');
         }
     }
 }

@@ -1,38 +1,66 @@
 <div id="signin">
-    <div class="loginout" id="loginout">
-        <div class="form-loginout sign-up-loginout urlap">
-            <form action="#">
+    <div class="loginout <?php if((isset($jelszohibauzenet) && count($jelszohibauzenet) != 0) 
+    || $usernamehibauzenet !='' || $emailHibauzenet != '') echo "right-panel-active"; ?>" id="loginout">
+        <div class="form-loginout sign-up-loginout urlap ">
+            <form action="" method="POST">
             <div id="title">
                     <h1 class="title">Sign up</h1>
                 </div>
                 <div class="input-signin">
-                    <input type="text" id="#{label}" required="required" />
+                    <input type="text" id="#{label}" name="username" required="required"
+                    value="<?php if(isset($_POST['username'])) {echo $_POST['username'];}?>"/>
                     <label for="#{label}">Username</label>
                     <div class="bar"></div>
+           
                 </div>
                 <div class="input-signin">
-                    <input type="text" id="#{label}" required="required" />
+                    <input type="text" id="#{label}" name="name" required="required"
+                    value="<?php if(isset($_POST['name'])) {echo $_POST['name'];}?>" />
                     <label for="#{label}">Name</label>
                     <div class="bar"></div>
                 </div>
                 <div class="input-signin">
-                    <input type="email" id="#{label}" required="required" />
+                    <input type="email" id="#{label}" name="email" required="required" 
+                    value="<?php if(isset($_POST['email'])) {echo $_POST['email'];}?>"/>
                     <label for="#{label}">Email</label>
                     <div class="bar"></div>
+                   
                 </div>
                 <div class="input-signin">
-                    <input type="password" id="#{label}" required="required" />
+                    <input type="password" id="#{label}" name="jelszo" required="required" />
                     <label for="#{label}">Password</label>
                     <div class="bar"></div>
                 </div>
                 <div class="input-signin">
-                    <input type="password" id="#{label}" required="required" />
+                    <input type="password" name="jelszoujra" id="#{label}" required="required" />
                     <label for="#{label}">Repeat Password</label>
                     <div class="bar"></div>
                 </div>
+                    <?php 
+                    if((isset($jelszohibauzenet) && count($jelszohibauzenet) != 0) 
+                    || $usernamehibauzenet !='' || $emailHibauzenet != ''){
+                        echo '<div class="alert alert-danger mt-5 mb-0" role="alert">';
+                        if (isset($usernamehibauzenet) && $usernamehibauzenet!=''){
+                            echo $usernamehibauzenet.'<br>';
+                            }
+                        if (isset($emailHibauzenet) && $emailHibauzenet!=''){
+                                echo $emailHibauzenet.'<br>';
+                                }
+                        if (isset($jelszohibauzenet) && count($jelszohibauzenet) != 0){
+                                
+                                
+                               foreach($jelszohibauzenet as $hiba){
+                                   echo $hiba.'<br>';
+                               }
+                        }
+                            echo' </div>';
+                    }
+                   
+                    ?>
                 <div class="button-signin">
-                    <button id="logingomb">Sign up</button>
+                    <button type="submit" class="<?php if(isset($jelszohibauzenet) && $usernamehibauzenet != '' && $emailHibauzenet != '') echo 'mt-1'; else {echo 'mt-4';} ?>" name="btn_reg" id="logingomb">Sign up</button>
                 </div>
+               
                 <div class="footer"><a href="https://en.wikipedia.org/wiki/Stupidity">Don't forget your password!</a></div>
             </form>
         </div>
