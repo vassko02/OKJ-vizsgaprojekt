@@ -6,17 +6,17 @@
                     <h1 class="title">Sign up</h1>
                 </div>
                 <div class="input-signin">
-                    <input type="#{type}" id="#{label}" required="required" />
+                    <input type="text" id="#{label}" required="required" />
                     <label for="#{label}">Username</label>
                     <div class="bar"></div>
                 </div>
                 <div class="input-signin">
-                    <input type="#{type}" id="#{label}" required="required" />
+                    <input type="text" id="#{label}" required="required" />
                     <label for="#{label}">Name</label>
                     <div class="bar"></div>
                 </div>
                 <div class="input-signin">
-                    <input type="#{type}" id="#{label}" required="required" />
+                    <input type="email" id="#{label}" required="required" />
                     <label for="#{label}">Email</label>
                     <div class="bar"></div>
                 </div>
@@ -42,7 +42,7 @@
                     <h1 class="title">Sign in</h1>
                 </div>
                 <div class="input-signin">
-                    <input type="#{type}" id="#{label}" required="required" />
+                    <input type="text" id="#{label}" required="required" />
                     <label for="#{label}">Name</label>
                     <div class="bar"></div>
                 </div>
@@ -58,7 +58,6 @@
                 <div class="button-signin">
                     <button id="logingomb">Sign in</button>
                 </div>
-                <div class="footer"><a href="index.php?m=login">Already have an account?</a></div>
             </form>
         </div>
         <div class="overlay-loginout">
