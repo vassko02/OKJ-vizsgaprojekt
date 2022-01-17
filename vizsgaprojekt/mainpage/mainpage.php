@@ -90,57 +90,56 @@ $Roomslist = $RoomObj->selectallrooms();
       </a>
     </div>
   </div>
-  <div class="row ">
+  <div class="row leiras">
     <div class="col-6">
       <!--room picture slider-->
       <div class="card">
         <div class="slides">
-          <div slide-id="1" slide-color="#D18B49" class="slide active">
+          <div slide-id="1" class="slide active">
             <div class="thumbnail"><img src="<?php foreach ($Roomslist as $room) {
                         echo $room['ImageURL1'];
                         break;
                       } ?>" /></div>
-            <h1 class="title">Room 1</h1>
-            <p class="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
+            
           </div>
-          <div slide-id="2" slide-color="#542F13" class="slide">
+          <div slide-id="2" class="slide">
             <div class="thumbnail"><img src="<?php foreach ($Roomslist as $room) {
                         echo $room['ImageURL2'];
                         break;
                       } ?>" /></div>
-            <h1 class="title">Room 2</h1>
-            <p class="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
+            
           </div>
-          <div slide-id="3" slide-color="#A5AAAE" class="slide">
+          <div slide-id="3" class="slide">
             <div class="thumbnail"><img src="<?php foreach ($Roomslist as $room) {
                         echo $room['ImageURL3'];
                         break;
                       } ?>" /></div>
-            <h1 class="title">Room 3</h1>
-            <p class="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
+            
           </div>
-          <div slide-id="4" slide-color="#ED8D1F" class="slide">
+          <div slide-id="4" class="slide">
             <div class="thumbnail"><img src="<?php foreach ($Roomslist as $room) {
                         echo $room['ImageURL1'];
                         break;
                       } ?>" /></div>
-            <h1 class="title">Room 4</h1>
-            <p class="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
+            
           </div>
-          <div slide-id="5" slide-color="#C4C8CB" class="slide">
+          <div slide-id="5" class="slide">
             <div class="thumbnail"><img src="<?php foreach ($Roomslist as $room) {
                         echo $room['ImageURL2'];
                         break;
                       } ?>" /></div>
-            <h1 class="title">Room 5</h1>
-            <p class="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
+            
           </div>
         </div>
-        <div class="footer"><a id="prev" href="#" ripple="" ripple-color="#666666" class="btn">Prev</a><a id="next" href="#" ripple="" ripple-color="#666666" class="btn">Next</a></div>
+        <div class="booksliderbtn row">
+          <a class="col-6" id="prev" href="#" class="btn"><i class="far fa-hand-point-left"></i></a>
+          <a class="col-6" id="next" href="#" class="btn"><i class="far fa-hand-point-right"></i></a>
+        </div>
       </div>
     </div>
-    <div class="col-6">
+    <div class="col-6 bookszoveg">
       <h1>Lorem ipsum</h1>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus consectetur erat ante, in eleifend neque interdum at. Etiam aliquet pellentesque augue, et volutpat purus faucibus vitae. Donec ac accumsan lectus. Donec nisi urna, malesuada et magna at, varius pharetra odio. Cras eu lectus quis ipsum vulputate mattis sit amet ac diam. In et libero in eros accumsan blandit. Quisque at lacus eget ante imperdiet convallis. Aliquam ut justo nisi. Cras pharetra tempus mi, eget suscipit ligula ullamcorper quis. Quisque eu arcu porttitor, consectetur eros quis, posuere arcu. Donec non auctor felis. </p>
     </div>
   </div>
 

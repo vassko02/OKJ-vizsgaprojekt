@@ -1,14 +1,25 @@
+.rooms .leiras {
+  width: 70vw;
+  margin-left: auto;
+  margin-right: auto;
+  transition: 0.3s;
+}
+@media screen and (max-width: 1400px){ 
+  .rooms .leiras {
+    width: 100%;
+    transition: 0.3s;
+  }
+}
 
 
 .card {
-  background: #FFFFFF;
-  max-width: 400px;
-  margin: 50px auto;
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+  background-color: #313030 !important;
+  margin: 5vh auto;
+  /* box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23); */
   box-sizing: border-box;
-  text-align: center;
   border: none !important;
   border-radius: 0 !important;
+  width: 100%;
 }
 
 .slides {
@@ -16,6 +27,7 @@
   overflow: hidden;
   -webkit-transition: 0.5s ease;
   transition: 0.5s ease;
+  width: 100%;
 }
 
 .slide {
@@ -26,21 +38,19 @@
   visibility: hidden;
   -webkit-transition: 0.5s ease;
   transition: 0.5s ease;
+  width: 100%;
 }
 
 .slide img {
-  height: 20vh;
-  max-height: 20vh;
+  height: 40vh;
   width: 100%;
-  max-width: 100%;
+  min-width: 100%;
 }
 
 .slide.active {
   opacity: 1;
   visibility: visible;
 }
-
-.thumbnail { margin: 0 0 48px; }
 
 .title {
   margin: 0 0 12px;
@@ -55,61 +65,23 @@
   color: black;
 }
 
-.footer {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-  -webkit-flex-direction: row;
-  -ms-flex-direction: row;
-  flex-direction: row;
-  -webkit-box-pack: justify;
-  -webkit-justify-content: space-between;
-  -ms-flex-pack: justify;
-  justify-content: space-between;
-  margin: 0 -12px -12px;
+.booksliderbtn{
+  text-align: center;
+  transition: 0.3s;
+  background-color: #313030 !important;
+  margin-top: 1vh;
 }
- [ripple] {
- z-index: 1;
- position: relative;
- overflow: hidden;
+.booksliderbtn i{
+  font-size: 3vh;
+  color: black;
+  transition: 0.3s;
+}
+.booksliderbtn a:hover i{
+  color: #C5B358;
+  transition: 0.3s;
 }
 
-[ripple] .ripple {
-  position: absolute;
-  background: #FFFFFF;
-  width: 60px;
-  height: 60px;
-  border-radius: 100%;
-  -webkit-transform: scale(0);
-  -ms-transform: scale(0);
-  transform: scale(0);
-  -webkit-animation: ripple 2s;
-  animation: ripple 2s;
-}
- @-webkit-keyframes
-ripple {  0% {
- -webkit-transform: scale(0);
- transform: scale(0);
- opacity: 0.2;
-}
- 100% {
- -webkit-transform: scale(20);
- transform: scale(20);
- opacity: 0;
-}
-}
- @keyframes
-ripple {  0% {
- -webkit-transform: scale(0);
- transform: scale(0);
- opacity: 0.2;
-}
- 100% {
- -webkit-transform: scale(20);
- transform: scale(20);
- opacity: 0;
-}
+
+.bookszoveg {
+  margin-top: 5vh;
 }
