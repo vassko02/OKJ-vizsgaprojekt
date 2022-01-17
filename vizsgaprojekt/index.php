@@ -1,5 +1,6 @@
 <?php
 session_start();
+define('VEDETT','igen');
 
 if (isset($_GET['m'])) {
     $m = $_GET['m'];
@@ -30,6 +31,10 @@ if (isset($_POST['btn_send2'])) {
 
     }
 }
+// echo ('<pre>');
+// print_r($_SESSION);
+
+// echo ('</pre>');
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -174,6 +179,13 @@ if (isset($_POST['btn_send2'])) {
     }
     else if ($m == 'contactus') {
         include('./contact/contact.php');
+    }
+    else if ($m == 'admin') {
+        include('./login/admin.php');
+    }
+    
+    else if ($m == 'logout') {
+        include('./login/logout.php');
     }
     else if ($m == 'contactusREPORT') {
         include('./contact/contact.php');

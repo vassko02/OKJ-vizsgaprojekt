@@ -1,6 +1,7 @@
 <?php 
 class Guest extends Dbconnect
 {
+
     public function savecustomer($adatok){
         $sql='INSERT INTO customer (Name,PhoneNumber,Email,Address) VALUES (?,?,?,?)';
         $stmt = $this->con->prepare($sql);
@@ -93,6 +94,42 @@ class Guest extends Dbconnect
             return 1;
         }
         return 0;
+    }
+    public function logincsekkemail($email,$jelszo){
+
+        $sql = 'SELECT * FROM customer WHERE email=? AND password=md5(?)';
+
+        $stmt = $this->con->prepare($sql);
+        $stmt->bind_param("ss",$email,$jelszo);
+        $stmt->execute();
+
+        $result = $stmt->get_result();
+
+        if ($result->num_rows == 1) {
+            //oke
+            $row = $result->fetch_assoc();
+            return $row;
+        }else{
+            return 0;
+        }
+    }
+    public function logincsekkusername($username,$jelszo){
+
+        $sql = 'SELECT * FROM customer WHERE UserName=? AND password=md5(?)';
+
+        $stmt = $this->con->prepare($sql);
+        $stmt->bind_param("ss",$username,$jelszo);
+        $stmt->execute();
+
+        $result = $stmt->get_result();
+
+        if ($result->num_rows == 1) {
+            //oke
+            $row = $result->fetch_assoc();
+            return $row;
+        }else{
+            return 0;
+        }
     }
 }
 
