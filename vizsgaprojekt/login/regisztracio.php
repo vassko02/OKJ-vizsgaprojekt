@@ -21,18 +21,19 @@
                     <div class="bar"></div>
                 </div>
                 <div class="input-signin">
-                    <input type="#{type}" id="#{label}" required="required" />
+                    <input type="password" id="#{label}" required="required" />
                     <label for="#{label}">Password</label>
                     <div class="bar"></div>
                 </div>
                 <div class="input-signin">
-                    <input type="#{type}" id="#{label}" required="required" />
+                    <input type="password" id="#{label}" required="required" />
                     <label for="#{label}">Repeat Password</label>
                     <div class="bar"></div>
                 </div>
                 <div class="button-signin">
                     <button id="logingomb">Sign up</button>
                 </div>
+                <div class="footer"><a href="https://en.wikipedia.org/wiki/Stupidity">Don't forget your password!</a></div>
             </form>
         </div>
         <div class="form-loginout sign-in-loginout urlap">
@@ -46,7 +47,7 @@
                     <div class="bar"></div>
                 </div>
                 <div class="input-signin">
-                    <input type="#{type}" id="#{label}" required="required" />
+                    <input type="password" id="#{label}" required="required" />
                     <label for="#{label}">Password</label>
                     <div class="bar"></div>
                 </div>
