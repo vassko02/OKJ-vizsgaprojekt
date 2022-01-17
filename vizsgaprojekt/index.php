@@ -103,7 +103,7 @@ if (isset($_POST['btn_send2'])) {
         echo ' <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
         <link rel="stylesheet" href="./book/customerdetails.css">';
     }
-    if ($m == 'resconfirmed') {
+    if ($m == 'resconfirmed' || $m == 'regconfirmed') {
         echo '<link href="https://fonts.googleapis.com/css?family=Open+Sans:300|Montserrat" rel="stylesheet" type="text/css">
 	    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
         <link rel="stylesheet" href="./book/resconfirmed.css">';
@@ -168,6 +168,9 @@ if (isset($_POST['btn_send2'])) {
     }
     else if ($m == 'signin') {
         include('./login/regisztracio.php');
+    }
+    else if($m == 'regconfirmed'){
+        include('./login/regconfirmed.php');
     }
     else if ($m == 'contactus') {
         include('./contact/contact.php');

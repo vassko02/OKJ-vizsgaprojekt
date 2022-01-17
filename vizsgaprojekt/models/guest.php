@@ -72,13 +72,23 @@ class Guest extends Dbconnect
 
         return $result->num_rows;
     }
+    public function usernamecsekk($username){
+        $sql='SELECT UserName FROM customer WHERE UserName=?';
+        $stmt = $this->con->prepare($sql);
+        $stmt->bind_param("s",$username);
+        $stmt->execute();
+
+        $result = $stmt->get_result();
+
+        return $result->num_rows;
+    }
     public function saveuser($adatok){
         echo '<pre>';
         print_r($adatok);
         echo '</pre>';
         $sql='INSERT INTO customer (Name,Email,UserName,Password) VALUES(?,?,?,md5(?))';
         $stmt = $this->con->prepare($sql);
-        $stmt->bind_param("ssss",$adatok['nev'],$adatok['email'],$adatok['username'],$adatok['jelszo']);
+        $stmt->bind_param("ssss",$adatok['name'],$adatok['email'],$adatok['username'],$adatok['jelszo']);
         if ($stmt->execute()) {
             return 1;
         }

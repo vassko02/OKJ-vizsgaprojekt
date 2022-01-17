@@ -11,7 +11,9 @@
     padding-bottom: 1vh;
 } */
 
-
+.loginout{
+  height: 85vh !important;
+}
 #logingomb {
     border: 1px solid #C5B358;
 }
