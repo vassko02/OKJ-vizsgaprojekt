@@ -146,9 +146,9 @@ if (isset($_POST['btn_send2'])) {
     </div> -->
 
     <?php
-    if ($m == 'home') {
-        echo '<div id="preloader"></div>';
-    }
+    // if ($m == 'home') {
+    //     echo '<div id="preloader"></div>';
+    // }
     include('./navbar/navbar.php');
     if ($m == 'home') {
         include('./mainpage/mainpage.php');
