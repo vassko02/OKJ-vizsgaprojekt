@@ -37,6 +37,9 @@ nav{
 .kep{
     content: url('../pictures/korulvagott_logo.png') !important;
 }
+.kep:hover {
+    content: url('../pictures/repulo.gif') !important;
+}
 /*Styling logo*/
 .logo img {
     max-height: 8vh;
@@ -131,6 +134,17 @@ nav{
 }
 .eltuno li {
     margin-bottom: 0.8rem !important;
+}
+
+#username {
+    color: white;
+    background-color: black;
+    transition: 0.3s;
+}
+#username:hover {
+    color: #C5B358;
+    transition: 0.3s;
+    background-color: black;
 }
 
 /*Stying for small screens*/
