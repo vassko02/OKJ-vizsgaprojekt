@@ -8,34 +8,35 @@
 
 // echo ('</pre>');
 foreach ($reservations as $onereservation) {
-      echo ('<pre>');
-  print_r($onereservation);
+foreach ($onereservation as $oneonereservation) {
+  // echo ('<pre>');
+  // print_r($oneonereservation);
 
-  echo ('</pre>');
+  // echo ('</pre>');
    echo'
    
-   
-   
+   <div class="container">
    <form action="" class="text-center" method="post">
+   <h1>'.$oneonereservation['ReservationID'].'</h1>
    <div class="row  mx-auto mt-5 mb-5 "><h1 class="col ">Guest informations</h1>
  </div>
    
  
  <div class="mb-3 keret">
    <label for="name" class="form-label">Name: </label>
-     <span> '.$onereservation['Name'].'</span>
+     <span> '.$oneonereservation['Name'].'</span>
  </div>
  <div class="mb-3 keret">
    <label for="exampleFormControlInput1" class="form-label">Email address:</label>
-   <span>'.$onereservation['Email'].' </span>
+   <span>'.$oneonereservation['Email'].' </span>
  </div>
  <div class="mb-3 keret">
    <label for="phnumber" class="form-label">Phone number:</label>
-   <span>'.$onereservation['PhoneNumber'].'</span>
+   <span>'.$oneonereservation['PhoneNumber'].'</span>
  </div>
  <div class="mb-3 keret">
    <label for="address" class="form-label">Address:</label>
-   <span>'. $onereservation['Address'].' </span>
+   <span>'. $oneonereservation['Address'].' </span>
  </div>
  <button class="btn btn-warning edit mt-3 col keret" type="submit"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
    <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
@@ -47,33 +48,36 @@ foreach ($reservations as $onereservation) {
  </div>
  <div class="mb-3 keret">
    <label for="roomname" class="form-label">Room Type:</label>
-   <span>'.$onereservation['RoomID'].'></span>
+   <span>'.$oneonereservation['RoomID'].'></span>
  </div>
  <div class="mb-3 keret">
    <label for="adult" class="form-label">Adult number:</label>
-   <span>'.$onereservation['Adults'].'</span>
+   <span>'.$oneonereservation['Adults'].'</span>
  </div>
  <div class="mb-3 keret">
    <label for="chldren" class="form-label">Children number:</label>
-   <span>'.$onereservation['Children'].'</span>
+   <span>'.$oneonereservation['Children'].'</span>
  </div>
  <div class="mb-3 keret">
    <label for="checkin" class="form-label">Check-in:</label>
-   <span>'.$onereservation['ArrivalDate'].'</span>
+   <span>'.$oneonereservation['ArrivalDate'].'</span>
  </div>
  <div class="mb-3 keret">
    <label for="checkout" class="form-label">Check-out:</label>
-   <span>'.$onereservation['LeavingDate'] .'</span>
+   <span>'.$oneonereservation['LeavingDate'] .'</span>
  </div>
  <div class="mb-3 keret">
    <label for="fullprice" class="form-label">Full Price:</label>
-   <span>'.$onereservation['Price'].'</span>
+   <span>'.$oneonereservation['Price'].'</span>
  </div>
  <button class="btn btn-warning mt-3 edit col keret" type="submit"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
    <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
    <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"/>
  </svg> Edit</button>
  </form>
+   </div>
+   
+  
    
    
    
@@ -87,6 +91,8 @@ foreach ($reservations as $onereservation) {
    
    
    ';
+}
+    
 }
 ?>
   
