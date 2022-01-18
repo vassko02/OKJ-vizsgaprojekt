@@ -140,7 +140,7 @@ if (isset($_POST['btn_send2'])) {
 </head>
 
 <body>
-    
+
     <!-- <div class="loader-wrapper">
     <span class="loader"><span class="loader-inner"></span></span>
     </div> -->
@@ -174,8 +174,7 @@ if (isset($_POST['btn_send2'])) {
         include('./login/regconfirmed.php');
     } else if ($m == 'contactus') {
         include('./contact/contact.php');
-    }
-    else if ($m == 'admin' && $_SESSION['loginemail'] == "admin@admin") {
+    } else if ($m == 'admin' && $_SESSION['loginemail'] == "admin@admin") {
         include('./login/admin.php');
     } else if ($m == 'logout') {
         include('./login/logout.php');
@@ -195,15 +194,8 @@ if (isset($_POST['btn_send2'])) {
 
 
     ?>
-    <iframe width="0" height="0" src="https://www.youtube.com/embed/h1RHsfA_IFM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-        <iframe width="0" height="0" src="https://www.youtube.com/embed/h1RHsfA_IFM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-            <iframe width="0" height="0" src="https://www.youtube.com/embed/h1RHsfA_IFM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-    <iframe width="0" height="0" src="https://www.youtube.com/embed/h1RHsfA_IFM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-        <iframe width="0" height="0" src="https://www.youtube.com/embed/h1RHsfA_IFM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-        <iframe width="0" height="0" src="https://www.youtube.com/embed/h1RHsfA_IFM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-            <iframe width="0" height="0" src="https://www.youtube.com/embed/h1RHsfA_IFM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-    <iframe width="0" height="0" src="https://www.youtube.com/embed/h1RHsfA_IFM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-        
+
+
     <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
     <script src="./navbar/script.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
