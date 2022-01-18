@@ -35,7 +35,7 @@
                    
                     <?php if (isset($_SESSION['username'])) {
                        echo'
-                       <li class="dropdown-item">Logged in as: '.$_SESSION['username'].'<li>
+                       <li class="dropdown-item" id="username">Logged in as: '.$_SESSION['username'].'<li>
                        ';
                     }?>
                 </ul>

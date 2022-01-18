@@ -60,7 +60,7 @@
                     </div>
                 </div>
                 <div class="customcard2 col-12 col-sm-6 col-md-6 col-lg-4">
-                    <img src="pictures/casino/roulette1.jpg" class="card-img-top" alt="...">
+                    <img src="pictures/casino/meretezett_casino3.jpg" class="card-img-top" alt="...">
                     <div class="card-body">
                         <h1 class="card-title">ROULETTE</h1>
                         <p class="card-text">The purest game of chance, Roulette gives players a chance to test their luck by picking numbers on a wheel, choosing from 1 to 36, with a 0 and 00. Roulette offers many ways to win - betting individual numbers, intersections of up to five numbers at once, odd or even, red or black.</p>
@@ -83,7 +83,7 @@
                     <p>Step into our 450-square-meter casino poker room and let the excitement spread.</p>
                 </div>
                 <div class="col-12 col-sm-6 col-md-6 col-lg-4 pokerheadkep">
-                    <img class="" src="pictures\casino\poker1.jpg" alt="">
+                    <img class="" src="pictures\casino\meretezett_casino2.jpg" alt="">
                 </div>
             </div>
             <div class="row pokercards">
