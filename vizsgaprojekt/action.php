@@ -44,7 +44,10 @@
           $_SESSION['uid'] = $felhasznalo['CustomerID'];
           $_SESSION['username'] =  $felhasznalo['UserName'];
           $_SESSION['loginemail'] = $felhasznalo['Email'];
-          header('Location: index.php?m=admin');
+          if (isset($_SESSION['loginemail']) && $_SESSION['loginemail'] == "admin@admin") {
+              header('Location: index.php?m=admin');
+          }
+          
       }
   }
 
