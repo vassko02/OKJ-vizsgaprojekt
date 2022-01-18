@@ -9,7 +9,15 @@
             $stmt->execute();
         
         }
-
+        public function selectallreservation(){
+            $sql = 'SELECT * FROM  reservation INNER JOIN customer on reservation.CustomerID = customer.CustomerID';
+            $result = $this->con->query($sql);
+            $allreservation = array();
+            while($row = $result->fetch_assoc()){
+                $allreservation[]=$row;
+            }
+            return $allreservation;
+        }
 
     }
 

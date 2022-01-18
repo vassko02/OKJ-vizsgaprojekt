@@ -180,7 +180,7 @@ if (isset($_POST['btn_send2'])) {
     else if ($m == 'contactus') {
         include('./contact/contact.php');
     }
-    else if ($m == 'admin') {
+    else if ($m == 'admin' && $_SESSION['loginemail'] == "admin@admin") {
         include('./login/admin.php');
     }
     
