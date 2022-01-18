@@ -26,8 +26,12 @@
                         echo '<li><a class="dropdown-item" href="index.php?m=signin"><i class="fas fa-user-plus"></i> Sign in</a></li>';
                     }
                     ?>
-                    
-                    <li><a class="dropdown-item" href="index.php?m=logout"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+                     <?php if (isset($_SESSION['username'])) {
+                       echo'
+                       <li><a class="dropdown-item" href="index.php?m=logout"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+                       ';
+                    }?>
+                 
                    
                     <?php if (isset($_SESSION['username'])) {
                        echo'
