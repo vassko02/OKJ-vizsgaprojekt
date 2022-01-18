@@ -122,6 +122,11 @@ if (isset($_POST['btn_send2'])) {
                 <link rel="stylesheet" href="./restaurant/menu/foodmenu.css">
                 ';
     }
+    if ($m == 'admin') {
+        echo '
+                <link rel="stylesheet" href="./login/reservations.css">
+                ';
+    }
     if ($m == 'signin') {
         echo '
             <link rel="stylesheet" href="./login/inputstyles.css">

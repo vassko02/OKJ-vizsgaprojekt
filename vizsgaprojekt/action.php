@@ -47,6 +47,9 @@
           if (isset($_SESSION['loginemail']) && $_SESSION['loginemail'] == "admin@admin") {
               header('Location: index.php?m=admin');
           }
+          else if ($_SESSION['loginemail']) {
+            header('Location: index.php?m=home');
+          }
           
       }
   }

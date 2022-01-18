@@ -85,8 +85,19 @@
           $result = $stmt->get_result();
           return $result;
       }
-
       
+      public function selectoneroom2($id){
+        $sql = 'SELECT * FROM room WHERE room.RoomID = ?';
+        $stmt = $this->con->prepare($sql);
+        $stmt->bind_param("i",$id);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        $row = $result->fetch_assoc();
+       
+        return $row;
+    }
+
+    
       
   }
  
