@@ -37,6 +37,9 @@ nav{
 .kep{
     content: url('../pictures/korulvagott_logo.png') !important;
 }
+.kep:hover {
+    content: url('../pictures/repulo.gif') !important;
+}
 /*Styling logo*/
 .logo img {
     max-height: 8vh;
