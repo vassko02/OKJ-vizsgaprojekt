@@ -1,9 +1,9 @@
 <?php 
     class Dbconnect{
         private $servername = 'localhost';
-        private $username = 'PeacefulParadise'; /*Localhosthoz: root*/
-        private $password = 'PP202114a';
-        private $database = 'PeacefulParadise'; /*Localhosthoz: peacefulparadise*/
+        private $username = 'PeacefulParadise'; /*Localhosthoz: root, szerverhez: PeacefulParadise*/
+        private $password = 'PP202114a'; /*Szerverhez: PP202114a*/
+        private $database = 'PeacefulParadise'; /*Localhosthoz: peacefulparadise, szerverhez: PeacefulParadise*/
 
         public $con;
 

@@ -36,10 +36,12 @@
   text-transform: uppercase;
   padding-left: 1vw;
   margin-bottom: 2vh;
+  width: 100%;
 }
 .urlap .input-signin {
   position: relative;
   margin-top: 3vh;
+  width: 100%;
 }
 .urlap .input-signin input {
   outline: none;
