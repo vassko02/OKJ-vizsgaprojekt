@@ -95,11 +95,36 @@
         $row = $result->fetch_assoc();
        
         return $row;
+        
     }
+    public function selectoneroomname($id){
+      $sql = 'SELECT room.RoomName FROM room WHERE room.RoomID = ?';
+      $stmt = $this->con->prepare($sql);
+      $stmt->bind_param("i",$id);
+      $stmt->execute();
+      $result = $stmt->get_result();
+      $row = $result->fetch_assoc();
+      return $row;
+  }
+  public function selectroomidbyname($adatok){
+    $sql ='SELECT room.*,reservation.GuestNumber,reservation.ArrivalDate,reservation.LeavingDate FROM `room` LEFT JOIN reservation on room.RoomID = reservation.RoomID WHERE (room.Capacity = ? OR room.Capacity-1 = ?) and ((reservation.LeavingDate <= ? or reservation.ArrivalDate >= ?
+    OR reservation.ArrivalDate is null)) and room.RoomName = ?';
+    $guestnumber = (int)$adatok['adults'] + (int)$adatok['children'];
+    $stmt = $this->con->prepare($sql);
+    $stmt->bind_param("iisss",$guestnumber,$guestnumber,$adatok['arrival'],$adatok['leaving'],$adatok['roomname']);
+     $stmt->execute();
+     $rooms = array();
+     $result = $stmt->get_result();
+            while($row = $result->fetch_assoc()){
+                $rooms[]=$row;
+            }
+            return $rooms;
+ }
+}
 
     
       
-  }
+  
  
 
    
