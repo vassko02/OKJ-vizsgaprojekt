@@ -15,7 +15,7 @@
         <li><a href="index.php?m=contactus" class="navlink">Contact Us</a></li>
         <li class="lenyilo">
             <div class="dropdown">
-                <button class="btn btn-dark dropdown-toggle lenyilogomb" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                <button class="dropdown-toggle lenyilogomb" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
                     <i class="fas fa-user-circle"></i>
                 </button>
                 <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
@@ -23,12 +23,12 @@
                        
                     }
                     else{
-                        echo '<li><a class="dropdown-item" href="index.php?m=signin"><i class="fas fa-user-plus"></i> Sign in</a></li>';
+                        echo '<li><a class="dropdown-item leftborder" href="index.php?m=signin"><i class="fas fa-user-plus"></i> Sign in</a></li>';
                     }
                     ?>
                      <?php if (isset($_SESSION['username'])) {
                        echo'
-                       <li><a class="dropdown-item" href="index.php?m=logout"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+                       <li class="leftborder"><a class="dropdown-item" href="index.php?m=logout"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
                        ';
                     }?>
                  

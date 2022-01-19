@@ -15,10 +15,18 @@
   height: 85vh !important;
 }
 #logingomb {
-    border: 1px solid #C5B358;
+    border: 3px solid #C5B358;
+    background-color: hsl(0, 0%, 20%);
+    font-family: 'Be Vietnam Pro', sans-serif;
+    border-radius: 20px;
+    letter-spacing: 1px;
+    padding: 10px 43px; 
+    width: unset;
+    height: unset;
 }
+
 #logingomb:hover {
-    border-radius: 30px;
+    background-color: #C5B358;
 }
 
 #title {

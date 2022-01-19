@@ -1,3 +1,6 @@
+* {
+    transition: 0.3s;
+}
 html {
     scrollbar-color: grey black !important;
 }
@@ -17,6 +20,14 @@ html::-webkit-scrollbar-thumb:hover {
   background: hsl(0, 0%, 35%);
 }
 
+.leftborder {
+    border-left: 0.1px solid black; 
+    transition: 0.2s;
+}
+.leftborder:hover {
+    border-left: 4px solid #C5B358; 
+    transition: 0.2s;
+}
 
 
 body{
@@ -98,8 +109,10 @@ nav{
 .dropdown-menu {
     background-color: black !important;
     text-transform: none;
+    transition: none;
 }
 .lenyilogomb {
+    color: white;
     background-color: black;
     border: 1px solid black;
     transition: 0.3s;
@@ -110,10 +123,10 @@ nav{
     border: 1px solid black;
     transition: 0.3s;
 }
-
 .dropdown-menu a {
     color: white;
     transition: 0.3s;
+    font-size: 1.2rem !important;
 }
 .dropdown-menu a:hover {
     background-color: black;
@@ -130,11 +143,14 @@ nav{
 .dropdown-toggle::after {
     margin-bottom: 0.2em;
 }
-.eltuno li:nth-child(1) {
+/* .eltuno li:nth-child(1) {
     margin-top: 2rem !important;
-}
+} */
 .eltuno li {
     margin-bottom: 0.8rem !important;
+}
+.eltuno:last-child {
+    margin-bottom: 10vh;
 }
 
 #username {
@@ -174,7 +190,7 @@ nav{
     .navlinks{
         position: fixed;
         background: black;
-        height: 100vh;
+        height: 100%;
         width: 100%;
         flex-direction: column;
         clip-path: circle(50px at 90% -20%);
