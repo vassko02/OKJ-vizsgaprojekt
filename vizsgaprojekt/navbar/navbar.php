@@ -35,15 +35,30 @@
                    
                     <?php if (isset($_SESSION['username'])) {
                        echo'
-                       <li class="dropdown-item" id="username">Logged in as: '.$_SESSION['username'].'<li>
+                       <li class="dropdown-item" id="username">Logged in as: <span class="gold">'.$_SESSION['username'].'</span><li>
                        ';
                     }?>
                 </ul>
             </div>
         </li>
         <div class="eltuno">
-            <li><a class="navlink" href="index.php?m=signin"><i class="fas fa-user-plus"></i> Sign in</a></li>
-            <li><a class="navlink" href="index.php?m=home"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+            <?php if (isset($_SESSION['username'])) {
+                        
+                        }
+                        else{
+                            echo '<li><a class="navlink" href="index.php?m=signin"><i class="fas fa-user-plus"></i> Sign in</a></li>';
+                        }
+                        ?>
+            <?php if (isset($_SESSION['username'])) {
+                       echo'
+                       <li><a class="navlink" href="index.php?m=logout"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+                       ';
+                    }?>
+            <?php if (isset($_SESSION['username'])) {
+                       echo'
+                       <li id="username">Logged in as: <span class="gold">'.$_SESSION['username'].'</span><li>
+                       ';
+                    }?>
         </div>
     </ul>
 </nav>

@@ -122,6 +122,7 @@ nav{
 }
 .eltuno {
     display: none !important;
+    text-align: center;
 }
 .lenyilogomb i{
     font-size: 1.8rem !important;
@@ -139,12 +140,13 @@ nav{
 #username {
     color: white;
     background-color: black;
-    transition: 0.3s;
 }
 #username:hover {
-    color: #C5B358;
-    transition: 0.3s;
+    color: white;
     background-color: black;
+}
+.gold {
+    color: #C5B358;
 }
 
 /*Stying for small screens*/
@@ -155,6 +157,9 @@ nav{
     }
     .kep{
         content: url('../pictures/small_rounded.png') !important;
+    }
+    .kep:hover{
+        content: url('../pictures/small_repulo.gif') !important;
     }
     .hamburger{
         display:block;

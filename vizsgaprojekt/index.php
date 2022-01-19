@@ -131,6 +131,7 @@ if (isset($_POST['btn_send2'])) {
         echo '
             <link rel="stylesheet" href="./login/inputstyles.css">
             <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css">
+            <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro&display=swap" rel="stylesheet">
 	        <link rel="stylesheet" href="./login/signin.css">';
     }
     if ($m == 'contactus' || $m == 'contactusREPORT') {
