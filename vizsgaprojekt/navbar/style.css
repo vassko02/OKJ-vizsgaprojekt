@@ -133,6 +133,12 @@ nav{
     color: #C5B358;
     transition: 0.3s;
 }
+.dropdown-divider {
+    border-top: 1px solid #C5B358;
+    width: 85%;
+    margin-left: auto;
+    margin-right: auto;
+}
 .eltuno {
     display: none !important;
     text-align: center;

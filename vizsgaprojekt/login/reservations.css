@@ -18,7 +18,7 @@ body {
 	font-size: 12px;
 	line-height:30px;
 	color:#777;
-	background:rgb(10, 99, 99);
+	background:rgb(255, 0, 200);
 }
 
 .container {
@@ -45,9 +45,18 @@ body {
 
 #reservation h4 {
 	color: whitesmoke;
-	margin:5px 0 15px;
+	margin:5px 0;
 	display:block;
 	font-size:13px;
+	margin-top:5px;
+}
+#reservation .dropdown-divider {
+	width: 100%;
+	margin: none;
+}
+.resemail {
+	font-size: 15px !important;
+	margin-left: 0 !important;
 }
 
 fieldset {
@@ -83,21 +92,22 @@ fieldset {
 	cursor:pointer;
 	width:100%;
 	border:none;
-	background-color: #C5B358;
+	background-color: hsl(50, 48%, 56%);
 	color:#FFF;
 	margin:0 0 5px;
 	padding:10px;
 	font-size:15px;
 }
-
-#reservation button[type="submit"]:hover {
-	background:#09C;
-	-webkit-transition:background 0.3s ease-in-out;
-	-moz-transition:background 0.3s ease-in-out;
-	transition:background-color 0.3s ease-in-out;
+#reservation-submit:hover {
+	background-color: hsl(50, 48%, 41%) !important;
+}
+#reservation-delete {
+	background-color: hsl(0, 100%, 45%) !important;
+}
+#reservation-delete:hover {
+	background-color: hsl(0, 100%, 35%) !important;
 }
 
-#reservation button[type="submit"]:active { box-shadow:inset 0 1px 3px rgba(0, 0, 0, 0.5); }
 
 #reservation input:focus, #reservation textarea:focus {
 	outline:0;

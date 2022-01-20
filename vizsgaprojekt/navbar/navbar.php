@@ -26,18 +26,23 @@
                         echo '<li><a class="dropdown-item leftborder" href="index.php?m=signin"><i class="fas fa-user-plus"></i> Sign in</a></li>';
                     }
                     ?>
-                     <?php if (isset($_SESSION['username'])) {
-                       echo'
-                       <li class="leftborder"><a class="dropdown-item" href="index.php?m=logout"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
-                       ';
-                    }?>
-                 
-                   
-                    <?php if (isset($_SESSION['username'])) {
-                       echo'
-                       <li class="dropdown-item" id="username">Logged in as: <span class="gold">'.$_SESSION['username'].'</span><li>
-                       ';
-                    }?>
+                     <?php 
+                        if (isset($_SESSION['username']) && $_SESSION['username'] != 'admin') {
+                            echo'
+                            <li class="leftborder"><a class="dropdown-item" href="index.php?m=account"><i class="fas fa-user-cog"></i> My account</a></li>
+                            <li class="leftborder"><a class="dropdown-item" href="index.php?m=reservations"><i class="fas fa-concierge-bell"></i></i> My reservations</a></li>
+                            <div class="dropdown-divider"></div>
+                            <li class="dropdown-item" id="username">Logged in as: <span class="gold">'.$_SESSION['username'].'</span><li>
+                            <li class="leftborder"><a class="dropdown-item" href="index.php?m=logout"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+                            ';}
+                        if (isset($_SESSION['username']) && $_SESSION['username'] === 'admin') {
+                            echo'
+                            <li class="leftborder"><a class="dropdown-item" href="index.php?m=admin"><i class="fas fa-tasks"></i> Manage reservations</a></li>
+                            <div class="dropdown-divider"></div>
+                            <li class="dropdown-item" id="username">Logged in as: <span class="gold">'.$_SESSION['username'].'</span><li>
+                            <li class="leftborder"><a class="dropdown-item" href="index.php?m=logout"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+                            ';}
+                    ?>
                 </ul>
             </div>
         </li>

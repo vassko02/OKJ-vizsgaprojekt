@@ -191,7 +191,7 @@ if (isset($_POST['btn_send2'])) {
     } else {
         include('./404/404.php');
     }
-    if ($m != 'casino') {
+    if ($m != 'casino' && $m != 'admin') {
         include('./footer/footer.php');
     }
 

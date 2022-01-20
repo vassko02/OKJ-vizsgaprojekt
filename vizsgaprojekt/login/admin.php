@@ -36,12 +36,14 @@ foreach ($onereservation as $oneonereservation) {
    <div class="container">  
    <form id="reservation" action="" method="POST">
      <h3>'.$oneonereservation['Name'].'</h3>
-     <h4>'.$oneonereservation['Email'].'</h4>
+     <h4 class="resemail">'.$oneonereservation['Email'].'</h4>
+     <div class="dropdown-divider"></div>
      <input type="hidden" name="customerid" value="'.$oneonereservation['CustomerID'].'"/>
      <input type="hidden" name="guestnumber" value="'.$oneonereservation['GuestNumber'].'"/>
      <input type="hidden" name="reservationid" value="'.$oneonereservation['ReservationID'].'"/>
      <input type="hidden" name="price" value="'.$oneonereservation['Price'].'"/>
      <fieldset>
+     <h4 for="">Room type</h4>
      <select class="form-select" name="roomname" aria-label="Default select example">
 
       ';foreach ($allrooms as $oneroom) {
@@ -59,6 +61,7 @@ foreach ($onereservation as $oneonereservation) {
 
      </fieldset>
      <fieldset>
+     <h4 for="">Service type</h4>
      <select class="form-select" name="serviceid" aria-label="Default select example">
      ';
 
@@ -81,18 +84,23 @@ foreach ($onereservation as $oneonereservation) {
 
      </fieldset>
      <fieldset>
-       <input class="form-control" name="arrival" value="'.$oneonereservation['ArrivalDate'].'" type="date" tabindex="2" required>
-       <input class="form-control" name="leaving" value="'.$oneonereservation['LeavingDate'].'"  type="date" tabindex="3" required>
+      <h4 for="">Check in - Check out</h4>
+      <input class="form-control" name="arrival" value="'.$oneonereservation['ArrivalDate'].'" type="date" tabindex="2" required>
+      <input class="form-control" name="leaving" value="'.$oneonereservation['LeavingDate'].'"  type="date" tabindex="3" required>
      </fieldset>
      <fieldset>
-     <input class="form-control" name="adults" value="'.$oneonereservation['Adults'].'" type="number" tabindex="2" required>
-     <input class="form-control" name="children" value="'.$oneonereservation['Children'].'"  type="number" tabindex="3" required>
+      <h4 for="">Adults</h4>
+      <input class="form-control" name="adults" value="'.$oneonereservation['Adults'].'" type="number" tabindex="2" required>
+      <h4 for="">Children</h4>
+      <input class="form-control" name="children" value="'.$oneonereservation['Children'].'"  type="number" tabindex="3" required>
      </fieldset>
      <fieldset>
-       <textarea placeholder="Type your Message Here...." tabindex="5" ></textarea>
+      <h4 for="">Message</h4>
+      <textarea placeholder="Type your Message Here...." tabindex="5" ></textarea>
      </fieldset>
      <fieldset>
-       <button name="submit" type="submit" id="reservation-submit" data-submit="...Sending">Reservation Update</button>
+      <button name="submit" type="submit" id="reservation-submit" data-submit="...Sending">Reservation Update</button>
+      <button name="delete" type="submit" id="reservation-delete" data-submit="...Sending">Delete reservation</button>
      </fieldset>
    </form>
   
@@ -108,5 +116,10 @@ foreach ($onereservation as $oneonereservation) {
  
  </div>
   
+
+
+
+
+
 
  
