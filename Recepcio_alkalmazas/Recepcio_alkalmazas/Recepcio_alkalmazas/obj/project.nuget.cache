@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "QAZTEjekFF09T6SfdnZOOu7wGJWNWh9/WbwL98IXYlSLE5CYnfqXJl+50FgHZNl/fxEeaVLNF4jekQAQq/D5Hw==",
+  "dgSpecHash": "FQ5OLnc5StLDMpTCh0KKA/dp7Hww8KctiTB5r5/wOjLTd881o+NjGSO1CfZMnijGDe1DWBvic02/1cvkPAalMA==",
   "success": true,
-  "projectFilePath": "D:\\OKJ-vizsgaprojekt\\Recepcio_alkalmazas\\Recepcio_alkalmazas\\Recepcio_alkalmazas\\Recepcio_alkalmazas.csproj",
+  "projectFilePath": "D:\\asdd\\OKJ-vizsgaprojekt\\Recepcio_alkalmazas\\Recepcio_alkalmazas\\Recepcio_alkalmazas\\Recepcio_alkalmazas.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\vass.kornel\\.nuget\\packages\\bouncycastle.netcore\\1.8.5\\bouncycastle.netcore.1.8.5.nupkg.sha512",
     "C:\\Users\\vass.kornel\\.nuget\\packages\\google.protobuf\\3.14.0\\google.protobuf.3.14.0.nupkg.sha512",

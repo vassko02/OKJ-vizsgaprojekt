@@ -168,7 +168,7 @@ namespace Recepcio_alkalmazas.Models
                 }
                 if (editlesz==true)
                 {
-                    sql += " AND reservation.ArrivalDate >= current_date";
+                    sql += " AND reservation.ArrivalDate >= current_date OR IsCheckedIn = 1";
                 }
                 sql += " AND reservation.IsCheckedIn = @checkedin ORDER BY customer.Name";
                 using (var cmd = new MySqlCommand(sql,con))
