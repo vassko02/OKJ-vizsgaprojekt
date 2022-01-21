@@ -17,15 +17,26 @@ include('models/guest.php');
 include('models/room.php');
 include('models/service.php');
 include('models/reservation.php');
+include('models/help.php');
 $ServiceObj = new Service();
 $GuestObj = new Guest();
 $RoomObj = new Room();
 $ReservationObj = new reservation();
+$HelpObj = new Help();
 include('action.php');
 if (isset($_POST['btn_send2'])) {
     if (isset($_SESSION['adult'])) {
         $ReservationObj->savereservation($_SESSION);
+        $felhasznalo['UserName'] = $_SESSION['username'];
+        $felhasznalo['CustomerID'] = $_SESSION['uid'];
+        $felhasznalo['sid'] = $_SESSION['sid'];
+        $felhasznalo['Email'] = $_SESSION['loginemail'];
         session_unset();
+        $_SESSION['sid']= $felhasznalo['sid'];
+        $_SESSION['uid'] = $felhasznalo['CustomerID'];
+        $_SESSION['username'] =  $felhasznalo['UserName'];
+        $_SESSION['loginemail'] = $felhasznalo['Email'];
+        //$HelpObj->writearray($_SESSION);
     } else {
     }
 }
@@ -122,7 +133,12 @@ if (isset($_POST['btn_send2'])) {
                 <link rel="stylesheet" href="./restaurant/menu/foodmenu.css">
                 ';
     }
-    if ($m == 'admin') {
+    if ($m == 'admin')  {
+        echo '
+                <link rel="stylesheet" href="./login/reservations.css">
+                ';
+    }
+    if ($m == 'userseditadmin') {
         echo '
                 <link rel="stylesheet" href="./login/reservations.css">
                 ';
@@ -180,9 +196,12 @@ if (isset($_POST['btn_send2'])) {
         include('./login/regconfirmed.php');
     } else if ($m == 'contactus') {
         include('./contact/contact.php');
-    } else if ($m == 'admin' && $_SESSION['loginemail'] == "admin@admin") {
+    } else if ($m == 'admin' && $_SESSION['isadmin'] == 1) {
         include('./login/admin.php');
-    } else if ($m == 'logout') {
+    }else if($m == 'userseditadmin' && $_SESSION['isadmin'] == 1){
+        include('./login/userseditadmin.php');
+    } 
+    else if ($m == 'logout') {
         include('./login/logout.php');
     } else if ($m == 'contactusREPORT') {
         include('./contact/contact.php');

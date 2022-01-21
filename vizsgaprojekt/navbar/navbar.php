@@ -38,6 +38,7 @@
                         if (isset($_SESSION['username']) && $_SESSION['username'] === 'admin') {
                             echo'
                             <li class="leftborder"><a class="dropdown-item" href="index.php?m=admin"><i class="fas fa-tasks"></i> Manage reservations</a></li>
+                            <li class="leftborder"><a class="dropdown-item" href="index.php?m=userseditadmin"><i class="fas fa-tasks"></i> Manage users</a></li>
                             <div class="dropdown-divider"></div>
                             <li class="dropdown-item" id="username">Logged in as: <span class="gold">'.$_SESSION['username'].'</span><li>
                             <li class="leftborder"><a class="dropdown-item" href="index.php?m=logout"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
