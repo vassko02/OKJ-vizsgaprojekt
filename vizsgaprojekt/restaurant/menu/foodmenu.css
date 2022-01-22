@@ -19,6 +19,7 @@ h1{
     font-size: 4.5rem;
     text-align: center;
     font-family: 'Lobster', cursive;
+    font-weight: unset;
 }
 .bodyy .row {
     width: 90vw;
