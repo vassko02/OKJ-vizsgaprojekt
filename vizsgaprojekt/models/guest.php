@@ -1,7 +1,15 @@
 <?php 
 class Guest extends Dbconnect
 {
-
+    public function getallusers(){
+        $sql = 'SELECT * FROM customer';
+        $result = $this->con->query($sql);
+        $users = array();
+        while($row = $result->fetch_assoc()){
+            $users[]=$row;
+        }
+        return $users;
+    }
     public function savecustomer($adatok){
         $sql='INSERT INTO customer (Name,PhoneNumber,Email,Address) VALUES (?,?,?,?)';
         $stmt = $this->con->prepare($sql);
@@ -131,6 +139,7 @@ class Guest extends Dbconnect
             return 0;
         }
     }
+  
 }
 
 

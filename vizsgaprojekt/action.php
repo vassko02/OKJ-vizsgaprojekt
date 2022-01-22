@@ -44,7 +44,8 @@
           $_SESSION['uid'] = $felhasznalo['CustomerID'];
           $_SESSION['username'] =  $felhasznalo['UserName'];
           $_SESSION['loginemail'] = $felhasznalo['Email'];
-          if (isset($_SESSION['loginemail']) && $_SESSION['loginemail'] == "admin@admin") {
+          $_SESSION['isadmin'] = $felhasznalo['IsAdmin'];
+          if (isset($_SESSION['loginemail']) && $_SESSION['isadmin'] == 1) {
               header('Location: '.$baseUrl.'/admin');
           }
           else if ($_SESSION['loginemail']) {

@@ -23,15 +23,26 @@ include('models/guest.php');
 include('models/room.php');
 include('models/service.php');
 include('models/reservation.php');
+include('models/help.php');
 $ServiceObj = new Service();
 $GuestObj = new Guest();
 $RoomObj = new Room();
 $ReservationObj = new reservation();
+$HelpObj = new Help();
 include('action.php');
 if (isset($_POST['btn_send2'])) {
     if (isset($_SESSION['adult'])) {
         $ReservationObj->savereservation($_SESSION);
+        $felhasznalo['UserName'] = $_SESSION['username'];
+        $felhasznalo['CustomerID'] = $_SESSION['uid'];
+        $felhasznalo['sid'] = $_SESSION['sid'];
+        $felhasznalo['Email'] = $_SESSION['loginemail'];
         session_unset();
+        $_SESSION['sid']= $felhasznalo['sid'];
+        $_SESSION['uid'] = $felhasznalo['CustomerID'];
+        $_SESSION['username'] =  $felhasznalo['UserName'];
+        $_SESSION['loginemail'] = $felhasznalo['Email'];
+        //$HelpObj->writearray($_SESSION);
     } else {
     }
 }
@@ -136,7 +147,12 @@ if (isset($_POST['btn_send2'])) {
                 <link rel="stylesheet" href="../restaurant/menu/foodmenu.css">
                 ';
     }
-    if ($request === $baseUrl . '/admin') {
+    if ($request === $baseUrl . '/admin')  {
+        echo '
+                <link rel="stylesheet" href="./login/reservations.css">
+                ';
+    }
+    if ($request === $baseUrl . '/userseditadmin') {
         echo '
                 <link rel="stylesheet" href="./login/reservations.css">
                 ';
@@ -255,6 +271,9 @@ if (isset($_POST['btn_send2'])) {
             break;
             //else if ($m == 'admin' && $_SESSION['loginemail'] == "admin@admin") {
             //     include('./login/admin.php');
+        case $baseUrl . '/userseditadmin':
+            include('./login/userseditadmin.php');
+            break;
         case $baseUrl . '/logout':
             echo $baseUrl;
             include('./login/logout.php');
