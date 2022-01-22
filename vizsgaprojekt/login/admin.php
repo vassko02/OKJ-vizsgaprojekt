@@ -1,4 +1,4 @@
-<?php 
+ <?php 
     defined('VEDETT') or die(' ísx');
 ?>
 <div class="row">

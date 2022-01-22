@@ -1,4 +1,4 @@
-<footer class="footer-section mt-5">
+<footer class="footer-section">
     <div class="container">
         <div class="footer-content pt-5">
             <div class="row">
@@ -45,12 +45,12 @@
                             <h3>Useful Links</h3>
                         </div>
                         <ul>
-                            <li><a href="index.php?m=home">Home</a></li>
-                            <li><a href="index.php?m=casino">Casino</a></li>
-                            <li><a href="index.php?m=book">Book</a></li>
-                            <li><a href="index.php?m=restaurant">Restaurant</a></li>
-                            <li><a href="index.php?m=contactus">Contact us</a></li>
-                            <li><a href="index.php?m=regisztracio">Registration</a></li>
+                            <li><a href="<?php echo $baseUrl?>/">Home</a></li>
+                            <li><a href="<?php echo $baseUrl?>/gambling">Casino</a></li>
+                            <li><a href="<?php echo $baseUrl?>/booking">Book</a></li>
+                            <li><a href="<?php echo $baseUrl?>/dining">Restaurant</a></li>
+                            <li><a href="<?php echo $baseUrl?>/contactus">Contact us</a></li>
+                            <li><a href="<?php echo $baseUrl?>/signin">Registration</a></li>
                         </ul>
                     </div>
                 </div>

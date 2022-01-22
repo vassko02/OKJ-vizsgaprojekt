@@ -6,7 +6,7 @@
 			</div>
 			<h1>Success!</h1>
 			<p>We've sent a summary about your registration in email.</p>
-			<a href="index.php?m=home" class="redo btn">Back to the main page</a>
+			<a href="<?php echo $baseUrl?>/" class="redo btn">Back to the main page</a>
 		</div>
 	</div>
 </div>

@@ -51,25 +51,25 @@ $Roomslist = $RoomObj->selectallrooms();
 
 <div class="icons">
   <div class="row">
-    <a href="index.php?m=book" class="col btn button">
+    <a href="<?php echo $baseUrl?>/booking" class="col btn button">
       <div class="row">
         <i class="col-12 fas fa-bed"></i>
         <p class="col-12">Accommodation</p>
       </div>
     </a>
-    <a href="index.php?m=casino" class="col btn button">
+    <a href="<?php echo $baseUrl?>/gambling" class="col btn button">
       <div class="row">
         <i class="col-12 fas fa-dice"></i>
         <p class="col-12">Casino</p>
       </div>
     </a>
-    <a href="index.php?m=restaurant" class="col btn button">
+    <a href="<?php echo $baseUrl?>/dining" class="col btn button">
       <div class="row">
         <i class="col-12 fas fa-utensils"></i>
         <p class="col-12">Dining</p>
       </div>
     </a>
-    <a href="index.php?m=contactus" class="col btn button">
+    <a href="<?php echo $baseUrl?>/contactus" class="col btn button">
       <div class="row">
         <i class="fab fa-telegram-plane"></i>
         <p class="col-12">Contact us</p>

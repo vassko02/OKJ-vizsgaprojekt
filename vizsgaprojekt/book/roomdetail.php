@@ -1,9 +1,8 @@
 <?php
-$id = $_GET['Roomid'];
+$id = $_POST['Roomid'];
 $room = $RoomObj->selectoneroom($id);
 $services = $ServiceObj->getallservice();
-$_SESSION['roomid'] = $_GET['Roomid'];
-
+$_SESSION['roomid'] = $_POST['Roomid'];
 // echo '<pre>';
 // print_r($_POST);
 // print_r($_SESSION);
@@ -14,7 +13,7 @@ $_SESSION['roomid'] = $_GET['Roomid'];
 
 ?>
 
-<form action="index.php?m=customerdetails" method="post">
+<form action="<?php echo $baseUrl?>/booking/customerdetails" method="post">
     <div class="container roooom mt-5 bg-light">
         <div class="row">
             <div class="col ">

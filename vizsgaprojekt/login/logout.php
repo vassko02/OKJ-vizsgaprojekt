@@ -1,6 +1,6 @@
 <?php 
     //session_start();
     session_destroy();
-    header('Location: index.php?m=home');
+    header('Location: '.$baseUrl.'/');
 
 ?>

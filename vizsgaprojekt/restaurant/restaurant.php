@@ -48,6 +48,6 @@
     </div>
   </div>
   <div class="menu">
-    <a class=" btn w-100" href="index.php?m=foodmenu">Menu</a>
+    <a class=" btn w-100" href="<?php echo $baseUrl?>/dining/menu">Menu</a>
   </div>
 </body>

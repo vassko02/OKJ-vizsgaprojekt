@@ -16,7 +16,7 @@
     <div class="row">
         <h1 class="mt-3">Some information about you</h1>
         <div class="col">
-            <form action="index.php?m=confirm" method="post">
+            <form action="<?php echo $baseUrl?>/booking/confirm" method="post">
                      <div class="mb-3 mt-3">
                         <label for="name" class="form-label">Name</label>
                         <input type="text" class="form-control"  placeholder="Bac Ilus" name="name" value="<?php if ($loggedin == true) {

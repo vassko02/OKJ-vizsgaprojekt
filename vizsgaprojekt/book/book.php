@@ -1,11 +1,14 @@
 <?php
 	$error = false;
 	$Roomslist = $RoomObj->selectallrooms();
- 	
-		if (isset($_GET['edit'])) {
-			$edit =$_GET['edit'];
+ 	// echo '<pre>';
+	// print_r($_SESSION);
+	// echo '</pre>';
+
+		if (isset($_POST['Edit'])) {
+			$edit =$_POST['Edit'];
 			if ($edit == "true") {
-		
+				
 			}
 			else{
 				echo 'asd';
@@ -153,11 +156,12 @@
 					<ul class="postcard__tagbox ">
 					<li class="tag__item pt-2" ><i class="fas fa-tag mr-2"></i>Room</li>
 					<li class="tag__item play blue ">
-					<form action="index.php?m=roomdetail&Roomid='.$room['RoomID'].'"  method="post">
+					<form action="'.$baseUrl.'/booking/roomdetail"  method="post">
 					<button type="submit" class="btn text-light" "><i class="fas"></i><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-bookmarks-fill" viewBox="0 0 16 16">
 					<path d="M2 4a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v11.5a.5.5 0 0 1-.777.416L7 13.101l-4.223 2.815A.5.5 0 0 1 2 15.5V4z" />
 					<path d="M4.268 1A2 2 0 0 1 6 0h6a2 2 0 0 1 2 2v11.5a.5.5 0 0 1-.777.416L13 13.768V2a1 1 0 0 0-1-1H4.268z" />
 					</svg> Book now</button>
+					<input type="hidden" id="Roomid" name="Roomid" value="'.$room['RoomID'].'">
 					</form>
 					</li>
 					</ul>

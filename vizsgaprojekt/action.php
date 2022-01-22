@@ -1,12 +1,12 @@
 <?php 
-    if(($m=='contactus' || $m=='contactusREPORT') && isset($_POST['btn_send']))
+    if(($request === $baseUrl . '/contactus' || $request === $baseUrl . '/contactusREPORT') && isset($_POST['btn_send']))
   if($GuestObj->saveguestproblem($_POST) == 1){
 
-     header('Location: index.php?m=contactusREPORT');
+     header('Location: '.$baseUrl.'/contactusREPORT');
    
   }
   $hiba = 0;
-  if ($m=='signin' && isset($_POST['login'])){
+  if ($request === $baseUrl . '/signin' && isset($_POST['login'])){
       if ($_POST['usernameperemail'] == '') {
           $hiba = 1;
         
@@ -45,16 +45,16 @@
           $_SESSION['username'] =  $felhasznalo['UserName'];
           $_SESSION['loginemail'] = $felhasznalo['Email'];
           if (isset($_SESSION['loginemail']) && $_SESSION['loginemail'] == "admin@admin") {
-              header('Location: index.php?m=admin');
+              header('Location: '.$baseUrl.'/admin');
           }
           else if ($_SESSION['loginemail']) {
-            header('Location: index.php?m=home');
+            header('Location: '.$baseUrl.'/');
           }
           
       }
   }
 
-  if ($m=='signin' && isset($_POST['btn_reg'])){
+  if ($request === $baseUrl . '/signin' && isset($_POST['btn_reg'])){
 
     $emailHibauzenet='';
     $usernamehibauzenet='';
@@ -89,7 +89,7 @@
      
         if ($GuestObj->saveuser($_POST) ==1) {
          
-                header('Location: index.php?m=regconfirmed');
+                header('Location: '.$baseUrl.'/signin/regconfirmed');
         }
     }
 }

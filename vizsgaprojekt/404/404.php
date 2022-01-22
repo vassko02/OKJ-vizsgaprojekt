@@ -6,6 +6,6 @@
         <h1>Page not found</h1>
         <p>The page you are looking for doesn't exist.</p>
         <p>Something might have gone wrong...</p>
-        <a class="btn btn-dark" href="index.php?m=home">Back to the main page</a>
+        <a class="btn btn-dark" href="<?php echo $baseUrl?>/">Back to the main page</a>
     </div>
 </div>
