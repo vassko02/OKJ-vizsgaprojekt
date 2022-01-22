@@ -39,14 +39,32 @@ namespace Recepcio_alkalmazas.pages
 
         private void btn_torles_Click(object sender, RoutedEventArgs e)
         {
+            bool mehet = false;
             if (dg_foglalasok.SelectedIndex != -1)
             {
                 if (MessageBox.Show("Are you sure you want to delete the selected reservation?", "Confirmation", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
                 {
-                    reservation.delete(egyfoglalas.ReservationID);
-                    tb_guestinput.Text = "";
-                    foglalasok = reservation.selectByGuestName(null, 0, true);
-                    dg_foglalasok.ItemsSource = foglalasok;
+                    if (consumption.selectItemByReservationID(egyfoglalas.ReservationID).Count!=0)
+                    {
+                        if (MessageBox.Show("There are consumptions assigned to this reservation, do you still wish to delete the reservation together with the consumptions?", "Confirmation", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
+                        {
+                            consumption.deleteBYREsID(egyfoglalas.ReservationID);
+                            reservation.delete(egyfoglalas.ReservationID);
+                            tb_guestinput.Text = "";
+                            foglalasok = reservation.selectByGuestName(null, 0, true);
+                            dg_foglalasok.ItemsSource = foglalasok;
+                            mehet = true;
+                        }
+                        mehet = true;
+                    }
+                    if (mehet==false)
+                    {
+                        reservation.delete(egyfoglalas.ReservationID);
+                        tb_guestinput.Text = "";
+                        foglalasok = reservation.selectByGuestName(null, 0, true);
+                        dg_foglalasok.ItemsSource = foglalasok;
+
+                    }
                 }
             }
         }

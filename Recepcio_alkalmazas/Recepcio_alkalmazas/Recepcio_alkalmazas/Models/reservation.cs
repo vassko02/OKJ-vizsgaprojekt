@@ -168,9 +168,13 @@ namespace Recepcio_alkalmazas.Models
                 }
                 if (editlesz==true)
                 {
-                    sql += " AND reservation.ArrivalDate >= current_date OR IsCheckedIn = 1";
+                    sql += " AND reservation.ArrivalDate >= current_date";
                 }
-                sql += " AND reservation.IsCheckedIn = @checkedin ORDER BY customer.Name";
+                else
+                {
+                    sql += " AND reservation.IsCheckedIn = @checkedin";
+                }
+                sql += " ORDER BY customer.Name";
                 using (var cmd = new MySqlCommand(sql,con))
                 {
                     cmd.Parameters.AddWithValue("@name","%"+name+"%");
@@ -206,8 +210,8 @@ namespace Recepcio_alkalmazas.Models
             using (var con = new MySqlConnection(ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString))
             {
                 con.Open();
-                var sql = "INSERT INTO reservation (GuestNumber,Price,Children,Adults,ArrivalDate,LeavingDate,CustomerID,RoomID,ServiceID) VALUES " +
-                    "(@GuestNumber,@Price,@Children,@Adults,@ArrivalDate,@LeavingDate,@CustomerID,@RoomID,@ServiceID)";
+                var sql = "INSERT INTO reservation (GuestNumber,Price,Children,Adults,ArrivalDate,LeavingDate,CustomerID,RoomID,ServiceID,IsCheckedIn) VALUES " +
+                    "(@GuestNumber,@Price,@Children,@Adults,@ArrivalDate,@LeavingDate,@CustomerID,@RoomID,@ServiceID,@IscheckedIn)";
                 using (var cmd = new MySqlCommand(sql, con))
                 {
                     cmd.Parameters.AddWithValue("@GuestNumber", model.GuestNumber);
@@ -219,6 +223,7 @@ namespace Recepcio_alkalmazas.Models
                     cmd.Parameters.AddWithValue("@CustomerID", model.CustomerID);
                     cmd.Parameters.AddWithValue("@RoomID", model.RoomID);
                     cmd.Parameters.AddWithValue("@ServiceID", model.ServiceID);
+                    cmd.Parameters.AddWithValue("@IscheckedIn", model.IsCheckedIn);
                     cmd.ExecuteNonQuery();
                     return (int)cmd.LastInsertedId;
                 }

@@ -82,6 +82,20 @@ namespace Recepcio_alkalmazas.Models
                 con.Close();
             }
         }
+        public static void deleteBYREsID(int id)
+        {
+            using (var con = new MySqlConnection(ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString))
+            {
+                con.Open();
+                var sql = "DELETE FROM consumption WHERE ReservationID=@id";
+                using (var cmd = new MySqlCommand(sql, con))
+                {
+                    cmd.Parameters.AddWithValue("@id", id);
+                    cmd.ExecuteNonQuery();
+                }
+                con.Close();
+            }
+        }
         public static ObservableCollection<consumption> selectSumByID(int id)
         {
             var lista = new ObservableCollection<consumption>();

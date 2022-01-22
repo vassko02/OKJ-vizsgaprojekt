@@ -26,6 +26,7 @@ namespace Recepcio_alkalmazas.Views
         ObservableCollection<servicetype> tipusok = new ObservableCollection<servicetype>();
         ObservableCollection<room> szobak = new ObservableCollection<room>();
         ObservableCollection<room> szabadszobak = new ObservableCollection<room>();
+        int RoomIDkesobbre;
         bool editlesz = true;
         public editres(reservation model)
         {
@@ -33,6 +34,7 @@ namespace Recepcio_alkalmazas.Views
             egyfoglalas = model;
             szobak = room.selectAllRooms();
             this.DataContext = egyfoglalas;
+            RoomIDkesobbre = egyfoglalas.RoomID;
             cb_vendegek.ItemsSource = customer.selectGuestNames();
             if (egyfoglalas.ReservationID == 0)
             {
@@ -69,6 +71,7 @@ namespace Recepcio_alkalmazas.Views
             aktualis.ArrivalDate = Convert.ToDateTime(dp_checkin.SelectedDate);
             aktualis.LeavingDate = Convert.ToDateTime(dp_checkout.SelectedDate);
             aktualis.GuestNumber = aktualis.Children + aktualis.Adults;
+            aktualis.IsCheckedIn = egyfoglalas.IsCheckedIn;
             if (cb_services.SelectedItem != null)
             {
                 aktualis.ServiceID = servicetype.selectIDbyName(cb_services.Text)[0].ServiceID;
@@ -85,7 +88,6 @@ namespace Recepcio_alkalmazas.Views
             if (cb_rooms.SelectedItem != null)
             {
                 aktualis.RoomName = cb_rooms.Text;
-                ObservableCollection<room> egyszoba = room.selectRoomByID(aktualis.RoomID);
                 foreach (var item in szabadszobak)
                 {
                     if (item.RoomName == aktualis.RoomName)
@@ -100,6 +102,16 @@ namespace Recepcio_alkalmazas.Views
                         vanolyanszoba = true;
                         break;
                     }
+                }
+                if (editlesz==true&&aktualis.RoomName==egyfoglalas.RoomName&&vanolyanszoba==false)
+                {
+                    reservation.delete(aktualis.ReservationID);
+                    aktualis.RoomID = RoomIDkesobbre;
+                     napok = (int)aktualis.LeavingDate.Subtract(aktualis.ArrivalDate).TotalDays;
+                    aktualis.RoomPrice = room.selectRoomByID(aktualis.RoomID)[0].RoomPrice;
+                    aktualis.Price = (aktualis.RoomPrice + aktualis.ServicePrice) * napok;
+                    reservation.insert(aktualis);
+                    vanolyanszoba = true;
                 }
             }
             else
