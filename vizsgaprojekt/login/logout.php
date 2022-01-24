@@ -1,5 +1,6 @@
 <?php 
     //session_start();
     session_destroy();
-    header('Location: '.$baseUrl.'/');
+    echo "<script>window.location.href='".$baseUrl."/';</script>";
+    exit;
 ?>

@@ -12,7 +12,7 @@
 	font-smoothing:antialiased;
 	text-rendering:optimizeLegibility;
 }
-body {
+body,html {
 
 	font-size: 12px;
 	line-height:30px;

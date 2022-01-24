@@ -46,15 +46,9 @@ if (isset($_POST['btn_send2'])) {
         $_SESSION['uid'] = $felhasznalo['CustomerID'];
         $_SESSION['username'] =  $felhasznalo['UserName'];
         $_SESSION['loginemail'] = $felhasznalo['Email'];
-        //$HelpObj->writearray($_SESSION);
     } else {
     }
 }
-if ($_SESSION)
-// echo ('<pre>');
-// print_r($_SESSION);
-
-// echo ('</pre>');
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -302,7 +296,6 @@ if ($_SESSION)
             }
             break;
         case $baseUrl . '/logout':
-            echo $baseUrl;
             include('./login/logout.php');
             break;
         case $request === $baseUrl . '/contactus' || $request === $baseUrl . '/contactusREPORT':
