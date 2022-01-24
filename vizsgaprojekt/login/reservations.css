@@ -12,15 +12,20 @@
 	font-smoothing:antialiased;
 	text-rendering:optimizeLegibility;
 }
-html {
-	background:rgb(255, 0, 200);
-}
 body {
 
 	font-size: 12px;
 	line-height:30px;
 	color:#777;
-	background:rgb(255, 0, 200);
+	background-color: #222222;
+	background: repeating-linear-gradient(
+		45deg,
+		#2b2b2b 0%,
+		#2b2b2b 10%,
+		#222222 0%,
+		#222222 50%
+	  )
+	  0 / 15px 15px;
 }
 
 .container {
@@ -39,12 +44,14 @@ body {
 }
 
 #reservation h3 {
-	color: #DAA520;
+	color: white;
 	display: block;
 	font-size: 30px;
 	font-weight: 400;
 }
-
+input[type="checkbox"] { /* change "blue" browser chrome to yellow */
+	filter: invert(100%) hue-rotate(18deg) brightness(1.7);
+  }
 #reservation h4 {
 	color: whitesmoke;
 	margin:5px 0;
@@ -89,22 +96,33 @@ fieldset {
 	max-width:100%;
   resize:none;
 }
-
+label{
+	color: #DAA520 !important;
+	font-weight: bold;
+	font-size: 0.9vw;
+}
 #reservation button[type="submit"] {
 	cursor:pointer;
 	width:100%;
 	border:none;
-	background-color: hsl(50, 48%, 56%);
-	color:#FFF;
-	margin:0 0 5px;
+	background-color: #e2c639;
+	color:rgb(0, 0, 0);
+	margin-bottom: 1vh;
+	margin-top: 0 !important;
 	padding:10px;
 	font-size:15px;
+	font-weight: bold;
 }
 #reservation-submit:hover {
 	background-color: hsl(50, 48%, 41%) !important;
 }
+#Add-Consumption:hover {
+	background-color: hsl(50, 48%, 41%) !important;
+}
 #reservation-delete {
 	background-color: hsl(0, 100%, 45%) !important;
+	color: whitesmoke !important;
+
 }
 #reservation-delete:hover {
 	background-color: hsl(0, 100%, 35%) !important;
@@ -127,3 +145,23 @@ fieldset {
 :-ms-input-placeholder {
  color:#888;
 }
+	.neon1{
+	
+	background-color: black;
+
+	border-radius: 8px;
+	box-shadow: 0 0 10px #c5b359,
+	0 0 10px #c5b359,
+	0 0 25px #c5b359,
+	0 0 20px #c5b359;
+	}
+	.neon1:hover{
+	
+		background-color: black;
+	
+		border-radius: 8px;
+		box-shadow: 0 0 25px #c5b359,
+		0 0 20px #c5b359,
+		0 0 50px #c5b359,
+		0 0 90px #c5b359;
+	}

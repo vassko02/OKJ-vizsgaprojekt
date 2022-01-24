@@ -139,6 +139,18 @@ class Guest extends Dbconnect
             return 0;
         }
     }
+    public function deleteuser($id){
+        $sql = "DELETE FROM customer WHERE customer.CustomerID = ?";
+        $stmt = $this->con->prepare($sql);
+        $stmt->bind_param("i",$id);
+        $stmt->execute();
+    }
+    public function updatecustomer2($adatok){
+        $sql = "UPDATE customer SET Name=?, PhoneNumber=?, Email=?, Address=?, IsAdmin = ? WHERE customer.CustomerID = ?";
+        $stmt = $this->con->prepare($sql);
+        $stmt->bind_param("ssssis",$adatok['name'],$adatok['phonenumber'],$adatok['email'],$adatok['address'],$adatok['isadmin'],$adatok['CustomerID']);
+        $stmt->execute();
+    }
   
 }
 
