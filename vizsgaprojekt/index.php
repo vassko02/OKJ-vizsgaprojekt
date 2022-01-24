@@ -3,7 +3,7 @@ session_start();
 
 define('VEDETT', 'igen');
 
-$baseUrl = '/~PeacefulParadise'; //szervernél: /~PeacefulParadise
+$baseUrl = '/14aphp/OKJ-vizsgaprojekt/vizsgaprojekt'; //szervernél: /~PeacefulParadise
 $request = $_SERVER['REQUEST_URI']; //mindenkori url
 $mennyiper = substr_count($request, '/');
 $baseMennyiper = substr_count($baseUrl, '/');

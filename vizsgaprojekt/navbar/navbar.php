@@ -56,10 +56,22 @@
                         }
                         ?>
             <?php if (isset($_SESSION['username'])) {
-                       echo'
-                       <li><a class="navlink" href="'.$baseUrl.'/logout"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
-                       ';
-                    }?>
+                if (isset($_SESSION['username']) && $_SESSION['isadmin'] == '1') {
+                    echo'
+                    <li><a class="navlink" href="'.$baseUrl.'/admin"><i class="fas fa-sign-out-alt"></i> Manage reservations</a></li>
+                    <li><a class="navlink" href="'.$baseUrl.'/userseditadmin"><i class="fas fa-sign-out-alt"></i>  Manage users</a></li>';
+                }
+                if (isset($_SESSION['username']) && $_SESSION['isadmin'] != '1') {
+
+                    echo'
+                    <li><a class="navlink" href="'.$baseUrl.'/account"><i class="fas fa-sign-out-alt"></i>  My account</a></li>
+                    <li><a class="navlink" href="'.$baseUrl.'/reservations"><i class="fas fa-sign-out-alt"></i> My reservations</a></li>';
+                
+                }
+                echo'
+                    <li><a class="navlink" href="'.$baseUrl.'/logout"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+                    ';
+            }?>
             <?php if (isset($_SESSION['username'])) {
                        echo'
                        <li id="username">Logged in as: <span class="gold">'.$_SESSION['username'].'</span><li>
