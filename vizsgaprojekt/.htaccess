@@ -1,5 +1,3 @@
-Options -Indexes
-
 RewriteEngine on
 RewriteBase /14aphp/OKJ-vizsgaprojekt/vizsgaprojekt/
 RewriteCond %{REQUEST_FILENAME} !-d
