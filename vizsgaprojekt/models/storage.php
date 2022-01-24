@@ -25,6 +25,12 @@
             }
             return $foods;
         }
+        function addtoconsumption($adatok){
+            $sql ='INSERT INTO consumption (Price,ItemName,ReservationID) VALUES (?,?,?)';
+            $stmt = $this->con->prepare($sql);
+            $stmt->bind_param("dsi",$adatok['itemprice'],$adatok['itemname'],$adatok['reservationid']);
+            $stmt->execute();
+        }
     }
 
 
