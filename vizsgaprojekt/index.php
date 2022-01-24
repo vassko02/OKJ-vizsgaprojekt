@@ -40,7 +40,7 @@ if (isset($_POST['btn_send2'])) {
         $felhasznalo['sid'] = $_SESSION['sid'];
         $felhasznalo['Email'] = $_SESSION['loginemail'];
         session_unset();
-        $_SESSION['sid']= $felhasznalo['sid'];
+        $_SESSION['sid'] = $felhasznalo['sid'];
         $_SESSION['uid'] = $felhasznalo['CustomerID'];
         $_SESSION['username'] =  $felhasznalo['UserName'];
         $_SESSION['loginemail'] = $felhasznalo['Email'];
@@ -48,6 +48,7 @@ if (isset($_POST['btn_send2'])) {
     } else {
     }
 }
+if ($_SESSION)
 // echo ('<pre>');
 // print_r($_SESSION);
 
@@ -66,12 +67,11 @@ if (isset($_POST['btn_send2'])) {
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js" integrity="sha384-oesi62hOLfzrys4LxRF63OJCXdXDipiYWBnvTl9Y9/TRlw5xlKIEHpNyvvDShgf/" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
-    <link rel="stylesheet" href="<?php if ($mennyiper === ($baseMennyiper+2)) {
+    <link rel="stylesheet" href="<?php if ($mennyiper === ($baseMennyiper + 2)) {
                                         echo '.';
-                                    } else if ($mennyiper === ($baseMennyiper+3)) {
+                                    } else if ($mennyiper === ($baseMennyiper + 3)) {
                                         echo '../.';
-                                    }
-                                    else if ($mennyiper === ($baseMennyiper+4)) {
+                                    } else if ($mennyiper === ($baseMennyiper + 4)) {
                                         echo '../../.';
                                     } ?>./404/404.css">
     <?php
@@ -155,7 +155,7 @@ if (isset($_POST['btn_send2'])) {
                 <link rel="stylesheet" href="../restaurant/menu/foodmenu.css">
                 ';
     }
-    if ($request === $baseUrl . '/admin')  {
+    if ($request === $baseUrl . '/admin') {
         echo '
                 <link rel="stylesheet" href="./login/reservations.css">
                 ';
@@ -177,36 +177,32 @@ if (isset($_POST['btn_send2'])) {
     }
     ?>
 
-    <link rel="icon" href="<?php if ($mennyiper === ($baseMennyiper+2)) {
-                                        echo '.';
-                                    } else if ($mennyiper === ($baseMennyiper+3)) {
-                                        echo '../.';
-                                    }
-                                    else if ($mennyiper === ($baseMennyiper+4)) {
-                                        echo '../../.';
+    <link rel="icon" href="<?php if ($mennyiper === ($baseMennyiper + 2)) {
+                                echo '.';
+                            } else if ($mennyiper === ($baseMennyiper + 3)) {
+                                echo '../.';
+                            } else if ($mennyiper === ($baseMennyiper + 4)) {
+                                echo '../../.';
                             } ?>./pictures/small_rounded.png">
-    <link rel="stylesheet" href="<?php if ($mennyiper === ($baseMennyiper+2)) {
+    <link rel="stylesheet" href="<?php if ($mennyiper === ($baseMennyiper + 2)) {
                                         echo '.';
-                                    } else if ($mennyiper === ($baseMennyiper+3)) {
+                                    } else if ($mennyiper === ($baseMennyiper + 3)) {
                                         echo '../.';
-                                    }
-                                    else if ($mennyiper === ($baseMennyiper+4)) {
+                                    } else if ($mennyiper === ($baseMennyiper + 4)) {
                                         echo '../../.';
                                     } ?>./navbar/style.css">
-    <link rel="stylesheet" href="<?php if ($mennyiper === ($baseMennyiper+2)) {
+    <link rel="stylesheet" href="<?php if ($mennyiper === ($baseMennyiper + 2)) {
                                         echo '.';
-                                    } else if ($mennyiper === ($baseMennyiper+3)) {
+                                    } else if ($mennyiper === ($baseMennyiper + 3)) {
                                         echo '../.';
-                                    }
-                                    else if ($mennyiper === ($baseMennyiper+4)) {
+                                    } else if ($mennyiper === ($baseMennyiper + 4)) {
                                         echo '../../.';
                                     } ?>./navbar/preloader.css">
-    <link rel="stylesheet" href="<?php if ($mennyiper === ($baseMennyiper+2)) {
+    <link rel="stylesheet" href="<?php if ($mennyiper === ($baseMennyiper + 2)) {
                                         echo '.';
-                                    } else if ($mennyiper === ($baseMennyiper+3)) {
+                                    } else if ($mennyiper === ($baseMennyiper + 3)) {
                                         echo '../.';
-                                    }
-                                    else if ($mennyiper === ($baseMennyiper+4)) {
+                                    } else if ($mennyiper === ($baseMennyiper + 4)) {
                                         echo '../../.';
                                     } ?>./footer/style.css">
     <title>Peaceful Paradise</title>
@@ -226,61 +222,79 @@ if (isset($_POST['btn_send2'])) {
     // echo $baseMennyiper;
     // echo '<br>';
     // echo $mennyiper;
-
     include('./navbar/navbar.php');
 
     switch ($request) {
         case $baseUrl . '':
+            $HelpObj->clearReservation();
             include('./mainpage/mainpage.php');
             break;
         case $baseUrl . '/':
+            $HelpObj->clearReservation();
             include('./mainpage/mainpage.php');
             break;
         case $baseUrl . '/gambling':
+            $HelpObj->clearReservation();
             include('./casino/casino.php');
             break;
         case $baseUrl . '/booking':
             include('./book/book.php');
             break;
         case $baseUrl . '/booking/roomdetail':
-            include('./book/roomdetail.php');
+            if (isset($_POST['Roomid'])){
+                include('./book/roomdetail.php');
+            } else {
+                include('./404/404.php');
+            }
             break;
         case $baseUrl . '/booking/customerdetails':
-            include('./book/customerdetails.php');
+            if (isset($_SESSION['roomid'])){
+                include('./book/customerdetails.php');
+            } else {
+                include('./404/404.php');
+            }
             break;
         case $baseUrl . '/booking/confirm':
-            include('./book/confirm.php');
+            if (isset($_SESSION['roomid'])){
+                include('./book/confirm.php');
+            } else {
+                include('./404/404.php');
+            }
             break;
         case $baseUrl . '/booking/resconfirm':
-            include('./book/resconfirmed.php');
+                include('./book/resconfirmed.php');
             break;
         case $baseUrl . '/dining':
+            $HelpObj->clearReservation();
             include('./restaurant/restaurant.php');
             break;
         case $baseUrl . '/dining/menu':
             include('./restaurant/menu/foodmenu.php');
             break;
         case $baseUrl . '/signin':
+            $HelpObj->clearReservation();
             include('./login/regisztracio.php');
             break;
         case $baseUrl . '/signin/regconfirm':
             include('./login/regconfirmed.php');
             break;
         case $baseUrl . '/contactus':
+            $HelpObj->clearReservation();
             include('./contact/contact.php');
             break;
         case $baseUrl . '/admin':
-            if (isset($_SESSION['loginemail']) && $_SESSION['loginemail'] === "admin@admin") {
+            if (isset($_SESSION['isadmin']) && $_SESSION['isadmin'] === 1) {
                 include('./login/admin.php');
-            }
-            else {
+            } else {
                 include('./404/404.php');
             }
             break;
-            //else if ($m == 'admin' && $_SESSION['loginemail'] == "admin@admin") {
-            //     include('./login/admin.php');
         case $baseUrl . '/userseditadmin':
-            include('./login/userseditadmin.php');
+            if (isset($_SESSION['isadmin']) && $_SESSION['isadmin'] === 1) {
+                include('./login/userseditadmin.php');
+            } else {
+                include('./404/404.php');
+            }
             break;
         case $baseUrl . '/logout':
             echo $baseUrl;
@@ -305,13 +319,12 @@ if (isset($_POST['btn_send2'])) {
 
 
     <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
-    <script src="<?php if ($mennyiper === ($baseMennyiper+2)) {
-                                        echo '.';
-                                    } else if ($mennyiper === ($baseMennyiper+3)) {
-                                        echo '../.';
-                                    }
-                                    else if ($mennyiper === ($baseMennyiper+4)) {
-                                        echo '../../.';
+    <script src="<?php if ($mennyiper === ($baseMennyiper + 2)) {
+                        echo '.';
+                    } else if ($mennyiper === ($baseMennyiper + 3)) {
+                        echo '../.';
+                    } else if ($mennyiper === ($baseMennyiper + 4)) {
+                        echo '../../.';
                     } ?>./navbar/script.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>

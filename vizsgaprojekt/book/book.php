@@ -17,15 +17,7 @@
 		}
 		else{
 		
-			$felhasznalo['UserName'] = $_SESSION['username'];
-			$felhasznalo['CustomerID'] = $_SESSION['uid'];
-			$felhasznalo['sid'] = $_SESSION['sid'];
-			$felhasznalo['Email'] = $_SESSION['loginemail'];
-			session_unset();
-			$_SESSION['sid']= $felhasznalo['sid'];
-			$_SESSION['uid'] = $felhasznalo['CustomerID'];
-			$_SESSION['username'] =  $felhasznalo['UserName'];
-			$_SESSION['loginemail'] = $felhasznalo['Email'];
+			$HelpObj->clearReservation();
 			$edit = "false";
 
 		}
@@ -51,6 +43,8 @@
 	
 		
 	}
+	//$HelpObj->writearray($_POST);
+    //$HelpObj->writearray($_SESSION);
 ?>
 
 <div class="book">

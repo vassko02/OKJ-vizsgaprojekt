@@ -9,7 +9,8 @@ $_SESSION['roomid'] = $_POST['Roomid'];
 // echo '</pre>';
 //  $serviceid = $_POST['select'];
 //  echo $serviceid;
-
+$HelpObj->writearray($_POST);
+$HelpObj->writearray($_SESSION);
 
 ?>
 
