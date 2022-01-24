@@ -27,6 +27,12 @@
       header('Location: '.$baseUrl.'/dining/menu');
 
   }
+  if (isset($_POST['delete'])) {
+    $_SESSION['reservationid'] = $_POST['reservationid'];
+    $ReservationObj->deleteconsumption( $_SESSION['reservationid']);
+    $ReservationObj->deletereservation( $_SESSION['reservationid']);
+
+  }
     $reservations[] = $ReservationObj->selectallreservation();
     $allrooms = $RoomObj->selectallrooms();
     $services = $ServiceObj->getallservice();
@@ -39,8 +45,8 @@ foreach ($reservations as $onereservation) {
 foreach ($onereservation as $oneonereservation) {
   $room[]=$RoomObj->selectoneroom2($oneonereservation['RoomID']);
    echo'
-   <div class="container">  
-   <form id="reservation" action="" method="POST">
+   <div  class="container" id="container">  
+   <form id="reservation" class="neon1" action="" method="POST">
      <h3>'.$oneonereservation['Name'].'</h3>
      <h4 class="resemail">'.$oneonereservation['Email'].'</h4>
      <div class="dropdown-divider"></div>

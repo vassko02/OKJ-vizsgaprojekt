@@ -24,6 +24,18 @@
             $stmt->bind_param("iidiissiiii",$adatok['reservationid'],$adatok['guestnumber'],$adatok['price'],$adatok['children'],$adatok['adults'],$adatok['arrival'],$adatok['leaving'],$adatok['customerid'],$adatok['roomid'],$adatok['serviceid'],$adatok['reservationid']);
             $stmt->execute();
         }
+        public function deleteconsumption($id){
+            $sql = "DELETE FROM consumption WHERE consumption.ReservationID = ?";
+            $stmt = $this->con->prepare($sql);
+            $stmt->bind_param("i",$id);
+            $stmt->execute();
+        }
+        public function deletereservation($id){
+            $sql = "DELETE FROM reservation WHERE reservation.ReservationID = ?";
+            $stmt = $this->con->prepare($sql);
+            $stmt->bind_param("i",$id);
+            $stmt->execute();
+        }
     }
 
 
