@@ -3,7 +3,7 @@ session_start();
 
 define('VEDETT', 'igen');
 
-$baseUrl = '/14aphp/vizsgaprojekt'; //szervernél: /~PeacefulParadise/
+$baseUrl = '/~PeacefulParadise'; //szervernél: /~PeacefulParadise
 $request = $_SERVER['REQUEST_URI']; //mindenkori url
 $mennyiper = substr_count($request, '/');
 $baseMennyiper = substr_count($baseUrl, '/');
@@ -25,12 +25,14 @@ include('models/service.php');
 include('models/reservation.php');
 include('models/help.php');
 include('models/storage.php');
+include('models/email/mail.php');
 $ServiceObj = new Service();
 $GuestObj = new Guest();
 $RoomObj = new Room();
 $ReservationObj = new reservation();
 $HelpObj = new Help();
 $StorageObj = new storage();
+$MailObj = new mail();
 include('action.php');
 if (isset($_POST['btn_send2'])) {
     if (isset($_SESSION['adult'])) {
@@ -223,6 +225,9 @@ if ($_SESSION)
     // echo '<br>';
     // echo $mennyiper;
     include('./navbar/navbar.php');
+
+    //próba email küldés (gabor)
+    
 
     switch ($request) {
         case $baseUrl . '':

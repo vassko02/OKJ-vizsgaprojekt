@@ -2,6 +2,7 @@
     defined('VEDETT') or die(' ísx');
 ?>
 <div class="row">
+  <button onclick="sendEmail()">Email</button>
 <?php 
    
   if (isset($_POST['submit'])) {
@@ -121,6 +122,12 @@ foreach ($onereservation as $oneonereservation) {
 ?>
  
  </div>
+
+ <script>
+   function sendEmail() {
+     <?php $MailObj->sendEmail();?>
+   }
+ </script>
   
 
 
