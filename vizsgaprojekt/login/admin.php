@@ -3,11 +3,10 @@
 ?>
 <div class="row">
 <?php 
+   
   if (isset($_POST['submit'])) {
    $roomss[] = $RoomObj->selectroomidbyname($_POST);
-  //  echo '<pre>';
-  //  print_r($roomss[0][0]);
-  //  echo '</pre>';
+  
     $_SESSION['roomid'] = $roomss[0][0]['RoomID'];
     $_SESSION['customerid'] = $_POST['customerid'];
     $_SESSION['guestnumber'] = $_POST['guestnumber'];
@@ -20,6 +19,12 @@
     $_SESSION['children'] = $_POST['children'];
     $ReservationObj->updatereservation($_SESSION);
    
+  }
+  if (isset($_POST['addconsumption'])) {
+      
+      $_SESSION['reservationid'] = $_POST['reservationid'];
+      header('Location: '.$baseUrl.'/dining/menu');
+
   }
     $reservations[] = $ReservationObj->selectallreservation();
     $allrooms = $RoomObj->selectallrooms();
@@ -100,7 +105,8 @@ foreach ($onereservation as $oneonereservation) {
      </fieldset>
      <fieldset>
       <button name="submit" type="submit" id="reservation-submit" data-submit="...Sending">Reservation Update</button>
-      <button name="delete" type="submit" id="reservation-delete" data-submit="...Sending">Delete reservation</button>
+      <button name="addconsumption" type="submit" id="Add-Consumption" data-submit="...Sending">Add Consumption</button>
+      <button name="delete" type="submit" id="reservation-delete" data-submit="...Sending">Delete Reservation</button>
      </fieldset>
    </form>
   
