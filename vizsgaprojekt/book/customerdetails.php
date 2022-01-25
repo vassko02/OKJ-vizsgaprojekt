@@ -19,7 +19,7 @@
             <form action="<?php echo $baseUrl?>/booking/confirm" method="post">
                      <div class="mb-3 mt-3">
                         <label for="name" class="form-label">Name</label>
-                        <input type="text" class="form-control"  placeholder="Bac Ilus" name="name" value="<?php if ($loggedin == true) {
+                        <input type="text" class="form-control"  placeholder="Jack Smith" name="name" value="<?php if ($loggedin == true) {
                            echo $userdetails[0]['Name'];
                         }
                         else if(isset($_SESSION['customername'])) echo $_SESSION['customername']; else{ echo("Bac Ilus"); } ?>" id="name">
@@ -34,13 +34,13 @@
                         <label for="tel" class="form-label">Phone number</label>
                         <input type="tel" name="tel" class="form-control"  value="<?php  if ($loggedin == true) {
                            echo $userdetails[0]['PhoneNumber'];
-                        }else if(isset($_SESSION['phonenumber'])) echo $_SESSION['phonenumber'];  else{ echo("+36304206969"); }?>" id="tel" placeholder="+36301234567">
+                        }else if(isset($_SESSION['phonenumber'])) echo $_SESSION['phonenumber'];  else{ echo("+36304206969"); }?>" id="tel" placeholder="+14844608072">
                     </div>
                     <div class="mb-3 mt-3">
                         <label for="address" class="form-label">Address</label>
                         <input type="text" class="form-control" value="<?php  if ($loggedin == true) {
                            echo $userdetails[0]['Address'];
-                        }else if(isset($_SESSION['address'])) echo $_SESSION['address']; else{ echo("9027 Győr Szeszgyár utca 1"); } ?>"  placeholder="9232 Darnózseli, Táncsics u. 33" name="address" id="address">
+                        }else if(isset($_SESSION['address'])) echo $_SESSION['address']; else{ echo("9027 Győr Szeszgyár utca 1"); } ?>"  placeholder="3570 S Las Vegas Blvd" name="address" id="address">
                      </div>  
                      <button type="submit" name="btn_send" class="btn btn-warning mb-3">Continue</button>
             </form>

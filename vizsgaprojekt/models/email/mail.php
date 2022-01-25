@@ -1,12 +1,12 @@
 <?php
 class mail extends Dbconnect
 {
-  function sendEmail()
+  function sendEmail($kinek)
   {
     // Multiple recipients
-    $to = 'kaldavai26@gmail.com, roncz.gabor1@gmail.com'; // note the comma
+    $to = '.'$kinek'.'; // note the comma
     // Subject
-    $subject = 'Reservation Confirment';
+    $subject = 'Reservation Confirmation';
     // Message
     $message = '<!DOCTYPE HTML
         PUBLIC "-//W3C//DTD XHTML 1.0 Transitional //EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">

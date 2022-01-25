@@ -63,7 +63,7 @@
                  </div>
                  <div class="input-signin">
                      <input type="password" name="jelszoujra" id="#{label}" required="required" />
-                     <label for="#{label}">Repeat Password</label>
+                     <label for="#{label}">Password again</label>
                      <div class="bar"></div>
                  </div>
 
@@ -78,7 +78,7 @@
 
 
 
-                 <div class="footer"><a href="https://en.wikipedia.org/wiki/Stupidity">Don't forget your password!</a></div>
+                 <div class="footer"><a href="https://en.wikipedia.org/wiki/Stupidity">Forgot password</a></div>
              </form>
          </div>
 
@@ -189,7 +189,7 @@
                  </div>
                  <div class="input-signin">
                      <input type="password" name="jelszoujra" id="#{label}" required="required" />
-                     <label for="#{label}">Repeat Password</label>
+                     <label for="#{label}">Password again</label>
                      <div class="bar"></div>
                  </div>
                  <div class="button-signin">
@@ -198,7 +198,7 @@
                                                         echo 'mt-4';
                                                     } ?>" name="btn_reg" id="logingomb">Sign up</button>
                  </div>
-                 <div class="footer"><a href="https://en.wikipedia.org/wiki/Stupidity">Don't forget your password!</a></div>
+                 <div class="footer"><a href="https://en.wikipedia.org/wiki/Stupidity">Forgot password</a></div>
              </form>
      </div>
  </div>

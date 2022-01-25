@@ -5,7 +5,7 @@
 				<span class=""><i class="fas fa-check"></i></span>
 			</div>
 			<h1>Success!</h1>
-			<p>We've sent a summary about your registration in email.</p>
+			<p>We've sent you a summary about your registration in email.</p>
 			<a href="<?php echo $baseUrl?>/" class="redo btn">Back to the main page</a>
 		</div>
 	</div>

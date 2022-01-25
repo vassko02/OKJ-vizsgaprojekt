@@ -40,7 +40,7 @@
                             <li class="leftborder"><a class="dropdown-item" href="' . $baseUrl . '/userseditadmin"><i class="fas fa-tasks"></i> Manage users</a></li>
                             <div class="dropdown-divider"></div>
                             <li class="dropdown-item" id="username">Logged in as: <span class="gold">' . $_SESSION['username'] . '</span><li>
-                            <li class="leftborder"><a class="dropdown-item" href="' . $baseUrl . '/logout"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+                            <li class="leftborder"><a class="dropdown-item" href="' . $baseUrl . '/logout"><i class="fas fa-sign-out-alt"></i>Logout</a></li>
                             ';
                     }
                     ?>
