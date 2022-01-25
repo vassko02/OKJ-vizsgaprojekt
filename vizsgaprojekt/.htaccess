@@ -1,7 +1,5 @@
 RewriteEngine on
-=======
-RewriteBase /14aphp/legfrissebb/OKJ-vizsgaprojekt/vizsgaprojekt
->>>>>>> c9a1e10ef770852677dcc53c16eb8940336f7f0f
+RewriteBase /~PeacefulParadise/
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteRule ^(.+)$ index.php [QSA,L]

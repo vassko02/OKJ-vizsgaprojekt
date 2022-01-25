@@ -9,11 +9,6 @@ $_SESSION['roomid'] = $_POST['Roomid'];
 // echo '</pre>';
 //  $serviceid = $_POST['select'];
 //  echo $serviceid;
-
-=======
-
-
->>>>>>> c9a1e10ef770852677dcc53c16eb8940336f7f0f
 ?>
 
 <form action="<?php echo $baseUrl?>/booking/customerdetails" method="post">

@@ -1,8 +1,9 @@
 <?php
+
 	 $MailObj->sendReport($_POST['firstname'],$_POST['lastname'],$_POST['email'],$_POST['textarea']);
-	//  echo "<pre>";
-	//  print_r($_SESSION);
-	//  echo "</pre>";
+	echo "<pre>";
+	print_r($_POST);
+	echo "</pre>";
 
 ?>
 <div class="container response">

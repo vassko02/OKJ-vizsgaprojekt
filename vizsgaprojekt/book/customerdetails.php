@@ -19,7 +19,7 @@
             <form action="<?php echo $baseUrl?>/booking/confirm" method="post">
                      <div class="mb-3 mt-3">
                         <label for="name" class="form-label">Name</label>
-                        <input type="text" class="form-control"  placeholder="Jack Smith" name="name" value="<?php if ($loggedin == true) {
+                        <input type="text" class="form-control"  placeholder="Bac Ilus" name="name" value="<?php if ($loggedin == true) {
                            echo $userdetails[0]['Name'];
                         }
                         else if(isset($_SESSION['customername'])) echo $_SESSION['customername']; else{ echo("Bac Ilus"); } ?>" id="name">

@@ -15,12 +15,12 @@ $Roomslist = $RoomObj->selectallrooms();
         </div>
         <div class="slidde">
           <div class="masodik">
-            <h1>Stay in our hotel to go through <br> a phenomenal experience!</h1>
+            <h1>Stay in our hotel to go through <br> a phenomenal experience</h1>
           </div>
         </div>
         <div class="slidde">
           <div class="harmadik">
-            <h1>Indulge and treat yourself, <br> like you're in the Paradise</h1>
+            <h1>Indulge and treat yourself <br> like you are in Paradise</h1>
           </div>
         </div>
         <div class="slidde">

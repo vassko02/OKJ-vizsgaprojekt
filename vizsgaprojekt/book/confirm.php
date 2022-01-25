@@ -1,34 +1,34 @@
 <?php
 
-$_SESSION['customername'] = $_POST['name'];
-$_SESSION['email'] = $_POST['email'];
-$_SESSION['phonenumber'] = $_POST['tel'];
-$_SESSION['address'] = $_POST['address'];
-if ($GuestObj->findcustomerbyemail($_POST['email'])== 0) {
-  $GuestObj->savecustomer($_POST);
-}
-else{
-  $GuestObj->updatecustomer($_POST);
-}
-$customer = $GuestObj->findcustomerbyemail($_POST['email']);
-$_SESSION['customerid'] = $customer['CustomerID'];
+  $_SESSION['customername'] = $_POST['name'];
+  $_SESSION['email'] = $_POST['email'];
+  $_SESSION['phonenumber'] = $_POST['tel'];
+  $_SESSION['address'] = $_POST['address'];
+  if ($GuestObj->findcustomerbyemail($_POST['email'])== 0) {
+    $GuestObj->savecustomer($_POST);
+  }
+  else{
+    $GuestObj->updatecustomer($_POST);
+  }
+  $customer = $GuestObj->findcustomerbyemail($_POST['email']);
+  $_SESSION['customerid'] = $customer['CustomerID'];
+  
+  $edit = 'true';
 
-$edit = 'true';
-
-$services = $ServiceObj->getallservice();
-$servicebyid = $ServiceObj->getservicebyid($_SESSION['serviceid']);
-
-foreach ($servicebyid as $oneservice) {
+  $services = $ServiceObj->getallservice();
+  $servicebyid = $ServiceObj->getservicebyid($_SESSION['serviceid']);
+  
+ foreach ($servicebyid as $oneservice) {
   $_SESSION['serviceprice'] = $oneservice['ServicePrice'];
   
-}
+  }
+ 
+  //difference between two dates
+  $date1 = date_create($_SESSION['checkin']);
+  $date2 = date_create($_SESSION['checkout']);
+  $diff = date_diff($date1,$date2);
 
-//difference between two dates
-$date1 = date_create($_SESSION['checkin']);
-$date2 = date_create($_SESSION['checkout']);
-$diff = date_diff($date1,$date2);
-
-//count days
+  //count days
 
     echo 'Days Count - '.$diff->format("%a");
   $_SESSION['fullprice'] = ($_SESSION['serviceprice']+$_SESSION['RoomPrice'])* $diff->format("%a");

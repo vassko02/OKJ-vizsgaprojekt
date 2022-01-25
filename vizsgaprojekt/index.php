@@ -3,7 +3,9 @@ session_start();
 
 define('VEDETT', 'igen');
 
-$baseUrl = '/14aphp/legfrissebb/OKJ-vizsgaprojekt/vizsgaprojekt'; //szervernél: /~PeacefulParadise
+//szervernél: /~PeacefulParadise
+//localhostnál: /14aphp/OKJ-vizsgaprojekt/vizsgaprojekt
+$baseUrl = '/~PeacefulParadise'; 
 $request = $_SERVER['REQUEST_URI']; //mindenkori url
 $mennyiper = substr_count($request, '/');
 $baseMennyiper = substr_count($baseUrl, '/');
@@ -38,7 +40,7 @@ if (isset($_POST['btn_send2'])) {
     if (isset($_SESSION['adult'])) {
         $ReservationObj->savereservation($_SESSION);
         $HelpObj->clearReservation();
-        
+
     } else {
     }
 }
@@ -172,6 +174,9 @@ if (isset($_POST['btn_send2'])) {
     if ($request === $baseUrl . '/contactus' || $request === $baseUrl . '/contactusREPORT') {
         echo '  <link rel="stylesheet" href="./contact/contact.css">';
     }
+    if ($request === $baseUrl . '/reportconfirmed') {
+        echo '  <link rel="stylesheet" href="./contact/reportconfirmed">';
+    }
     ?>
 
     <link rel="icon" href="<?php if ($mennyiper === ($baseMennyiper + 2)) {
@@ -222,7 +227,7 @@ if (isset($_POST['btn_send2'])) {
     include('./navbar/navbar.php');
 
     //próba email küldés (gabor)
-    
+
 
     switch ($request) {
         case $baseUrl . '':
@@ -262,7 +267,7 @@ if (isset($_POST['btn_send2'])) {
             }
             break;
         case $baseUrl . '/booking/resconfirm':
-                include('./book/resconfirmed.php');
+            include('./book/resconfirmed.php');
             break;
         case $baseUrl . '/dining':
             $HelpObj->clearReservation();
@@ -283,9 +288,9 @@ if (isset($_POST['btn_send2'])) {
             include('./contact/contact.php');
             break;
         case $baseUrl . '/account':
-                $HelpObj->clearReservation();
-                include('./login/useracc.php');
-                break;
+            $HelpObj->clearReservation();
+            include('./login/useracc.php');
+            break;
         case $baseUrl . '/admin':
             if (isset($_SESSION['isadmin']) && $_SESSION['isadmin'] === 1) {
                 include('./login/admin.php');
@@ -311,9 +316,12 @@ if (isset($_POST['btn_send2'])) {
             $message = "The report was sent succesfully! We will reply soon as possible";
             echo "<script type='text/javascript'>alert('$message');</script>";
             break;
+        case strpos($request, "activate?email") !== false: 
+            include('./aktivalas.php');
+            break;
         default:
-            http_response_code(404);
-            require __DIR__ . './404/404.php';
+            //http_response_code(404);
+            include('./404/404.php');
             break;
     }
 

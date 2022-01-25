@@ -1,10 +1,13 @@
  <div class="hibauzenetek">
      <?php
 
-        if ((isset($jelszohibauzenet) && count($jelszohibauzenet) != 0) || isset($usernamehibauzenet) || isset($emailHibauzenet) || $hiba == 3) {
+        if ((isset($jelszohibauzenet) && count($jelszohibauzenet) != 0) || isset($usernamehibauzenet) || isset($emailHibauzenet) || $hiba == 3 || $hiba == 4) {
             echo '<div class="alert alert-danger mt-5 mb-0" role="alert">';
             if ($hiba === 3) {
                 echo 'Wrong Email address or password!';
+            }
+            if ($hiba === 4) {
+                echo 'Please activate your account first!';
             }
             if (isset($usernamehibauzenet) && $usernamehibauzenet != '') {
                 echo $usernamehibauzenet . '<br>';
