@@ -2,7 +2,7 @@
   defined('VEDETT') or die(' ísx');
   ?>
  <div class="row">
-   <button onclick="sendEmail()">Email</button>
+   <!-- <button onclick="sendEmail()">Email</button> -->
    <?php
 
     if (isset($_POST['submit'])) {
@@ -41,7 +41,7 @@
       foreach ($onereservation as $oneonereservation) {
         $room[] = $RoomObj->selectoneroom2($oneonereservation['RoomID']);
         echo '
-   <div  class="container" id="container">  
+   <div  class="container" id="container">
    <form id="reservation" class="neon1" action="" method="POST">
      <h3>' . $oneonereservation['Name'] . '</h3>
      <h4 class="resemail">' . $oneonereservation['Email'] . '</h4>
@@ -115,8 +115,8 @@
       <button name="delete" type="submit" id="reservation-delete" data-submit="...Sending">Delete Reservation</button>
      </fieldset>
    </form>
-  
-   
+
+
  </div>
 
    ';
@@ -128,6 +128,5 @@
 
  <script>
    function sendEmail() {
-     <?php $MailObj->sendEmail(); ?>
    }
  </script>

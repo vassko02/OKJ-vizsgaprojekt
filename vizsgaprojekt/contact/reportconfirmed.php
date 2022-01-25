@@ -1,5 +1,5 @@
 <?php
-	 $MailObj->sendEmail($_SESSION['loginemail']);
+	 $MailObj->sendReport($_POST['firstname'],$_POST['lastname'],$_POST['email'],$_POST['textarea']);
 	//  echo "<pre>";
 	//  print_r($_SESSION);
 	//  echo "</pre>";
@@ -12,7 +12,7 @@
 				<span class=""><i class="fas fa-check"></i></span>
 			</div>
 			<h1>Success!</h1>
-			<p>We've sent a summary about your reservation in email.</p>
+			<p>Thank you for your message, we will reply as soon as possible!</p>
 			<a href="<?php echo $baseUrl?>/" class="redo btn">Back to the main page</a>
 		</div>
 	</div>

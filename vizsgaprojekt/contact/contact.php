@@ -3,7 +3,7 @@
     <h1 class="text-white">
       Contact us!
     </h1>
-    <form class="row g-3 needs-validation text-white" method="POST" novalidate>
+    <form class="row g-3 needs-validation text-white" method="POST" action="<?php echo $baseUrl?>/reportconfirmed" novalidate>
       <div class="col-md-4">
         <label for="validationCustomLastName" class="form-label">First Name</label>
         <div class="input-group has-validation">
@@ -14,7 +14,7 @@
         </div>
       </div>
       <div class="col-md-4">
-        <label for="validationCustomLastName" class="form-label">Email</label>
+        <label for="validationCustomLastName" class="form-label">Last Name</label>
         <div class="input-group has-validation">
           <input type="text" name="lastname" class="form-control" id="validationCustomLastName" value="" aria-describedby="inputGroupPrepend" required>
           <div class="invalid-feedback">

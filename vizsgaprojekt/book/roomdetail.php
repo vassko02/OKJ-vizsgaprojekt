@@ -11,7 +11,6 @@ $_SESSION['roomid'] = $_POST['Roomid'];
 //  echo $serviceid;
 $HelpObj->writearray($_POST);
 $HelpObj->writearray($_SESSION);
-
 ?>
 
 <form action="<?php echo $baseUrl?>/booking/customerdetails" method="post">

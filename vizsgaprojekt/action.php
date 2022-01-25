@@ -62,29 +62,29 @@
     $usernamehibauzenet='';
 
     if ($GuestObj->eemailcsekk($_POST['email']) == 1){
-        $emailHibauzenet='A megadott e-mail cím már regisztrálva van!';
+        $emailHibauzenet='This email address is already used!';
     }
     if ($GuestObj-> usernamecsekk($_POST['username']) == 1){
-        $usernamehibauzenet='A megadott username már regisztrálva van!';
+        $usernamehibauzenet='This username address is already used!';
     }
    
     $jelszohibauzenet=array();
 
     if (strlen($_POST['jelszo']) < 8) {
-        $jelszohibauzenet[] = 'A jelszó hossza min. 8 karakter!';
+        $jelszohibauzenet[] = 'The minimum lenght of the password is 8 characters!.';
     }
 
     if ( !preg_match("#[A-Z]+#",$_POST['jelszo']) ) {
-        $jelszohibauzenet[] = 'A jelszónak tartalmaznia kell nagybetűt!';
+        $jelszohibauzenet[] = 'The password has to contain an uppercase character!';
     }
     if ( !preg_match("#[a-z]+#",$_POST['jelszo']) ) {
-        $jelszohibauzenet[] = 'A jelszónak tartalmaznia kell kisbetűt!';
+        $jelszohibauzenet[] = 'The password has to contain a lowercase character!';
     }
     if ( !preg_match("#[0-9]+#",$_POST['jelszo']) ) {
-        $jelszohibauzenet[] = 'A jelszónak tartalmaznia kell számot!';
+        $jelszohibauzenet[] = 'The password has to contain a number character!';
     }
     if ($_POST['jelszo'] != $_POST['jelszoujra']) {
-        $jelszohibauzenet[] = 'A két jelszó nem egyforma!';   
+        $jelszohibauzenet[] = 'The two passwords are not the same!';   
          }
     if ($emailHibauzenet =='' && count($jelszohibauzenet) == 0 && $usernamehibauzenet == '') {
         //nincs hiba

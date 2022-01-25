@@ -3,7 +3,7 @@ session_start();
 
 define('VEDETT', 'igen');
 
-$baseUrl = '/14aphp/OKJ-vizsgaprojekt/vizsgaprojekt'; //szervernél: /~PeacefulParadise
+$baseUrl = '/~PeacefulParadise'; //szervernél: /~PeacefulParadise
 $request = $_SERVER['REQUEST_URI']; //mindenkori url
 $mennyiper = substr_count($request, '/');
 $baseMennyiper = substr_count($baseUrl, '/');
@@ -126,7 +126,7 @@ if (isset($_POST['btn_send2'])) {
         echo ' <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
         <link rel="stylesheet" href="../book/customerdetails.css">';
     }
-    if ($request === $baseUrl . '/booking/resconfirm' || $request === $baseUrl . '/signin/regconfirm') {
+    if ($request === $baseUrl . '/booking/resconfirm' || $request === $baseUrl . '/signin/regconfirmed') {
         echo '<link href="https://fonts.googleapis.com/css?family=Open+Sans:300|Montserrat" rel="stylesheet" type="text/css">
 	    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
         <link rel="stylesheet" href="../book/resconfirmed.css">
@@ -159,6 +159,11 @@ if (isset($_POST['btn_send2'])) {
     if ($request === $baseUrl . '/userseditadmin') {
         echo '
                 <link rel="stylesheet" href="./login/reservations.css">
+                ';
+    }
+    if ($request === $baseUrl . '/reportconfirmed') {
+        echo '
+                <link rel="stylesheet" href="./contact/reportconfirmed.css">
                 ';
     }
     if ($request === $baseUrl . '/signin') {
@@ -274,7 +279,7 @@ if (isset($_POST['btn_send2'])) {
             $HelpObj->clearReservation();
             include('./login/regisztracio.php');
             break;
-        case $baseUrl . '/signin/regconfirm':
+        case $baseUrl . '/signin/regconfirmed':
             include('./login/regconfirmed.php');
             break;
         case $baseUrl . '/contactus':
@@ -298,6 +303,9 @@ if (isset($_POST['btn_send2'])) {
         case $baseUrl . '/logout':
             include('./login/logout.php');
             break;
+            case $baseUrl . '/reportconfirmed':
+                include('./contact/reportconfirmed.php');
+                break;
         case $request === $baseUrl . '/contactus' || $request === $baseUrl . '/contactusREPORT':
             include('./contact/contact.php');
             $message = "The report was sent succesfully! We will reply soon as possible";
