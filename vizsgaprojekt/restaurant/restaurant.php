@@ -11,7 +11,7 @@ $main = $StorageObj->getFoodByType('Main Course');
   </div>
 </div>
 <div class="favoritefood">
-  <p>Take a look at our best seller meals</p>
+  <p>Take a look at our best seller meals!</p>
 </div>
 
 <div class="row mx-auto">

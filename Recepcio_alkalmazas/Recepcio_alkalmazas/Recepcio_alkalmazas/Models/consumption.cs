@@ -122,5 +122,22 @@ namespace Recepcio_alkalmazas.Models
             }
             return lista;
         }
+        public static int insertkokany(double price,string ItemName,int ResID)
+        {
+            using (var con = new MySqlConnection(ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString))
+            {
+                con.Open();
+                var sql = "INSERT INTO consumption (Price,ItemName,ReservationID) VALUES " +
+                    "(@Price,@ItemName,@ReservationID)";
+                using (var cmd = new MySqlCommand(sql, con))
+                {
+                    cmd.Parameters.AddWithValue("@Price", price);
+                    cmd.Parameters.AddWithValue("@ItemName", ItemName);
+                    cmd.Parameters.AddWithValue("@ReservationID", ResID);
+                    cmd.ExecuteNonQuery();
+                    return (int)cmd.LastInsertedId;
+                }
+            }
+        }
     }
 }

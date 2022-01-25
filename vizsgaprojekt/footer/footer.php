@@ -10,7 +10,7 @@
                                     <i class="col-4 fas fa-map-marker-alt jobbra"></i>
                                     <div class="col-8 cta-text balra">
                                         <h4>Find us</h4>
-                                        <span>9232 Darnózseli, Táncsics u. 33</span>
+                                        <span>3570 S Las Vegas Blvd, Las Vegas, NV</span>
                                     </div>
                                 </div>
                             </div>
@@ -21,7 +21,7 @@
                                     <i class="col-4 fas fa-phone jobbra"></i>
                                     <div class="col-8 cta-text balra">
                                         <h4>Call us</h4>
-                                        <span>(30) 6969 420</span>
+                                        <span>+18143008324</span>
                                     </div>
                                 </div>
                             </div>
@@ -62,20 +62,9 @@
             <div class="row">
                 <div class="col-xl-12 col-lg-12 text-center text-lg-left">
                     <div class="copyright-text">
-                        <p>Copyright &copy; 2022, All Right Reserved</p>
+                        <p> &copy; 2022 Peaceful Paradise All Right Reserved</p>
                     </div>
                 </div>
-                <!-- <div class="col-xl-6 col-lg-6 d-none d-lg-block text-right">
-                    <div class="footer-menu">
-                        <ul>
-                            <li><a href="#">Home</a></li>
-                            <li><a href="#">Terms</a></li>
-                            <li><a href="#">Privacy</a></li>
-                            <li><a href="#">Policy</a></li>
-                            <li><a href="#">Contact</a></li>
-                        </ul>
-                    </div>
-                </div> -->
             </div>
         </div>
     </div>

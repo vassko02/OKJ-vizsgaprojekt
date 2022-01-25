@@ -25,20 +25,20 @@
 
     <fieldset>
       <label for="name">Name: </label>
-      <input class="form-control" id="name" name="name" placeholder="Your name" type="text" value="'.$oneuser['Name'].'" tabindex="1" required autofocus>
+      <input class="form-control" id="name" name="name" placeholder="User name" type="text" value="'.$oneuser['Name'].'" tabindex="1" required autofocus>
       <input type="hidden" name="CustomerID" value="'.$oneuser['CustomerID'].'"/>
     </fieldset>
     <fieldset>
     <label for="name">Email: </label>
-      <input class="form-control" id="email" name="email" placeholder="Your Email Address" value="'.$oneuser['Email'].'" type="email" tabindex="2" required>
+      <input class="form-control" id="email" name="email" placeholder="Email Address" value="'.$oneuser['Email'].'" type="email" tabindex="2" required>
     </fieldset>
     <fieldset>
     <label for="name">Phone Number: </label>
-      <input class="form-control"id="phonenumber" name="phonenumber" placeholder="Your Phone Number" value="'.$oneuser['PhoneNumber'].'" type="tel" tabindex="3" >
+      <input class="form-control"id="phonenumber" name="phonenumber" placeholder="Phone Number" value="'.$oneuser['PhoneNumber'].'" type="tel" tabindex="3" >
     </fieldset>
     <fieldset>
     <label for="name">Address: </label>
-    <input  class="form-control" id="address" name="address" placeholder="Your Address " value="'.$oneuser['Address'].'" type="text" tabindex="3" >
+    <input  class="form-control" id="address" name="address" placeholder="Address " value="'.$oneuser['Address'].'" type="text" tabindex="3" >
     </fieldset>
     <fieldset>
     ';

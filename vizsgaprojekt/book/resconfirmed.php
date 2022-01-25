@@ -1,3 +1,6 @@
+<?php
+	$MailObj->sendEmail($_SESSION['email']);
+?>
 <div class="container response">
 	<div class="">
 		<div class="completed center animate">

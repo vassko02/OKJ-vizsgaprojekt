@@ -317,7 +317,6 @@ D:\OKJ-vizsgaprojekt\Recepcio_alkalmazas\Recepcio_alkalmazas\Recepcio_alkalmazas
 D:\OKJ-vizsgaprojekt\Recepcio_alkalmazas\Recepcio_alkalmazas\Recepcio_alkalmazas\obj\Debug\netcoreapp3.1\Recepcio_alkalmazas.AssemblyInfoInputs.cache
 D:\OKJ-vizsgaprojekt\Recepcio_alkalmazas\Recepcio_alkalmazas\Recepcio_alkalmazas\obj\Debug\netcoreapp3.1\Recepcio_alkalmazas.AssemblyInfo.cs
 D:\OKJ-vizsgaprojekt\Recepcio_alkalmazas\Recepcio_alkalmazas\Recepcio_alkalmazas\obj\Debug\netcoreapp3.1\Recepcio_alkalmazas.csproj.CoreCompileInputs.cache
-D:\OKJ-vizsgaprojekt\Recepcio_alkalmazas\Recepcio_alkalmazas\Recepcio_alkalmazas\obj\Debug\netcoreapp3.1\Recepcio_alkalmazas.csproj.CopyComplete
 D:\OKJ-vizsgaprojekt\Recepcio_alkalmazas\Recepcio_alkalmazas\Recepcio_alkalmazas\obj\Debug\netcoreapp3.1\Recepcio_alkalmazas.dll
 D:\OKJ-vizsgaprojekt\Recepcio_alkalmazas\Recepcio_alkalmazas\Recepcio_alkalmazas\obj\Debug\netcoreapp3.1\Recepcio_alkalmazas.pdb
 D:\OKJ-vizsgaprojekt\Recepcio_alkalmazas\Recepcio_alkalmazas\Recepcio_alkalmazas\obj\Debug\netcoreapp3.1\Recepcio_alkalmazas.genruntimeconfig.cache

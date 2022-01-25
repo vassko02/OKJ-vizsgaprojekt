@@ -15,7 +15,7 @@ if (isset($_POST['itemname'])) {
 <div class="bodyy">
     <div>
         <div class="eloetelcim">
-            <h1>Appetizers</h1>
+            <h1>Appetisers</h1>
         </div>
         <div class="">
             <div class="row mx-auto">

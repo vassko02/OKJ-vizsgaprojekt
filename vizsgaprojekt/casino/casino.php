@@ -4,7 +4,7 @@
         <h1>PEACEFUL PARADISE</h1>
         <h1>ROYALE CASINO</h1>
     </div>
-    <h2>Elevate your play</h2>
+    <h2>Elevate your game</h2>
 </div>
 <div class="basic col-12 col-sm-12 col-md-12 col-lg-12">
     <!-- Általános infó -->
@@ -49,14 +49,16 @@
         <div class="games col-12 col-sm-12 col-md-12 col-lg-12">
             <div class="basicszoveg">
                 <h3>PARADISE TABLE GAMES</h3>
-                <h4>Win in spectacular fashion playing your favorite Las Vegas casino table games at Peaceful Paradise. When you're gambling in Las Vegas casinos, the excitement rises as you face off with lady luck and test your skill with games of chance.</h4>
+                <h4>Win in spectacular fashion playing your favorite Las Vegas casino table games at Peaceful Paradise. 
+                    When you're gambling in Las Vegas casinos, the excitement rises as you face off with lady luck and test your skill with games of chance.</h4>
             </div>
             <div class="row gamesitems">
                 <div class="customcard1 col-12 col-sm-6 col-md-6 col-lg-4">
                     <img src="pictures\casino\blackjack1.jpg" class="card-img-top" alt="...">
                     <div class="card-body">
                         <h1 class="card-title">BLACKJACK</h1>
-                        <p class="card-text">Of all the casino table games, there is none more classic than Blackjack, also known as 21. It uses decks of 52 cards. Hit, stand, split and double - get closer than the dealer to 21 without going over and win big.</p>
+                        <p class="card-text">Of all the casino table games, there is none more classic than Blackjack,
+                             also known as 21. It uses decks of 52 cards. Hit, stand, split and double - get closer than the dealer to 21 without going over and win big.</p>
                     </div>
                 </div>
                 <div class="customcard2 col-12 col-sm-6 col-md-6 col-lg-4">
