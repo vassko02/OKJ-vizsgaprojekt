@@ -38,11 +38,13 @@
                 </DataGrid.Resources>
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="Guest name" Binding="{Binding Name}" Width="90"/>
-                    <DataGridTextColumn Header="Check-in" Width="100" Binding="{Binding ArrivalDate,StringFormat=yyyy.MM.dd.}"/>
-                    <DataGridTextColumn Header="Check-out" Width="100" Binding="{Binding LeavingDate,StringFormat=yyyy.MM.dd.}"/>
+                    <DataGridTextColumn Header="Check-in" Width="auto" Binding="{Binding ArrivalDate,StringFormat=yyyy.MM.dd.}"/>
+                    <DataGridTextColumn Header="Check-out" Width="auto" Binding="{Binding LeavingDate,StringFormat=yyyy.MM.dd.}"/>
                     <DataGridTextColumn Header="Service" Width="100" Binding="{Binding ServiceType}"/>
                     <DataGridTextColumn Header="Room type" Width="220" Binding="{Binding RoomName}"/>
-                    <DataGridTextColumn Header="Price" Binding="{Binding Price,StringFormat=$\{0\}}"/>
+                    <DataGridTextColumn Header="Price" Width="auto" Binding="{Binding Price,StringFormat=$\{0\}}"/>
+                    <DataGridTextColumn Header="Is Checked In" Binding="{Binding IsCheckedIn}"/>
+
                 </DataGrid.Columns>
             </DataGrid>
         </StackPanel>
