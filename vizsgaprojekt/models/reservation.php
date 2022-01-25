@@ -21,7 +21,7 @@
         public function updatereservation($adatok){
             $sql = "UPDATE reservation SET  ReservationID=?, GuestNumber=?, Price=?, Children=?, Adults=?, ArrivalDate=?, LeavingDate=?, CustomerID=?, RoomID=?, ServiceID=? WHERE reservation.ReservationID = ?";
             $stmt = $this->con->prepare($sql);
-            $stmt->bind_param("iidiissiiii",$adatok['reservationid'],$adatok['guestnumber'],$adatok['price'],$adatok['children'],$adatok['adults'],$adatok['arrival'],$adatok['leaving'],$adatok['customerid'],$adatok['roomid'],$adatok['serviceid'],$adatok['reservationid']);
+            $stmt->bind_param("iidiissiiii",$adatok['reservationid'],$adatok['guestnumber'],$adatok['fullprice'],$adatok['children'],$adatok['adults'],$adatok['arrival'],$adatok['leaving'],$adatok['customerid'],$adatok['roomid'],$adatok['serviceid'],$adatok['reservationid']);
             $stmt->execute();
         }
         public function deleteconsumption($id){

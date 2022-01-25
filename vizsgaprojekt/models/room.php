@@ -108,10 +108,10 @@
   }
   public function selectroomidbyname($adatok){
     $sql ='SELECT room.*,reservation.GuestNumber,reservation.ArrivalDate,reservation.LeavingDate FROM `room` LEFT JOIN reservation on room.RoomID = reservation.RoomID WHERE (room.Capacity = ? OR room.Capacity-1 = ?) and ((reservation.LeavingDate <= ? or reservation.ArrivalDate >= ?
-    OR reservation.ArrivalDate is null)) and room.RoomName = ?';
+    OR reservation.ArrivalDate is null)) and room.RoomName = ? or reservation.ReservationID = ?';
     $guestnumber = (int)$adatok['adults'] + (int)$adatok['children'];
     $stmt = $this->con->prepare($sql);
-    $stmt->bind_param("iisss",$guestnumber,$guestnumber,$adatok['arrival'],$adatok['leaving'],$adatok['roomname']);
+    $stmt->bind_param("iisssi",$guestnumber,$guestnumber,$adatok['arrival'],$adatok['leaving'],$adatok['roomname'],$adatok['reservationid']);
      $stmt->execute();
      $rooms = array();
      $result = $stmt->get_result();

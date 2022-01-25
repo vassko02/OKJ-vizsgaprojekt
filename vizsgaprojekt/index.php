@@ -3,7 +3,7 @@ session_start();
 
 define('VEDETT', 'igen');
 
-$baseUrl = '/~PeacefulParadise'; //szervernél: /~PeacefulParadise
+$baseUrl = '/14aphp/legfrissebb/OKJ-vizsgaprojekt/vizsgaprojekt'; //szervernél: /~PeacefulParadise
 $request = $_SERVER['REQUEST_URI']; //mindenkori url
 $mennyiper = substr_count($request, '/');
 $baseMennyiper = substr_count($baseUrl, '/');
@@ -37,19 +37,14 @@ include('action.php');
 if (isset($_POST['btn_send2'])) {
     if (isset($_SESSION['adult'])) {
         $ReservationObj->savereservation($_SESSION);
-        $felhasznalo['UserName'] = $_SESSION['username'];
-        $felhasznalo['CustomerID'] = $_SESSION['uid'];
-        $felhasznalo['sid'] = $_SESSION['sid'];
-        $felhasznalo['Email'] = $_SESSION['loginemail'];
-        session_unset();
-        $_SESSION['sid'] = $felhasznalo['sid'];
-        $_SESSION['uid'] = $felhasznalo['CustomerID'];
-        $_SESSION['username'] =  $felhasznalo['UserName'];
-        $_SESSION['loginemail'] = $felhasznalo['Email'];
+        $HelpObj->clearReservation();
+        
     } else {
     }
 }
 ?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -161,9 +156,10 @@ if (isset($_POST['btn_send2'])) {
                 <link rel="stylesheet" href="./login/reservations.css">
                 ';
     }
-    if ($request === $baseUrl . '/reportconfirmed') {
+    if ( $request === $baseUrl . '/account') {
         echo '
-                <link rel="stylesheet" href="./contact/reportconfirmed.css">
+                <link rel="stylesheet" href="./login/reservations.css">
+                <link rel="stylesheet" href="./login/useracc.css">
                 ';
     }
     if ($request === $baseUrl . '/signin') {
@@ -286,6 +282,10 @@ if (isset($_POST['btn_send2'])) {
             $HelpObj->clearReservation();
             include('./contact/contact.php');
             break;
+        case $baseUrl . '/account':
+                $HelpObj->clearReservation();
+                include('./login/useracc.php');
+                break;
         case $baseUrl . '/admin':
             if (isset($_SESSION['isadmin']) && $_SESSION['isadmin'] === 1) {
                 include('./login/admin.php');
@@ -323,7 +323,6 @@ if (isset($_POST['btn_send2'])) {
 
     ?>
 
-
     <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
     <script src="<?php if ($mennyiper === ($baseMennyiper + 2)) {
                         echo '.';
@@ -344,6 +343,7 @@ if (isset($_POST['btn_send2'])) {
         //     $(".loader-wrapper").fadeOut("slow");
         // });
     </script>
+    <script defer src="app.js"></script>
 </body>
 
 </html>

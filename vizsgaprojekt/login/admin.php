@@ -7,17 +7,23 @@
 
     if (isset($_POST['submit'])) {
       $roomss[] = $RoomObj->selectroomidbyname($_POST);
-
       $_SESSION['roomid'] = $roomss[0][0]['RoomID'];
       $_SESSION['customerid'] = $_POST['customerid'];
       $_SESSION['guestnumber'] = $_POST['guestnumber'];
       $_SESSION['reservationid'] = $_POST['reservationid'];
-      $_SESSION['price'] = $_POST['price'];
       $_SESSION['serviceid'] = $_POST['serviceid'];
       $_SESSION['arrival'] = $_POST['arrival'];
       $_SESSION['leaving'] = $_POST['leaving'];
       $_SESSION['adults'] = $_POST['adults'];
       $_SESSION['children'] = $_POST['children'];
+      
+      $service = $ServiceObj->getservicebyid($_SESSION['serviceid']);
+     
+      $date1 = date_create($_SESSION['arrival']);
+      $date2 = date_create($_SESSION['leaving']);
+      $diff = date_diff($date1,$date2);
+      $_SESSION['fullprice'] = ($service[0]['ServicePrice']+$roomss[0][0]['RoomPrice'])* $diff->format("%a");
+      
       $ReservationObj->updatereservation($_SESSION);
     }
     if (isset($_POST['addconsumption'])) {
@@ -25,11 +31,12 @@
       $_SESSION['reservationid'] = $_POST['reservationid'];
       echo "<script>window.location.href='".$baseUrl."/dining/menu';</script>";
     }
-    if (isset($_POST['delete'])) {
-      $_SESSION['reservationid'] = $_POST['reservationid'];
+    if (isset($_POST['deletee'])) {
+      $_SESSION['reservationid'] = $_POST['reservationid']; 
       $ReservationObj->deleteconsumption($_SESSION['reservationid']);
       $ReservationObj->deletereservation($_SESSION['reservationid']);
     }
+    $HelpObj->writearray($_POST);
     $reservations[] = $ReservationObj->selectallreservation();
     $allrooms = $RoomObj->selectallrooms();
     $services = $ServiceObj->getallservice();
@@ -112,8 +119,26 @@
      <fieldset>
       <button name="submit" type="submit" id="reservation-submit" data-submit="...Sending">Reservation Update</button>
       <button name="addconsumption" type="submit" id="Add-Consumption" data-submit="...Sending">Add Consumption</button>
-      <button name="delete" type="submit" id="reservation-delete" data-submit="...Sending">Delete Reservation</button>
+      <a href="'.$baseUrl.'/delete" class="btn btn-danger w-100 delet"   data-bs-toggle="modal" data-bs-target="#deleteconfirm">Delete</a>
+  
      </fieldset>
+     <div class="modal fade text-dark"  id="deleteconfirm" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title text-dark" id="staticBackdropLabel" >Please confirm</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        Are you sure you want to delete?
+      </div>
+      <div class="modal-footer">
+        <button  class="btn btn-secondary w-25 no" data-bs-dismiss="modal">No</button>
+        <button name="deletee" type="submit" class="btn btn-primary w-25 deletee" id="btnYes">Yes</button>
+      </div>
+    </div>
+  </div>
+</div>
    </form>
 
 
@@ -125,8 +150,3 @@
     }
 ?>
  </div>
-
- <script>
-   function sendEmail() {
-   }
- </script>
