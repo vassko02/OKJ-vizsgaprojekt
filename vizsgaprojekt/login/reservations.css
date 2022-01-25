@@ -1,20 +1,9 @@
 @import url(https://fonts.googleapis.com/css?family=Open+Sans:400italic,400,300,600);
 
-* {
-	margin:0;
-	padding:0;
-	box-sizing:border-box;
-	-webkit-box-sizing:border-box;
-	-moz-box-sizing:border-box;
-	-webkit-font-smoothing:antialiased;
-	-moz-font-smoothing:antialiased;
-	-o-font-smoothing:antialiased;
-	font-smoothing:antialiased;
-	text-rendering:optimizeLegibility;
-}
+
 body,html {
 
-	font-size: 12px;
+	
 	line-height:30px;
 	color:#777;
 	background-color: #222222;
@@ -49,7 +38,7 @@ body,html {
 	font-size: 30px;
 	font-weight: 400;
 }
-input[type="checkbox"] { /* change "blue" browser chrome to yellow */
+input[type="checkbox"] { 
 	filter: invert(100%) hue-rotate(18deg) brightness(1.7);
   }
 #reservation h4 {
@@ -119,16 +108,26 @@ label{
 #Add-Consumption:hover {
 	background-color: hsl(50, 48%, 41%) !important;
 }
-#reservation-delete {
+.delet {
+	font-size: 15px;
+	font-weight: bold;
 	background-color: hsl(0, 100%, 45%) !important;
 	color: whitesmoke !important;
+	
 
 }
-#reservation-delete:hover {
+.delet:hover {
 	background-color: hsl(0, 100%, 35%) !important;
 }
 
-
+.deletee{
+	height: 4vh !important;
+}
+.no{
+	height: 4vh !important;
+	margin-top: 0 !important;
+	margin-bottom: 1vh;
+}
 #reservation input:focus, #reservation textarea:focus {
 	outline:0;
 	border:1px solid #999;

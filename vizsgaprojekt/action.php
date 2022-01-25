@@ -55,7 +55,7 @@
           
       }
   }
-
+ 
   if ($request === $baseUrl . '/signin' && isset($_POST['btn_reg'])){
 
     $emailHibauzenet='';

@@ -7,7 +7,7 @@
     if (isset($_POST['isadmin'])) {
       $_POST['isadmin'] = 1;
     }
-    $GuestObj->updatecustomer2($_POST);
+    $GuestObj->updatecustomeradmin($_POST);
    
   }
   if (isset($_POST['delete'])) {
