@@ -1433,15 +1433,16 @@ class mail extends Dbconnect
     // Additional headers
     //$headers[] = 'To: David <kaldavai26@gmail.com>';
     $headers[] = 'From: Peaceful Paradise <peacefulparadise@diak.jedlik.eu>';
-    $headers[] = 'Cc: peacefulparadiseofficial@gmail.com';
-    $headers[] = 'Bcc: peacefulparadiseofficial@gmail.com';
+    //$headers[] = 'Cc: peacefulparadiseofficial@gmail.com';
+    //$headers[] = 'Bcc: peacefulparadiseofficial@gmail.com';
 
     // Mail it
     mail($email,$subject,$message, implode("\r\n", $headers));
   }
   function reportous($name,$email,$type,$message){
+    $to='peacefulparadiseofficial@gmail.com';
     $subject='Report from '.$name;
-    $message='<!DOCTYPE html>
+    $uzenet='<!DOCTYPE html>
     <html lang="en">
     <head>
         <meta charset="UTF-8">
@@ -1452,7 +1453,7 @@ class mail extends Dbconnect
     <body>
         <h3>Name: '.$name.'</h3>
         <h3>Email address: '.$email.'</h3>
-        <h3>Problem type: '.$type.'</h3>
+        <h3>Problem code: '.$type.'</h3>
         <h3>Message: '.$message.'</h3>
     </body>
     </html>';
@@ -1465,8 +1466,7 @@ class mail extends Dbconnect
     $headers[] = 'From: Peaceful Paradise <peacefulparadise@diak.jedlik.eu>';
     $headers[] = 'Cc: peacefulparadiseofficial@gmail.com';
     $headers[] = 'Bcc: peacefulparadiseofficial@gmail.com';
-
     // Mail it
-    mail('peacefulparadiseofficial@gmail.com',$subject,$message, implode("\r\n", $headers));
+    mail($to,$subject,$uzenet, implode("\r\n", $headers));
   }
 }
