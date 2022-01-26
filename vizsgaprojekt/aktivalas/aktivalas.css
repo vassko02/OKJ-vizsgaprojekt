@@ -6,11 +6,22 @@
 .aktivalasContent {
     padding-top: 20vh;
 }
-.aktivalasContent h2 {
+.aktivalasContent #error {
+    font-size: 6vh;
+    color: hsl(0, 100%, 40%);
+    margin-bottom: 2vh;
+}
+.aktivalasContent #success {
+    font-size: 6vh;
+    color: green;
+    margin-bottom: 2vh;
+}
+.aktivalasContent h1 {
     font-family: 'Be Vietnam Pro', sans-serif;
-    padding-bottom: 2vh;
+    color: #C5B358;
 }
 .aktivalasContent p {
+    font-size: 2.5vh;
     padding-bottom: 4vh;
 }
 .aktivalasContent a {
@@ -20,10 +31,12 @@
     text-decoration: none;
     color: white;
     font-family: 'Be Vietnam Pro', sans-serif;
+    transition: 0.3s;
 }
 .aktivalasContent a:hover {
     background-color: #C5B358;
     color: black;
+    transition: 0.3s;
 }
 
 @media screen{
