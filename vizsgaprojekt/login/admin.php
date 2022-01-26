@@ -7,6 +7,7 @@
 
     if (isset($_POST['submit'])) {
       $roomss[] = $RoomObj->selectroomidbyname($_POST);
+      
       $_SESSION['roomid'] = $roomss[0][0]['RoomID'];
       $_SESSION['customerid'] = $_POST['customerid'];
       $_SESSION['guestnumber'] = $_POST['guestnumber'];

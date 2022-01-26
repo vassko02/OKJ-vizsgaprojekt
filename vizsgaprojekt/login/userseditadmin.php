@@ -7,10 +7,19 @@
     if (isset($_POST['isadmin'])) {
       $_POST['isadmin'] = 1;
     }
-    
-    $GuestObj->updatecustomeradmin($_POST);
+        if ($GuestObj->eemailcsekk($_POST['email']) > 0 )  {
+          $message = "wrong answer";
+        
+        }
+        else{
+         echo 'sikerulttttttttttttttttttttttttttttttttttttttttt';
+          $GuestObj->updatecustomeradmin($_POST);
+
+        }
+      }
+  
    
-  }
+  
   if (isset($_POST['delete'])) {
     $GuestObj->deleteuser($_POST['CustomerID']);
   }
@@ -60,9 +69,9 @@
     echo'
     </fieldset>
     <fieldset>
-      <button name="submit" type="submit" id="reservation-submit" data-submit="...Sending">Submit</button>
-      <button name="delete" type="submit" id="reservation-delete" data-submit="...Sending">Delete</button>
+    <button class="btn" name="submit" type="submit" >Submit</button> 
     </fieldset>
+  
   </form>
  
   
@@ -73,7 +82,7 @@
  
   }
 ?>
- 
+
  </div>
   
 
