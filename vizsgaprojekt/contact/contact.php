@@ -34,10 +34,9 @@
         </div>
       </div>
       <div class="col-md-4">
-        <label for="validationCustomLastName" class="form-label">Username</label>
+        <label for="validationCustomLastName" class="form-label">Problem Type</label>
         <select class="form-select" name="problemtype" aria-label="Default select example">
-          <option value="" disabled selected>Select your option</option>
-          <option value="1">Problem with my reservation</option>
+          <option value="1" selected>Problem with my reservation</option>
           <option value="2">Can't find something</option>
           <option value="3">Problem with my account</option>
           <option value="4">Can't access my account</option>
