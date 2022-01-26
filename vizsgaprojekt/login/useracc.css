@@ -1,3 +1,5 @@
+
+
 .container{
     max-width: 40%;
     width: 100% !important;
@@ -5,9 +7,21 @@
 .hr{
     background-color: #ffee00 !important;
     height: 2px !important;
+    margin-top: 7.5vh !important;
 }
 .submit{
     
     border: 0px solid black !important;
     border-radius: 10px !important;
+}
+#user{
+    float: right;
+    font-size: 3vw !important;
+    font-family: 'Rubik', sans-serif !important;
+}
+label{
+    font-size: 1vw;
+}
+input{
+    font-family: 'Cairo', sans-serif !important;
 }

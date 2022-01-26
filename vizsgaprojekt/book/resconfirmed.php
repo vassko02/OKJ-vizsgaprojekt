@@ -1,8 +1,14 @@
 <?php
-	 $MailObj->sendEmail($_SESSION['loginemail']);
-	//  echo "<pre>";
-	//  print_r($_SESSION);
-	//  echo "</pre>";
+	if(isset($_SESSION['loginemail'])){
+		$email=$_SESSION['loginemail'];
+	}
+	if(isset($_SESSION['email'])){
+		$email=$_SESSION['email'];
+	}
+	 $MailObj->sendEmail($email);
+	  //echo "<pre>";
+	  //print_r($_SESSION);
+	  //echo "</pre>";
 
 ?>
 <div class="container response">

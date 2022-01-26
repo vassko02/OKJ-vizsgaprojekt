@@ -28,7 +28,7 @@
                     if (isset($_SESSION['username']) && $_SESSION['isadmin'] != '1') {
                         echo '
                             <li class="leftborder"><a class="dropdown-item" href="' . $baseUrl . '/account"><i class="fas fa-user-cog"></i> My account</a></li>
-                            <li class="leftborder"><a class="dropdown-item" href="' . $baseUrl . '/reservations"><i class="fas fa-concierge-bell"></i></i> My reservations</a></li>
+                            <li class="leftborder"><a class="dropdown-item" href="' . $baseUrl . '/guestreservations"><i class="fas fa-concierge-bell"></i></i> My reservations</a></li>
                             <div class="dropdown-divider"></div>
                             <li class="dropdown-item" id="username">Logged in as: <span class="gold">' . $_SESSION['username'] . '</span><li>
                             <li class="leftborder"><a class="dropdown-item" href="' . $baseUrl . '/logout"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
@@ -63,7 +63,7 @@
 
                     echo '
                     <li><a class="navlink" href="' . $baseUrl . '/account"><i class="fas fa-sign-out-alt"></i>  My account</a></li>
-                    <li><a class="navlink" href="' . $baseUrl . '/reservations"><i class="fas fa-sign-out-alt"></i> My reservations</a></li>';
+                    <li><a class="navlink" href="' . $baseUrl . '/guestreservations"><i class="fas fa-sign-out-alt"></i> My reservations</a></li>';
                 }
                 echo '
                     <li><a class="navlink" href="' . $baseUrl . '/logout"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
