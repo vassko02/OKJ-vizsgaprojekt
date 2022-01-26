@@ -1,10 +1,13 @@
 <?php
-	$name=$_POST['firstname'];
-	$email=$_POST['email'];
-	$type=$_POST['problemtype'];
-	$message=$_POST['textarea'];
-	$MailObj->reportous($name,$email,$type,$message);
-	$MailObj->sendReport($_POST['email']);
+	if(isset($_POST['textarea'])){
+		$name=$_POST['firstname'];
+		$email=$_POST['email'];
+		$type=$_POST['problemtype'];
+		$message=$_POST['textarea'];
+		$MailObj->reportous($name,$email,$type,$message);
+		$MailObj->sendReport($_POST['email']);
+	}
+
 ?>
 <div class="container response">
 	<div class="">
