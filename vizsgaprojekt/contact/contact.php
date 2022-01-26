@@ -1,3 +1,14 @@
+<?php
+  if(isset($_SESSION['email'])){
+    $email=$_SESSION['email'];
+  }
+  else if(isset($_SESSION['loginemail'])){
+    $email=$_SESSION['loginemail'];
+  }
+  if(isset($_SESSION['name'])){
+    $name=$_SESSION['name'];
+  }
+?>
 <div class="contact">
   <div class="urlap mx-auto">
     <h1 class="text-white">
@@ -5,18 +16,9 @@
     </h1>
     <form class="row g-3 needs-validation text-white" method="POST" action="<?php echo $baseUrl?>/reportconfirmed" novalidate>
       <div class="col-md-4">
-        <label for="validationCustomLastName" class="form-label">First Name</label>
+        <label for="validationCustomLastName" class="form-label">Name</label>
         <div class="input-group has-validation">
-          <input type="text" name="firstname" class="form-control" id="validationCustomFirstName" value="" aria-describedby="inputGroupPrepend" required>
-          <div class="invalid-feedback">
-            Please provide a valid name.
-          </div>
-        </div>
-      </div>
-      <div class="col-md-4">
-        <label for="validationCustomLastName" class="form-label">Last Name</label>
-        <div class="input-group has-validation">
-          <input type="text" name="lastname" class="form-control" id="validationCustomLastName" value="" aria-describedby="inputGroupPrepend" required>
+          <input type="text" name="firstname" class="form-control" id="validationCustomFirstName" value="<?php if(isset($name)){echo $name;}?>" aria-describedby="inputGroupPrepend" required>
           <div class="invalid-feedback">
             Please provide a valid name.
           </div>
@@ -25,11 +27,23 @@
       <div class="col-md-4">
         <label for="validationCustomemail" class="form-label">Email</label>
         <div class="input-group has-validation">
-          <input type="email" name="email" class="form-control" id="validationCustomemail" aria-describedby="inputGroupPrepend" required>
+          <input type="email" name="email" class="form-control" value="<?php if(isset($email)){echo $email;}?>" id="validationCustomemail" aria-describedby="inputGroupPrepend" required>
           <div class="invalid-feedback">
             Please provide a valid email.
           </div>
         </div>
+      </div>
+      <div class="col-md-4">
+        <label for="validationCustomLastName" class="form-label">Username</label>
+        <select class="form-select" name="problemtype" aria-label="Default select example">
+          <option value="" disabled selected>Select your option</option>
+          <option value="1">Problem with my reservation</option>
+          <option value="2">Can't find something</option>
+          <option value="3">Problem with my account</option>
+          <option value="4">Can't access my account</option>
+          <option value="5">Problem with the staff</option>
+          <option value="6">Problem with the hotel</option>
+        </select>
       </div>
       <div class="col-md-6 w-100 texttarea">
         <label for="validationCustom03" class="form-label">Please tell us about your problem!</label>
