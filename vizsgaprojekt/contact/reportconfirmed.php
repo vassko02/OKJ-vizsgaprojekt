@@ -1,6 +1,8 @@
 <?php
 
-	 $MailObj->sendReport($_POST['firstname'],$_POST['lastname'],$_POST['email'],$_POST['textarea']);
+	$MailObj->sendReport($_POST['email']);
+	$MailObj->reportous($_POST['name'],$_POST['email'],$_POST['type'],$_POST['message']);
+	//$MailObj->sendEmail($_POST['email']);
 	echo "<pre>";
 	print_r($_POST);
 	echo "</pre>";
