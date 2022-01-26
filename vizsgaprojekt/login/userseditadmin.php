@@ -7,6 +7,7 @@
     if (isset($_POST['isadmin'])) {
       $_POST['isadmin'] = 1;
     }
+    
     $GuestObj->updatecustomeradmin($_POST);
    
   }

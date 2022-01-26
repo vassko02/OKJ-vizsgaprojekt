@@ -11,6 +11,17 @@ class Guest extends Dbconnect
         }
         return $users;
     }
+    public function getuserbyid($username)
+    {
+        $sql = 'SELECT * FROM customer where customer.UserName = ?';
+        $stmt = $this->con->prepare($sql);
+        $stmt->bind_param("s", $username);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        $row = $result->fetch_assoc();
+       
+        return $row;
+    }
     public function savecustomer($adatok)
     {
         $sql = 'INSERT INTO customer (Name,PhoneNumber,Email,Address) VALUES (?,?,?,?)';

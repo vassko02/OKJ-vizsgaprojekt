@@ -25,7 +25,7 @@
 
 <div class="container">  
   <form id="reservation" class="neon1" action="" method="POST">
-    <h3>'.$user['name'].'</h3>
+    <h3 id="user">'.$user['name'].'</h3>
     <hr class="hr">
     <fieldset>
       <label for="name">Username: </label>

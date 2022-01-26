@@ -4,17 +4,12 @@ session_start();
 define('VEDETT', 'igen');
 
 //szervernél: /~PeacefulParadise
-//localhostnál: /14aphp/OKJ-vizsgaprojekt/vizsgaprojekt
-$baseUrl = '/~PeacefulParadise'; 
+//localhostnál: /14aphp/legfrissebb/OKJ-vizsgaprojekt/vizsgaprojekt
+$baseUrl = '/14aphp/legfrissebb/OKJ-vizsgaprojekt/vizsgaprojekt'; 
 $request = $_SERVER['REQUEST_URI']; //mindenkori url
 $mennyiper = substr_count($request, '/');
 $baseMennyiper = substr_count($baseUrl, '/');
 
-if (isset($_GET['m'])) {
-    $m = $_GET['m'];
-} else {
-    $m = 'home';
-}
 if (isset($_GET['roomid'])) {
     $mid = $_GET['roomid'];
 } else {
@@ -158,10 +153,19 @@ if (isset($_POST['btn_send2'])) {
                 <link rel="stylesheet" href="./login/reservations.css">
                 ';
     }
+    if ($request === $baseUrl . '/guestreservations') {
+        echo '
+                <link rel="stylesheet" href="./login/reservations.css">
+                ';
+    }
     if ( $request === $baseUrl . '/account') {
         echo '
                 <link rel="stylesheet" href="./login/reservations.css">
                 <link rel="stylesheet" href="./login/useracc.css">
+                <link rel="preconnect" href="https://fonts.googleapis.com">
+                <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+                <link href="https://fonts.googleapis.com/css2?family=Rubik&display=swap" rel="stylesheet">
+                <link href="https://fonts.googleapis.com/css2?family=Cairo&display=swap" rel="stylesheet">
                 ';
     }
     if ($request === $baseUrl . '/signin') {
@@ -298,6 +302,11 @@ if (isset($_POST['btn_send2'])) {
                 include('./404/404.php');
             }
             break;
+        case $baseUrl . '/guestreservations':
+                if (isset($_SESSION['username'])) {
+                    include('./login/guestreservations.php');
+                } 
+                break;
         case $baseUrl . '/userseditadmin':
             if (isset($_SESSION['isadmin']) && $_SESSION['isadmin'] === 1) {
                 include('./login/userseditadmin.php');

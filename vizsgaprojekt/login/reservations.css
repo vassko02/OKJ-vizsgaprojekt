@@ -1,6 +1,7 @@
 @import url(https://fonts.googleapis.com/css?family=Open+Sans:400italic,400,300,600);
 
 
+
 body,html {
 
 	
@@ -16,8 +17,31 @@ body,html {
 	  )
 	  0 / 15px 15px;
 }
+a{
+	text-decoration: none;
+	color: #ad9b41;
+	
+}
+a:hover{
+	text-decoration: none;
 
-.container {
+	color: #C5B358;
+	text-shadow: 0.5px 0.5px #696363;
+}
+#nagytitle{
+	text-align: center;
+	font-size: 4vw;
+	color: #C5B358;
+	text-shadow: 4px 4px #696363;
+	
+}
+.donthaveres{
+	text-align: center;
+	padding-top: 30vh;
+	min-height: 92vh;
+}
+#container {
+	min-height: 92vh !important;
 	max-width:400px;
 	width:100%;
 	margin:0 auto;
@@ -103,7 +127,7 @@ label{
 	font-weight: bold;
 }
 #reservation-submit:hover {
-	background-color: hsl(50, 48%, 41%) !important;
+	background-color: #9b8a36 !important;
 }
 #Add-Consumption:hover {
 	background-color: hsl(50, 48%, 41%) !important;
