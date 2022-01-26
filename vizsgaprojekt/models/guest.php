@@ -182,13 +182,34 @@ class Guest extends Dbconnect
         $activation_link = 'diak.jedlik.eu'.$baseUrl."/activate?email=$email&activation_code=$activation_code";
 
         // set email subject & body
-        $subject = 'Please activate your account';
-        $message = 'Link: '.$activation_link.'';
+        $subject = 'Activate your account';
+        //$message = 'Link: '.$activation_link.'';
+        $message = '<html>
+        <head>
+            <title>Activate your account</title>
+        </head>
+        <body style="background-color: #eee; font-size: 16px;">
+            <div style="max-width: 600px; min-width: 200px; background-color: #fff; padding: 20px; margin: auto;">
+                <div style="width: 100%; text-align: center;">
+                    <h1>Activate your account</h1>
+                </div>
+                <div style="width: 100%;">
+                    <h2>To get full access you have to activate your account first</h2>
+                    <p>Link: '.$activation_link.'</p>
+                </div>
+            </div>
+        
+        </body>
+        </html>';
         // email header
-        $header = "From: peacefulparadise@diak.jedlik.eu";
+        $headers[] = 'MIME-Version: 1.0';
+        $headers[] = 'Content-type: text/html; charset=iso-8859-1';
+        $headers[] = 'From: Peaceful Paradise <peacefulparadise@diak.jedlik.eu>';
+        $headers[] = 'Cc: peacefulparadiseofficial@gmail.com';
+        $headers[] = 'Bcc: peacefulparadiseofficial@gmail.com';
 
         // send the email
-        mail($email, $subject, nl2br($message), $header);
+        mail($email, $subject, nl2br($message), implode("\r\n", $headers));
     }
     public function delete_user_by_id(int $id, int $active = 0)
     {
@@ -212,12 +233,12 @@ class Guest extends Dbconnect
     
         $user = $stmt->get_result();
         $row = $user->fetch_assoc();
-
-            // verify the password
-            if (md5($activation_code) === $row['activation_code']) {
-                return $row;
+            if ($row != null) {
+                if (md5($activation_code) === $row['activation_code']) {
+                    return $row;
+                }
             }
-    
+            // verify the password
         return null;
     }
     public function activate_user(int $user_id): bool
@@ -236,4 +257,3 @@ class Guest extends Dbconnect
     
 }
 //https://www.phptutorial.net/php-tutorial/php-email-verification/
-?>
