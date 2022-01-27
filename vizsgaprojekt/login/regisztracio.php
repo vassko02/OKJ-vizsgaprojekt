@@ -81,7 +81,7 @@
 
 
 
-                 <div class="footer"><a href="https://en.wikipedia.org/wiki/Stupidity">Forgot password</a></div>
+                 <div class="footer"><a href="<?php echo $baseUrl?>/forgotpassword">Forgot password?</a></div>
              </form>
          </div>
 

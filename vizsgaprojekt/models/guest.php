@@ -1,95 +1,106 @@
 <?php
 class Guest extends Dbconnect
 {
-    public function getallusers()
-    {
-        $sql = 'SELECT * FROM customer';
-        $result = $this->con->query($sql);
-        $users = array();
-        while ($row = $result->fetch_assoc()) {
-            $users[] = $row;
-        }
-        return $users;
+  public function getallusers()
+  {
+    $sql = 'SELECT * FROM customer';
+    $result = $this->con->query($sql);
+    $users = array();
+    while ($row = $result->fetch_assoc()) {
+      $users[] = $row;
     }
-    public function getuserbyid($username)
-    {
-        $sql = 'SELECT * FROM customer where customer.UserName = ?';
-        $stmt = $this->con->prepare($sql);
-        $stmt->bind_param("s", $username);
-        $stmt->execute();
-        $result = $stmt->get_result();
-        $row = $result->fetch_assoc();
-       
-        return $row;
+    return $users;
+  }
+  public function getuserbyid($username)
+  {
+    $sql = 'SELECT * FROM customer where customer.UserName = ?';
+    $stmt = $this->con->prepare($sql);
+    $stmt->bind_param("s", $username);
+    $stmt->execute();
+    $result = $stmt->get_result();
+    $row = $result->fetch_assoc();
+
+    return $row;
+  }
+  public function savecustomer($adatok)
+  {
+    $sql = 'INSERT INTO customer (Name,PhoneNumber,Email,Address) VALUES (?,?,?,?)';
+    $stmt = $this->con->prepare($sql);
+    $stmt->bind_param("ssss", $adatok['name'], $adatok['tel'], $adatok['email'], $adatok['address']);
+    $stmt->execute();
+  }
+  public function updatecustomer($adatok)
+  {
+    $sql = "UPDATE customer SET Name=?, PhoneNumber=?, Email=?, Address=? WHERE customer.Email = ?";
+    $stmt = $this->con->prepare($sql);
+    $stmt->bind_param("sssss", $adatok['name'], $adatok['tel'], $adatok['email'], $adatok['address'], $adatok['email']);
+    $stmt->execute();
+  }
+  public function findcustomerbyemail($email)
+  {
+    $sql = 'SELECT * FROM customer WHERE email=?';
+    $stmt = $this->con->prepare($sql);
+    $stmt->bind_param("s", $email);
+    $stmt->execute();
+
+    $result = $stmt->get_result();
+
+    if ($result->num_rows == 1) {
+      //oke
+      $row = $result->fetch_assoc();
+      return $row;
+    } else {
+      return 0;
     }
-    public function savecustomer($adatok)
-    {
-        $sql = 'INSERT INTO customer (Name,PhoneNumber,Email,Address) VALUES (?,?,?,?)';
-        $stmt = $this->con->prepare($sql);
-        $stmt->bind_param("ssss", $adatok['name'], $adatok['tel'], $adatok['email'], $adatok['address']);
-        $stmt->execute();
+  }
+  public function saveguestproblem($adatok)
+  {
+    $sql = 'INSERT INTO reports (GuestName,Email,Problem,date) VALUES (?,?,?,?)';
+    $stmt = $this->con->prepare($sql);
+    $name = $adatok['firstname'] . ' ' . $adatok['lastname'];
+    $date = date("Y-m-d H:i:s");
+    $stmt->bind_param("ssss", $name, $adatok['email'], $adatok['textarea'], $date);
+    if ($stmt->execute()) {
+      return 1;
     }
-    public function updatecustomer($adatok)
-    {
-        $sql = "UPDATE customer SET Name=?, PhoneNumber=?, Email=?, Address=? WHERE customer.Email = ?";
-        $stmt = $this->con->prepare($sql);
-        $stmt->bind_param("sssss", $adatok['name'], $adatok['tel'], $adatok['email'], $adatok['address'], $adatok['email']);
-        $stmt->execute();
+    return 0;
+  }
+  public function logincheck($email, $jelszo)
+  {
+
+    $sql = 'SELECT * FROM customer WHERE Email=? AND Password=md5(?)';
+
+    $stmt = $this->con->prepare($sql);
+    $stmt->bind_param("ss", $email, $jelszo);
+    $stmt->execute();
+
+    $result = $stmt->get_result();
+
+    if ($result->num_rows == 1) {
+      //oke
+      $row = $result->fetch_assoc();
+      return $row;
+    } else {
+      return 0;
     }
-    public function findcustomerbyemail($email)
-    {
-        $sql = 'SELECT * FROM customer WHERE email=?';
-        $stmt = $this->con->prepare($sql);
-        $stmt->bind_param("s", $email);
-        $stmt->execute();
+  }
 
-        $result = $stmt->get_result();
+  public function eemailcsekk($email)
+  {
+    $sql = 'SELECT Email FROM customer WHERE Email=?';
+    $stmt = $this->con->prepare($sql);
+    $stmt->bind_param("s", $email);
+    $stmt->execute();
 
-        if ($result->num_rows == 1) {
-            //oke
-            $row = $result->fetch_assoc();
-            return $row;
-        } else {
-            return 0;
-        }
+    $result = $stmt->get_result();
+
+        return $result->num_rows;
     }
-    public function saveguestproblem($adatok)
+    public function eemailcsekkforuseredit($email,$id)
     {
-        $sql = 'INSERT INTO reports (GuestName,Email,Problem,date) VALUES (?,?,?,?)';
+        $sql = 'SELECT Email FROM customer WHERE Email=? AND CustomerID != ?';
         $stmt = $this->con->prepare($sql);
-        $name = $adatok['firstname'] . ' ' . $adatok['lastname'];
-        $date = date("Y-m-d H:i:s");
-        $stmt->bind_param("ssss", $name, $adatok['email'], $adatok['textarea'], $date);
-        if ($stmt->execute()) {
-            return 1;
-        }
-        return 0;
-    }
-    public function logincheck($email, $jelszo)
-    {
-
-        $sql = 'SELECT * FROM customer WHERE Email=? AND Password=md5(?)';
-
-        $stmt = $this->con->prepare($sql);
-        $stmt->bind_param("ss", $email, $jelszo);
-        $stmt->execute();
-
-        $result = $stmt->get_result();
-
-        if ($result->num_rows == 1) {
-            //oke
-            $row = $result->fetch_assoc();
-            return $row;
-        } else {
-            return 0;
-        }
-    }
-
-    public function eemailcsekk($email)
-    {
-        $sql = 'SELECT Email FROM customer WHERE Email=?';
-        $stmt = $this->con->prepare($sql);
-        $stmt->bind_param("s", $email);
+        $stmt->bind_param("si", $email,$id);
         $stmt->execute();
 
         $result = $stmt->get_result();
@@ -101,6 +112,17 @@ class Guest extends Dbconnect
         $sql = 'SELECT UserName FROM customer WHERE UserName=?';
         $stmt = $this->con->prepare($sql);
         $stmt->bind_param("s", $username);
+        $stmt->execute();
+
+    $result = $stmt->get_result();
+
+    return $result->num_rows;
+  }
+    public function usernamecsekkforuseredit($username,$id)
+    {
+        $sql = 'SELECT UserName FROM customer WHERE UserName=? AND CustomerID != ?';
+        $stmt = $this->con->prepare($sql);
+        $stmt->bind_param("si", $username,$id);
         $stmt->execute();
 
         $result = $stmt->get_result();
@@ -123,32 +145,34 @@ class Guest extends Dbconnect
     public function logincsekkemail($email, $jelszo)
     {
 
-        $sql = 'SELECT * FROM customer WHERE email=? AND password=md5(?)';
+    $sql = 'SELECT * FROM customer WHERE email=? AND password=md5(?)';
 
-        $stmt = $this->con->prepare($sql);
-        $stmt->bind_param("ss", $email, $jelszo);
-        $stmt->execute();
+    $stmt = $this->con->prepare($sql);
+    $stmt->bind_param("ss", $email, $jelszo);
+    $stmt->execute();
 
-        $result = $stmt->get_result();
+    $result = $stmt->get_result();
 
-        if ($result->num_rows == 1) {
-            //oke
-            $row = $result->fetch_assoc();
-            return $row;
-        } else {
-            return 0;
-        }
+    if ($result->num_rows == 1) {
+      //oke
+      $row = $result->fetch_assoc();
+      return $row;
+    } else {
+      return 0;
     }
+  }
+    
+  
     public function logincsekkusername($username, $jelszo)
     {
 
-        $sql = 'SELECT * FROM customer WHERE UserName=? AND password=md5(?)';
+    $sql = 'SELECT * FROM customer WHERE UserName=? AND password=md5(?)';
 
-        $stmt = $this->con->prepare($sql);
-        $stmt->bind_param("ss", $username, $jelszo);
-        $stmt->execute();
+    $stmt = $this->con->prepare($sql);
+    $stmt->bind_param("ss", $username, $jelszo);
+    $stmt->execute();
 
-        $result = $stmt->get_result();
+    $result = $stmt->get_result();
 
         if ($result->num_rows == 1) {
             //oke
@@ -158,17 +182,10 @@ class Guest extends Dbconnect
             return 0;
         }
     }
-    public function deleteuser($id)
-    {
-        $sql = "DELETE FROM customer WHERE customer.CustomerID = ?";
-        $stmt = $this->con->prepare($sql);
-        $stmt->bind_param("i", $id);
-        $stmt->execute();
-    }
     public function updatecustomeradmin($adatok){
-        $sql = "UPDATE customer SET Name=?, PhoneNumber=?, Email=?, Address=?, IsAdmin = ? WHERE customer.CustomerID = ?";
+        $sql = "UPDATE customer SET Name=?, PhoneNumber=?,Email=?, UserName=?,  Address=?, IsAdmin = ? WHERE customer.CustomerID = ?";
         $stmt = $this->con->prepare($sql);
-        $stmt->bind_param("ssssis",$adatok['name'],$adatok['phonenumber'],$adatok['email'],$adatok['address'],$adatok['isadmin'],$adatok['CustomerID']);
+        $stmt->bind_param("sssssis",$adatok['name'],$adatok['phonenumber'],$adatok['email'],$adatok['username'],$adatok['address'],$adatok['isadmin'],$adatok['CustomerID']);
         $stmt->execute();
     }
     public function updatecustomer2($adatok){
@@ -177,25 +194,33 @@ class Guest extends Dbconnect
         $stmt->bind_param("sssssi",$adatok['name'],$adatok['phonenumber'],$adatok['email'],$adatok['address'],$adatok['username'],$adatok['CustomerID']);
         $stmt->execute();
     }
+  
+  public function deleteuser($id)
+  {
+    $sql = "DELETE FROM customer WHERE customer.CustomerID = ?";
+    $stmt = $this->con->prepare($sql);
+    $stmt->bind_param("i", $id);
+    $stmt->execute();
+  }
 
-    //php email verification teszt
-    public function is_user_active($user)
-    {
-        return (int)$user['active'] === 1;
-    }
-    public function generate_activation_code(): string
-    {
-        return bin2hex(random_bytes(16));
-    }
-    public function send_activation_email(string $email, string $activation_code, $baseUrl): void
-    {
-        // create the activation link
-        $activation_link = 'diak.jedlik.eu'.$baseUrl."/activate?email=$email&activation_code=$activation_code";
+  //php email verification teszt
+  public function is_user_active($user)
+  {
+    return (int)$user['active'] === 1;
+  }
+  public function generate_activation_code(): string
+  {
+    return bin2hex(random_bytes(16));
+  }
+  public function send_activation_email(string $email, string $activation_code, $baseUrl): void
+  {
+    // create the activation link
+    $activation_link = 'diak.jedlik.eu' . $baseUrl . "/activate?email=$email&activation_code=$activation_code";
 
-        // set email subject & body
-        $subject = 'Activate your account';
-        //$message = 'Link: '.$activation_link.'';
-        $message = '<!DOCTYPE HTML
+    // set email subject & body
+    $subject = 'Activate your account';
+    //$message = 'Link: '.$activation_link.'';
+    $message = '<!DOCTYPE HTML
         PUBLIC "-//W3C//DTD XHTML 1.0 Transitional //EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
       <html xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml"
         xmlns:o="urn:schemas-microsoft-com:office:office">
@@ -507,6 +532,8 @@ class Guest extends Dbconnect
                                       <p style="font-size: 14px; line-height: 170%;"><span
                                           style="font-size: 16px; line-height: 27.2px;">You are almost ready to get started. 
                                           Please click on the button below to verify your email address to get full access to our services.<br /></span></p>
+                                          <p style="font-size: 14px; line-height: 170%;"><span
+                                      style="font-size: 16px; line-height: 27.2px;">The link is valid for one day.<br /></span></p>
                                     </div>
       
                                   </td>
@@ -523,7 +550,7 @@ class Guest extends Dbconnect
       
                                     <div align="center">
                                       <!--[if mso]><table width="100%" cellpadding="0" cellspacing="0" border="0" style="border-spacing: 0; border-collapse: collapse; mso-table-lspace:0pt; mso-table-rspace:0pt;font-family:Montserrat,sans-serif;"><tr><td style="font-family:Montserrat,sans-serif;" align="center"><v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="http://diak.jedlik.eu/~PeacefulParadise/contactus" style="height:47px; v-text-anchor:middle; width:172px;" arcsize="8.5%" stroke="f" fillcolor="#cca250"><w:anchorlock/><center style="color:#FFFFFF;font-family:Montserrat,sans-serif;"><![endif]-->
-                                      <a href="'.$activation_link.'" target="_blank"
+                                      <a href="' . $activation_link . '" target="_blank"
                                         style="box-sizing: border-box;display: inline-block;font-family:Montserrat,sans-serif;text-decoration: none;-webkit-text-size-adjust: none;text-align: center;color: #FFFFFF; background-color: #cca250; border-radius: 4px;-webkit-border-radius: 4px; -moz-border-radius: 4px; width:auto; max-width:100%; overflow-wrap: break-word; word-break: break-word; word-wrap:break-word; mso-border-alt: none;">
                                         <span style="display:block;padding:14px 33px;line-height:120%;"><strong><span
                                               style="font-size: 16px; line-height: 19.2px;">Verify email now
@@ -678,6 +705,7 @@ class Guest extends Dbconnect
                                       <p style="font-size: 14px; line-height: 170%;"><span
                                           style="font-size: 16px; line-height: 27.2px;">If you have any issues with the button above, copy this link and paste in your web browser:</span>
                                       </p>
+                                      
                                     </div>
       
                                   </td>
@@ -695,7 +723,7 @@ class Guest extends Dbconnect
                                     <div
                                       style="color: #444444; line-height: 170%; word-wrap: break-word;">
                                       <p style="font-size: 14px; line-height: 170%;"><span
-                                          style="font-size: 16px; line-height: 27.2px;"> '.$activation_link.' </span>
+                                          style="font-size: 16px; line-height: 27.2px;"> ' . $activation_link . ' </span>
                                       </p>
                                     </div>
       
@@ -836,59 +864,62 @@ class Guest extends Dbconnect
       </body>
       
       </html>';
-        // email header
-        $headers[] = 'MIME-Version: 1.0';
-        $headers[] = 'Content-type: text/html; charset=iso-8859-1';
-        $headers[] = 'From: Peaceful Paradise <peacefulparadise@diak.jedlik.eu>';
-        $headers[] = 'Cc: peacefulparadiseofficial@gmail.com';
-        $headers[] = 'Bcc: peacefulparadiseofficial@gmail.com';
+    // email header
+    $headers[] = 'MIME-Version: 1.0';
+    $headers[] = 'Content-type: text/html; charset=iso-8859-1';
+    $headers[] = 'From: Peaceful Paradise <peacefulparadise@diak.jedlik.eu>';
+    $headers[] = 'Cc: peacefulparadiseofficial@gmail.com';
+    $headers[] = 'Bcc: peacefulparadiseofficial@gmail.com';
 
-        // send the email
-        mail($email, $subject, $message, implode("\r\n", $headers));
-    }
-    public function delete_user_by_id(int $id, int $active = 0)
-    {
-        $sql = 'DELETE FROM customer
+    // send the email
+    mail($email, $subject, $message, implode("\r\n", $headers));
+  }
+  public function delete_user_by_id(int $id, int $active = 0)
+  {
+    $sql = 'DELETE FROM customer
                 WHERE CustomerID =? and active=?';
-    
-        $stmt = $this->con->prepare($sql);
-        $stmt->bind_param("ii", $id,$active);
-    
-        return $stmt->execute();
+
+    $stmt = $this->con->prepare($sql);
+    $stmt->bind_param("ii", $id, $active);
+
+    return $stmt->execute();
+  }
+  public function find_unverified_user(string $activation_code, string $email)
+  {
+
+    $sql = 'SELECT CustomerID, activation_code, activation_expiry < now() as expired FROM `customer` where active is null and Email = ? ';
+
+    $stmt = $this->con->prepare($sql);
+
+    $stmt->bind_param("s", $email);
+    $stmt->execute();
+
+    $user = $stmt->get_result();
+    $row = $user->fetch_assoc();
+
+    if ($row != null) {
+      if (md5($activation_code) === $row['activation_code']) {
+        return $row;
+      }
     }
-    public function find_unverified_user(string $activation_code, string $email)
-    {
-    
-        $sql = 'SELECT CustomerID, activation_code, activation_expiry < now() as expired FROM `customer` where active is null and Email = ? ';
-    
-        $stmt = $this->con->prepare($sql);
-    
-        $stmt->bind_param("s", $email);
-        $stmt->execute();
-    
-        $user = $stmt->get_result();
-        $row = $user->fetch_assoc();
-            if ($row != null) {
-                if (md5($activation_code) === $row['activation_code']) {
-                    return $row;
-                }
-            }
-            // verify the password
-        return null;
-    }
-    public function activate_user(int $user_id): bool
-    {
-        $sql = 'UPDATE customer
+    // verify the password
+    return null;
+  }
+  public function activate_user(int $user_id): bool
+  {
+    $sql = 'UPDATE customer
                 SET active = 1,
                     activated_at = CURRENT_TIMESTAMP
                 WHERE CustomerID=?';
-    
-        $stmt = $this->con->prepare($sql);
-        $stmt->bind_param("i", $user_id);
-    
-        return $stmt->execute();
-    }
 
-    
+    $stmt = $this->con->prepare($sql);
+    $stmt->bind_param("i", $user_id);
+
+    return $stmt->execute();
+  }
+  public function deleteAllExpiredActivationUsers() {
+    //SELECT * FROM `customer` where activation_expiry < CURRENT_DATE and active is null and activation_code not like '';
+
+  }
 }
 //https://www.phptutorial.net/php-tutorial/php-email-verification/
