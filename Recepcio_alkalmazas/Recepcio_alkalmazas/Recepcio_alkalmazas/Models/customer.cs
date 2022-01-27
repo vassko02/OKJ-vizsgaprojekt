@@ -64,6 +64,33 @@ namespace Recepcio_alkalmazas.Models
             }
             return lista;
         }
+        public static ObservableCollection<customer> selectGuestsByEmail(string email)
+        {
+            var lista = new ObservableCollection<customer>();
+            using (var con = new MySqlConnection(ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString))
+            {
+                con.Open();
+                var sql = "Select customer.Name from customer Where customer.Email LIKE @email";
+                using (var cmd = new MySqlCommand(sql, con))
+                {
+                    cmd.Parameters.AddWithValue("@email", email);
+                    using (var reader = cmd.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            //lista.Add(new customer(reader));
+                            lista.Add(new customer()
+                            {
+                                Name = reader["Name"].ToString()
+                            }
+                            );
+                        }
+                    }
+                }
+                con.Close();
+            }
+            return lista;
+        }
         public static ObservableCollection<customer> selectGuestNames()
         {
             var lista = new ObservableCollection<customer>();

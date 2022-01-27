@@ -24,9 +24,13 @@ namespace Recepcio_alkalmazas.Views
             InitializeComponent();
             this.DataContext = ujguest;
         }
-
         private void btn_save_Click(object sender, RoutedEventArgs e)
         {
+            if (customer.selectGuestsByEmail(tb_email.Text).Count!=0)
+            {
+                MessageBox.Show("This email address is already used!", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
             if (tb_email.Text==""|| tb_guestname.Text == "" || tb_phonenumber.Text == "" ||!tb_email.Text.Contains("@"))
             {
                 MessageBox.Show("Incorrect data!", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
@@ -36,7 +40,6 @@ namespace Recepcio_alkalmazas.Views
             DialogResult = true;
             this.Close();
         }
-
         private void btn_cancel_Click(object sender, RoutedEventArgs e)
         {
             DialogResult = false;
