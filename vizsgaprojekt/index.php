@@ -153,6 +153,8 @@ if (isset($_POST['btn_send2'])) {
     if ($request === $baseUrl . '/userseditadmin') {
         echo '
                 <link rel="stylesheet" href="./login/reservations.css">
+                <link rel="stylesheet" href="./login/usereditadmin.css">
+
                 ';
     }
     if ($request === $baseUrl . '/guestreservations') {
@@ -164,6 +166,7 @@ if (isset($_POST['btn_send2'])) {
         echo '
                 <link rel="stylesheet" href="./login/reservations.css">
                 <link rel="stylesheet" href="./login/useracc.css">
+                <link rel="stylesheet" href="./login/usereditadmin.css">
                 <link rel="preconnect" href="https://fonts.googleapis.com">
                 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
                 <link href="https://fonts.googleapis.com/css2?family=Rubik&display=swap" rel="stylesheet">

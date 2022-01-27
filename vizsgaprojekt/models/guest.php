@@ -96,11 +96,33 @@ class Guest extends Dbconnect
 
         return $result->num_rows;
     }
+    public function eemailcsekkforuseredit($email,$id)
+    {
+        $sql = 'SELECT Email FROM customer WHERE Email=? AND CustomerID != ?';
+        $stmt = $this->con->prepare($sql);
+        $stmt->bind_param("si", $email,$id);
+        $stmt->execute();
+
+        $result = $stmt->get_result();
+
+        return $result->num_rows;
+    }
     public function usernamecsekk($username)
     {
         $sql = 'SELECT UserName FROM customer WHERE UserName=?';
         $stmt = $this->con->prepare($sql);
         $stmt->bind_param("s", $username);
+        $stmt->execute();
+
+        $result = $stmt->get_result();
+
+        return $result->num_rows;
+    }
+    public function usernamecsekkforuseredit($username,$id)
+    {
+        $sql = 'SELECT UserName FROM customer WHERE UserName=? AND CustomerID != ?';
+        $stmt = $this->con->prepare($sql);
+        $stmt->bind_param("si", $username,$id);
         $stmt->execute();
 
         $result = $stmt->get_result();
@@ -139,6 +161,7 @@ class Guest extends Dbconnect
             return 0;
         }
     }
+  
     public function logincsekkusername($username, $jelszo)
     {
 
@@ -166,9 +189,9 @@ class Guest extends Dbconnect
         $stmt->execute();
     }
     public function updatecustomeradmin($adatok){
-        $sql = "UPDATE customer SET Name=?, PhoneNumber=?, Email=?, Address=?, IsAdmin = ? WHERE customer.CustomerID = ?";
+        $sql = "UPDATE customer SET Name=?, PhoneNumber=?,Email=?, UserName=?,  Address=?, IsAdmin = ? WHERE customer.CustomerID = ?";
         $stmt = $this->con->prepare($sql);
-        $stmt->bind_param("ssssis",$adatok['name'],$adatok['phonenumber'],$adatok['email'],$adatok['address'],$adatok['isadmin'],$adatok['CustomerID']);
+        $stmt->bind_param("sssssis",$adatok['name'],$adatok['phonenumber'],$adatok['email'],$adatok['username'],$adatok['address'],$adatok['isadmin'],$adatok['CustomerID']);
         $stmt->execute();
     }
     public function updatecustomer2($adatok){
