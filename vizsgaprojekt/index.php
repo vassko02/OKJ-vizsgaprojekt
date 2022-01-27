@@ -5,7 +5,7 @@ define('VEDETT', 'igen');
 
 //szervernél: /~PeacefulParadise
 //localhostnál: /14aphp/OKJ-vizsgaprojekt/vizsgaprojekt
-$baseUrl = '/14aphp/legfrissebb/OKJ-vizsgaprojekt/vizsgaprojekt'; 
+$baseUrl = '/14aphp/friss/OKJ-vizsgaprojekt/vizsgaprojekt'; 
 $request = $_SERVER['REQUEST_URI']; //mindenkori url
 $mennyiper = substr_count($request, '/');
 $baseMennyiper = substr_count($baseUrl, '/');
@@ -56,6 +56,7 @@ if (isset($_POST['btn_send2'])) {
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js" integrity="sha384-oesi62hOLfzrys4LxRF63OJCXdXDipiYWBnvTl9Y9/TRlw5xlKIEHpNyvvDShgf/" crossorigin="anonymous"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
     <link rel="stylesheet" href="<?php if ($mennyiper === ($baseMennyiper + 2)) {
                                         echo '.';
@@ -189,6 +190,9 @@ if (isset($_POST['btn_send2'])) {
     if (strpos($request, "activate?email") !== false) {
         echo '<link rel="stylesheet" href="./aktivalas/aktivalas.css">
         <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro&display=swap" rel="stylesheet">';
+    }
+    if ($request === $baseUrl . '/forgotpassword') {
+        echo '  <link rel="stylesheet" href="./aktivalas/elfelejtettjelszo.css">';
     }
     ?>
 
@@ -337,13 +341,16 @@ if (isset($_POST['btn_send2'])) {
         case strpos($request, "activate?email") !== false: 
             include('./aktivalas/aktivalas.php');
             break;
+        case $baseUrl.'/forgotpassword':
+            include('./aktivalas/elfelejtettjelszo.php');
+            break;
         default:
             //http_response_code(404);
             include('./404/404.php');
             break;
     }
 
-    if ($request != $baseUrl . '/gambling' && $request != $baseUrl . '/admin' && strpos($request, "activate?email") === false) {
+    if ($request != $baseUrl . '/gambling' && $request != $baseUrl . '/admin' && strpos($request, "activate?email") === false && $request != $baseUrl . '/forgotpassword') {
         include('./footer/footer.php');
     }
 
