@@ -84,7 +84,39 @@ class Guest extends Dbconnect
       return 0;
     }
   }
+  public function getreservationsnumber($id){
+    $sql= 'SELECT ReservationNumber FROM customer WHERE customer.CustomerID = ?';
+    $stmt = $this->con->prepare($sql);
+    $stmt->bind_param("i", $id);
+    $stmt->execute();
+    $result = $stmt->get_result();
+    $row = $result->fetch_assoc();
+    return $row;
 
+  }
+  public function getlevel($id){
+    $sql= 'SELECT LEVEL FROM customer WHERE customer.CustomerID = ?';
+    $stmt = $this->con->prepare($sql);
+    $stmt->bind_param("i", $id);
+    $stmt->execute();
+    $result = $stmt->get_result();
+    $row = $result->fetch_assoc();
+    return $row;
+
+  }
+  public function addonetoreservationnumber($id,$number){
+    $sql= 'UPDATE customer SET ReservationNumber=? WHERE customer.CustomerID = ?';
+    $stmt = $this->con->prepare($sql);
+    $stmt->bind_param("ii", $number, $id);
+    $stmt->execute();
+
+  }
+  public function updatelevel($id,$level){
+    $sql= 'UPDATE customer SET LEVEL=? WHERE customer.CustomerID = ?';
+    $stmt = $this->con->prepare($sql);
+    $stmt->bind_param("si", $level, $id);
+    $stmt->execute();
+  }
   public function eemailcsekk($email)
   {
     $sql = 'SELECT Email FROM customer WHERE Email=?';
