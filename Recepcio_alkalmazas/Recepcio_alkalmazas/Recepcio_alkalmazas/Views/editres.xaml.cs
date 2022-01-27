@@ -22,17 +22,19 @@ namespace Recepcio_alkalmazas.Views
     /// </summary>
     public partial class editres : Window
     {
+
         reservation egyfoglalas = new reservation();
         ObservableCollection<servicetype> tipusok = new ObservableCollection<servicetype>();
         ObservableCollection<room> szobak = new ObservableCollection<room>();
         ObservableCollection<room> szabadszobak = new ObservableCollection<room>();
         ObservableCollection<consumption> fogyik = new ObservableCollection<consumption>();
-
+        customer egyuser = new customer();
+        double szorzo = 1;
         int RoomIDkesobbre;
         bool editlesz = true;
         public editres(reservation model)
         {
-            InitializeComponent();
+            InitializeComponent();   
             egyfoglalas = model;
             szobak = room.selectAllRooms();
             this.DataContext = egyfoglalas;
@@ -59,6 +61,10 @@ namespace Recepcio_alkalmazas.Views
                 {
                     cb_rooms.SelectedItem = item.RoomName;
                 }
+            }
+            if (egyuser.ReservationNumber == 3 || egyuser.ReservationNumber == 7 || egyuser.ReservationNumber == 11)
+            {
+                egyuser.Level = szintcsekk(egyuser.ReservationNumber,egyuser.Level);
             }
         }
         private void btn_save_Click(object sender, RoutedEventArgs e)
@@ -97,7 +103,7 @@ namespace Recepcio_alkalmazas.Views
                     {
                         aktualis.RoomID = item.RoomID;
                         aktualis.RoomPrice = room.selectRoomByID(aktualis.RoomID)[0].RoomPrice;
-                        aktualis.Price = (aktualis.RoomPrice + aktualis.ServicePrice) * napok;
+                        aktualis.Price = (aktualis.RoomPrice + aktualis.ServicePrice) * napok*szorzo;
                         string x = aktualis.Price.ToString("F2");
                         aktualis.Price = double.Parse(x);
                         aktualis.RoomName = room.selectRoomByID(aktualis.RoomID)[0].RoomName;
@@ -115,10 +121,10 @@ namespace Recepcio_alkalmazas.Views
                     aktualis.RoomID = RoomIDkesobbre;
                     napok = (int)aktualis.LeavingDate.Subtract(aktualis.ArrivalDate).TotalDays;
                     aktualis.RoomPrice = room.selectRoomByID(aktualis.RoomID)[0].RoomPrice;
-                    aktualis.Price = (aktualis.RoomPrice + aktualis.ServicePrice) * napok;
+                    aktualis.Price = (aktualis.RoomPrice + aktualis.ServicePrice) * napok*szorzo;
                     string temp = aktualis.Price.ToString("F2");
                     aktualis.Price = double.Parse(temp);
-                    int f=reservation.insert(aktualis);
+                    int f =reservation.insert(aktualis);
                     foreach (var item in fogyik)
                     {
                         consumption.insertkokany(item.Price,item.ItemName,f);
@@ -153,6 +159,7 @@ namespace Recepcio_alkalmazas.Views
             }
             if (editlesz != true && vanerror == false)
             {
+                customer.updateResNumber(aktualis.CustomerID,egyuser.ReservationNumber+1,egyuser.Level);
                 reservation.insert(aktualis);
                 DialogResult = true;
                 this.Close();
@@ -186,5 +193,50 @@ namespace Recepcio_alkalmazas.Views
         {
             e.Handled = !IsTextAllowed(e.Text);
         }
+
+        private void cb_vendegek_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            customer temp = (customer)cb_vendegek.SelectedItem;
+            egyuser = customer.selectGuestByNAme(temp.Name)[0];
+                    BrushConverter bc = new BrushConverter();
+            switch (egyuser.Level)
+            {
+                case "Gold":
+                    sp_level.Background = Brushes.Gold;
+                    lbl_level.Content = "Gold";
+                    szorzo = 0.95;
+                    break;
+                case "Platinum":
+                    sp_level.Background = (Brush)bc.ConvertFrom("#E5E4E2");
+                    lbl_level.Content = "Platinum";
+                    szorzo = 0.90;
+                    break;
+                case "Diamond":
+                    sp_level.Background = (Brush)bc.ConvertFrom("#b9f2ff");
+                    lbl_level.Content = "Diamond";
+                    szorzo = 0.85;
+                    break;
+                default:
+                    lbl_level.Content = "This user is not ranked yet";
+                    szorzo = 1;
+                    break;
+            }
+        }
+        public string szintcsekk(int resnumber,string szint)
+        {
+            switch (resnumber)
+            {
+                case 3:
+                    szint = "Gold";
+                    break;
+                case 7:
+                    szint = "Platinum";
+                    break;
+                case 11:
+                    szint = "Diamond";
+                    break;
+            }
+            return szint;
+        } 
     }
 }
