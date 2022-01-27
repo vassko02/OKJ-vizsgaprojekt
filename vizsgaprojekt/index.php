@@ -5,7 +5,7 @@ define('VEDETT', 'igen');
 
 //szervernél: /~PeacefulParadise
 //localhostnál: /14aphp/OKJ-vizsgaprojekt/vizsgaprojekt
-$baseUrl = '/~PeacefulParadise'; 
+$baseUrl = '/14aphp/legfrissebb/OKJ-vizsgaprojekt/vizsgaprojekt'; 
 $request = $_SERVER['REQUEST_URI']; //mindenkori url
 $mennyiper = substr_count($request, '/');
 $baseMennyiper = substr_count($baseUrl, '/');
@@ -31,13 +31,62 @@ $HelpObj = new Help();
 $StorageObj = new storage();
 $MailObj = new mail();
 include('action.php');
+if (isset($_POST['btn_send'])) {
+    $user = $GuestObj->getuserbyid($_SESSION['username']);
+    $level =  $GuestObj->getlevel($user['CustomerID']);
+    switch($level['LEVEL']){
+        case "Gold":
+            $_SESSION['multiplier'] = 0.95;
+            break;
+        
+        case "Platinum":
+            $_SESSION['multiplier'] = 0.90;
+            break;
+        
+        case "Diamond":
+            $_SESSION['multiplier'] = 0.85;
+            break;
+        default: 
+            $_SESSION['multiplier'] = 1;
+            break;
+    }
+}
 if (isset($_POST['btn_send2'])) {
     if (isset($_SESSION['adult'])) {
+        if (isset($_SESSION['adult'])) {
+           
+        }
+     
+        if (isset($_SESSION['username'])) {
+            $user = $GuestObj->getuserbyid($_SESSION['username']);
+
+            $Rnumber = $GuestObj->getreservationsnumber($user['CustomerID']);  
+            
+            $Rnumber['ReservationNumber'] += 1;
+            $GuestObj->addonetoreservationnumber($user['CustomerID'],$Rnumber['ReservationNumber']);
+            $level = '';
+            if ( $Rnumber['ReservationNumber'] >= 4 ) {
+                $level = "Gold";
+            } 
+            else if ($Rnumber['ReservationNumber'] >= 8 ) {
+                $level = "Platinum";
+            }
+            else if($Rnumber['ReservationNumber'] >= 12 ){
+                $level = "Diamond";
+            }
+            $GuestObj->updatelevel($user['CustomerID'],$level);
+          
+            
+        }
+       
         $ReservationObj->savereservation($_SESSION);
+
         $HelpObj->clearReservation();
 
     } else {
     }
+ 
+
 }
 ?>
 

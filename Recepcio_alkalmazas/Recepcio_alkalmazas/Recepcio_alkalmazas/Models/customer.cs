@@ -25,6 +25,9 @@ namespace Recepcio_alkalmazas.Models
         public string PhoneNumber { get; set; }
         public string Email { get; set; }
         public string Address { get; set; }
+        public string Level { get; set; }
+        public int ReservationNumber { get; set; }
+
 
         public customer(){ }
         public customer(MySqlDataReader reader)
@@ -34,6 +37,8 @@ namespace Recepcio_alkalmazas.Models
             this.PhoneNumber = reader["PhoneNumber"].ToString();
             this.Email = reader["Email"].ToString();
             this.Address = reader["Address"].ToString();
+            this.Level= reader["LEVEL"].ToString();
+            this.ReservationNumber = Convert.ToInt32(reader["ReservationNumber"]);
 
         }
         public static ObservableCollection<customer> selectGuestNameByResID(int id)
@@ -51,7 +56,6 @@ namespace Recepcio_alkalmazas.Models
                     {
                         while (reader.Read())
                         {
-                            //lista.Add(new customer(reader));
                             lista.Add(new customer()
                             {
                                 Name = reader["Name"].ToString()
@@ -128,6 +132,44 @@ namespace Recepcio_alkalmazas.Models
                     cmd.ExecuteNonQuery();
                     return (int)cmd.LastInsertedId;
                 }
+            }
+        }
+        public static ObservableCollection<customer> selectGuestByNAme(string name)
+        {
+            var lista = new ObservableCollection<customer>();
+            using (var con = new MySqlConnection(ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString))
+            {
+                con.Open();
+                var sql = "Select * from customer Where customer.Name LIKE @name";
+                using (var cmd = new MySqlCommand(sql, con))
+                {
+                    cmd.Parameters.AddWithValue("@name", name);
+                    using (var reader = cmd.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            lista.Add(new customer(reader));                            
+                        }
+                    }
+                }
+                con.Close();
+            }
+            return lista;
+        }
+        public static void updateResNumber(int id,int mennyire,string level)
+        {
+            using (var con = new MySqlConnection(ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString))
+            {
+                con.Open();
+                var sql = "UPDATE customer SET ReservationNumber=@mennyire, LEVEL=@level WHERE CustomerID=@id";
+                using (var cmd = new MySqlCommand(sql, con))
+                {
+                    cmd.Parameters.AddWithValue("@id", id);
+                    cmd.Parameters.AddWithValue("@mennyire", mennyire);
+                    cmd.Parameters.AddWithValue("@level", level);
+                    cmd.ExecuteNonQuery();
+                }
+                con.Close();
             }
         }
     }

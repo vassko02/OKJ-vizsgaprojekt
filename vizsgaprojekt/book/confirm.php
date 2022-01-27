@@ -1,5 +1,4 @@
 <?php
-
   $_SESSION['customername'] = $_POST['name'];
   $_SESSION['email'] = $_POST['email'];
   $_SESSION['phonenumber'] = $_POST['tel'];
@@ -22,17 +21,13 @@
   $_SESSION['serviceprice'] = $oneservice['ServicePrice'];
   
   }
- 
-  //difference between two dates
   $date1 = date_create($_SESSION['checkin']);
   $date2 = date_create($_SESSION['checkout']);
   $diff = date_diff($date1,$date2);
 
-  //count days
-
-    echo 'Days Count - '.$diff->format("%a");
-  $_SESSION['fullprice'] = ($_SESSION['serviceprice']+$_SESSION['RoomPrice'])* $diff->format("%a");
-
+  
+  $_SESSION['fullprice'] = (($_SESSION['serviceprice']+$_SESSION['RoomPrice'])* $diff->format("%a"))*$_SESSION['multiplier'];
+  $hundred = 100;
 
 
  
@@ -98,7 +93,7 @@
 </div>
 <div class="mb-3 keret">
   <label for="fullprice" class="form-label">Full Price:</label>
-  <span> $<?php echo $_SESSION['fullprice'] ?></span>
+  <span> $<?php echo ''.$_SESSION['fullprice'].' -   '.$hundred-$_SESSION['multiplier']*$hundred.'% DISCOUNT  ';?></span>
 </div>
 <input type="hidden" id="Edit" name="Edit" value="<?php echo $edit?>">
 <button class="btn btn-warning mt-3 edit col keret" type="submit"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">

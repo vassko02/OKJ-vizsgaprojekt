@@ -24,6 +24,7 @@ namespace Recepcio_alkalmazas.pages
     {
         ObservableCollection<reservation> foglalasok = new ObservableCollection<reservation>();
         reservation egyfoglalas = new reservation();
+        customer egyuser = new customer();
         public editreservation()
         {
             InitializeComponent();

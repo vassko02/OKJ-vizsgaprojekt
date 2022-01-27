@@ -17,6 +17,27 @@ body,html {
 	  )
 	  0 / 15px 15px;
 }
+.icon{
+	
+	width: 40px;
+	height: 40px;
+}
+.rankicon{
+	float: right;
+}
+.Gold{
+	background-color: #b99e00 !important;
+}
+.Gold label{
+	color: black !important;
+}
+.Platinum{
+	background-color: #2f8fa5 !important;
+	
+}
+.Diamond{
+	background-color: #1a3596 !important;
+}
 a{
 	text-decoration: none;
 	color: #ad9b41;
