@@ -901,13 +901,13 @@ class Guest extends Dbconnect
     $headers[] = 'Content-type: text/html; charset=iso-8859-1';
     
     $headers[] = 'From: Peaceful Paradise <peacefulparadise@diak.jedlik.eu>';
-    $headers[] = 'Cc: peacefulparadiseofficial@gmail.com';
+    //$headers[] = 'Cc: peacefulparadiseofficial@gmail.com';
     //$headers[] = 'Bcc: peacefulparadiseofficial@gmail.com';
 
     // send the email
     mail($email, $subject, $message, implode("\r\n", $headers));
 
-    file_put_contents('teszt.txt', 'teszt', FILE_APPEND | LOCK_EX);
+    //file_put_contents('teszt.txt', 'teszt', FILE_APPEND | LOCK_EX);
   }
   public function delete_user_by_id(int $id, int $active = 0)
   {

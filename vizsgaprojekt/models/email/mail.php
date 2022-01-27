@@ -716,8 +716,8 @@ class mail extends Dbconnect
     // Additional headers
     //$headers[] = 'To: David <kaldavai26@gmail.com>';
     $headers[] = 'From: Peaceful Paradise <peacefulparadise@diak.jedlik.eu>';
-    $headers[] = 'Cc: peacefulparadiseofficial@gmail.com';
-    $headers[] = 'Bcc: peacefulparadiseofficial@gmail.com';
+    //$headers[] = 'Cc: peacefulparadiseofficial@gmail.com';
+    //$headers[] = 'Bcc: peacefulparadiseofficial@gmail.com';
 
     // Mail it
     mail($kinek, $subject, $message, implode("\r\n", $headers));
@@ -1464,8 +1464,8 @@ class mail extends Dbconnect
     // Additional headers
     //$headers[] = 'To: David <kaldavai26@gmail.com>';
     $headers[] = 'From: Peaceful Paradise <peacefulparadise@diak.jedlik.eu>';
-    $headers[] = 'Cc: peacefulparadiseofficial@gmail.com';
-    $headers[] = 'Bcc: peacefulparadiseofficial@gmail.com';
+    //$headers[] = 'Cc: peacefulparadiseofficial@gmail.com';
+    //$headers[] = 'Bcc: peacefulparadiseofficial@gmail.com';
     // Mail it
     mail($to,$subject,$uzenet, implode("\r\n", $headers));
   }
