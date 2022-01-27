@@ -118,6 +118,10 @@ class Guest extends Dbconnect
 
         return $result->num_rows;
     }
+    public function addreservationtocustomer()
+    {
+       
+    }
     public function usernamecsekkforuseredit($username,$id)
     {
         $sql = 'SELECT UserName FROM customer WHERE UserName=? AND CustomerID != ?';
