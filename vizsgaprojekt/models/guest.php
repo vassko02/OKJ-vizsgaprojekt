@@ -218,7 +218,7 @@ class Guest extends Dbconnect
     $activation_link = 'diak.jedlik.eu' . $baseUrl . "/activate?email=$email&activation_code=$activation_code";
 
     // set email subject & body
-    $subject = 'Activate your account';
+    $subject = 'Account activation';
     //$message = 'Link: '.$activation_link.'';
     $message = '<!DOCTYPE HTML
         PUBLIC "-//W3C//DTD XHTML 1.0 Transitional //EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -867,12 +867,15 @@ class Guest extends Dbconnect
     // email header
     $headers[] = 'MIME-Version: 1.0';
     $headers[] = 'Content-type: text/html; charset=iso-8859-1';
+    
     $headers[] = 'From: Peaceful Paradise <peacefulparadise@diak.jedlik.eu>';
     $headers[] = 'Cc: peacefulparadiseofficial@gmail.com';
-    $headers[] = 'Bcc: peacefulparadiseofficial@gmail.com';
+    //$headers[] = 'Bcc: peacefulparadiseofficial@gmail.com';
 
     // send the email
     mail($email, $subject, $message, implode("\r\n", $headers));
+
+    file_put_contents('teszt.txt', 'teszt', FILE_APPEND | LOCK_EX);
   }
   public function delete_user_by_id(int $id, int $active = 0)
   {

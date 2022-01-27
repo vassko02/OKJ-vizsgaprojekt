@@ -85,6 +85,7 @@ if ($request === $baseUrl . '/signin' && isset($_POST['btn_reg'])) {
     if ($emailHibauzenet == '' && count($jelszohibauzenet) == 0 && $usernamehibauzenet == '') {
         //nincs hiba
 
+        
         $emailcode = $GuestObj->generate_activation_code();
         $GuestObj->send_activation_email($_POST['email'], $emailcode, $baseUrl);
         if ($GuestObj->saveuser($_POST, $emailcode) == 1) {

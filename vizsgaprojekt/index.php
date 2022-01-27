@@ -5,7 +5,7 @@ define('VEDETT', 'igen');
 
 //szervernél: /~PeacefulParadise
 //localhostnál: /14aphp/OKJ-vizsgaprojekt/vizsgaprojekt
-$baseUrl = '/14aphp/friss/OKJ-vizsgaprojekt/vizsgaprojekt'; 
+$baseUrl = '/~PeacefulParadise'; 
 $request = $_SERVER['REQUEST_URI']; //mindenkori url
 $mennyiper = substr_count($request, '/');
 $baseMennyiper = substr_count($baseUrl, '/');
@@ -377,6 +377,7 @@ if (isset($_POST['btn_send2'])) {
         // });
     </script>
     <script defer src="app.js"></script>
+    <?php print $_POST;?>
 </body>
 
 </html>
