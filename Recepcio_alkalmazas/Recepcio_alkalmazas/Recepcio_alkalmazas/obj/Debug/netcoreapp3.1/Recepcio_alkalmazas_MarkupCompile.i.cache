@@ -1,5 +1,5 @@
 ﻿Recepcio_alkalmazas
-
+1.0.0.0
 
 winexe
 C#
@@ -8,12 +8,12 @@ D:\OKJ-vizsgaprojekt\Recepcio_alkalmazas\Recepcio_alkalmazas\Recepcio_alkalmazas
 Recepcio_alkalmazas
 none
 false
-TRACE;DEBUG;NETCOREAPP;NETCOREAPP3_1
+TRACE;DEBUG;NETCOREAPP;NETCOREAPP3_1;
 D:\OKJ-vizsgaprojekt\Recepcio_alkalmazas\Recepcio_alkalmazas\Recepcio_alkalmazas\App.xaml
-11548283093
+11-1529353873
 
-22-402956977
-202-564286971
+23-1996457447
+2021077767256
 CardPayment.xaml;MainWindow.xaml;Views\AddGuest.xaml;Views\cashreg.xaml;Views\ComsumptionAdd.xaml;Views\cons.xaml;Views\editcons.xaml;Views\editres.xaml;Views\editreservation.xaml;Views\guestarrives.xaml;Views\guestleaves.xaml;
 
 False

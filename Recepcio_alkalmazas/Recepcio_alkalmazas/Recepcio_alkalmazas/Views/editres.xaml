@@ -23,7 +23,7 @@
             <ImageBrush ImageSource="../img/hatter.jpg"/>
         </Grid.Background>
         <StackPanel Grid.Row="0" Grid.ColumnSpan="2" Name="sp_level" Background="Gold">
-            <Label Content="Guest level:" FontSize="18" FontWeight="Bold"/>
+            <Label Content="Guest level:" Name="lbl_title" FontSize="18" FontWeight="Bold"/>
             <Label Name="lbl_level" Content="" FontWeight="Bold" FontSize="16"/>
         </StackPanel>
         <StackPanel Grid.ColumnSpan="2" Grid.Row="1">
@@ -41,7 +41,7 @@
         </StackPanel>
         <StackPanel Grid.Row="2" Grid.Column="1" Grid.RowSpan="3">
             <Label Content="Room type:" Margin="5" Foreground="DarkGoldenrod" FontSize="15" FontWeight="Bold"/>
-            <ComboBox Name="cb_rooms" Margin="5" />
+            <ComboBox Name="cb_rooms" Margin="5" SelectionChanged="cb_rooms_SelectionChanged" />
             <Label Content="Service type:" Margin="5" Foreground="DarkGoldenrod" FontSize="15" FontWeight="Bold"/>
             <ComboBox Name="cb_services" SelectedValue="{Binding ServiceID}" Margin="5" DisplayMemberPath="ServiceType" SelectedValuePath="ServiceID"/>
         </StackPanel>

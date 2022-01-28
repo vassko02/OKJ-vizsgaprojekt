@@ -27,8 +27,7 @@ namespace Recepcio_alkalmazas.Models
         public string Address { get; set; }
         public string Level { get; set; }
         public int ReservationNumber { get; set; }
-
-
+        //public int? active { get; set; }
         public customer(){ }
         public customer(MySqlDataReader reader)
         {
@@ -39,6 +38,7 @@ namespace Recepcio_alkalmazas.Models
             this.Address = reader["Address"].ToString();
             this.Level= reader["LEVEL"].ToString();
             this.ReservationNumber = Convert.ToInt32(reader["ReservationNumber"]);
+            //this.active = Convert.ToInt32(reader["active"]);
 
         }
         public static ObservableCollection<customer> selectGuestNameByResID(int id)
@@ -171,6 +171,28 @@ namespace Recepcio_alkalmazas.Models
                 }
                 con.Close();
             }
+        }
+        public static ObservableCollection<customer> selectuserByID(int id)
+        {
+            var lista = new ObservableCollection<customer>();
+            using (var con = new MySqlConnection(ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString))
+            {
+                con.Open();
+                var sql = "Select * from customer Where customer.CustomerID LIKE @id";
+                using (var cmd = new MySqlCommand(sql, con))
+                {
+                    cmd.Parameters.AddWithValue("@id", id);
+                    using (var reader = cmd.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            lista.Add(new customer(reader));
+                        }
+                    }
+                }
+                con.Close();
+            }
+            return lista;
         }
     }
 }

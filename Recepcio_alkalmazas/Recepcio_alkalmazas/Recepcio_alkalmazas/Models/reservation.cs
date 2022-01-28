@@ -24,6 +24,7 @@ namespace Recepcio_alkalmazas.Models
         }
         private double _Price;
 
+        public string Level { get; set; }
         public double Price
         {
             get { return _Price; }
@@ -91,6 +92,7 @@ namespace Recepcio_alkalmazas.Models
         public string Name { get; set; }
         public string PhoneNumber { get; set; }
         public string Email { get; set; }
+
 
         private string _RoomName;
         public string RoomName
