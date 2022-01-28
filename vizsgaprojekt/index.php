@@ -5,7 +5,7 @@ define('VEDETT', 'igen');
 
 //szervernél: /~PeacefulParadise
 //localhostnál: /14aphp/OKJ-vizsgaprojekt/vizsgaprojekt
-$baseUrl = '/14aphp/friss/OKJ-vizsgaprojekt/vizsgaprojekt'; 
+$baseUrl = '/~PeacefulParadise'; 
 $request = $_SERVER['REQUEST_URI']; //mindenkori url
 $mennyiper = substr_count($request, '/');
 $baseMennyiper = substr_count($baseUrl, '/');
@@ -243,6 +243,9 @@ if (isset($_POST['btn_send2'])) {
     if ($request === $baseUrl . '/forgotpassword') {
         echo '  <link rel="stylesheet" href="./aktivalas/elfelejtettjelszo.css">';
     }
+    if (strpos($request, "passwordreset?email") !== false) {
+        echo '<link rel="stylesheet" href="./aktivalas/setnewpassword.css">';
+    }
     ?>
 
     <link rel="icon" href="<?php if ($mennyiper === ($baseMennyiper + 2)) {
@@ -390,6 +393,9 @@ if (isset($_POST['btn_send2'])) {
         case strpos($request, "activate?email") !== false: 
             include('./aktivalas/aktivalas.php');
             break;
+        case strpos($request, "passwordreset?email") !== false: 
+            include('./aktivalas/setnewpassword.php');
+            break;
         case $baseUrl.'/forgotpassword':
             include('./aktivalas/elfelejtettjelszo.php');
             break;
@@ -399,7 +405,7 @@ if (isset($_POST['btn_send2'])) {
             break;
     }
 
-    if ($request != $baseUrl . '/gambling' && $request != $baseUrl . '/admin' && strpos($request, "activate?email") === false && $request != $baseUrl . '/forgotpassword') {
+    if ($request != $baseUrl . '/gambling' && $request != $baseUrl . '/admin' && strpos($request, "activate?email") === false && $request != $baseUrl . '/forgotpassword' && strpos($request, "passwordreset?email") === false) {
         include('./footer/footer.php');
     }
 
