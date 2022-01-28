@@ -97,3 +97,15 @@ if ($request === $baseUrl . '/signin' && isset($_POST['btn_reg'])) {
         }
     }
 }
+if ($request === $baseUrl . '/forgotpassword' && isset($_POST['reset_password'])) {
+    $existingEmail = $GuestObj->find_existing_email_in_db($_POST['resetEmail']);
+    if ($existingEmail == null) {
+        $emailError = 'There is no account registered with this email or the account has not been activated yet!';
+    }
+    else {  //jó az email
+        $password_reset_code = $GuestObj->generate_password_reset_token(); //kódgenerálás
+        $GuestObj->send_password_reset_email($_POST['resetEmail'],$password_reset_code,$baseUrl); //email küldés
+        $GuestObj->update_user_reset_code_in_db($existingEmail['CustomerID'], $password_reset_code); //hozzáírja a kódot az adatbázishoz
+        header('Location: '.$baseUrl.'/');
+    }
+}

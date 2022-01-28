@@ -1,5 +1,10 @@
 body,html {
     background-color: hsl(0, 0%, 10%);
+    color: white;
+}
+.alert {
+    width: 40vw;
+    margin: 0 auto;
 }
 .forgotpassword{
     color: white;

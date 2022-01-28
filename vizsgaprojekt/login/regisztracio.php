@@ -82,7 +82,7 @@
 
 
 
-                 <div class="footer"><a href="<?php echo $baseUrl?>/forgotpassword">Forgot password?</a></div>
+                 
              </form>
          </div>
 
@@ -115,6 +115,8 @@
                  <div class="button-signin">
                      <button id="logingomb" type="submit" name="login">Sign in</button>
                  </div>
+                 
+                 <div class="footer"><a href="<?php echo $baseUrl?>/forgotpassword">Forgot password?</a></div>
              </form>
          </div>
          <div class="overlay-loginout">
@@ -131,6 +133,7 @@
                  </div>
              </div>
          </div>
+         
      </div>
      <!--Telefonos signin-->
      <div class="mobilesign urlap">
