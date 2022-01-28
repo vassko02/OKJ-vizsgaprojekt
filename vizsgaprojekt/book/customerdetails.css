@@ -1,10 +1,55 @@
-body{
-    background: linear-gradient(-45deg, #646464, #646464, #646464, #646464);
-	background-size: 1000% 1000%;
-	animation: gradient 15s ease infinite;
-	height: 100vh;
-}
+@import url('https://fonts.googleapis.com/css2?family=Prompt&display=swap');
 .btn{
     float: right;
-    width: 200px;
+    width: 10vw;
+}
+h1{
+    font-family: 'Prompt', sans-serif;
+    font-size: 3vw;
+    background: -webkit-linear-gradient( #ffe134,#ffe134,#0f0f0fa2);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-align: left;
+    text-decoration: underline;
+    padding-right: 2vw !important;
+    
+}
+.text {
+	
+	-webkit-text-fill-color: transparent;
+}
+input{
+    font-family: 'Prompt' !important;
+    border:1px solid #ceb631 !important;
+}
+label{
+    color: #ffe134;
+    width: 100%;
+    text-align: right;
+}
+.keret{
+    margin-top: 5vw !important;
+    margin-bottom: 20vw !important;
+    margin-left: 10vw !important;
+    margin-right: 10vw !important;
+    font-size: 2em;
+    background-color: #1e2029;
+    color: #fff;
+    box-shadow: 2px 2px 2px #00000080, 10px 1px 12px #00000080,
+      2px 2px 10px #00000080, 2px 2px 3px #00000080, inset 2px 2px 10px #00000080,
+      inset 2px 2px 10px #00000080, inset 2px 2px 10px #00000080,
+      inset 2px 2px 10px #00000080;
+    border-radius: 29px;
+    padding: 11px 19px;
+    margin: 0 40px;
+  
+}
+
+.smalllogo
+{
+    margin-top: 0.5vw;
+    width: 5.2vw;
+    height: 4vw;
+    content: url('../pictures/small_rounded.png') !important;
+    
 }
