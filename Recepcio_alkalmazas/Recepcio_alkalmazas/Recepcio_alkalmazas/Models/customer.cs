@@ -27,7 +27,7 @@ namespace Recepcio_alkalmazas.Models
         public string Address { get; set; }
         public string Level { get; set; }
         public int ReservationNumber { get; set; }
-        //public int? active { get; set; }
+        public string activated_at { get; set; }
         public customer(){ }
         public customer(MySqlDataReader reader)
         {
@@ -38,8 +38,7 @@ namespace Recepcio_alkalmazas.Models
             this.Address = reader["Address"].ToString();
             this.Level= reader["LEVEL"].ToString();
             this.ReservationNumber = Convert.ToInt32(reader["ReservationNumber"]);
-            //this.active = Convert.ToInt32(reader["active"]);
-
+            this.activated_at = reader["activated_at"].ToString();
         }
         public static ObservableCollection<customer> selectGuestNameByResID(int id)
         {

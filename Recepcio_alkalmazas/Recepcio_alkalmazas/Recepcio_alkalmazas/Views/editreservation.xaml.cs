@@ -49,11 +49,15 @@ namespace Recepcio_alkalmazas.pages
                     {
                         if (MessageBox.Show("There are consumptions assigned to this reservation, do you still wish to delete the reservation together with the consumptions?", "Confirmation", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
                         {
-                            if (egyuser.active==1)
+                            if (egyuser.activated_at != "")
                             {
                                 egyuser.Level = szintcsekk(egyuser.ReservationNumber,egyuser.Level);
-                                customer.updateResNumber(egyuser.CustomerID,egyuser.ReservationNumber-1,egyuser.Level);
                             }
+                            else
+                            {
+                                egyuser.Level = "";
+                            }
+                            customer.updateResNumber(egyuser.CustomerID,egyuser.ReservationNumber-1,egyuser.Level);
                             consumption.deleteBYREsID(egyfoglalas.ReservationID);
                             reservation.delete(egyfoglalas.ReservationID);
                             tb_guestinput.Text = "";
@@ -65,12 +69,15 @@ namespace Recepcio_alkalmazas.pages
                     }
                     if (mehet==false)
                     {
-                        if (egyuser.active==1)
+                        if (egyuser.activated_at!="")
                         {
                             egyuser.Level = szintcsekk(egyuser.ReservationNumber, egyuser.Level);
-                            customer.updateResNumber(egyuser.CustomerID, egyuser.ReservationNumber - 1, egyuser.Level);
-
                         }
+                        else
+                        {
+                            egyuser.Level = "";
+                        }
+                        customer.updateResNumber(egyuser.CustomerID, egyuser.ReservationNumber - 1, egyuser.Level);
                         reservation.delete(egyfoglalas.ReservationID);
                         tb_guestinput.Text = "";
                         foglalasok = reservation.selectByGuestName(null, 0, true);
