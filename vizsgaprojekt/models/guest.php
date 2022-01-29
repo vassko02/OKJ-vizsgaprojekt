@@ -1656,7 +1656,26 @@ class Guest extends Dbconnect
   }
   public function find_resetable_user(string $password_reset_token, string $email) //megkeresi a felhasználót a link alapján ha van
   {
+    $sql = 'SELECT Email,CustomerID, reset_token, reset_token_expiry < now() as "expired_reset_token" FROM customer where reset_token not like "" and Email = ? ';
 
+    $stmt = $this->con->prepare($sql);
+
+    $stmt->bind_param("s", $email);
+    $stmt->execute();
+
+    $user = $stmt->get_result();
+    $row = $user->fetch_assoc();
+
+    if ($row != null) {
+      if ($row['expired_reset_token'] == 1) {
+        return null;
+      }
+      else if (md5($password_reset_token) === $row['reset_token']) {
+        return $row;
+      }
+    }
+    // verify the password
+    return null;
   }
   public function set_new_password(int $user_id): bool //bekéri az új jelszót és lefrissíti
   {

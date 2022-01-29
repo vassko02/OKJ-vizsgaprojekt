@@ -244,7 +244,8 @@ if (isset($_POST['btn_send2'])) {
         echo '  <link rel="stylesheet" href="./aktivalas/elfelejtettjelszo.css">';
     }
     if (strpos($request, "passwordreset?email") !== false) {
-        echo '<link rel="stylesheet" href="./aktivalas/setnewpassword.css">';
+        echo '<link rel="stylesheet" href="./aktivalas/setnewpassword.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/css/bootstrap.min.css">';
     }
     ?>
 
@@ -411,7 +412,7 @@ if (isset($_POST['btn_send2'])) {
 
     ?>
 
-    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+    <!-- <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script> -->
     <script src="<?php if ($mennyiper === ($baseMennyiper + 2)) {
                         echo '.';
                     } else if ($mennyiper === ($baseMennyiper + 3)) {
