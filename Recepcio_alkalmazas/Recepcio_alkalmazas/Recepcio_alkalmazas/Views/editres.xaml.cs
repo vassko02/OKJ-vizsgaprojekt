@@ -29,8 +29,9 @@ namespace Recepcio_alkalmazas.Views
         ObservableCollection<room> szabadszobak = new ObservableCollection<room>();
         ObservableCollection<consumption> fogyik = new ObservableCollection<consumption>();
         customer egyuser = new customer();
+        reservation aktualis = new reservation();
         double szorzo = 1;
-        int RoomIDkesobbre;
+        bool vanolyanszoba = false;
         bool editlesz = true;
         public editres(reservation model)
         {
@@ -38,7 +39,6 @@ namespace Recepcio_alkalmazas.Views
             egyfoglalas = model;
             szobak = room.selectAllRooms();
             this.DataContext = egyfoglalas;
-            RoomIDkesobbre = egyfoglalas.RoomID;
             cb_vendegek.ItemsSource = customer.selectGuestNames();
             if (egyfoglalas.ReservationID == 0)
             {
@@ -51,6 +51,7 @@ namespace Recepcio_alkalmazas.Views
             {
                 cb_vendegek.SelectedValue = egyfoglalas.CustomerID;
                 cb_vendegek.IsEnabled = false;
+                aktualis.RoomID = model.RoomID;
             }
             tipusok = servicetype.selectAllNames();
             cb_services.ItemsSource = tipusok;
@@ -66,15 +67,29 @@ namespace Recepcio_alkalmazas.Views
         private void btn_save_Click(object sender, RoutedEventArgs e)
         {
             bool vanerror = false;
-            reservation aktualis = new reservation();
             aktualis.ReservationID = egyfoglalas.ReservationID;
             customer a = (customer)cb_vendegek.SelectedItem;
             aktualis.CustomerID = a.CustomerID;
-            aktualis.Adults = int.Parse(tb_adults.Text);
-            aktualis.Children = int.Parse(tb_childer.Text);
+            if (tb_adults.Text==""||tb_childer.Text=="")
+            {
+                vanerror = true;
+            }
+            else
+            {
+                aktualis.Adults = int.Parse(tb_adults.Text);
+                aktualis.Children = int.Parse(tb_childer.Text);
+            }
             aktualis.ArrivalDate = Convert.ToDateTime(dp_checkin.SelectedDate);
             aktualis.LeavingDate = Convert.ToDateTime(dp_checkout.SelectedDate);
             aktualis.GuestNumber = aktualis.Children + aktualis.Adults;
+            if (aktualis.GuestNumber%2==0)
+            {
+                aktualis.Capacity = aktualis.GuestNumber;
+            }
+            else
+            {
+                aktualis.Capacity = aktualis.GuestNumber + 1;
+            }
             aktualis.IsCheckedIn = egyfoglalas.IsCheckedIn;
             if (cb_services.SelectedItem != null)
             {
@@ -86,44 +101,42 @@ namespace Recepcio_alkalmazas.Views
             {
                 vanerror = true;
             }
+            if (cb_rooms.SelectedItem!=null)
+            {
+                aktualis.RoomName = cb_rooms.SelectedItem.ToString();
+
+            }
+            else
+            {
+                vanerror = true;
+            }
             szabadszobak = room.selectCorrectRoom(aktualis);
             int napok = (int)aktualis.LeavingDate.Subtract(aktualis.ArrivalDate).TotalDays;
-            bool vanolyanszoba = false;
             bool teszelt = false;
             if (cb_rooms.SelectedItem != null)
             {
-                aktualis.RoomName = cb_rooms.Text;
-                foreach (var item in szabadszobak)
+                if (szabadszobak.Count != 0)
                 {
-                    if (item.RoomName == aktualis.RoomName)
-                    {
-                        aktualis.RoomID = item.RoomID;
-                        aktualis.RoomPrice = room.selectRoomByID(aktualis.RoomID)[0].RoomPrice;
-                        if (egyuser.activated_at!="")
-                        {
-                            aktualis.Level = customer.selectuserByID(aktualis.CustomerID)[0].Level;
-                            vizsgalat();
-                        }
-                        else
-                        {
-                            aktualis.Level = "";
-                        }
-                        aktualis.Price = (aktualis.RoomPrice + aktualis.ServicePrice) * napok*szorzo;
-                        string x = aktualis.Price.ToString("F2");
-                        aktualis.Price = double.Parse(x);
-                        aktualis.RoomName = room.selectRoomByID(aktualis.RoomID)[0].RoomName;
-                        aktualis.Capacity = room.selectRoomByID(aktualis.RoomID)[0].Capacity;
-                        vanolyanszoba = true;
-                        teszelt = true;
-                        break;
-                    }
+                    aktualis.RoomID = szabadszobak[0].RoomID;
+                    aktualis.RoomPrice = szabadszobak[0].RoomPrice;
+                    vanolyanszoba = true;
+                    teszelt = true;
                 }
+                else
+                {
+                    teszelt = true;
+                    vanolyanszoba = false;
+                }
+
+                aktualis.Price = (aktualis.RoomPrice + aktualis.ServicePrice) * napok*szorzo;
+                string x = aktualis.Price.ToString("F2");
+                aktualis.Price = double.Parse(x);                   
+            }
                 if (editlesz==true&&aktualis.RoomName==egyfoglalas.RoomName&&vanolyanszoba==false)
                 {
                     fogyik = consumption.selectItemByReservationID(aktualis.ReservationID);
                     consumption.deleteBYREsID(aktualis.ReservationID);
                     reservation.delete(aktualis.ReservationID);
-                    aktualis.RoomID = RoomIDkesobbre;
                     napok = (int)aktualis.LeavingDate.Subtract(aktualis.ArrivalDate).TotalDays;
                     aktualis.RoomPrice = room.selectRoomByID(aktualis.RoomID)[0].RoomPrice;                
                     aktualis.Price = (aktualis.RoomPrice + aktualis.ServicePrice) * napok*szorzo;
@@ -137,12 +150,16 @@ namespace Recepcio_alkalmazas.Views
                     teszelt = true;
                     vanolyanszoba = true;
                 }
+            if (egyuser.activated_at != "")
+            {
+                aktualis.Level = customer.selectuserByID(aktualis.CustomerID)[0].Level;
+                vizsgalat();
             }
             else
             {
-                vanerror = true;
+                aktualis.Level = "";
             }
-            if (tb_adults.Text==""||tb_childer.Text==""||(tb_adults.Text=="0"&&tb_childer.Text=="0"))
+            if ((tb_adults.Text=="0"&&tb_childer.Text=="0")||tb_adults.Text=="0")
             {
                 vanerror = true;
             }
@@ -164,7 +181,6 @@ namespace Recepcio_alkalmazas.Views
             }
             if (editlesz != true && vanerror == false)
             {
-                aktualis.RoomID = RoomIDkesobbre;
                 reservation.insert(aktualis);
                 egyuser = customer.selectuserByID(aktualis.CustomerID)[0];
                 if (egyuser.activated_at != "")
@@ -296,7 +312,11 @@ namespace Recepcio_alkalmazas.Views
 
         private void cb_rooms_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            RoomIDkesobbre = cb_rooms.SelectedIndex+1;
+            if (cb_rooms.SelectedItem.ToString()!="")
+            {
+                aktualis.RoomName = cb_rooms.SelectedItem.ToString();
+
+            }
         }
     }
 }
