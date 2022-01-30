@@ -78,15 +78,15 @@ namespace Recepcio_alkalmazas.Models
             using (var con = new MySqlConnection(ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString))
             {
                 con.Open();
-                var sql = "SELECT room.RoomID,room.RoomName FROM `room` LEFT JOIN reservation on room.RoomID = reservation.RoomID" +
+                var sql = "SELECT room.RoomID,room.RoomName,room.RoomPrice FROM `room` LEFT JOIN reservation on room.RoomID = reservation.RoomID" +
                     " WHERE (room.Capacity = @guestnumber or room.Capacity-1=@guestnumber) and (reservation.LeavingDate <= @ArrivalDate " +
-                    "or reservation.ArrivalDate >= @LeavingDate OR reservation.ArrivalDate is null)";
+                    "or reservation.ArrivalDate >= @LeavingDate OR reservation.ArrivalDate is null) and RoomName=@roomname";
                 using (var cmd = new MySqlCommand(sql, con))
                 {
                     cmd.Parameters.AddWithValue("@guestnumber", model.GuestNumber);
                     cmd.Parameters.AddWithValue("@ArrivalDate", model.ArrivalDate);
                     cmd.Parameters.AddWithValue("@LeavingDate", model.LeavingDate);
-
+                    cmd.Parameters.AddWithValue("@roomname", model.RoomName);
                     using (var reader = cmd.ExecuteReader())
                     {
                         while (reader.Read())
@@ -95,6 +95,8 @@ namespace Recepcio_alkalmazas.Models
                             {
                                 RoomID = Convert.ToInt32(reader["RoomID"]),
                                 RoomName = reader["RoomName"].ToString(),
+                                RoomPrice = Convert.ToDouble(reader["RoomPrice"]),
+
                             });
                         }
                     }
