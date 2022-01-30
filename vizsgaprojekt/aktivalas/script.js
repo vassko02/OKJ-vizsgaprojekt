@@ -6,27 +6,27 @@ $(function () {
     validators: [
       {
         regexp: ".{8,}",
-        message: "Minimum 8 chars"
+        message: "Must be atleast 8 characters!"
       },
       {
         regexp: "[a-z]",
-        message: "1 lowercase"
+        message: "Must contain atleast 1 lowercase!"
       },
       {
         regexp: "[A-Z]",
-        message: "1 uppercase"
+        message: "Must contain atleast 1 uppercase!"
       },
       {
         regexp: "[0-9]",
-        message: "1 number"
+        message: "Must contain atleast 1 number!"
       },
       {
         regexp: ".*[!@#$%?=*&]",
-        message: "1 special char !@#$%?=*&"
+        message: "Must contain atleast 1 special!" //@#$%?=*&
       },
       {
         compare: true,
-        message: "Password confirmation must be the same"
+        message: "The the passwords have to be the same!"
       }
     ],
     ok: function (instance) {

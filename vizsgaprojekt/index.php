@@ -5,7 +5,7 @@ define('VEDETT', 'igen');
 
 //szervernél: /~PeacefulParadise
 //localhostnál: /14aphp/OKJ-vizsgaprojekt/vizsgaprojekt
-$baseUrl = '/~PeacefulParadise'; 
+$baseUrl = '/14aphp/clone/OKJ-vizsgaprojekt/vizsgaprojekt'; 
 $request = $_SERVER['REQUEST_URI']; //mindenkori url
 $mennyiper = substr_count($request, '/');
 $baseMennyiper = substr_count($baseUrl, '/');

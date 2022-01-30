@@ -1276,7 +1276,7 @@ class Guest extends Dbconnect
       
                                     <h1 class="v-font-size"
                                       style="margin: 0px; line-height: 160%; text-align: center; word-wrap: break-word; font-weight: normal; font-family: Montserrat,sans-serif; font-size: 33px;">
-                                      <strong>Verify Your E-mail Adress<br/></strong>
+                                      <strong>Set new password<br/></strong>
                                     </h1>
       
                                   </td>
@@ -1295,8 +1295,7 @@ class Guest extends Dbconnect
                                     <div
                                       style="color: #444444; line-height: 170%; text-align: center; word-wrap: break-word;">
                                       <p style="font-size: 14px; line-height: 170%;"><span
-                                          style="font-size: 16px; line-height: 27.2px;">You are almost ready to get started. 
-                                          Please click on the button below to verify your email address to get full access to our services.<br /></span></p>
+                                          style="font-size: 16px; line-height: 27.2px;">A request has been received to reset the password for your account.<br /></span></p>
                                           <p style="font-size: 14px; line-height: 170%;"><span
                                       style="font-size: 16px; line-height: 27.2px;">The link is valid for one day.<br /></span></p>
                                     </div>
@@ -1318,7 +1317,7 @@ class Guest extends Dbconnect
                                       <a href="' . $password_reset_link . '" target="_blank"
                                         style="box-sizing: border-box;display: inline-block;font-family:Montserrat,sans-serif;text-decoration: none;-webkit-text-size-adjust: none;text-align: center;color: #FFFFFF; background-color: #cca250; border-radius: 4px;-webkit-border-radius: 4px; -moz-border-radius: 4px; width:auto; max-width:100%; overflow-wrap: break-word; word-break: break-word; word-wrap:break-word; mso-border-alt: none;">
                                         <span style="display:block;padding:14px 33px;line-height:120%;"><strong><span
-                                              style="font-size: 16px; line-height: 19.2px;">Verify email now
+                                              style="font-size: 16px; line-height: 19.2px;">Reset password now
                                               &rarr;</span></strong></span>
                                       </a>
                                       <!--[if mso]></center></v:roundrect></td></tr></table><![endif]-->
@@ -1677,9 +1676,19 @@ class Guest extends Dbconnect
     // verify the password
     return null;
   }
-  public function set_new_password(int $user_id): bool //bekéri az új jelszót és lefrissíti
+  public function set_new_password(string $newpassword, int $user_id): bool //bekéri az új jelszót és lefrissíti
   {
-    return 0;
+    $sql = 'UPDATE customer
+              SET Password = ?,
+              reset_token = "",
+              reset_token_expiry = ""
+              WHERE CustomerID = ?';
+
+    $stmt = $this->con->prepare($sql);
+    $titkositott = md5($newpassword);
+    $stmt->bind_param("si", $titkositott, $user_id);
+
+    return $stmt->execute();
   }
   
 }

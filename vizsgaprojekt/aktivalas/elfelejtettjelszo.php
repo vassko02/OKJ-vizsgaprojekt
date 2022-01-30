@@ -7,6 +7,7 @@
 ?>
 <div class="forgotpassword">
     <h1>Reset password</h1>
+    <div id="divider"></div>
     <form method="POST" action="<?php echo $baseUrl?>/forgotpassword">
         <div class="form-group">
             <label for="exampleInputEmail1">Please enter your Email address</label>

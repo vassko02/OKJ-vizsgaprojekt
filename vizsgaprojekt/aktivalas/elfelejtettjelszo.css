@@ -40,6 +40,11 @@ form button {
     width: unset;
     height: unset;
 }
+#divider {
+    border-bottom: 2px solid #C5B358;
+    width: 100%;
+    margin-bottom: 3vh;
+}
 form button:hover {
     background-color: #C5B358;
 }
