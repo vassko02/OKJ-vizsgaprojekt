@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Gép: localhost:3306
--- Létrehozás ideje: 2022. Jan 22. 17:53
+-- Létrehozás ideje: 2022. Jan 30. 13:02
 -- Kiszolgáló verziója: 5.5.62-0+deb8u1
 -- PHP verzió: 7.4.3
 
@@ -68,7 +68,11 @@ INSERT INTO `cashregister` (`CashRegisterID`, `GuestName`, `Amount`, `Title`, `P
 (25, 'TestUser', 5279.96, 'Guest paying when checking-in (CARD)', 5279.96, 0),
 (26, 'TestUser', 3689.97, 'Guest paying at check-in', 3700, 10.03),
 (27, 'Vass Kornél', 4119.96, 'Guest paying when checking-in (CARD)', 4119.96, 0),
-(28, 'Vass Kornél', 63.440000000000005, 'Guest paying when checking-out', 70, 6.56);
+(28, 'Vass Kornél', 63.440000000000005, 'Guest paying when checking-out', 70, 6.56),
+(29, 'Vass Kornél', 5039.94, 'Guest paying when checking-in (CARD)', 5039.94, 0),
+(30, 'Bélaasd', 3359.96, 'Guest paying at check-in', 3400, 40.04),
+(31, 'admin', 1766.97, 'Guest paying at check-in', 1800, 33.03),
+(32, 'admin', 44.36000000000001, 'Guest paying when checking-out (CARD)', 44.36000000000001, 0);
 
 -- --------------------------------------------------------
 
@@ -82,18 +86,6 @@ CREATE TABLE `consumption` (
   `ItemName` varchar(50) NOT NULL,
   `ReservationID` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- A tábla adatainak kiíratása `consumption`
---
-
-INSERT INTO `consumption` (`ConsumptionID`, `Price`, `ItemName`, `ReservationID`) VALUES
-(105, 9.99, 'Bloody Mary', 48),
-(107, 15.99, 'Sweet Potato Bites', 48),
-(108, 7.99, 'Cosmopolitan', 48),
-(110, 6.99, 'Gin fizz', 48),
-(111, 8.99, 'Long Island Ice Tea', 48),
-(113, 13.49, 'Jalapeño Cheese Crisps', 48);
 
 -- --------------------------------------------------------
 
@@ -109,24 +101,30 @@ CREATE TABLE `customer` (
   `Address` varchar(300) NOT NULL,
   `UserName` varchar(100) NOT NULL,
   `Password` text NOT NULL,
-  `IsAdmin` tinyint(1) NOT NULL
+  `IsAdmin` tinyint(1) NOT NULL,
+  `active` tinyint(1) DEFAULT NULL,
+  `activation_code` varchar(255) NOT NULL,
+  `activation_expiry` datetime NOT NULL,
+  `activated_at` datetime DEFAULT NULL,
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `LEVEL` varchar(150) NOT NULL,
+  `ReservationNumber` int(11) NOT NULL,
+  `reset_token` varchar(255) NOT NULL,
+  `reset_token_expiry` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='Customer data';
 
 --
 -- A tábla adatainak kiíratása `customer`
 --
 
-INSERT INTO `customer` (`CustomerID`, `Name`, `PhoneNumber`, `Email`, `Address`, `UserName`, `Password`, `IsAdmin`) VALUES
-(1, 'TestUser', '123', '123', '', '', '', 0),
-(3, 'TestUser2', '123', '123', '', '', '', 0),
-(4, 'Béla', '+3620123456', 'a@a.hu', '', '', '', 0),
-(5, 'János', '123', '123', '', '', '', 0),
-(6, 'Vass Kornél', '202483810', 'vass.kornel@gmail.com', 'Táncsics utca 33.', '', '', 0),
-(7, 'teszt', '+32595411', 'a@a@teszt', '', '', '', 0),
-(8, 'asd', 'asd', 'asd@ä', '', '', '', 0),
-(9, 'admin', '', 'admin@admin', '', 'admin', 'e64b78fc3bc91bcbc7dc232ba8ec59e0', 1),
-(10, 'Bac Ilus', '+36304206969', 'example@gmail.com', '9027 Győr Szeszgyár utca 1', '', '', 0),
-(13, 'Kálmán Dávid', '', 'kalman.david@students.jedlik.eu', '', 'mauzileu', 'b575775b053c3c809187be6ff1714490', 0);
+INSERT INTO `customer` (`CustomerID`, `Name`, `PhoneNumber`, `Email`, `Address`, `UserName`, `Password`, `IsAdmin`, `active`, `activation_code`, `activation_expiry`, `activated_at`, `created_at`, `LEVEL`, `ReservationNumber`, `reset_token`, `reset_token_expiry`) VALUES
+(9, 'admin', '123', 'admin@admin', 'asd', 'admin', 'e64b78fc3bc91bcbc7dc232ba8ec59e0', 1, 1, '', '0000-00-00 00:00:00', '2022-01-25 17:20:27', '0000-00-00 00:00:00', '', 0, '', '0000-00-00 00:00:00'),
+(41, 'Koaxk Ábel', '123', 'ko@x.com', 'dsa', 'koax', 'bb3745d30d57c6279777c579a20483bc', 0, 1, '669a3a54886bcd13c6095cf7e5308c56', '2022-01-27 10:13:35', NULL, '2022-01-26 09:13:35', '', 1, '', '0000-00-00 00:00:00'),
+(42, 'Tüdő R. Ákos', '+36304206969', 'tudor@akos.hu', '9012 Győr Kossuth utca 12', '', '', 0, NULL, '', '0000-00-00 00:00:00', NULL, '2022-01-26 09:20:00', '', 0, '', '0000-00-00 00:00:00'),
+(49, 'VK', '', 'vass.kornel@students.jedlik.eu', '', 'vasskoko', 'abfeb5ac73556cadb0d0afc57d7221e8', 1, 1, 'fa412bc35ff12e8a0a2f4bcb5c880d36', '2022-01-27 12:55:05', '2022-01-26 12:55:18', '2022-01-26 11:55:05', '', 0, '', '0000-00-00 00:00:00'),
+(73, 'KD', '', 'kalman.david06@gmail.com', '', 'mau', 'b575775b053c3c809187be6ff1714490', 0, NULL, '06905c013acd8124d5dc695d8f61fa39', '2022-01-28 13:06:11', NULL, '2022-01-27 12:06:12', '', 0, '', '0000-00-00 00:00:00'),
+(77, 'Bac Ilus', '+36304206969', 'example@gmail.com', '9027 Győr Szeszgyár utca 1', '', '', 0, NULL, '', '0000-00-00 00:00:00', NULL, '2022-01-27 12:25:43', '', 2, '', '0000-00-00 00:00:00'),
+(86, 'Kálmán Dávid', '+36304777706', 'kaldavai26@gmail.com', '9027, Győr, Szeszgyár u. 1.', 'mauzileu', 'b575775b053c3c809187be6ff1714490', 0, 1, '3ec1744c06652b8bc31888c7b08e79b4', '2022-01-28 21:56:33', '2022-01-27 21:56:40', '2022-01-27 20:56:33', '', 0, 'f43565e34841471f1c903b3426787c8a', '2022-01-30 23:27:11');
 
 -- --------------------------------------------------------
 
@@ -147,14 +145,6 @@ CREATE TABLE `reservation` (
   `ServiceID` int(11) NOT NULL,
   `IsCheckedIn` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- A tábla adatainak kiíratása `reservation`
---
-
-INSERT INTO `reservation` (`ReservationID`, `GuestNumber`, `Price`, `Children`, `Adults`, `ArrivalDate`, `LeavingDate`, `CustomerID`, `RoomID`, `ServiceID`, `IsCheckedIn`) VALUES
-(48, 2, 5039.94, 1, 1, '2022-01-22', '2022-01-28', 6, 21, 3, 0),
-(49, 4, 2819.9700000000003, 0, 4, '2022-01-23', '2022-01-26', 10, 6, 3, 0);
 
 -- --------------------------------------------------------
 
@@ -388,25 +378,25 @@ ALTER TABLE `storage`
 -- AUTO_INCREMENT a táblához `cashregister`
 --
 ALTER TABLE `cashregister`
-  MODIFY `CashRegisterID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
+  MODIFY `CashRegisterID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
 
 --
 -- AUTO_INCREMENT a táblához `consumption`
 --
 ALTER TABLE `consumption`
-  MODIFY `ConsumptionID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=114;
+  MODIFY `ConsumptionID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=167;
 
 --
 -- AUTO_INCREMENT a táblához `customer`
 --
 ALTER TABLE `customer`
-  MODIFY `CustomerID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `CustomerID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=87;
 
 --
 -- AUTO_INCREMENT a táblához `reservation`
 --
 ALTER TABLE `reservation`
-  MODIFY `ReservationID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=50;
+  MODIFY `ReservationID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=247;
 
 --
 -- AUTO_INCREMENT a táblához `room`
@@ -424,7 +414,7 @@ ALTER TABLE `servicetype`
 -- AUTO_INCREMENT a táblához `storage`
 --
 ALTER TABLE `storage`
-  MODIFY `StorageID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=84;
+  MODIFY `StorageID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=85;
 
 --
 -- Megkötések a kiírt táblákhoz
