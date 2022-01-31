@@ -1,9 +1,19 @@
 <div class="newpassword">
     <?php
-    if (isset($_POST['newPassword']) && isset($_POST['newPasswordAgain']) && isset($_POST['CustomerID'])) {
+    if (isset($_POST['newPassword']) && isset($_POST['newPasswordAgain']) && isset($_POST['CustomerID']) && isset($_POST['Email'])) {
         $newPasswordValid = $GuestObj->verify_new_password($_POST['newPassword'], $_POST['CustomerID']);
         if ($newPasswordValid === null) {
-            echo ('A régi jelszó nem lehet ugyan az mint az új');
+            //print_r($newPasswordValid);
+            echo '
+            <div id="newPasswordSet">
+                <h1>Password could not be changed!</h1>
+                <p>It seems like your new password matches your old one, so we did not change it.</p>
+                <div class="row">
+                    <a id="passwordMatch1" class="col-sm-12 col-lg-4" href="'.$baseUrl.'/passwordreset?email='.$_POST['Email'].'&password_reset_token='.$_POST['reset_token'].'">Set new password</a>
+                    <a id="passwordMatch2" class="col-sm-12 col-lg-4" href="'.$baseUrl.'/signin">Sign in</a>
+                </div>
+            </div>
+            ';
         }
         else {
             $GuestObj->set_new_password($_POST['newPassword'], $_POST['CustomerID']);
@@ -22,7 +32,7 @@
             echo '
             <div id="errorNewPassword">
                 <h1>The link is invalid or the token is expired!</h1>
-                <p>Something might have go wrong...</p>
+                <p>Something might have gone wrong...</p>
                 <a href="'.$baseUrl.'/">Back to the main page</a>
             </div>';
         } else {
@@ -43,6 +53,8 @@
                             <input type="password" name="newPasswordAgain" class="form-control" id="exampleInputPassword1-confirmation" placeholder="New Password Again">
                         </div>
                         <input type="hidden" name="CustomerID" value="'.$user['CustomerID'].'">
+                        <input type="hidden" name="Email" value="'.$user['Email'].'">
+                        <input type="hidden" name="reset_token" value="'.$_GET['password_reset_token'].'">
                         <button id="submit" type="submit" class="" disabled>Submit</button>
                     </form>
                     <div class="col-4" id="validator-output"></div>
@@ -54,7 +66,7 @@
         echo '
         <div id="errorNewPassword">
             <h1>The link is invalid!</h1>
-            <p>Something might have go wrong...</p>
+            <p>Something might have gone wrong...</p>
             <a href="'.$baseUrl.'/">Back to the main page</a>
         </div>';
     }

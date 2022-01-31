@@ -5,7 +5,7 @@ define('VEDETT', 'igen');
 
 //szervernél: /~PeacefulParadise
 //localhostnál: /14aphp/OKJ-vizsgaprojekt/vizsgaprojekt
-$baseUrl = '/14aphp/legfrissebb/OKJ-vizsgaprojekt/vizsgaprojekt'; 
+$baseUrl = '/~PeacefulParadise'; 
 $request = $_SERVER['REQUEST_URI']; //mindenkori url
 $mennyiper = substr_count($request, '/');
 $baseMennyiper = substr_count($baseUrl, '/');
@@ -396,10 +396,20 @@ if (isset($_POST['btn_send2'])) {
             include('./aktivalas/aktivalas.php');
             break;
         case strpos($request, "passwordreset?email") !== false: 
-            include('./aktivalas/setnewpassword.php');
+            if (isset($_SESSION['username'])) {
+                include('./404/404.php');
+            }
+            else {
+                include('./aktivalas/setnewpassword.php');
+            }
             break;
         case $baseUrl.'/forgotpassword':
-            include('./aktivalas/elfelejtettjelszo.php');
+            if (isset($_SESSION['username'])) {
+                include('./404/404.php');
+            }
+            else {
+                include('./aktivalas/elfelejtettjelszo.php');
+            }
             break;
         default:
             //http_response_code(404);

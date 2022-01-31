@@ -162,6 +162,7 @@
              <div class="button-signin">
                  <button id="logingomb" type="submit" name="login">Sign in</button>
              </div>
+             <div class="footer"><a href="<?php echo $baseUrl?>/forgotpassword">Forgot password?</a></div>
          </form>
          <!--signup-->
          <form class="mobilsignup eltunes" id="mobilsignup" action="" method="POST">
@@ -205,7 +206,6 @@
                                                         echo 'mt-4';
                                                     } ?>" name="btn_reg" id="logingomb">Sign up</button>
                  </div>
-                 <div class="footer"><a href="https://en.wikipedia.org/wiki/Stupidity">Forgot password</a></div>
              </form>
      </div>
  </div>
