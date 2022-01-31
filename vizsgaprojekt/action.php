@@ -1,7 +1,11 @@
 <?php
 if (isset($_POST['newacc'])) {
-    
-    $HelpObj->writearray($_POST);
+    $_SESSION['username'] = $_POST['username'];
+    $_SESSION['name']= $_POST['name'] ;
+    $_SESSION['phonenumber']= $_POST['phonenumber'] ;
+    $_SESSION['address'] = $_POST['address'];
+    $_SESSION['CustomerID'] = $_POST['CustomerID'];
+    $HelpObj->writearray($_SESSION);
     header('Location: ' . $baseUrl . '/newaccemail');
 }
 if (($request === $baseUrl . '/contactus' || $request === $baseUrl . '/contactusREPORT') && isset($_POST['btn_send']))

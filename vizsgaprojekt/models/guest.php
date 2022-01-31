@@ -139,6 +139,18 @@ class Guest extends Dbconnect
 
         return $result->num_rows;
     }
+    
+    public function eemailcsekkforuseraccedit($email,$id)
+    {
+        $sql = 'SELECT Email FROM customer WHERE Email=? AND CustomerID = ?';
+        $stmt = $this->con->prepare($sql);
+        $stmt->bind_param("si", $email,$id);
+        $stmt->execute();
+
+        $result = $stmt->get_result();
+
+        return $result->num_rows;
+    }
     public function usernamecsekk($username)
     {
         $sql = 'SELECT UserName FROM customer WHERE UserName=?';

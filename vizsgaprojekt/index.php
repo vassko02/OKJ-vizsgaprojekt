@@ -365,7 +365,7 @@ if (isset($_POST['btn_send2'])) {
             include('./contact/contact.php');
             break;
         case $baseUrl . '/account':
-            $HelpObj->clearReservation();
+            //$HelpObj->clearReservation();
             include('./login/useracc.php');
             break;
         case $baseUrl . '/admin':

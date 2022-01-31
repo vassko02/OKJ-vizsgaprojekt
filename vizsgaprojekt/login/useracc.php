@@ -96,7 +96,7 @@
     </fieldset>
     <fieldset>
       <button name="submit" class="submit" type="submit" id="reservation-submit" data-submit="...Sending">Submit</button>
-      <button name="newacc" class="submit disappear" type="submit" id="newacc" data-submit="">New account</button>
+      <button name="newacc" class="submit disappear" type="submit" id="newacc" data-submit="">Authentication</button>
 
     </fieldset>
   </form>
@@ -114,7 +114,7 @@
  
  <script>
 function emailclick() {
-  document.getElementById("email").value = "You cant edit your Email, Please make a new account and link the old one!";
+  document.getElementById("email").value = "You cant edit your Email without authentication, Please click on the button below and follow the instructions!";
   const gemb = document.getElementById("newacc");
   gemb.classList.add("appear");
 }
