@@ -9,14 +9,6 @@
       $ReservationObj->deletereservation($_SESSION['reservationid']);
     }
     $empty = false;
-    if ($empty == true) {
-        echo '
-        <div class="donthaveres">
-    <h1 id="nagytitle">You do not have any reservation at the moment!</h1>
-    <h4><a href="'.$baseUrl.'/booking">Make a reservation...</a></h4>
-    </div>
-    ';
-    }
     $reservations[] = $ReservationObj->selectallreservation();
     $allrooms = $RoomObj->selectallrooms();
     $services = $ServiceObj->getallservice();
@@ -28,6 +20,7 @@
     foreach ($reservations as $onereservation) {
     foreach ($onereservation as $oneonereservation) {
     if ($oneonereservation['CustomerID'] == $user['CustomerID']) {
+
                 $room[] = $RoomObj->selectoneroom2($oneonereservation['RoomID']);
             echo '
        <div  class="container" id="container">
@@ -137,5 +130,14 @@
         $counter += 1;
     }
     }
+    if ($empty == true) {
+      echo '
+      <div class="donthaveres">
+  <h1 id="nagytitle">You do not have any reservation at the moment!</h1>
+  <h4><a href="'.$baseUrl.'/booking">Make a reservation...</a></h4>
+  </div>
+  ';
+  
+  }
 ?>
  </div>

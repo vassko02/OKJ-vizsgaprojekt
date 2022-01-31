@@ -4,7 +4,7 @@
  <div class="row">
    <!-- <button onclick="sendEmail()">Email</button> -->
    <?php
-
+    $empty = false;
     if (isset($_POST['submit'])) {
       $roomss[] = $RoomObj->selectroomidbyname($_POST);
       
@@ -149,5 +149,13 @@
         $counter += 1;
       }
     }
+  if ($counter == 0) {
+    echo'
+    <div class="donthaveres">
+    <h1 id="nagytitle">There are no reservations at the moment!</h1>
+    <h4><a href="'.$baseUrl.'/booking">We are not mooning :(</a></h4>
+    </div>
+    ';
+  }
 ?>
  </div>
