@@ -201,6 +201,12 @@ if (isset($_POST['btn_send2'])) {
                 <link rel="stylesheet" href="./login/reservations.css">
                 ';
     }
+    if ($request === $baseUrl . '/newaccemail') {
+        echo '            
+        <link rel="stylesheet" href="./aktivalas/elfelejtettjelszo.css"> 
+        
+                ';
+    }
     if ($request === $baseUrl . '/userseditadmin') {
         echo '
                 <link rel="stylesheet" href="./login/reservations.css">
@@ -359,7 +365,7 @@ if (isset($_POST['btn_send2'])) {
             include('./contact/contact.php');
             break;
         case $baseUrl . '/account':
-            $HelpObj->clearReservation();
+            //$HelpObj->clearReservation();
             include('./login/useracc.php');
             break;
         case $baseUrl . '/admin':
@@ -368,6 +374,9 @@ if (isset($_POST['btn_send2'])) {
             } else {
                 include('./404/404.php');
             }
+            break;
+        case $baseUrl .'/newaccemail':
+                include('./login/newaccountemail.php');
             break;
         case $baseUrl . '/guestreservations':
                 if (isset($_SESSION['username'])) {
