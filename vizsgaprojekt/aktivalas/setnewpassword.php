@@ -1,13 +1,19 @@
 <div class="newpassword">
     <?php
     if (isset($_POST['newPassword']) && isset($_POST['newPasswordAgain']) && isset($_POST['CustomerID'])) {
-        $GuestObj->set_new_password($_POST['newPassword'], $_POST['CustomerID']);
-        echo '
-        <div id="newPasswordSet">
-            <h1>Your password has been changed!</h1>
-            <p>Now you can sign in with your new password.</p>
-            <a href="'.$baseUrl.'/signin">Sign in</a>
-        </div>';
+        $newPasswordValid = $GuestObj->verify_new_password($_POST['newPassword'], $_POST['CustomerID']);
+        if ($newPasswordValid === null) {
+            echo ('A régi jelszó nem lehet ugyan az mint az új');
+        }
+        else {
+            $GuestObj->set_new_password($_POST['newPassword'], $_POST['CustomerID']);
+            echo '
+            <div id="newPasswordSet">
+                <h1>Your password has been changed!</h1>
+                <p>Now you can sign in with your new password.</p>
+                <a href="'.$baseUrl.'/signin">Sign in</a>
+            </div>';
+        }
     }
     else if (isset($_GET['email']) && isset($_GET['password_reset_token'])) {
         $user = $GuestObj->find_resetable_user($_GET['password_reset_token'], $_GET['email']);
