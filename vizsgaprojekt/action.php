@@ -1,5 +1,9 @@
 <?php
-
+if (isset($_POST['newacc'])) {
+    
+    $HelpObj->writearray($_POST);
+    header('Location: ' . $baseUrl . '/newaccemail');
+}
 if (($request === $baseUrl . '/contactus' || $request === $baseUrl . '/contactusREPORT') && isset($_POST['btn_send']))
     if ($GuestObj->saveguestproblem($_POST) == 1) {
 

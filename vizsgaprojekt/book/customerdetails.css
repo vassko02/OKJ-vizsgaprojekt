@@ -28,10 +28,11 @@ label{
     text-align: right;
 }
 .keret{
+    width: 70vw;
     margin-top: 5vw !important;
     margin-bottom: 20vw !important;
-    margin-left: 10vw !important;
-    margin-right: 10vw !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
     font-size: 2em;
     background-color: #1e2029;
     color: #fff;

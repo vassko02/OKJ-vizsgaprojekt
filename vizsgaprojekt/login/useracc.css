@@ -1,4 +1,9 @@
-
+.disappear{
+    display: none;
+}
+.appear{
+    display: initial !important;
+}
 
 .user{
     max-width: 40%;
