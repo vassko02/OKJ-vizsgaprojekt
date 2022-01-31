@@ -3,7 +3,6 @@
 ?>
 <div class="row">
 <?php 
-
   if (isset($_POST['submit'])) {
     if (isset($_POST['isadmin'])) {
       $_POST['isadmin'] = 1;
@@ -11,7 +10,29 @@
     if ($_POST['username'] == "admin" && $_POST['email'] == "admin@admin") {
       $_POST['isadmin'] = 1;
     }
-        if ($GuestObj->usernamecsekkforuseredit($_POST['username'],$_POST['CustomerID']) > 0 || $GuestObj->eemailcsekkforuseredit($_POST['email'],$_POST['CustomerID']) > 0)  {
+    if ($GuestObj->usernamecsekkforuseredit($_POST['username'],$_POST['CustomerID']) > 0 || $GuestObj->eemailcsekkforuseredit($_POST['email'],$_POST['CustomerID']) > 0)  {
+      echo'
+      <div class="message" >
+      <div class="notif notif--error">
+      <div class="notif__content"><i class="material-icons notif__icon"><svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-exclamation-triangle" viewBox="0 0 16 16">
+        <path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/>
+        <path d="M7.002 12a1 1 0 1 1 2 0 1 1 0 0 1-2 0zM7.1 5.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995z"/>
+        </svg></i>
+        <div>
+        <h1 class="notif__title">Upload failed</h1><span class="notif__subtitle">Username already taken !</span>
+        </div>
+        </div>
+        <div class="notif__actions"><a class="notif__action" href="" data-tooltip="Reload page"><svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-arrow-clockwise" viewBox="0 0 16 16">
+          <path fill-rule="evenodd" d="M8 3a5 5 0 1 0 4.546 2.914.5.5 0 0 1 .908-.417A6 6 0 1 1 8 2v1z"/>
+          <path d="M8 4.466V.534a.25.25 0 0 1 .41-.192l2.36 1.966c.12.1.12.284 0 .384L8.41 4.658A.25.25 0 0 1 8 4.466z"/>
+          </svg></a>
+          </div>
+          </div>
+          </div>'
+          ;        
+        }
+        else if ($_POST['email'] == $_SESSION['loginemail'] && !isset($_POST['isadmin'])) {
+          $HelpObj->writearray($_POST);
           echo'
           <div class="message" >
           <div class="notif notif--error">
@@ -20,7 +41,7 @@
             <path d="M7.002 12a1 1 0 1 1 2 0 1 1 0 0 1-2 0zM7.1 5.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995z"/>
           </svg></i>
             <div>
-              <h1 class="notif__title">Upload failed</h1><span class="notif__subtitle">Username already taken !</span>
+              <h1 class="notif__title">Upload failed</h1><span class="notif__subtitle">You can not modify your admin role!</span>
             </div>
           </div>
           <div class="notif__actions"><a class="notif__action" href="" data-tooltip="Reload page"><svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-arrow-clockwise" viewBox="0 0 16 16">
