@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Gép: localhost:3306
--- Létrehozás ideje: 2022. Jan 30. 13:02
+-- Létrehozás ideje: 2022. Jan 31. 12:16
 -- Kiszolgáló verziója: 5.5.62-0+deb8u1
 -- PHP verzió: 7.4.3
 
@@ -119,12 +119,14 @@ CREATE TABLE `customer` (
 
 INSERT INTO `customer` (`CustomerID`, `Name`, `PhoneNumber`, `Email`, `Address`, `UserName`, `Password`, `IsAdmin`, `active`, `activation_code`, `activation_expiry`, `activated_at`, `created_at`, `LEVEL`, `ReservationNumber`, `reset_token`, `reset_token_expiry`) VALUES
 (9, 'admin', '123', 'admin@admin', 'asd', 'admin', 'e64b78fc3bc91bcbc7dc232ba8ec59e0', 1, 1, '', '0000-00-00 00:00:00', '2022-01-25 17:20:27', '0000-00-00 00:00:00', '', 0, '', '0000-00-00 00:00:00'),
-(41, 'Koaxk Ábel', '123', 'ko@x.com', 'dsa', 'koax', 'bb3745d30d57c6279777c579a20483bc', 0, 1, '669a3a54886bcd13c6095cf7e5308c56', '2022-01-27 10:13:35', NULL, '2022-01-26 09:13:35', '', 1, '', '0000-00-00 00:00:00'),
+(41, 'Koaxk Ábel', '123', 'ko@x.com', 'dsa', 'koax', 'bb3745d30d57c6279777c579a20483bc', 0, 1, '669a3a54886bcd13c6095cf7e5308c56', '2022-01-27 10:13:35', NULL, '2022-01-26 09:13:35', '', 0, '', '0000-00-00 00:00:00'),
 (42, 'Tüdő R. Ákos', '+36304206969', 'tudor@akos.hu', '9012 Győr Kossuth utca 12', '', '', 0, NULL, '', '0000-00-00 00:00:00', NULL, '2022-01-26 09:20:00', '', 0, '', '0000-00-00 00:00:00'),
 (49, 'VK', '', 'vass.kornel@students.jedlik.eu', '', 'vasskoko', 'abfeb5ac73556cadb0d0afc57d7221e8', 1, 1, 'fa412bc35ff12e8a0a2f4bcb5c880d36', '2022-01-27 12:55:05', '2022-01-26 12:55:18', '2022-01-26 11:55:05', '', 0, '', '0000-00-00 00:00:00'),
-(73, 'KD', '', 'kalman.david06@gmail.com', '', 'mau', 'b575775b053c3c809187be6ff1714490', 0, NULL, '06905c013acd8124d5dc695d8f61fa39', '2022-01-28 13:06:11', NULL, '2022-01-27 12:06:12', '', 0, '', '0000-00-00 00:00:00'),
-(77, 'Bac Ilus', '+36304206969', 'example@gmail.com', '9027 Győr Szeszgyár utca 1', '', '', 0, NULL, '', '0000-00-00 00:00:00', NULL, '2022-01-27 12:25:43', '', 2, '', '0000-00-00 00:00:00'),
-(86, 'Kálmán Dávid', '+36304777706', 'kaldavai26@gmail.com', '9027, Győr, Szeszgyár u. 1.', 'mauzileu', 'b575775b053c3c809187be6ff1714490', 0, 1, '3ec1744c06652b8bc31888c7b08e79b4', '2022-01-28 21:56:33', '2022-01-27 21:56:40', '2022-01-27 20:56:33', '', 0, 'f43565e34841471f1c903b3426787c8a', '2022-01-30 23:27:11');
+(77, 'Bac Ilus', '+36304206969', 'example@gmail.com', '9027 Győr Szeszgyár utca 1', '', '', 0, NULL, '', '0000-00-00 00:00:00', NULL, '2022-01-27 12:25:43', '', 0, '', '0000-00-00 00:00:00'),
+(86, 'Kálmán Dávid', '+36304777706', 'kaldavai26@gmail.com', '9027, Győr, Szeszgyár u. 1.', 'mauzileu', '7b5582e4edbeeb77c0ef953ed71620cf', 0, 1, '3ec1744c06652b8bc31888c7b08e79b4', '2022-01-28 21:56:33', '2022-01-27 21:56:40', '2022-01-27 20:56:33', '', 0, '56dc2cd557c88c599093292999fc63c2', '2022-02-01 10:03:28'),
+(87, 'KD', '', 'kalman.david@students.jedlik.eu', '', 'kaldavai26', '7b5582e4edbeeb77c0ef953ed71620cf', 0, 1, '4f03e0e91162e8386b3b1e5896718c00', '2022-02-01 08:07:25', '2022-01-31 08:08:41', '2022-01-31 07:07:25', '', 0, '3c71d5c517e6b9c994db0b7115e89824', '2022-02-01 12:20:33'),
+(88, 'Hát Izsak', '123', 'hatizsak@gmail.com', 'asd', 'hatizsak', 'bea23b981f607e5c8a037bd448289feb', 0, 1, 'd9c3055bc44550c2fd23bd60a2b46be3', '2022-02-01 08:15:21', NULL, '2022-01-31 07:15:21', '', 1, '', '0000-00-00 00:00:00'),
+(90, 'Kandisz Nóra', '+3620201234012', 'kandisz@gmail.com', 'EnesePutri Szabadság utca 59', '', '', 0, 1, '', '0000-00-00 00:00:00', NULL, '2022-01-31 12:13:57', '', 0, '', '0000-00-00 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -143,7 +145,8 @@ CREATE TABLE `reservation` (
   `CustomerID` int(11) NOT NULL,
   `RoomID` int(11) NOT NULL,
   `ServiceID` int(11) NOT NULL,
-  `IsCheckedIn` tinyint(1) NOT NULL
+  `IsCheckedIn` tinyint(1) NOT NULL,
+  `Message` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -390,13 +393,13 @@ ALTER TABLE `consumption`
 -- AUTO_INCREMENT a táblához `customer`
 --
 ALTER TABLE `customer`
-  MODIFY `CustomerID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=87;
+  MODIFY `CustomerID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=91;
 
 --
 -- AUTO_INCREMENT a táblához `reservation`
 --
 ALTER TABLE `reservation`
-  MODIFY `ReservationID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=247;
+  MODIFY `ReservationID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=262;
 
 --
 -- AUTO_INCREMENT a táblához `room`
