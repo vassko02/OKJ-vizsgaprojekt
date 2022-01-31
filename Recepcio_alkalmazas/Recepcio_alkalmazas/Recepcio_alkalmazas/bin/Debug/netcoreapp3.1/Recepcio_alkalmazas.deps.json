@@ -9,7 +9,7 @@
       "Recepcio_alkalmazas/1.0.0": {
         "dependencies": {
           "MahApps.Metro.IconPacks.Material": "4.11.0",
-          "MySql.Data": "8.0.27"
+          "MySql.Data": "8.0.28"
         },
         "runtime": {
           "Recepcio_alkalmazas.dll": {}
@@ -87,7 +87,7 @@
           "Microsoft.NETCore.Platforms": "3.1.0"
         }
       },
-      "MySql.Data/8.0.27": {
+      "MySql.Data/8.0.28": {
         "dependencies": {
           "BouncyCastle.NetCore": "1.8.5",
           "Google.Protobuf": "3.14.0",
@@ -100,8 +100,8 @@
         },
         "runtime": {
           "lib/netstandard2.1/MySql.Data.dll": {
-            "assemblyVersion": "8.0.27.0",
-            "fileVersion": "8.0.27.0"
+            "assemblyVersion": "8.0.28.0",
+            "fileVersion": "8.0.28.0"
           },
           "lib/netstandard2.1/Ubiety.Dns.Core.dll": {
             "assemblyVersion": "2.2.1.0",
@@ -222,12 +222,12 @@
       "path": "microsoft.win32.systemevents/4.7.0",
       "hashPath": "microsoft.win32.systemevents.4.7.0.nupkg.sha512"
     },
-    "MySql.Data/8.0.27": {
+    "MySql.Data/8.0.28": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-Ef+sH12/nGAiF9yLZFkuXh7vtVvEPiLKyZNJiDk+VBULzLcXj0lmfU7qcmWNCSVX5n6zu5jMV+JaNf1C+a+T8g==",
-      "path": "mysql.data/8.0.27",
-      "hashPath": "mysql.data.8.0.27.nupkg.sha512"
+      "sha512": "sha512-7b699tU9ba0r7SBK7K9snGJB9ulnOdwEXG28kpVvaQSN0hHenfoJ/ADOtdfhcvcn1KStBX8pFK5qIl8scdBL2g==",
+      "path": "mysql.data/8.0.28",
+      "hashPath": "mysql.data.8.0.28.nupkg.sha512"
     },
     "System.Buffers/4.5.1": {
       "type": "package",
