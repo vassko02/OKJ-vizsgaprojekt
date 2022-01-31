@@ -1676,6 +1676,29 @@ class Guest extends Dbconnect
     // verify the password
     return null;
   }
+  public function verify_new_password(string $newpassword, int $user_id) //bekéri az új jelszót és lefrissíti
+  {
+    $sql = 'SELECT * FROM customer where CustomerID = ? ';
+
+    $stmt = $this->con->prepare($sql);
+
+    $stmt->bind_param("i", $user_id);
+    $stmt->execute();
+    $user = $stmt->get_result();
+    $row = $user->fetch_assoc();
+
+    if ($row != null) {
+      if ($row['Password'] === md5($newpassword))
+      {
+        return null;
+      }
+      else {
+        return $row;
+      }
+    }
+
+    return null;
+  }
   public function set_new_password(string $newpassword, int $user_id): bool //bekéri az új jelszót és lefrissíti
   {
     $sql = 'UPDATE customer
