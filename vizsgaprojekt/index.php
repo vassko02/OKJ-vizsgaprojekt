@@ -5,7 +5,7 @@ define('VEDETT', 'igen');
 
 //szervernél: /~PeacefulParadise
 //localhostnál: /14aphp/OKJ-vizsgaprojekt/vizsgaprojekt
-$baseUrl = '/14aphp/clone/OKJ-vizsgaprojekt/vizsgaprojekt'; 
+$baseUrl = '/14aphp/legfrissebb/OKJ-vizsgaprojekt/vizsgaprojekt'; 
 $request = $_SERVER['REQUEST_URI']; //mindenkori url
 $mennyiper = substr_count($request, '/');
 $baseMennyiper = substr_count($baseUrl, '/');
@@ -65,13 +65,13 @@ if (isset($_POST['btn_send2'])) {
             $Rnumber['ReservationNumber'] += 1;
             $GuestObj->addonetoreservationnumber($user['CustomerID'],$Rnumber['ReservationNumber']);
             $level = '';
-            if ( $Rnumber['ReservationNumber'] >= 4 ) {
+            if ( $Rnumber['ReservationNumber'] >= 3 ) {
                 $level = "Gold";
             } 
-            else if ($Rnumber['ReservationNumber'] >= 8 ) {
+            else if ($Rnumber['ReservationNumber'] >= 7 ) {
                 $level = "Platinum";
             }
-            else if($Rnumber['ReservationNumber'] >= 12 ){
+            else if($Rnumber['ReservationNumber'] >= 11 ){
                 $level = "Diamond";
             }
             $GuestObj->updatelevel($user['CustomerID'],$level);
@@ -162,6 +162,7 @@ if (isset($_POST['btn_send2'])) {
     }
     if ($request === $baseUrl . '/booking/roomdetail') {
         echo '<link rel="stylesheet" href="../book/roomdetail.css">';
+        
     }
     if ($request === $baseUrl . '/booking/confirm') {
         echo '<link rel="stylesheet" href="../book/confirm.css">';
