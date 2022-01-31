@@ -32,7 +32,7 @@
           ;        
         }
         else if ($_POST['email'] == $_SESSION['loginemail'] && !isset($_POST['isadmin'])) {
-          $HelpObj->writearray($_POST);
+      
           echo'
           <div class="message" >
           <div class="notif notif--error">
