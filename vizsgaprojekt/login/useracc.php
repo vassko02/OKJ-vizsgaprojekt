@@ -4,7 +4,6 @@
 <div class="row">
 <?php 
   
-  $HelpObj->writearray($_POST);
  if (isset($_POST['submit'])) {
       if ($GuestObj->usernamecsekkforuseredit($_POST['username'],$_POST['CustomerID']) > 0 )  {
         echo'
@@ -29,6 +28,8 @@
       }
       else{
       $GuestObj->updatecustomer2($_POST);
+      $_SESSION['username'] = $_POST['username'];
+      
        echo '
        <div class="message" id="message">
        <div class="notif notif--success">
@@ -78,13 +79,11 @@
       <input class="form-control" id="name" name="name" placeholder="Your name" type="text" value="'.$user['name'].'" tabindex="1" required autofocus>
       <input type="hidden" name="CustomerID" value="'.$user['customerid'].'"/>
     </fieldset>
-    <fieldset>
-    <label for="name">Username : </label>
-    <input class="form-control text-dark" id="username" name="username" placeholder="Username" value="'.$user['username'].'" type="text" tabindex="2" required>
-  </fieldset>
+  
   <fieldset>
   <label for="name">Email : </label>
       <input type="button" name="email" value="'.$user['email'].'" class="bg-light text-dark w-100 form-control  emailbutton noHover" id="email" onclick="emailclick()"></input>
+      <input type="hidden" class="form-control" name="Emailforpost" value="'.$user['email'].'"/>
   </fieldset>
     <fieldset>
     <label for="name">Phone Number: </label>

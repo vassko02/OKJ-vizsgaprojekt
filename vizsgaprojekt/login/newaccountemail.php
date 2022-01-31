@@ -27,6 +27,7 @@
         echo '<div class="alert alert-success mt-5 mb-0" role="alert">';
         echo $noerror;
         echo ' </div>';
+        
     }
 ?>
 <div class="forgotpassword mb-5">

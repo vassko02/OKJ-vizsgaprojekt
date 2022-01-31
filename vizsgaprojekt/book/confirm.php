@@ -93,7 +93,7 @@
 </div>
 <div class="mb-3 keret">
   <label for="fullprice" class="form-label">Full Price:</label>
-  <span> $<?php echo ''.$_SESSION['fullprice'].' -   '.$hundred-$_SESSION['multiplier']*$hundred.'% DISCOUNT  ';?></span>
+  <span> $<?php echo ''.$_SESSION['fullprice'].' -   '.$_SESSION['discount'].'% DISCOUNT  ';?></span>
 </div>
 <input type="hidden" id="Edit" name="Edit" value="<?php echo $edit?>">
 <button class="btn btn-warning mt-3 edit col keret" type="submit"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">

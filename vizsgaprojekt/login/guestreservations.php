@@ -20,7 +20,8 @@
     foreach ($reservations as $onereservation) {
     foreach ($onereservation as $oneonereservation) {
     if ($oneonereservation['CustomerID'] == $user['CustomerID']) {
-
+     $roomname =  $RoomObj->selectoneroomname($oneonereservation['RoomID']);
+     $servicee = $ServiceObj->getservicebyid($oneonereservation['ServiceID']);
                 $room[] = $RoomObj->selectoneroom2($oneonereservation['RoomID']);
             echo '
        <div  class="container" id="container">
@@ -34,20 +35,7 @@
          <input type="hidden" name="price" value="' . $oneonereservation['Price'] . '"/>
          <fieldset>
          <h4 for="">Room type</h4>
-         <select class="form-select" name="roomname" aria-label="Default select example">
-    
-          ';
-            foreach ($allrooms as $oneroom) {
-              $roomname =  $RoomObj->selectoneroomname($oneonereservation['RoomID']);
-              echo ' <option value="' . $oneroom['RoomName'] . ' "';
-              if ($oneroom['RoomName'] == $roomname['RoomName']) {
-                echo 'selected';
-              }
-              echo ' ">' . $oneroom['RoomName'] . '   </option>';
-              $counter2 += 1;
-            }
-            echo '
-         </select>
+         <p class="form-control">'.$roomname['RoomName'].'</p>
     
     
     
@@ -55,37 +43,18 @@
          </fieldset>
          <fieldset>
          <h4 for="">Service type</h4>
-         <select class="form-select" name="serviceid" aria-label="Default select example">
-         ';
-    
-            foreach ($services as $service) {
-              $servicee = $ServiceObj->getservicebyid($oneonereservation['ServiceID']);
-    
-              echo ' <option value="' . $service['ServiceID'] . '"';
-              if ($service['ServiceType']  == $servicee[0]['ServiceType']) {
-                echo 'selected';
-              }
-    
-              echo '>' . $service['ServiceType'] . ' $' . $service['ServicePrice'] . ' /night </option>';
-            }
-    
-            echo '
-              </select>
-    
-    
-    
-    
+         <p class="form-control">'.$servicee[0]['ServiceType'].'</p>
          </fieldset>
          <fieldset>
           <h4 for="">Check in - Check out</h4>
-          <input class="form-control" name="arrival" value="' . $oneonereservation['ArrivalDate'] . '" type="date" tabindex="2" required>
-          <input class="form-control" name="leaving" value="' . $oneonereservation['LeavingDate'] . '"  type="date" tabindex="3" required>
+          <p class="form-control" tabindex="2">'. $oneonereservation['ArrivalDate'].'</p>
+          <p class="form-control" tabindex="3">'. $oneonereservation['LeavingDate'] .'</p>
          </fieldset>
          <fieldset>
           <h4 for="">Adults</h4>
-          <input class="form-control" name="adults" value="' . $oneonereservation['Adults'] . '" type="number" tabindex="2" required>
+          <p class="form-control" tabindex="3">'. $oneonereservation['Adults'] .'</p>
           <h4 for="">Children</h4>
-          <input class="form-control" name="children" value="' . $oneonereservation['Children'] . '"  type="number" tabindex="3" required>
+          <p class="form-control" tabindex="3">'. $oneonereservation['Children'] .'</p>
          </fieldset>
          <fieldset>
           <h4 for="">Message</h4>

@@ -1,5 +1,5 @@
 <?php
-    
+    $HelpObj->writearray($_SESSION);
      if (isset($_POST['select'])) {
         $_SESSION['serviceid'] = $_POST['select'];
         
