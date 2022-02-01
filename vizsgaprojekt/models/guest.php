@@ -53,6 +53,17 @@ class Guest extends Dbconnect
       return 0;
     }
   }
+  public function findcustomerbyemail2($email)
+  {
+    $sql = 'SELECT * FROM customer WHERE email=?';
+    $stmt = $this->con->prepare($sql);
+    $stmt->bind_param("s", $email);
+    $stmt->execute();
+    $result = $stmt->get_result();
+    $row = $result->fetch_assoc();
+
+    return $row;
+  }
   public function saveguestproblem($adatok)
   {
     $sql = 'INSERT INTO reports (GuestName,Email,Problem,date) VALUES (?,?,?,?)';
