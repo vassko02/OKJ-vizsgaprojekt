@@ -1,5 +1,6 @@
 <?php
 	$error = false;
+	$guestnumbererror = false;
 	$Roomslist = $RoomObj->selectallrooms();
  	// echo '<pre>';
 	// print_r($_SESSION);
@@ -26,19 +27,27 @@
 		$in =  $_POST['checkin'];
 		$out = $_POST['checkout'];
 		$date = date('Y-m-d');
-
-
-		$_SESSION['adult'] = $_POST['adultnumber'];
-		$_SESSION['children'] = $_POST['childrennumber'];
-		if ($in < $out && $in > $date) {
-			$_SESSION['checkin'] = $_POST['checkin'];
-			$_SESSION['checkout'] = $_POST['checkout'];
-			$filteredrooms = $RoomObj->selectrooms($_POST);
-
+		$guestnumber = $_POST['childrennumber']+$_POST['adultnumber'];
+		echo $guestnumber;
+		if (($_POST['adultnumber'] > 1 || $_POST['childrennumber'] > 1) && $guestnumber <= 5 ) {
+			$_SESSION['adult'] = $_POST['adultnumber'];
+			$_SESSION['children'] = $_POST['childrennumber'];
+			$error = false;
+			if ($in < $out && $in > $date ) {
+				$_SESSION['checkin'] = $_POST['checkin'];
+				$_SESSION['checkout'] = $_POST['checkout'];
+				$filteredrooms = $RoomObj->selectrooms($_POST);
+			
+				$guestnumbererror = false;
+			}
+			else {
+				$error = true;
+			}
 		}
-		else {
-			$error = true;
+		else{
+			$guestnumbererror = true;
 		}
+		
 
 	
 		
@@ -107,6 +116,7 @@
 			<div class="form-group div3">
 			<button  class="btn src" type="submit" name="btn_srch">Search rooms</button>
 			<p id="error"><?php if ($error === true) { echo 'Please provide valid dates!'; } else {}?></p>
+			<p id="error"><?php if ($guestnumbererror === true) { echo 'Please provide valid numbers!'; } else {}?></p>
 				<!-- <button class="learn-more btn" type="submit" name="btn_srch" id="button">
 					<span class="circle" aria-hidden="true">
 						<span class="icon arrow"></span>
@@ -133,6 +143,11 @@
 			//  echo ('<pre>');
  			// print_r($_POST);
  			// echo ('</pre>');
+			if (count($filteredrooms) == 0) {
+				echo'
+					<p id="sorry">We dont have any available room at the moment :(</p>
+				';
+			}
 			foreach ($filteredrooms as $room) {
 				echo'
 			

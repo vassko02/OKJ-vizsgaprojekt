@@ -128,6 +128,14 @@ namespace Recepcio_alkalmazas.Models
             get { return _IsCheckedIn; }
             set { _IsCheckedIn = value; onPropertyChanged(); }
         }
+        private string _Message;
+
+        public string Message
+        {
+            get { return _Message; }
+            set { _Message = value; }
+        }
+
         public reservation() { }
         public reservation(MySqlDataReader reader)
         {
@@ -149,6 +157,8 @@ namespace Recepcio_alkalmazas.Models
             this.RoomPrice = Convert.ToDouble(reader["RoomPrice"]);
             this.ServicePrice = Convert.ToDouble(reader["ServicePrice"]);
             this.IsCheckedIn = Convert.ToInt32(reader["IsCheckedIn"]);
+            this.Message = reader["Message"].ToString();
+
         }
         public static ObservableCollection<reservation> selectByGuestName(string name,int becheckolt,bool editlesz)
         {
@@ -213,7 +223,7 @@ namespace Recepcio_alkalmazas.Models
             {
                 con.Open();
                 var sql = "INSERT INTO reservation (GuestNumber,Price,Children,Adults,ArrivalDate,LeavingDate,CustomerID,RoomID,ServiceID,IsCheckedIn) VALUES " +
-                    "(@GuestNumber,@Price,@Children,@Adults,@ArrivalDate,@LeavingDate,@CustomerID,@RoomID,@ServiceID,@IscheckedIn)";
+                    "(@GuestNumber,@Price,@Children,@Adults,@ArrivalDate,@LeavingDate,@CustomerID,@RoomID,@ServiceID,@IscheckedIn,@Message)";
                 using (var cmd = new MySqlCommand(sql, con))
                 {
                     cmd.Parameters.AddWithValue("@GuestNumber", model.GuestNumber);
@@ -226,6 +236,8 @@ namespace Recepcio_alkalmazas.Models
                     cmd.Parameters.AddWithValue("@RoomID", model.RoomID);
                     cmd.Parameters.AddWithValue("@ServiceID", model.ServiceID);
                     cmd.Parameters.AddWithValue("@IscheckedIn", model.IsCheckedIn);
+                    cmd.Parameters.AddWithValue("@Message", model.Message);
+
                     cmd.ExecuteNonQuery();
                     return (int)cmd.LastInsertedId;
                 }
@@ -237,7 +249,7 @@ namespace Recepcio_alkalmazas.Models
             {
                 con.Open();
                 var sql = "UPDATE reservation SET GuestNumber=@GuestNumber,Price=@Price,Children=@Children,Adults=@Adults,ArrivalDate=@ArrivalDate," +
-                    "LeavingDate=@LeavingDate,CustomerID=@CustomerID,RoomID=@RoomID,ServiceID=@ServiceID WHERE ReservationID=@id";
+                    "LeavingDate=@LeavingDate,CustomerID=@CustomerID,RoomID=@RoomID,ServiceID=@ServiceID,Message=@Message WHERE ReservationID=@id";
                 using (var cmd = new MySqlCommand(sql, con))
                 {
                     cmd.Parameters.AddWithValue("@GuestNumber", model.GuestNumber);
@@ -250,6 +262,8 @@ namespace Recepcio_alkalmazas.Models
                     cmd.Parameters.AddWithValue("@RoomID", model.RoomID);
                     cmd.Parameters.AddWithValue("@ServiceID", model.ServiceID);
                     cmd.Parameters.AddWithValue("@id", model.ReservationID);
+                    cmd.Parameters.AddWithValue("@Message", model.Message);
+
                     cmd.ExecuteNonQuery();
                 }
                 con.Close();

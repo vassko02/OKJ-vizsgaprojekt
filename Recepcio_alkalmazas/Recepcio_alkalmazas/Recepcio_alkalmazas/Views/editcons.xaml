@@ -6,23 +6,25 @@
         xmlns:local="clr-namespace:Recepcio_alkalmazas.Views" xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
         mc:Ignorable="d"
         Title="Add" Height="300" Width="300" WindowStartupLocation="CenterScreen" WindowStyle="None" ResizeMode="NoResize" AllowsTransparency="False">
+    <Border BorderThickness="2" BorderBrush="DarkGoldenrod">
+
         <Grid MouseDown="Grid_MouseDown">
             <Grid.RowDefinitions>
                 <RowDefinition Height="auto"/>
-            <RowDefinition Height="auto"/>
-            <RowDefinition Height="*"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
             <Grid.Background>
                 <ImageBrush ImageSource="../img/hatter.jpg"/>
             </Grid.Background>
             <Label Content="Item data:" Foreground="DarkGoldenrod" FontWeight="Bold" FontSize="20" Margin="5" HorizontalAlignment="Center"/>
-        
+
             <StackPanel Grid.Row="1" Orientation="Horizontal">
                 <Label Content="Type:" Foreground="DarkGoldenrod" Margin="5" FontWeight="Bold"/>
                 <ComboBox Width="80" Margin="5" Name="cb_types" SelectionChanged="cb_types_SelectionChanged"/>
                 <Label Content="Name:" Foreground="DarkGoldenrod" Margin="5" FontWeight="Bold"/>
                 <ComboBox Width="80" Margin="5" Name="cb_items" SelectionChanged="cb_items_SelectionChanged"/>
-        </StackPanel>
+            </StackPanel>
             <StackPanel Grid.Row="2" VerticalAlignment="Center" Name="sp_data">
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
                     <Label Content="Name:" Width="50" Foreground="DarkGoldenrod" FontWeight="Bold"/>
@@ -30,7 +32,7 @@
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
                     <Label Content="Price:" Width="50" Foreground="DarkGoldenrod" FontWeight="Bold"/>
-                <TextBox Name="tb_price" PreviewTextInput="tb_price_PreviewTextInput" Text="{Binding Price}"
+                    <TextBox Name="tb_price" PreviewTextInput="tb_price_PreviewTextInput" Text="{Binding Price}"
                          Width="150" Margin="5"/>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
@@ -66,4 +68,5 @@
                 </StackPanel>
             </StackPanel>
         </Grid>
+    </Border>
 </Window>

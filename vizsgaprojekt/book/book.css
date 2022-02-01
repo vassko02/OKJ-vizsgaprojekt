@@ -12,7 +12,7 @@ html{
     margin-right: auto;
     width: 60%;
     margin-top: 20vh;
-    margin-bottom: 20vh;
+    margin-bottom: 20vh !important;
     height: 30%;
     text-align: center;
     padding-bottom: 20px;
@@ -71,6 +71,13 @@ html{
     text-align: center;
     font-weight: bold;
     margin-top: 2vh;
+}
+#sorry{
+    font-size: 2.5vw;
+    font-weight: bolder;
+    text-align: center;
+    margin: auto;
+    color: whitesmoke;
 }
 .div2 .second{
     overflow: hidden;

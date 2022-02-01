@@ -1,5 +1,4 @@
 <?php
-    
      if (isset($_POST['select'])) {
         $_SESSION['serviceid'] = $_POST['select'];
         
@@ -45,6 +44,10 @@
                         <input type="text" class="form-control bg-dark text-light" value="<?php  if ($loggedin == true) {
                            echo $userdetails[0]['Address'];
                         }else if(isset($_SESSION['address'])) echo $_SESSION['address']; else{ echo("9027 Győr Szeszgyár utca 1"); } ?>"  placeholder="3570 S Las Vegas Blvd" name="address" id="address">
+                     </div>  
+                     <div class="mb-3 mt-3">
+                        <label for="message" class="form-label">Message</label>
+                        <input type="textarea" class="form-control bg-dark text-light" value="<?php if(isset($_SESSION['Message'])) echo $_SESSION['Message']; else{ echo("Something very very important"); } ?>"  placeholder="Type your message here..." name="Message" id="Message">
                      </div>  
                      <button type="submit" name="btn_send" class="btn btn-warning mb-3">Continue</button>
             </form>

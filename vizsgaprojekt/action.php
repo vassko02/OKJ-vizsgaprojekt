@@ -5,8 +5,10 @@ if (isset($_POST['newacc'])) {
     $_SESSION['phonenumber']= $_POST['phonenumber'] ;
     $_SESSION['address'] = $_POST['address'];
     $_SESSION['CustomerID'] = $_POST['CustomerID'];
+    $_SESSION['Emailforpost'] = $_POST['Emailforpost'];
     $HelpObj->writearray($_SESSION);
     header('Location: ' . $baseUrl . '/newaccemail');
+    
 }
 if (($request === $baseUrl . '/contactus' || $request === $baseUrl . '/contactusREPORT') && isset($_POST['btn_send']))
     if ($GuestObj->saveguestproblem($_POST) == 1) {

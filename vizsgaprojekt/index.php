@@ -37,17 +37,21 @@ if (isset($_POST['btn_send'])) {
     switch($level['LEVEL']){
         case "Gold":
             $_SESSION['multiplier'] = 0.95;
+            $_SESSION['discount'] = 5;
             break;
         
         case "Platinum":
             $_SESSION['multiplier'] = 0.90;
+            $_SESSION['discount'] = 10;
             break;
         
         case "Diamond":
             $_SESSION['multiplier'] = 0.85;
+            $_SESSION['discount'] = 15;
             break;
         default: 
             $_SESSION['multiplier'] = 1;
+            $_SESSION['discount'] = 0;
             break;
     }
 }
