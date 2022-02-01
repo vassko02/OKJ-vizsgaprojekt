@@ -1,13 +1,15 @@
 <?php
+
+
   if(isset($_SESSION['email'])){
     $email=$_SESSION['email'];
   }
   else if(isset($_SESSION['loginemail'])){
     $email=$_SESSION['loginemail'];
   }
-  if(isset($_SESSION['name'])){
-    $name=$_SESSION['name'];
-  }
+  $guestdata=$GuestObj->findcustomerbyemail2($email);
+  $name=$guestdata['Name'];
+
 ?>
 <div class="contact">
   <div class="urlap mx-auto">
