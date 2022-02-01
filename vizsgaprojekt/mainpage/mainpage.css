@@ -129,14 +129,17 @@
     color: #C5B358;
     text-decoration: none;
     font-family: 'Be Vietnam Pro', sans-serif;
+    max-width: 20vh;
 }
 
 
+.slideszoveg {
+    display: none;
+}
+.slideszoveg.active {
+    display: initial !important;
+}
 
-
-/*https://github.com/tonkec/text_hover_effects
-    https://codepen.io/tonkec/pen/jWmgqN
-    https://codepen.io/tonkec/full/zbRKKK*/
 
 
 

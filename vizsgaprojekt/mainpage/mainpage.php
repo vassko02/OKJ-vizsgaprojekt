@@ -51,25 +51,25 @@ $Roomslist = $RoomObj->selectallrooms();
 
 <div class="icons">
   <div class="row">
-    <a href="<?php echo $baseUrl?>/booking" class="col btn button">
+    <a href="<?php echo $baseUrl ?>/booking" class="col btn button">
       <div class="row">
         <i class="col-12 fas fa-bed"></i>
         <p class="col-12">Accommodation</p>
       </div>
     </a>
-    <a href="<?php echo $baseUrl?>/gambling" class="col btn button">
+    <a href="<?php echo $baseUrl ?>/gambling" class="col btn button">
       <div class="row">
         <i class="col-12 fas fa-dice"></i>
         <p class="col-12">Casino</p>
       </div>
     </a>
-    <a href="<?php echo $baseUrl?>/dining" class="col btn button">
+    <a href="<?php echo $baseUrl ?>/dining" class="col btn button">
       <div class="row">
         <i class="col-12 fas fa-utensils"></i>
         <p class="col-12">Dining</p>
       </div>
     </a>
-    <a href="<?php echo $baseUrl?>/contactus" class="col btn button">
+    <a href="<?php echo $baseUrl ?>/contactus" class="col btn button">
       <div class="row">
         <i class="fab fa-telegram-plane"></i>
         <p class="col-12">Contact us</p>
@@ -85,8 +85,8 @@ $Roomslist = $RoomObj->selectallrooms();
     </div>
     <div class="col-lg-8 col-sm-12 roomszoveg">
       <p>At Peaceful Paradise, our luxurious rooms welcome you to unwind to your heart's content. Stay in a posh, stylish room, spacious suite or a breathtaking villa.</p>
-      <a href="<?php echo $baseUrl?>/booking#osszesszoba">
-        <span class="centerhover" ><i class="fas fa-search"></i> View all rooms  </span> 
+      <a class="centerhover" href="<?php echo $baseUrl ?>/booking#osszesszoba">
+        <i class="fas fa-search"></i> View all rooms
       </a>
     </div>
   </div>
@@ -97,38 +97,38 @@ $Roomslist = $RoomObj->selectallrooms();
         <div class="slides">
           <div slide-id="1" class="slide active">
             <div class="thumbnail"><img src="<?php foreach ($Roomslist as $room) {
-                        echo $room['ImageURL1'];
-                        break;
-                      } ?>" /></div>
-            
+                                                echo $room['ImageURL1'];
+                                                break;
+                                              } ?>" /></div>
+
           </div>
           <div slide-id="2" class="slide">
             <div class="thumbnail"><img src="<?php foreach ($Roomslist as $room) {
-                        echo $room['ImageURL2'];
-                        break;
-                      } ?>" /></div>
-            
+                                                echo $room['ImageURL2'];
+                                                break;
+                                              } ?>" /></div>
+
           </div>
           <div slide-id="3" class="slide">
             <div class="thumbnail"><img src="<?php foreach ($Roomslist as $room) {
-                        echo $room['ImageURL3'];
-                        break;
-                      } ?>" /></div>
-            
+                                                echo $room['ImageURL3'];
+                                                break;
+                                              } ?>" /></div>
+
           </div>
           <div slide-id="4" class="slide">
             <div class="thumbnail"><img src="<?php foreach ($Roomslist as $room) {
-                        echo $room['ImageURL1'];
-                        break;
-                      } ?>" /></div>
-            
+                                                echo $room['ImageURL1'];
+                                                break;
+                                              } ?>" /></div>
+
           </div>
           <div slide-id="5" class="slide">
             <div class="thumbnail"><img src="<?php foreach ($Roomslist as $room) {
-                        echo $room['ImageURL2'];
-                        break;
-                      } ?>" /></div>
-            
+                                                echo $room['ImageURL2'];
+                                                break;
+                                              } ?>" /></div>
+
           </div>
         </div>
         <div class="booksliderbtn row">
@@ -138,8 +138,32 @@ $Roomslist = $RoomObj->selectallrooms();
       </div>
     </div>
     <div class="col-lg-5 col-sm-12 bookszoveg">
-      <h1>Lorem ipsum</h1>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus consectetur erat ante, in eleifend neque interdum at. Etiam aliquet pellentesque augue, et volutpat purus faucibus vitae. Donec ac accumsan lectus. Donec nisi urna, malesuada et magna at, varius pharetra odio. Cras eu lectus quis ipsum vulputate mattis sit amet ac diam. In et libero in eros accumsan blandit. Quisque at lacus eget ante imperdiet convallis. Aliquam ut justo nisi. Cras pharetra tempus mi, eget suscipit ligula ullamcorper quis. Quisque eu arcu porttitor, consectetur eros quis, posuere arcu. Donec non auctor felis. </p>
+      <div class="slideszoveg active">
+        <h1>Lorem ipsum</h1>
+        <p>One night in one of our luxurious rooms and you will realize that indulgence is not a privilige. It is a way of life.
+          From 30-square-meters to 150-square-meters of enviable comforts
+        </p>
+      </div>
+      <div class="slideszoveg">
+        <h1>2</h1>
+        <p>2
+        </p>
+      </div>
+      <div class="slideszoveg">
+        <h1>3</h1>
+        <p>3
+        </p>
+      </div>
+      <div class="slideszoveg">
+        <h1>4</h1>
+        <p>4
+        </p>
+      </div>
+      <div class="slideszoveg">
+        <h1>5</h1>
+        <p>5
+        </p>
+      </div>
     </div>
   </div>
 
