@@ -22,7 +22,6 @@ namespace Recepcio_alkalmazas.Views
     /// </summary>
     public partial class editres : Window
     {
-
         reservation egyfoglalas = new reservation();
         ObservableCollection<servicetype> tipusok = new ObservableCollection<servicetype>();
         ObservableCollection<room> szobak = new ObservableCollection<room>();
@@ -35,7 +34,8 @@ namespace Recepcio_alkalmazas.Views
         bool editlesz = true;
         public editres(reservation model)
         {
-            InitializeComponent();   
+            InitializeComponent();
+
             egyfoglalas = model;
             szobak = room.selectAllRooms();
             this.DataContext = egyfoglalas;
@@ -67,6 +67,7 @@ namespace Recepcio_alkalmazas.Views
         private void btn_save_Click(object sender, RoutedEventArgs e)
         {
             bool vanerror = false;
+            aktualis.Message = egyfoglalas.Message;
             aktualis.ReservationID = egyfoglalas.ReservationID;
             customer a = (customer)cb_vendegek.SelectedItem;
             aktualis.CustomerID = a.CustomerID;
@@ -235,6 +236,7 @@ namespace Recepcio_alkalmazas.Views
             customer temp = (customer)cb_vendegek.SelectedItem;
             egyuser = customer.selectuserByID(temp.CustomerID)[0];
             BrushConverter bc = new BrushConverter();
+            double kedvezmeny;
             switch (egyuser.Level)
             {
                 case "Gold":
@@ -242,6 +244,8 @@ namespace Recepcio_alkalmazas.Views
                     lbl_level.Content = "Gold";
                     lbl_level.Foreground = Brushes.Black;
                     lbl_title.Foreground = Brushes.Black;
+                    lbl_discount.Foreground = Brushes.Black;
+                    lbl_discounttitle.Foreground = Brushes.Black;
                     szorzo = 0.95;
                     break;
                 case "Platinum":
@@ -249,6 +253,8 @@ namespace Recepcio_alkalmazas.Views
                     lbl_level.Content = "Platinum";
                     lbl_level.Foreground = Brushes.Black;
                     lbl_title.Foreground = Brushes.Black;
+                    lbl_discount.Foreground = Brushes.Black;
+                    lbl_discounttitle.Foreground = Brushes.Black;
                     szorzo = 0.90;
                     break;
                 case "Diamond":
@@ -256,16 +262,22 @@ namespace Recepcio_alkalmazas.Views
                     lbl_level.Content = "Diamond";
                     lbl_level.Foreground = Brushes.Black;
                     lbl_title.Foreground = Brushes.Black;
+                    lbl_discount.Foreground = Brushes.Black;
+                    lbl_discounttitle.Foreground = Brushes.Black;
                     szorzo = 0.85;
                     break;
                 default:
-                    lbl_level.Content = "This user is not ranked yet";
                     sp_level.Background = Brushes.Transparent;
+                    lbl_level.Content = "Not ranked";
                     lbl_level.Foreground = Brushes.White;
                     lbl_title.Foreground = Brushes.White;
+                    lbl_discount.Foreground = Brushes.White;
+                    lbl_discounttitle.Foreground = Brushes.White;
                     szorzo = 1;
                     break;
             }
+            kedvezmeny = 100 - szorzo * 100;
+            lbl_discount.Content = string.Format("{0}%",kedvezmeny);
         }
 
         public string szintcsekk(int resnumber )
@@ -315,7 +327,6 @@ namespace Recepcio_alkalmazas.Views
             if (cb_rooms.SelectedItem.ToString()!="")
             {
                 aktualis.RoomName = cb_rooms.SelectedItem.ToString();
-
             }
         }
     }

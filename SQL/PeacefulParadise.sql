@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Gép: localhost:3306
--- Létrehozás ideje: 2022. Jan 31. 12:16
+-- Létrehozás ideje: 2022. Feb 01. 10:27
 -- Kiszolgáló verziója: 5.5.62-0+deb8u1
 -- PHP verzió: 7.4.3
 
@@ -44,35 +44,26 @@ CREATE TABLE `cashregister` (
 --
 
 INSERT INTO `cashregister` (`CashRegisterID`, `GuestName`, `Amount`, `Title`, `Paid`, `Changee`) VALUES
-(1, 'TestUser', 1, 'Guest paying at chack-in', 0, 0),
-(2, 'TestUser', 8.45, 'Guest paying when checking-out', 0, 0),
-(3, 'TestUser', 1, 'Guest paying at check-in', 0, 0),
-(4, 'TestUser', 1, 'Guest paying at check-in', 0, 0),
-(5, 'TestUser', 1, 'Guest paying at check-in', 10, 9),
-(6, 'TestUser', 1, 'Guest paying when checking-out', 1, 0),
-(7, 'TestUser', 1, 'Guest paying at check-in', 10, 9),
-(8, 'TestUser', 8.45, 'Guest paying when checking-out', 10, 1.55),
-(9, 'TestUser', 8.45, 'Guest paying when checking-out', 8.45, 0),
-(13, 'TestUser', 1, 'Guest paying when checking-out', 1, 0),
-(14, 'Béla', 0, 'Guest paying when checking-out', 0, 0),
-(15, 'TestUser', 629.99, 'Guest paying at check-in', 630, 0.01),
-(16, 'TestUser', 232.38000000000002, 'Guest paying when checking-out (CARD)', 232.38000000000002, 0),
-(17, 'TestUser', 629.99, 'Guest paying at check-in', 700, 70.01),
-(18, 'TestUser', 639.99, 'Guest paying at check-in', 1000, 360.01),
-(19, 'TestUser', 2559.96, 'Guest paying when checking-out', 22222, 19662.04),
-(20, 'TestUser', 66.44999999999999, 'Guest paying when checking-out', 70, 3.55),
-(21, 'TestUser', 696.44, 'Guest paying when checking-out', 700, 3.56),
-(22, 'János', 1229.99, 'Guest paying when checking-in (CARD)', 1229.99, 0),
-(23, 'Vass Kornél', 1889.97, 'Guest paying when checking-in (CARD)', 1889.97, 0),
-(24, 'Bac Ilus', 2489.97, 'Guest paying when checking-in (CARD)', 2489.97, 0),
-(25, 'TestUser', 5279.96, 'Guest paying when checking-in (CARD)', 5279.96, 0),
-(26, 'TestUser', 3689.97, 'Guest paying at check-in', 3700, 10.03),
-(27, 'Vass Kornél', 4119.96, 'Guest paying when checking-in (CARD)', 4119.96, 0),
-(28, 'Vass Kornél', 63.440000000000005, 'Guest paying when checking-out', 70, 6.56),
 (29, 'Vass Kornél', 5039.94, 'Guest paying when checking-in (CARD)', 5039.94, 0),
 (30, 'Bélaasd', 3359.96, 'Guest paying at check-in', 3400, 40.04),
 (31, 'admin', 1766.97, 'Guest paying at check-in', 1800, 33.03),
-(32, 'admin', 44.36000000000001, 'Guest paying when checking-out (CARD)', 44.36000000000001, 0);
+(32, 'admin', 44.36000000000001, 'Guest paying when checking-out (CARD)', 44.36000000000001, 0),
+(33, 'Vass Kornél', 2479.96, 'Guest paying when checking-in (CARD)', 2479.96, 0),
+(34, 'Vass Kornél', 186.45000000000002, 'Guest paying when checking-out (CARD)', 186.45000000000002, 0);
+
+-- --------------------------------------------------------
+
+--
+-- Tábla szerkezet ehhez a táblához `codes`
+--
+
+CREATE TABLE `codes` (
+  `CodeID` int(11) NOT NULL,
+  `Code` varchar(255) COLLATE utf8mb4_hungarian_ci DEFAULT NULL,
+  `Expiry` datetime DEFAULT NULL,
+  `Type` varchar(100) COLLATE utf8mb4_hungarian_ci DEFAULT NULL,
+  `CustomerID` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_hungarian_ci;
 
 -- --------------------------------------------------------
 
@@ -110,23 +101,27 @@ CREATE TABLE `customer` (
   `LEVEL` varchar(150) NOT NULL,
   `ReservationNumber` int(11) NOT NULL,
   `reset_token` varchar(255) NOT NULL,
-  `reset_token_expiry` datetime NOT NULL
+  `reset_token_expiry` datetime NOT NULL,
+  `newacc_activation_code` varchar(255) NOT NULL,
+  `newacc_activation_code_expiry` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='Customer data';
 
 --
 -- A tábla adatainak kiíratása `customer`
 --
 
-INSERT INTO `customer` (`CustomerID`, `Name`, `PhoneNumber`, `Email`, `Address`, `UserName`, `Password`, `IsAdmin`, `active`, `activation_code`, `activation_expiry`, `activated_at`, `created_at`, `LEVEL`, `ReservationNumber`, `reset_token`, `reset_token_expiry`) VALUES
-(9, 'admin', '123', 'admin@admin', 'asd', 'admin', 'e64b78fc3bc91bcbc7dc232ba8ec59e0', 1, 1, '', '0000-00-00 00:00:00', '2022-01-25 17:20:27', '0000-00-00 00:00:00', '', 0, '', '0000-00-00 00:00:00'),
-(41, 'Koaxk Ábel', '123', 'ko@x.com', 'dsa', 'koax', 'bb3745d30d57c6279777c579a20483bc', 0, 1, '669a3a54886bcd13c6095cf7e5308c56', '2022-01-27 10:13:35', NULL, '2022-01-26 09:13:35', '', 0, '', '0000-00-00 00:00:00'),
-(42, 'Tüdő R. Ákos', '+36304206969', 'tudor@akos.hu', '9012 Győr Kossuth utca 12', '', '', 0, NULL, '', '0000-00-00 00:00:00', NULL, '2022-01-26 09:20:00', '', 0, '', '0000-00-00 00:00:00'),
-(49, 'VK', '', 'vass.kornel@students.jedlik.eu', '', 'vasskoko', 'abfeb5ac73556cadb0d0afc57d7221e8', 1, 1, 'fa412bc35ff12e8a0a2f4bcb5c880d36', '2022-01-27 12:55:05', '2022-01-26 12:55:18', '2022-01-26 11:55:05', '', 0, '', '0000-00-00 00:00:00'),
-(77, 'Bac Ilus', '+36304206969', 'example@gmail.com', '9027 Győr Szeszgyár utca 1', '', '', 0, NULL, '', '0000-00-00 00:00:00', NULL, '2022-01-27 12:25:43', '', 0, '', '0000-00-00 00:00:00'),
-(86, 'Kálmán Dávid', '+36304777706', 'kaldavai26@gmail.com', '9027, Győr, Szeszgyár u. 1.', 'mauzileu', '7b5582e4edbeeb77c0ef953ed71620cf', 0, 1, '3ec1744c06652b8bc31888c7b08e79b4', '2022-01-28 21:56:33', '2022-01-27 21:56:40', '2022-01-27 20:56:33', '', 0, '56dc2cd557c88c599093292999fc63c2', '2022-02-01 10:03:28'),
-(87, 'KD', '', 'kalman.david@students.jedlik.eu', '', 'kaldavai26', '7b5582e4edbeeb77c0ef953ed71620cf', 0, 1, '4f03e0e91162e8386b3b1e5896718c00', '2022-02-01 08:07:25', '2022-01-31 08:08:41', '2022-01-31 07:07:25', '', 0, '3c71d5c517e6b9c994db0b7115e89824', '2022-02-01 12:20:33'),
-(88, 'Hát Izsak', '123', 'hatizsak@gmail.com', 'asd', 'hatizsak', 'bea23b981f607e5c8a037bd448289feb', 0, 1, 'd9c3055bc44550c2fd23bd60a2b46be3', '2022-02-01 08:15:21', NULL, '2022-01-31 07:15:21', '', 1, '', '0000-00-00 00:00:00'),
-(90, 'Kandisz Nóra', '+3620201234012', 'kandisz@gmail.com', 'EnesePutri Szabadság utca 59', '', '', 0, 1, '', '0000-00-00 00:00:00', NULL, '2022-01-31 12:13:57', '', 0, '', '0000-00-00 00:00:00');
+INSERT INTO `customer` (`CustomerID`, `Name`, `PhoneNumber`, `Email`, `Address`, `UserName`, `Password`, `IsAdmin`, `active`, `activation_code`, `activation_expiry`, `activated_at`, `created_at`, `LEVEL`, `ReservationNumber`, `reset_token`, `reset_token_expiry`, `newacc_activation_code`, `newacc_activation_code_expiry`) VALUES
+(9, 'admin', '+1420420123', 'admin@admin', 'Admin Street123', 'admin', 'e64b78fc3bc91bcbc7dc232ba8ec59e0', 1, 1, '', '0000-00-00 00:00:00', '2022-01-25 17:20:27', '0000-00-00 00:00:00', 'Gold', 4, '', '0000-00-00 00:00:00', '', '0000-00-00 00:00:00'),
+(41, 'Koaxk Ábel', '123', 'ko@x.com', 'dsa', 'koax', 'bb3745d30d57c6279777c579a20483bc', 0, 1, '669a3a54886bcd13c6095cf7e5308c56', '2022-01-27 10:13:35', NULL, '2022-01-26 09:13:35', '', 0, '', '0000-00-00 00:00:00', '', '0000-00-00 00:00:00'),
+(42, 'Tüdő R. Ákos', '+csoves', 'tudor@akos.com', '9012 Győr Kossuth utca 11', 'TudoRaki', '', 0, NULL, '', '0000-00-00 00:00:00', NULL, '2022-01-26 09:20:00', '', 0, '', '0000-00-00 00:00:00', '', '0000-00-00 00:00:00'),
+(49, 'VK', '123123', 'vass.kornel@students.jedlik.eu', 'ToxiCity', 'vasskoko', 'abfeb5ac73556cadb0d0afc57d7221e8', 0, 1, 'fa412bc35ff12e8a0a2f4bcb5c880d36', '2022-01-27 12:55:05', '2022-01-26 12:55:18', '2022-01-26 11:55:05', '', 0, '', '0000-00-00 00:00:00', '', '0000-00-00 00:00:00'),
+(77, 'Bac Ilus', '+36304206969', 'example@gmail.com', '9027 Győr Szeszgyár utca 1', '', '', 0, NULL, '', '0000-00-00 00:00:00', NULL, '2022-01-27 12:25:43', '', 0, '', '0000-00-00 00:00:00', '', '0000-00-00 00:00:00'),
+(86, 'Kálmán Dávid', '+36304777706', 'kaldavai26@gmail.com', '9027, Győr, Szeszgyár u. 1.', 'mauzileu', '7b5582e4edbeeb77c0ef953ed71620cf', 0, 1, '3ec1744c06652b8bc31888c7b08e79b4', '2022-01-28 21:56:33', '2022-01-27 21:56:40', '2022-01-27 20:56:33', '', 0, '56dc2cd557c88c599093292999fc63c2', '2022-02-01 10:03:28', 'a7d3b66c213a4d2a8eb3acfbe73dbc3a', '2022-02-02 09:33:39'),
+(87, 'KD', '', 'kalman.david@students.jedlik.eu', '', 'kaldavai26', '7b5582e4edbeeb77c0ef953ed71620cf', 0, 1, '4f03e0e91162e8386b3b1e5896718c00', '2022-02-01 08:07:25', '2022-01-31 08:08:41', '2022-01-31 07:07:25', '', 0, '3c71d5c517e6b9c994db0b7115e89824', '2022-02-01 12:20:33', '', '0000-00-00 00:00:00'),
+(91, 'Kandisz Nóra', '+3620201234012', 'kandisz@gmail.com', 'EnesePutri Szabadság utca 59', 'Kandisz', 'abfeb5ac73556cadb0d0afc57d7221e8', 0, 1, 'c7567d456e2637c94245b32cbe8e617f', '2022-02-01 13:35:28', NULL, '2022-01-31 12:35:28', '', 1, '', '0000-00-00 00:00:00', '', '0000-00-00 00:00:00'),
+(92, 'KOKO TESZT', '+3698654', 'kt@gmail.com', 'Putrilol', '', '', 0, NULL, '', '0000-00-00 00:00:00', NULL, '2022-01-31 12:41:37', '', 0, '', '0000-00-00 00:00:00', '', '0000-00-00 00:00:00'),
+(95, 'Vass Kornél', '+36202483810', 'vass.kornel@gmail.com', 'Győr', 'vass.kornel', 'f78de5e8e17b54811dd01fcaf4451296', 0, 1, '1fff6a42e7678d6aa5df15fd24c65e85', '2022-02-02 08:11:54', '2022-02-01 08:13:07', '2022-02-01 07:11:54', '', 2, '', '0000-00-00 00:00:00', '', '0000-00-00 00:00:00'),
+(97, 'aaaaaaaaaaa', '', 'roncz.gabor1@gmail.com', '', 'aaa', '265a9b497722342d9c3506671e429215', 0, 1, '81905b92a70c75bc00fc42313c3efd4e', '2022-02-02 10:23:55', NULL, '2022-02-01 09:23:55', '', 0, '', '0000-00-00 00:00:00', 'abf9902e20ce17d7aae65e72e024111e', '2022-02-02 11:25:30');
 
 -- --------------------------------------------------------
 
@@ -334,6 +329,13 @@ ALTER TABLE `cashregister`
   ADD PRIMARY KEY (`CashRegisterID`);
 
 --
+-- A tábla indexei `codes`
+--
+ALTER TABLE `codes`
+  ADD PRIMARY KEY (`CodeID`),
+  ADD KEY `CustomerID` (`CustomerID`);
+
+--
 -- A tábla indexei `consumption`
 --
 ALTER TABLE `consumption`
@@ -381,25 +383,25 @@ ALTER TABLE `storage`
 -- AUTO_INCREMENT a táblához `cashregister`
 --
 ALTER TABLE `cashregister`
-  MODIFY `CashRegisterID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
+  MODIFY `CashRegisterID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
 
 --
 -- AUTO_INCREMENT a táblához `consumption`
 --
 ALTER TABLE `consumption`
-  MODIFY `ConsumptionID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=167;
+  MODIFY `ConsumptionID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=176;
 
 --
 -- AUTO_INCREMENT a táblához `customer`
 --
 ALTER TABLE `customer`
-  MODIFY `CustomerID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=91;
+  MODIFY `CustomerID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=98;
 
 --
 -- AUTO_INCREMENT a táblához `reservation`
 --
 ALTER TABLE `reservation`
-  MODIFY `ReservationID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=262;
+  MODIFY `ReservationID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=273;
 
 --
 -- AUTO_INCREMENT a táblához `room`
@@ -422,6 +424,12 @@ ALTER TABLE `storage`
 --
 -- Megkötések a kiírt táblákhoz
 --
+
+--
+-- Megkötések a táblához `codes`
+--
+ALTER TABLE `codes`
+  ADD CONSTRAINT `codes_ibfk_1` FOREIGN KEY (`CustomerID`) REFERENCES `customer` (`CustomerID`);
 
 --
 -- Megkötések a táblához `consumption`

@@ -6,12 +6,14 @@
         xmlns:local="clr-namespace:Recepcio_alkalmazas.Views"
         xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
         mc:Ignorable="d"
-        Title="editres" Height="500" Width="400" WindowStartupLocation="CenterScreen" WindowStyle="None" ResizeMode="NoResize" AllowsTransparency="False">
+        Title="editres" Height="550" Width="400" WindowStartupLocation="CenterScreen" WindowStyle="None" ResizeMode="NoResize" AllowsTransparency="False" >
+    <Border BorderThickness="2" BorderBrush="DarkGoldenrod">
     <Grid MouseDown="Grid_MouseDown">
         <Grid.RowDefinitions>
             <RowDefinition Height="60"/>
             <RowDefinition Height="auto"/>
             <RowDefinition Height="160"/>
+            <RowDefinition Height="auto"/>
             <RowDefinition Height="auto"/>
             <RowDefinition Height="60"/>
         </Grid.RowDefinitions>
@@ -22,9 +24,18 @@
         <Grid.Background>
             <ImageBrush ImageSource="../img/hatter.jpg"/>
         </Grid.Background>
-        <StackPanel Grid.Row="0" Grid.ColumnSpan="2" Name="sp_level" Background="Gold">
-            <Label Content="Guest level:" Name="lbl_title" FontSize="18" FontWeight="Bold"/>
-            <Label Name="lbl_level" Content="" FontWeight="Bold" FontSize="16"/>
+        
+        <StackPanel Grid.Row="0" Grid.ColumnSpan="2" Name="sp_level">
+            <StackPanel Orientation="Horizontal">
+                <StackPanel Width="200">
+                    <Label Content="Guest level:" Name="lbl_title" FontSize="18" FontWeight="Bold"/>
+                    <Label Name="lbl_level" FontWeight="Bold" FontSize="16"/>
+                </StackPanel>
+                <StackPanel >
+                    <Label Content="Discount:" Name="lbl_discounttitle" FontSize="18" FontWeight="Bold"/>
+                    <Label  FontSize="16" Name="lbl_discount" FontWeight="Bold"/>
+                </StackPanel>
+            </StackPanel>
         </StackPanel>
         <StackPanel Grid.ColumnSpan="2" Grid.Row="1">
             <Label Content="Reservation data:" FontSize="20" Foreground="DarkGoldenrod" FontWeight="Bold" Margin="5" HorizontalAlignment="Center"/>
@@ -55,7 +66,12 @@
                 <TextBox Name="tb_adults"  PreviewTextInput="tb_adults_PreviewTextInput" Width="50" Margin="5" Text="{Binding Adults}" />
             </StackPanel>
         </StackPanel>
-        <Button Padding="5" Grid.Row="4" Height="40" FontWeight="Bold" Name="btn_save" Background="Black" Margin="30,10,30,10" Click="btn_save_Click">
+        <StackPanel Grid.Row="4" Grid.ColumnSpan="2">
+            <Label Content="Message:" Foreground="DarkGoldenrod" FontSize="15" FontWeight="Bold" Margin="5,0,5,0"/>
+            <TextBox Name="tb_message" Height="60" TextWrapping="Wrap" FontSize="14" Text="{Binding Message}" 
+                     AcceptsReturn="True"  Margin="5" VerticalScrollBarVisibility="Visible"/>
+        </StackPanel>
+        <Button Padding="5" Grid.Row="5" Height="40" FontWeight="Bold" Name="btn_save" Background="Black" Margin="30,10,30,10" Click="btn_save_Click">
             <Button.Resources>
                 <Style TargetType="Border">
                     <Setter Property="CornerRadius" Value="5"/>
@@ -66,7 +82,7 @@
                 <iconPacks:PackIconMaterial Width="15" Height="14" Kind="ContentSave" Foreground="DarkGoldenrod" VerticalContentAlignment="Center" VerticalAlignment="Center"/>
             </StackPanel>
         </Button>
-        <Button Padding="5" Grid.Row="4" Height="40" Grid.Column="1" FontWeight="Bold" Name="btn_cancel" Background="Black" Margin="30,10,30,10" Click="btn_cancel_Click">
+        <Button Padding="5" Grid.Row="5" Height="40" Grid.Column="1" FontWeight="Bold" Name="btn_cancel" Background="Black" Margin="30,10,30,10" Click="btn_cancel_Click">
             <Button.Resources>
                 <Style TargetType="Border">
                     <Setter Property="CornerRadius" Value="5"/>
@@ -77,5 +93,6 @@
                 <iconPacks:PackIconMaterial Width="15" Height="14" Kind="Cancel" Foreground="DarkGoldenrod" VerticalContentAlignment="Center" VerticalAlignment="Center"/>
             </StackPanel>
         </Button>
-    </Grid>
+        </Grid>
+    </Border>
 </Window>
