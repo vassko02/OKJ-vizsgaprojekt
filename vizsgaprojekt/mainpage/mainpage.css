@@ -67,28 +67,33 @@
        1px 1px 0 #000;
 }
 
+
 .icons {
     text-align: center;
-    width: 50vw;
+    width: 60vw;
     margin-left: auto;
     margin-right: auto;
     margin-top: 5vh;
     margin-bottom: 5vh;
 }
 .icons a {
-    margin-left: 1vw;
-    margin-right: 1vw;
     color: white;
-    background-color: black;
-    border: 1px solid white!important;
+    background-color: hsl(0, 0%, 10%);
+    border: 2px solid #C5B358!important;
     border-radius: 0 !important;
     transition: 0.3s;
     font-size: 1.2vh;
     text-transform: uppercase;
+    max-width: 20vh;
+    min-width: 20vh;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 1vh;
+    border-radius: 30px !important;
 }
 .icons a:hover{
-    border-radius: 40px !important;
     color: white;
+    background-color: #C5B358;
 }
 .icons i {
     font-size: 2vh;
@@ -98,11 +103,17 @@
     margin-bottom: 0;
     transition: 0.3s;
     font-family: 'Be Vietnam Pro', sans-serif;
+    letter-spacing: 1px;
 }
 
 
 .rooms {
     color: white;
+}
+.roomheader {
+    width: 90vw;
+    margin-left: auto;
+    margin-right: auto;
 }
 .roomcim h1{
     font-size: 9vh;
@@ -110,27 +121,22 @@
     float: right;
 }
 .roomszoveg {
-    padding-right: 30vh;
     padding-top: 2vh;
     font-size: 2vh;
+    padding-right: 10vw;
 }
 .roomszoveg a {
     color: #C5B358;
     text-decoration: none;
     font-family: 'Be Vietnam Pro', sans-serif;
 }
-.roomszoveg a::after {
-    content: "";
-    display: block;
-    height: 3px;
-    width: 0%;
-    background-color: #C5B358;
-    position: absolute;
-    transition: all ease-in-out 250ms;
-}
-.roomszoveg a:hover::after {
-    width: 15vh;
-}
+
+
+
+
+/*https://github.com/tonkec/text_hover_effects
+    https://codepen.io/tonkec/pen/jWmgqN
+    https://codepen.io/tonkec/full/zbRKKK*/
 
 
 

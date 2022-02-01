@@ -43,7 +43,7 @@
                 </div>
                 <div id="divider"></div>
                 <div class="row">
-                    <form class="col-8" action="'.$baseUrl.'/passwordreset?email" method="POST">
+                    <form class="col-sm-12 col-lg-7" action="'.$baseUrl.'/passwordreset?email" method="POST">
                         <div class="form-group">
                             <label for="exampleInputPassword1">New Password</label>
                             <input type="password" name="newPassword" class="form-control" id="exampleInputPassword1" placeholder="New Password">
@@ -57,7 +57,7 @@
                         <input type="hidden" name="reset_token" value="'.$_GET['password_reset_token'].'">
                         <button id="submit" type="submit" class="" disabled>Submit</button>
                     </form>
-                    <div class="col-4" id="validator-output"></div>
+                    <div class="col-sm-12 col-lg-5" id="validator-output"></div>
                 </div>
                 
               </div>';

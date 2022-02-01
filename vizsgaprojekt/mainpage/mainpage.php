@@ -79,19 +79,19 @@ $Roomslist = $RoomObj->selectallrooms();
 </div>
 
 <div class="rooms">
-  <div class="row">
+  <div class="row roomheader">
     <div class="col-lg-4 col-sm-12 roomcim">
       <h1>Rooms</h1>
     </div>
     <div class="col-lg-8 col-sm-12 roomszoveg">
       <p>At Peaceful Paradise, our luxurious rooms welcome you to unwind to your heart's content. Stay in a posh, stylish room, spacious suite or a breathtaking villa.</p>
-      <a href="../book/book.php">View all rooms
-        <i class="fas fa-chevron-right"></i>
+      <a href="<?php echo $baseUrl?>/booking#osszesszoba">
+        <span class="centerhover" ><i class="fas fa-search"></i> View all rooms  </span> 
       </a>
     </div>
   </div>
   <div class="row leiras">
-    <div class="col-6">
+    <div class="col-lg-7 col-sm-12">
       <!--room picture slider-->
       <div class="card">
         <div class="slides">
@@ -132,12 +132,12 @@ $Roomslist = $RoomObj->selectallrooms();
           </div>
         </div>
         <div class="booksliderbtn row">
-          <a class="col-6" id="prev" href="#" class="btn"><i class="far fa-hand-point-left"></i></a>
-          <a class="col-6" id="next" href="#" class="btn"><i class="far fa-hand-point-right"></i></a>
+          <a class="col-6 righttolefthover" id="prev" href="#" class="btn"><i class="fas fa-chevron-left"></i> Previous</a>
+          <a class="col-6 lefttorighthover" id="next" href="#" class="btn">Next <i class="fas fa-chevron-right"></i></a>
         </div>
       </div>
     </div>
-    <div class="col-6 bookszoveg">
+    <div class="col-lg-5 col-sm-12 bookszoveg">
       <h1>Lorem ipsum</h1>
       <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus consectetur erat ante, in eleifend neque interdum at. Etiam aliquet pellentesque augue, et volutpat purus faucibus vitae. Donec ac accumsan lectus. Donec nisi urna, malesuada et magna at, varius pharetra odio. Cras eu lectus quis ipsum vulputate mattis sit amet ac diam. In et libero in eros accumsan blandit. Quisque at lacus eget ante imperdiet convallis. Aliquam ut justo nisi. Cras pharetra tempus mi, eget suscipit ligula ullamcorper quis. Quisque eu arcu porttitor, consectetur eros quis, posuere arcu. Donec non auctor felis. </p>
     </div>

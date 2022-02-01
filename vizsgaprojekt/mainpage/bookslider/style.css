@@ -13,7 +13,7 @@
 
 
 .card {
-  background-color: #313030 !important;
+  background-color: transparent !important;
   margin: 5vh auto;
   /* box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23); */
   box-sizing: border-box;
@@ -42,7 +42,7 @@
 }
 
 .slide img {
-  height: 40vh;
+  height: 45vh;
   width: 100%;
   min-width: 100%;
 }
@@ -68,10 +68,10 @@
 .booksliderbtn{
   text-align: center;
   transition: 0.3s;
-  background-color: #313030 !important;
+  background-color: transparent !important;
   margin-top: 1vh;
 }
-.booksliderbtn i{
+/* .booksliderbtn i{
   font-size: 3vh;
   color: black;
   transition: 0.3s;
@@ -79,9 +79,63 @@
 .booksliderbtn a:hover i{
   color: #C5B358;
   transition: 0.3s;
+} */
+.booksliderbtn a {
+  color: #C5B358;
+  text-decoration: none;
+  font-family: 'Be Vietnam Pro', sans-serif;
+  text-transform: uppercase;
+  max-width: 20%;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
 }
-
 
 .bookszoveg {
   margin-top: 5vh;
+}
+
+
+.righttolefthover::after {
+  content: "";
+  display: block;
+  position: absolute;
+  height: 3px;
+  width: 0%;
+  background: #C5B358;
+  transition: all ease-in-out 300ms;
+  right: 0;
+}
+.righttolefthover:hover:after {
+  right: 0;
+  left: auto;
+  width: 100%;
+}
+
+.lefttorighthover::after {
+  content: "";
+  display: block;
+  position: absolute;
+  height: 3px;
+  width: 0%;
+  background-color: #C5B358;
+  transition: all ease-in-out 300ms;
+}
+.lefttorighthover:hover::after {
+  width: 90%;
+}
+
+.centerhover::after {
+  content: "";
+  display: block;
+  position: absolute;
+  height: 3px;
+  width: 0%;
+  background-color: #C5B358;
+  transition: all ease-in-out 300ms;
+  left: 50%;
+}
+.centerhover:hover::after {
+  width: 100%;
+  left: 0;
 }

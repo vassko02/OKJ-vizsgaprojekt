@@ -55,6 +55,7 @@ $(function () {
     this._name = pluginName;
     this.init();
   }
+  
 
   $.extend(Plugin.prototype, {
     init: function () {
@@ -65,6 +66,7 @@ $(function () {
     validateEvent: function (event) {
       const self = event.data.self;
       const messages = [];
+      let pipa = "";
       let valid_count = 0;
       $(self.element).empty();
       $(self.settings.validators).each(function (index, validator) {
@@ -72,8 +74,17 @@ $(function () {
         if (validator.regexp)
           valid = new RegExp(validator.regexp).test(self.settings.input1.val());
         if (validator.compare)
-          valid = self.settings.input1.val() == $(self.settings.input2).val();
-        const message = $("<div>" + validator.message + "</div>");
+        valid = self.settings.input1.val() == $(self.settings.input2).val();
+        
+        if (valid == false)
+        {
+          pipa = '<i class="far fa-times-circle"></i> '
+        }
+        else {
+          pipa = '<i class="far fa-check-circle"></i> ';
+        }
+        
+        const message = $("<div>"+ pipa + validator.message + "</div>");
         message.addClass(valid ? "valid" : "invalid");
         if (self.settings.input1.val().length > 0)
           $(self.element).append(message);

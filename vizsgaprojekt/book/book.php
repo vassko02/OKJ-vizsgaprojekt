@@ -123,9 +123,9 @@
 // echo ('</pre>');
 ?>
 <!-- 	 -->
-<section class="dark hatter">
+<section class="dark hatter" id="osszesszoba">
 	<div class=" py-4">
-		<h1 class="h1 text-center" id="pageHeaderTitle">All of our Rooms</h1>
+		<h1 class="h1 text-center" id="pageHeaderTitle">Our Rooms</h1>
 		<?php
 		if (isset($_POST['btn_srch']) && isset($_SESSION['checkin'])) {
 			
