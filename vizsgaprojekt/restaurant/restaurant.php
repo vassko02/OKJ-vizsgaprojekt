@@ -16,7 +16,7 @@ $main = $StorageObj->getFoodByType('Main Course');
 
 <div class="row mx-auto">
   <?php foreach ($appetiser as $item) {
-    echo '<div class="card col-lg-3 col-md-4 col-sm-12">
+    echo '<div class="card col-lg-3 col-md-4 col-sm-12 mx-auto">
     <div class="card-body">
       <img src="'.$item['ImageURL'].'" class="card-img-top" alt="...">
       <p class="card-text">'.$item['ItemName'].'</p>
@@ -25,7 +25,7 @@ $main = $StorageObj->getFoodByType('Main Course');
   </div>';
   }
   foreach ($soup as $item) {
-    echo '<div class="card col-lg-3 col-md-4 col-sm-12">
+    echo '<div class="card col-lg-3 col-md-4 col-sm-12 mx-auto">
     <div class="card-body">
       <img src="'.$item['ImageURL'].'" class="card-img-top" alt="...">
       <p class="card-text">'.$item['ItemName'].'</p>
@@ -34,7 +34,7 @@ $main = $StorageObj->getFoodByType('Main Course');
   </div>';
   }
   foreach ($main as $item) {
-    echo '<div class="card col-lg-3 col-md-4 col-sm-12">
+    echo '<div class="card col-lg-3 col-md-4 col-sm-12 mx-auto">
     <div class="card-body">
       <img src="'.$item['ImageURL'].'" class="card-img-top" alt="...">
       <p class="card-text">'.$item['ItemName'].'</p>
@@ -43,7 +43,7 @@ $main = $StorageObj->getFoodByType('Main Course');
   </div>';
   }
   foreach ($dessert as $item) {
-    echo '<div class="card col-lg-3 col-md-4 col-sm-12">
+    echo '<div class="card col-lg-3 col-md-4 col-sm-12 mx-auto">
     <div class="card-body">
       <img src="'.$item['ImageURL'].'" class="card-img-top" alt="...">
       <p class="card-text">'.$item['ItemName'].'</p>
