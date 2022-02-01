@@ -46,8 +46,9 @@
                     echo '
                     <i id="success" class="far fa-check-circle"></i>
                     <h1>Successful activation!</h1>
-                    <p>Now you can sign in and get full access on our website</p>
+                    <p>Your email address have been changed!</p>
                     <a href="'.$baseUrl.'/signin">Sign in now</a>';
+                    $GuestObj->activate_email();
                 } else { //rossz az email cim vagy a kod
                     echo '
                     <i id="error" class="far fa-times-circle"></i>

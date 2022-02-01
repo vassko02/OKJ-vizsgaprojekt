@@ -1,7 +1,9 @@
 <?php 
     
     //$GuestObj->getuserbyid($username);
-    
+
+    $HelpObj->writearray($_SESSION);
+
 
     if (isset($_POST['newaccountemail_btn'])) {
         if ($GuestObj->eemailcsekkforuseraccedit($_POST['newaccountemail'],$_SESSION['CustomerID']) > 0) {
@@ -11,6 +13,7 @@
          $emailError = "Email address already taken!";
        } 
        if(isset($emailError)){
+
         }
         else{
           $_SESSION['newemail'] = $_POST['newaccountemail'];
@@ -18,7 +21,12 @@
             $token = $GuestObj->generate_activation_code();
             $GuestObj->send_activation_emailfornewacc($_SESSION['newemail'],$token,$_SESSION['Emailforpost'],$baseUrl);
             $GuestObj->update_newacc_code_in_db($_SESSION['CustomerID'],$token);
-
+            echo '<script>
+            function delay(time) {
+                return new Promise(resolve => setTimeout(resolve, time));
+              }
+            delay(5000).then(() =>  window.location.href = "'.$baseUrl.'/logout")
+            </script>';
        }
 
     }

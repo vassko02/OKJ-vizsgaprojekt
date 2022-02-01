@@ -1655,6 +1655,18 @@ class Guest extends Dbconnect
     // verify the password
     return null;
   }
+  public function activate_email(int $user_id): bool
+  {
+    $sql = 'UPDATE customer
+                SET newacc_activated = 1
+                WHERE CustomerID=?';
+
+    $stmt = $this->con->prepare($sql);
+    $stmt->bind_param("i", $user_id);
+
+    return $stmt->execute();
+  }
+  
   public function activate_user(int $user_id): bool
   {
     $sql = 'UPDATE customer
