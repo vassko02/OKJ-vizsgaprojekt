@@ -15,6 +15,10 @@
         else{
           $_SESSION['newemail'] = $_POST['newaccountemail'];
             $noerror = "We have sent you an email to: ".$_SESSION['newemail'];
+            $token = $GuestObj->generate_activation_code();
+            $GuestObj->send_activation_emailfornewacc($_SESSION['newemail'],$token,$_SESSION['Emailforpost'],$baseUrl);
+            $GuestObj->update_newacc_code_in_db($_SESSION['CustomerID'],$token);
+
        }
 
     }
