@@ -34,10 +34,14 @@
     }
     if (isset($_POST['deletee'])) {
       $_SESSION['reservationid'] = $_POST['reservationid']; 
+      $customerreservations = $ReservationObj->selectallreservationbycustomerid($_POST['customerid']);
+      $Rnumber = count($customerreservations);
+      $Rnumber -= 1;
+      $GuestObj->addonetoreservationnumber($_POST['customerid'],$Rnumber);
       $ReservationObj->deleteconsumption($_SESSION['reservationid']);
       $ReservationObj->deletereservation($_SESSION['reservationid']);
+    
     }
-    $HelpObj->writearray($_POST);
     $reservations[] = $ReservationObj->selectallreservation();
     $allrooms = $RoomObj->selectallrooms();
     $services = $ServiceObj->getallservice();

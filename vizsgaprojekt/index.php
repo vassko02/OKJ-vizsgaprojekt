@@ -5,7 +5,7 @@ define('VEDETT', 'igen');
 
 //szervernél: /~PeacefulParadise
 //localhostnál: /14aphp/OKJ-vizsgaprojekt/vizsgaprojekt
-$baseUrl = '/~PeacefulParadise'; 
+$baseUrl = '/14aphp/legfrissebb/OKJ-vizsgaprojekt/vizsgaprojekt'; 
 $request = $_SERVER['REQUEST_URI']; //mindenkori url
 $mennyiper = substr_count($request, '/');
 $baseMennyiper = substr_count($baseUrl, '/');
@@ -31,6 +31,7 @@ $HelpObj = new Help();
 $StorageObj = new storage();
 $MailObj = new mail();
 include('action.php');
+
 if (isset($_POST['btn_send'])) {
     $user = $GuestObj->getuserbyid($_SESSION['username']);
     $level =  $GuestObj->getlevel($user['CustomerID']);
@@ -63,19 +64,19 @@ if (isset($_POST['btn_send2'])) {
      
         if (isset($_SESSION['username'])) {
             $user = $GuestObj->getuserbyid($_SESSION['username']);
-
-            $Rnumber = $GuestObj->getreservationsnumber($user['CustomerID']);  
-            
-            $Rnumber['ReservationNumber'] += 1;
-            $GuestObj->addonetoreservationnumber($user['CustomerID'],$Rnumber['ReservationNumber']);
+            //$Rnumber = $GuestObj->getreservationsnumber($user['CustomerID']);  
+            $customerreservations = $ReservationObj->selectallreservationbycustomerid($user['CustomerID']);
+            $Rnumber = count($customerreservations);
+            $Rnumber += 1;
+            $GuestObj->addonetoreservationnumber($user['CustomerID'],$Rnumber);
             $level = '';
-            if ( $Rnumber['ReservationNumber'] >= 3 ) {
+            if ( $Rnumber >= 3 ) {
                 $level = "Gold";
             } 
-            else if ($Rnumber['ReservationNumber'] >= 7 ) {
+            else if ($Rnumber >= 7 ) {
                 $level = "Platinum";
             }
-            else if($Rnumber['ReservationNumber'] >= 11 ){
+            else if($Rnumber >= 11 ){
                 $level = "Diamond";
             }
             $GuestObj->updatelevel($user['CustomerID'],$level);

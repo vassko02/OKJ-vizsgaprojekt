@@ -18,6 +18,18 @@
             }
             return $allreservation;
         }
+        public function selectallreservationbycustomerid($id){
+            $sql = 'SELECT * FROM  reservation WHERE reservation.CustomerID = ?';
+            $stmt = $this->con->prepare($sql);
+            $stmt->bind_param("i",$id);
+            $stmt->execute();
+            $result = $stmt->get_result();
+            $allreservation = array();
+            while($row = $result->fetch_assoc()){
+                $allreservation[]=$row;
+            }
+            return $allreservation;
+        }
         public function updatereservation($adatok){
             $sql = "UPDATE reservation SET  ReservationID=?, GuestNumber=?, Price=?, Children=?, Adults=?, ArrivalDate=?, LeavingDate=?, CustomerID=?, RoomID=?, ServiceID=? WHERE reservation.ReservationID = ?";
             $stmt = $this->con->prepare($sql);

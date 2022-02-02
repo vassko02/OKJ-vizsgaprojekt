@@ -54,6 +54,8 @@
 	}
 	//$HelpObj->writearray($_POST);
     //$HelpObj->writearray($_SESSION);
+	
+		
 ?>
 
 <div class="book">
@@ -184,8 +186,8 @@
 			foreach ($Roomslist as $room) {
 				echo'
 				<article class="postcard dark blue">
-				<a class="postcard__img_link" href="#">
-					<img class="postcard__img" src="'.$room['ImageURL1'].'" alt="Image Title" />
+				<a class="postcard__img_link" >
+					<img class="postcard__img" id="'.$room['ImageURL1'].'" src="'.$room['ImageURL1'].'" alt="Image Title" />
 				</a>
 				<div class="postcard__text">
 					<h1 class="postcard__title blue"><a href="#">'.$room['RoomName'].'</a></h1>
@@ -208,4 +210,66 @@
 		
 		?>
 	</div>
+	
+<!-- The Modal -->
+<div id="myModal" class="modal">
+  <span class="close">&times;</span><div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img class="d-block w-100" id="sliderimg1" src="" alt="First slide">
+    </div>
+    <div class="carousel-item">
+      <img class="d-block w-100" id="sliderimg2" src="" alt="Second slide">
+    </div>
+    <div class="carousel-item">
+      <img class="d-block w-100" id="sliderimg3" src="" alt="Third slide">
+    </div>
+  </div>
+  <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
+</div>
+
+  <div id="caption"></div>
+</div>
 </section>
+<?php 
+	foreach ($Roomslist as $room) {
+		echo'
+		<script>
+	// Get the modal
+	var modal = document.getElementById("myModal");
+	
+	// Get the image and insert it inside the modal - use its "alt" text as a caption
+	
+	var img = document.getElementById("'.$room['ImageURL1'].'");
+	var sliderimg1 = document.getElementById("sliderimg1");
+	var sliderimg2 = document.getElementById("sliderimg2");
+	var sliderimg3 = document.getElementById("sliderimg3");
+	var captionText = document.getElementById("caption");
+	img.onclick = function(){
+	  modal.style.display = "block";
+	  sliderimg1.src = "'.$room['ImageURL1'].'";
+	  sliderimg2.src = "'.$room['ImageURL2'].'";
+	  sliderimg3.src = "'.$room['ImageURL3'].'";
+	  captionText.innerHTML = this.alt;
+	}
+	
+	
+	// Get the <span> element that closes the modal
+	var span = document.getElementsByClassName("close")[0];
+	
+	// When the user clicks on <span> (x), close the modal
+	span.onclick = function() { 
+	  modal.style.display = "none";
+	}
+	</script>
+		
+		';
+	}
+?>
