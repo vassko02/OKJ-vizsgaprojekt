@@ -120,13 +120,20 @@
             }
             return $rooms;
  }
+ public function selectRoomPics1ByType() {
+  $sql = 'SELECT ImageURL1 FROM room group by RoomName limit 6';
+  $stmt = $this->con->prepare($sql);
+  $stmt->execute();
+  $result = $stmt->get_result();
+
+  $Roomslist = array();
+  while($row = $result->fetch_assoc()){
+      $Roomslist[]=$row;
+  }
+  $roomnames = array();
+  foreach ($Roomslist as $room) {
+    $roomnames[] = $room['ImageURL1'];
+  }
+  return $roomnames;
+ }
 }
-
-    
-      
-  
- 
-
-   
-
-?>
