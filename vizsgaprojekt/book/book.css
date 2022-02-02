@@ -123,32 +123,39 @@ body,html {
     margin-bottom: 0 !important;
 }
 
-
-
-
-
-
-
-
-
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 5; /* Sit on top */
+    padding-top: 20vh; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0, 0, 0, 0.946); /* Black w/ opacity */
+  }
 
   /* Modal Content (image) */
-  .modal-content {
+  .d-block{
+    background-color: transparent;
     margin: auto;
     display: block;
-    width: 80%;
-    max-width: 800px;
-    height: 500px;
+    width: 90% !important;
+    max-width: 65vw;
+    height: 69vh;
   }
   
   /* Caption of Modal Image */
   #caption {
+    font-size: 2rem;
+    font-weight: bolder;
     margin: auto;
     display: block;
     width: 80%;
-    max-width: 700px;
+    max-width: 50vw;
     text-align: center;
-    color: #ccc;
+    color: rgb(255, 255, 255);
     padding: 10px 0;
     height: 150px;
   }
@@ -156,7 +163,7 @@ body,html {
   /* Add Animation */
   .modal-content, #caption {  
     animation-name: zoom;
-    animation-duration: 0.6s;
+    animation-duration: 1s;
   }
   
   @keyframes zoom {
@@ -188,10 +195,7 @@ body,html {
       width: 100%;
     }
   }
-img {
-    border-radius: 8px;
-   
-  }
+
 h1{
     font-weight: bold !important;
 }

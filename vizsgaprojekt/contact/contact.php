@@ -3,12 +3,15 @@
 
   if(isset($_SESSION['email'])){
     $email=$_SESSION['email'];
+    $guestdata=$GuestObj->findcustomerbyemail2($email);
+    $name=$guestdata['Name'];
   }
   else if(isset($_SESSION['loginemail'])){
     $email=$_SESSION['loginemail'];
+    $guestdata=$GuestObj->findcustomerbyemail2($email);
+    $name=$guestdata['Name'];
   }
-  $guestdata=$GuestObj->findcustomerbyemail2($email);
-  $name=$guestdata['Name'];
+
 
 ?>
 <div class="contact">

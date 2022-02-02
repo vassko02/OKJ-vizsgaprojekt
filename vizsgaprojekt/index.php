@@ -158,7 +158,7 @@ if (isset($_POST['btn_send2'])) {
     }
     if ($request === $baseUrl . '/booking') {
         echo '<link rel="stylesheet" href="./book/book.css">
-            <link rel="stylesheet" href="./book/button-hover/dist/style.css">
+        <link rel="stylesheet" href="./book/button-hover/dist/style.css">
             <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
             <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css">
             <link rel="stylesheet" href="./css/bookingroomscards.css">

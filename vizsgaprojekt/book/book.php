@@ -2,9 +2,7 @@
 	$error = false;
 	$guestnumbererror = false;
 	$Roomslist = $RoomObj->selectallrooms();
- 	// echo '<pre>';
-	// print_r($_SESSION);
-	// echo '</pre>';
+ 	
 
 		if (isset($_POST['Edit'])) {
 			$edit =$_POST['Edit'];
@@ -154,8 +152,8 @@
 				echo'
 			
 				<article class="postcard dark blue">
-				<a class="postcard__img_link" href="index.php?m=roomdetail&">
-					<img class="postcard__img" src="'.$room['ImageURL1'].'" alt="Image Title" />
+				<a class="postcard__img_link" >
+					<img class="postcard__img"  id="'.$room['ImageURL1'].'" src="'.$room['ImageURL1'].'" alt="Image Title" />
 				</a>
 				<div class="postcard__text">
 					<h1 class="postcard__title blue"><a href="index.php?m=roomdetail">'.$room['RoomName'].'</a></h1>
@@ -213,26 +211,29 @@
 	
 <!-- The Modal -->
 <div id="myModal" class="modal">
-  <span class="close">&times;</span><div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
-  <div class="carousel-inner">
-    <div class="carousel-item active">
-      <img class="d-block w-100" id="sliderimg1" src="" alt="First slide">
+  <span class="close"><svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="red" class="bi bi-x-circle-fill" viewBox="0 0 16 16">
+  <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM5.354 4.646a.5.5 0 1 0-.708.708L7.293 8l-2.647 2.646a.5.5 0 0 0 .708.708L8 8.707l2.646 2.647a.5.5 0 0 0 .708-.708L8.707 8l2.647-2.646a.5.5 0 0 0-.708-.708L8 7.293 5.354 4.646z"/>
+</svg></span>
+  <div id="carouselExampleFade" class="carousel slide carousel-fade" data-bs-interval="false" data-bs-ride="carousel">
+  <div class="carousel-inner ">
+    <div class="carousel-item active ">
+      <img class="d-block" id="sliderimg1" src="" alt="First slide">
     </div>
     <div class="carousel-item">
-      <img class="d-block w-100" id="sliderimg2" src="" alt="Second slide">
+      <img class="d-block" id="sliderimg2" src="" alt="Second slide">
     </div>
-    <div class="carousel-item">
-      <img class="d-block w-100" id="sliderimg3" src="" alt="Third slide">
+    <div class="carousel-item ">
+      <img class="d-block" id="sliderimg3" src="" alt="Third slide">
     </div>
   </div>
-  <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev">
     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="sr-only">Previous</span>
-  </a>
-  <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="next">
     <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="sr-only">Next</span>
-  </a>
+    <span class="visually-hidden">Next</span>
+  </button>
 </div>
 
   <div id="caption"></div>
@@ -257,7 +258,7 @@
 	  sliderimg1.src = "'.$room['ImageURL1'].'";
 	  sliderimg2.src = "'.$room['ImageURL2'].'";
 	  sliderimg3.src = "'.$room['ImageURL3'].'";
-	  captionText.innerHTML = this.alt;
+	  captionText.innerHTML = "'.$room['RoomName'].'";
 	}
 	
 	
@@ -268,6 +269,7 @@
 	span.onclick = function() { 
 	  modal.style.display = "none";
 	}
+	 
 	</script>
 		
 		';
