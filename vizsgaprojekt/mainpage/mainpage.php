@@ -52,31 +52,56 @@ $RoomPics1 = $RoomObj->selectRoomPics1ByType();
 </div>
 
 <div class="icons">
+  <div class="focim">
+    <h1>Hotel amenities</h1>
+    <p>Explore Our Services</p>
+  </div>
   <div class="row">
-    <a href="<?php echo $baseUrl ?>/booking" class="col btn button">
-      <div class="row">
-        <i class="col-12 fas fa-bed"></i>
-        <p class="col-12">Accommodation</p>
-      </div>
+    <div class="col-lg-4 col-md-6 col-sm-12">
+      <i class="fas fa-wifi"></i>
+      <h1>Free Wifi</h1>
+      <p>High speed internet access available. <br> Check email and browse the web.</p>
+    </div>
+    <a href="<?php echo $baseUrl; ?>/dining" class="col-lg-4 col-md-6 col-sm-12">
+      <i class="fas fa-utensils"></i>
+      <h1>Restaurant</h1>
+      <p>Have an unforgettable dining experiece in our 3 Michelin Star restaurant.</p>
     </a>
-    <a href="<?php echo $baseUrl ?>/gambling" class="col btn button">
-      <div class="row">
-        <i class="col-12 fas fa-dice"></i>
-        <p class="col-12">Casino</p>
-      </div>
+    <a href="<?php echo $baseUrl; ?>/gambling" class="col-lg-4 col-md-6 col-sm-12">
+      <i class="fas fa-dice"></i>
+      <h1>Casino</h1>
+      <p>Elevate your play in our casino playing your favorite table games or win big with slot machines.</p>
     </a>
-    <a href="<?php echo $baseUrl ?>/dining" class="col btn button">
-      <div class="row">
-        <i class="col-12 fas fa-utensils"></i>
-        <p class="col-12">Dining</p>
-      </div>
-    </a>
-    <a href="<?php echo $baseUrl ?>/contactus" class="col btn button">
-      <div class="row">
-        <i class="fab fa-telegram-plane"></i>
-        <p class="col-12">Contact us</p>
-      </div>
-    </a>
+    <div class="col-lg-4 col-md-6 col-sm-12">
+      <i class="fas fa-swimming-pool"></i>
+      <h1>4 Pools</h1>
+      <p>Enjoy your day and relax on a poolside daybed or in acabana at one of our many pools.</p>
+    </div>
+    <div class="col-lg-4 col-md-6 col-sm-12">
+      <i class="fas fa-spa"></i>
+      <h1>Spa & salon</h1>
+      <p>Relax and indulge at the spa or get a personal refresh at our salon.</p>
+    </div>
+    <div class="col-lg-4 col-md-6 col-sm-12">
+      <i class="fas fa-bicycle"></i>
+      <h1>Fitness center</h1>
+      <p>Access to a fitness center complete with weights, cardio machines and more.</p>
+    </div>
+    <div class="col-lg-4 col-md-6 col-sm-12">
+      <i class="fas fa-parking"></i>
+      <h1>Parking</h1>
+      <p>Valet and self-parking available.</p>
+    </div>
+    <div id="evcharger" class="col-lg-4 col-md-6 col-sm-12">
+      <i class="fas fa-charging-station"></i>
+      <h1>EV Charging</h1>
+      <p>Four charging stations available located in valet parking.</p>
+    </div>
+    <div class="col-lg-4 col-md-6 col-sm-12">
+      <i class="fab fa-accessible-icon"></i>
+      <h1>Accessibility</h1>
+      <p>Accessible parking and hotel rooms available.</p>
+    </div>
   </div>
 </div>
 
@@ -119,19 +144,19 @@ $RoomPics1 = $RoomObj->selectRoomPics1ByType();
       <div class="slideszoveg active">
         <h1>High-class Rooms</h1>
         <p>One night in one of our luxurious rooms and you will realize that indulgence is not a privilige. It is a way of life.
-          From 30-square-meters to 150-square-meters of enviable comforts, our rooms  features
+          From 30-square-meters to 150-square-meters of enviable comforts, our rooms features
           exclusive amenities and state-of-the-art electronics.</p>
       </div>
       <div class="slideszoveg">
         <h1>Suites</h1>
-        <p>Upgrade your vacation with a stay in one of our upscale suites at Peaceful Paradise. 
-          Whether you are here for a family trip, a business meeting or celebrating a special occasion, 
+        <p>Upgrade your vacation with a stay in one of our upscale suites at Peaceful Paradise.
+          Whether you are here for a family trip, a business meeting or celebrating a special occasion,
           there is a suite for you.</p>
       </div>
       <div class="slideszoveg">
         <h1>Villas</h1>
-        <p>Stay in an opulent villa at Peaceful Paradise and feel like an emperor. 
-          Be wowed by over-the-top amenities, exceptional service, 
+        <p>Stay in an opulent villa at Peaceful Paradise and feel like an emperor.
+          Be wowed by over-the-top amenities, exceptional service,
           lavish furnishings and stunning views.</p>
       </div>
     </div>

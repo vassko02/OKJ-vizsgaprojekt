@@ -70,40 +70,79 @@
 
 .icons {
     text-align: center;
-    width: 60vw;
-    margin-left: auto;
-    margin-right: auto;
     margin-top: 5vh;
     margin-bottom: 5vh;
+    background-color: hsl(0, 0%, 10%);
+    color: white;
+    padding-top: 5vh;
+    padding-bottom: 5vh;
+}
+.icons .focim {
+    margin-bottom: 5vh;
+}
+.icons .focim h1{
+    font-family: 'Be Vietnam Pro', sans-serif;
+    text-transform: uppercase;
+    color: #C5B358;
+}
+.icons .focim p {
+    font-style: italic;
+    font-size: 1.8vh;
+}
+.icons .row {
+    width: 100%;
+    margin-right: auto;
+    margin-left: auto;
+}
+.icons .row div {
+    transition: 0.3s;
+    padding: 2vh 5vh;
+    cursor: default;
+}
+#evcharger {
+    text-align: center;
+    cursor: wait;
+    transition: 0.3s;
+}
+#evcharger:hover {
+    background: linear-gradient(to right, #FFF 20%, #5eff00 40%, #5eff00 60%, #FFF 80%);
+    background-size: 200% auto;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: shine 1.2s linear infinite;
+}
+@keyframes shine {
+    to {
+      background-position: 200% center;
+    }
+  }
+
+
+.icons .row div i, .icons a i{
+    font-size: 4vh;
+    padding-bottom: 1vh;
+}
+.icons .row div:hover {
+    transition: 0.3s;
+    color: #C5B358;
 }
 .icons a {
     color: white;
-    background-color: hsl(0, 0%, 10%);
-    border: 2px solid #C5B358!important;
-    border-radius: 0 !important;
+    text-decoration: none;
     transition: 0.3s;
-    font-size: 1.2vh;
-    text-transform: uppercase;
-    max-width: 20vh;
-    min-width: 20vh;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 1vh;
     border-radius: 30px !important;
+    padding: 2vh 5vh;
 }
 .icons a:hover{
-    color: white;
-    background-color: #C5B358;
+    color: #C5B358;
 }
-.icons i {
-    font-size: 2vh;
+.icons .row h1 {
+    font-size: 3vh;
+    font-family: 'Be Vietnam Pro', sans-serif;
 }
 .icons p {
-    padding-bottom: 0;
-    margin-bottom: 0;
-    transition: 0.3s;
-    font-family: 'Be Vietnam Pro', sans-serif;
-    letter-spacing: 1px;
+    font-size: 1.8vh;
 }
 
 
