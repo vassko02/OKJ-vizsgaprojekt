@@ -40,6 +40,7 @@ namespace Recepcio_alkalmazas.pages
 
         private void btn_torles_Click(object sender, RoutedEventArgs e)
         {
+            int count = reservation.selectCountByGuestID(egyuser.CustomerID);
             bool mehet = false;
             if (dg_foglalasok.SelectedIndex != -1)
             {
@@ -51,13 +52,13 @@ namespace Recepcio_alkalmazas.pages
                         {
                             if (egyuser.activated_at != "")
                             {
-                                egyuser.Level = szintcsekk(egyuser.ReservationNumber,egyuser.Level);
+                                egyuser.Level = szintcsekk(count);
                             }
                             else
                             {
                                 egyuser.Level = "";
                             }
-                            customer.updateResNumber(egyuser.CustomerID,egyuser.ReservationNumber-1,egyuser.Level);
+                            customer.updateResNumber(egyuser.CustomerID, count - 1,egyuser.Level);
                             consumption.deleteBYREsID(egyfoglalas.ReservationID);
                             reservation.delete(egyfoglalas.ReservationID);
                             tb_guestinput.Text = "";
@@ -71,13 +72,13 @@ namespace Recepcio_alkalmazas.pages
                     {
                         if (egyuser.activated_at!="")
                         {
-                            egyuser.Level = szintcsekk(egyuser.ReservationNumber, egyuser.Level);
+                            egyuser.Level = szintcsekk(count);
                         }
                         else
                         {
                             egyuser.Level = "";
                         }
-                        customer.updateResNumber(egyuser.CustomerID, egyuser.ReservationNumber - 1, egyuser.Level);
+                        customer.updateResNumber(egyuser.CustomerID, count - 1, egyuser.Level);
                         reservation.delete(egyfoglalas.ReservationID);
                         tb_guestinput.Text = "";
                         foglalasok = reservation.selectByGuestName(null, 0, true);
@@ -127,8 +128,9 @@ namespace Recepcio_alkalmazas.pages
             var vendegadd = new AddGuest();
             vendegadd.ShowDialog();
         }
-        public string szintcsekk(int resnumber, string szint)
+        public string szintcsekk(int resnumber)
         {
+            string szint;
             switch (resnumber)
             {
                 case 0:
@@ -144,7 +146,7 @@ namespace Recepcio_alkalmazas.pages
                     szint = "";
                     break;
                 case 4:
-                    szint = "";
+                    szint = "Gold";
                     break;
                 case 5:
                     szint = "Gold";
@@ -156,7 +158,7 @@ namespace Recepcio_alkalmazas.pages
                     szint = "Gold";
                     break;
                 case 8:
-                    szint = "Gold";
+                    szint = "Platinum";
                     break;
                 case 9:
                     szint = "Platinum";
@@ -165,9 +167,6 @@ namespace Recepcio_alkalmazas.pages
                     szint = "Platinum";
                     break;
                 case 11:
-                    szint = "Platinum";
-                    break;
-                case 12:
                     szint = "Platinum";
                     break;
                 default:

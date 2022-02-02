@@ -182,17 +182,18 @@ namespace Recepcio_alkalmazas.Views
             }
             if (editlesz != true && vanerror == false)
             {
+                int count = reservation.selectCountByGuestID(aktualis.CustomerID);
                 reservation.insert(aktualis);
                 egyuser = customer.selectuserByID(aktualis.CustomerID)[0];
                 if (egyuser.activated_at != "")
                 {
-                    egyuser.Level = szintcsekk(egyuser.ReservationNumber);
+                    egyuser.Level = szintcsekk(count);
                 }
                 else
                 {
                     egyuser.Level = "";
                 }
-                customer.updateResNumber(aktualis.CustomerID, egyuser.ReservationNumber + 1, egyuser.Level);
+                customer.updateResNumber(aktualis.CustomerID, count+ 1, egyuser.Level);
                 DialogResult = true;
                 this.Close();
             }

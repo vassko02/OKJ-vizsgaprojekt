@@ -1,5 +1,7 @@
 <?php
-$Roomslist = $RoomObj->selectallrooms();
+//$Roomslist = $RoomObj->selectallrooms();
+$RoomPics1 = $RoomObj->selectRoomPics1ByType();
+//print_r($RoomPics1);
 ?>
 <div class="lapozo">
 
@@ -96,38 +98,14 @@ $Roomslist = $RoomObj->selectallrooms();
       <div class="card">
         <div class="slides">
           <div slide-id="1" class="slide active">
-            <div class="thumbnail"><img src="<?php foreach ($Roomslist as $room) {
-                                                echo $room['ImageURL1'];
-                                                break;
-                                              } ?>" /></div>
+            <div class="thumbnail"><img src="<?php echo $RoomPics1[2]; ?>" /></div>
 
           </div>
           <div slide-id="2" class="slide">
-            <div class="thumbnail"><img src="<?php foreach ($Roomslist as $room) {
-                                                echo $room['ImageURL2'];
-                                                break;
-                                              } ?>" /></div>
-
+            <div class="thumbnail"><img src="<?php echo $RoomPics1[3]; ?>" /></div>
           </div>
           <div slide-id="3" class="slide">
-            <div class="thumbnail"><img src="<?php foreach ($Roomslist as $room) {
-                                                echo $room['ImageURL3'];
-                                                break;
-                                              } ?>" /></div>
-
-          </div>
-          <div slide-id="4" class="slide">
-            <div class="thumbnail"><img src="<?php foreach ($Roomslist as $room) {
-                                                echo $room['ImageURL1'];
-                                                break;
-                                              } ?>" /></div>
-
-          </div>
-          <div slide-id="5" class="slide">
-            <div class="thumbnail"><img src="<?php foreach ($Roomslist as $room) {
-                                                echo $room['ImageURL2'];
-                                                break;
-                                              } ?>" /></div>
+            <div class="thumbnail"><img src="<?php echo $RoomPics1[5]; ?>" /></div>
 
           </div>
         </div>
@@ -139,30 +117,22 @@ $Roomslist = $RoomObj->selectallrooms();
     </div>
     <div class="col-lg-5 col-sm-12 bookszoveg">
       <div class="slideszoveg active">
-        <h1>Lorem ipsum</h1>
+        <h1>High-class Rooms</h1>
         <p>One night in one of our luxurious rooms and you will realize that indulgence is not a privilige. It is a way of life.
-          From 30-square-meters to 150-square-meters of enviable comforts
-        </p>
+          From 30-square-meters to 150-square-meters of enviable comforts, our rooms  features
+          exclusive amenities and state-of-the-art electronics.</p>
       </div>
       <div class="slideszoveg">
-        <h1>2</h1>
-        <p>2
-        </p>
+        <h1>Suites</h1>
+        <p>Upgrade your vacation with a stay in one of our upscale suites at Peaceful Paradise. 
+          Whether you are here for a family trip, a business meeting or celebrating a special occasion, 
+          there is a suite for you.</p>
       </div>
       <div class="slideszoveg">
-        <h1>3</h1>
-        <p>3
-        </p>
-      </div>
-      <div class="slideszoveg">
-        <h1>4</h1>
-        <p>4
-        </p>
-      </div>
-      <div class="slideszoveg">
-        <h1>5</h1>
-        <p>5
-        </p>
+        <h1>Villas</h1>
+        <p>Stay in an opulent villa at Peaceful Paradise and feel like an emperor. 
+          Be wowed by over-the-top amenities, exceptional service, 
+          lavish furnishings and stunning views.</p>
       </div>
     </div>
   </div>
