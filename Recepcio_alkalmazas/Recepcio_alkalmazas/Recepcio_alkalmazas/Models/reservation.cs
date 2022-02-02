@@ -135,6 +135,14 @@ namespace Recepcio_alkalmazas.Models
             get { return _Message; }
             set { _Message = value; }
         }
+        private int _Darab;
+
+        public int Darab
+        {
+            get { return _Darab; }
+            set { _Darab = value; }
+        }
+
 
         public reservation() { }
         public reservation(MySqlDataReader reader)
@@ -203,6 +211,29 @@ namespace Recepcio_alkalmazas.Models
             }
             return lista;
         }
+        public static int selectCountByGuestID(int id)
+        {
+            int vissza = 0;
+            var lista = new ObservableCollection<reservation>();
+            using (var con = new MySqlConnection(ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString))
+            {
+                con.Open();
+                var sql = "SELECT COUNT(*) as Darab from reservation where CustomerID=@id";
+                using (var cmd = new MySqlCommand(sql, con))
+                {
+                    cmd.Parameters.AddWithValue("@id",id);
+                    using (var reader = cmd.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            vissza = Convert.ToInt32(reader["Darab"]);
+                        }
+                    }
+                }
+                con.Close();
+            }
+            return vissza;
+        }
         public static void delete(int id)
         {
             using (var con = new MySqlConnection(ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString))
@@ -222,8 +253,12 @@ namespace Recepcio_alkalmazas.Models
             using (var con = new MySqlConnection(ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString))
             {
                 con.Open();
-                var sql = "INSERT INTO reservation (GuestNumber,Price,Children,Adults,ArrivalDate,LeavingDate,CustomerID,RoomID,ServiceID,IsCheckedIn) VALUES " +
+                var sql = "INSERT INTO reservation (GuestNumber,Price,Children,Adults,ArrivalDate,LeavingDate,CustomerID,RoomID,ServiceID,IsCheckedIn,Message) VALUES " +
                     "(@GuestNumber,@Price,@Children,@Adults,@ArrivalDate,@LeavingDate,@CustomerID,@RoomID,@ServiceID,@IscheckedIn,@Message)";
+                if (model.Message==null)
+                {
+                    model.Message = "";
+                }
                 using (var cmd = new MySqlCommand(sql, con))
                 {
                     cmd.Parameters.AddWithValue("@GuestNumber", model.GuestNumber);
