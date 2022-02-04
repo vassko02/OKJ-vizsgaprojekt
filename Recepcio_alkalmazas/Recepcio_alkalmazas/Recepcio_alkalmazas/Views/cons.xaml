@@ -58,7 +58,7 @@
         <StackPanel Grid.Column="1" Orientation="Vertical">
             <Label Content="Select an item" HorizontalAlignment="Center" FontSize="20" Foreground="DarkGoldenrod" FontWeight="Bold" Margin="5"/>
             <ListBox Name="lb_itemek" Background="#353638" BorderThickness="0"
-                     ScrollViewer.HorizontalScrollBarVisibility="Disabled" ItemsSource="{Binding}" Width="436" Height="380">
+                     ScrollViewer.HorizontalScrollBarVisibility="Disabled" ItemsSource="{Binding}" Width="436" Height="350">
                 <ListBox.ItemsPanel>
                     <ItemsPanelTemplate>
                         <WrapPanel IsItemsHost="True" HorizontalAlignment="Center"/>
@@ -98,6 +98,10 @@
                 </Button>
                 <Label Content="Type:" Foreground="DarkGoldenrod" Margin="5,15,0,5" VerticalAlignment="Center" FontWeight="Bold"/>
                 <ComboBox Name="cb_typefilter" Margin="0,15,5,5" Width="75" Height="25" SelectionChanged="cb_typefilter_SelectionChanged"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                <Label FontWeight="Bold" Foreground="DarkGoldenrod" Content="Order by:" Margin="5"/>
+                <ComboBox Width="100" Margin="5" Name="cb_order" SelectionChanged="cb_order_SelectionChanged"/>
             </StackPanel>
         </StackPanel>
     </Grid>

@@ -41,9 +41,9 @@
                     <DataGridTextColumn Header="Check-in" Width="auto" Binding="{Binding ArrivalDate,StringFormat=yyyy.MM.dd.}"/>
                     <DataGridTextColumn Header="Check-out" Width="auto" Binding="{Binding LeavingDate,StringFormat=yyyy.MM.dd.}"/>
                     <DataGridTextColumn Header="Service" Width="100" Binding="{Binding ServiceType}"/>
-                    <DataGridTextColumn Header="Room type" Width="220" Binding="{Binding RoomName}"/>
-                    <DataGridTextColumn Header="Price" Width="auto" Binding="{Binding Price,StringFormat=$\{0\}}"/>
-                    <DataGridTextColumn Header="Is Checked In" Binding="{Binding IsCheckedIn}"/>
+                    <DataGridTextColumn Header="Room name" Width="220" Binding="{Binding RoomName}"/>
+                    <DataGridTextColumn Header="Price" Width="60" Binding="{Binding Price,StringFormat=$\{0\}}"/>
+                    <DataGridTextColumn Header="Is Checked In" Width="*" Binding="{Binding IsCheckedIn}"/>
 
                 </DataGrid.Columns>
             </DataGrid>

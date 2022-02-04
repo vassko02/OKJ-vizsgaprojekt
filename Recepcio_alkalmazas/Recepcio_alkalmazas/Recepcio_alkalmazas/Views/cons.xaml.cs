@@ -27,6 +27,7 @@ namespace Recepcio_alkalmazas.pages
         ObservableCollection<consumption> fogyasztasok = new ObservableCollection<consumption>();
         ObservableCollection<storage> fogylehetoseg = new ObservableCollection<storage>();
         List<string> tipusok = new List<string>();
+        ObservableCollection<string> orderbyitems = new ObservableCollection<string>();
         public cons()
         {
             InitializeComponent();
@@ -40,6 +41,12 @@ namespace Recepcio_alkalmazas.pages
             tipusok.Add("All");
             cb_typefilter.ItemsSource = tipusok;
             cb_typefilter.SelectedIndex = tipusok.Count - 1;
+            orderbyitems.Add("Type");
+            orderbyitems.Add("Name");
+            orderbyitems.Add("Price");
+            cb_order.ItemsSource = orderbyitems;
+            cb_order.SelectedItem="Type";
+
         }
         private void tb_guestinput_TextChanged(object sender, TextChangedEventArgs e)
         {
@@ -106,7 +113,15 @@ namespace Recepcio_alkalmazas.pages
 
         private void cb_typefilter_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            fogylehetoseg = storage.selectByType(cb_typefilter.SelectedItem.ToString());
+            if (cb_order.SelectedItem==null)
+            {
+                fogylehetoseg = storage.selectByType(cb_typefilter.SelectedItem.ToString());
+
+            }
+            else
+            {
+                fogylehetoseg = storage.selectByType(cb_typefilter.SelectedItem.ToString());
+            }
             lb_itemek.DataContext = fogylehetoseg;
         }
 
@@ -125,6 +140,26 @@ namespace Recepcio_alkalmazas.pages
                 fogylehetoseg = storage.selectByType(cb_typefilter.SelectedItem.ToString());
                 lb_itemek.DataContext = fogylehetoseg;
             }
+        }
+
+        private void cb_order_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            fogylehetoseg = storage.selectByType(cb_typefilter.SelectedItem.ToString());
+            List<storage> lista = new List<storage>();
+            switch (cb_order.SelectedItem.ToString())
+            {
+                case "Name":
+                    lista = fogylehetoseg.ToList().OrderBy(x => x.ItemName).ToList();
+                    break;
+                case "Type":
+                    fogylehetoseg.OrderBy(x => x.Type);
+                    break;
+                case "Price":
+                    fogylehetoseg.OrderBy(x => x.Price);
+
+                    break;
+            }
+            lb_itemek.DataContext = lista;
         }
     }
 }
