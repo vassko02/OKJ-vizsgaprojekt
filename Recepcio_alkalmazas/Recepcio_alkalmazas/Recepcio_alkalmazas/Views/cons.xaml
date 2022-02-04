@@ -17,7 +17,7 @@
             <TextBox Width="200" FontWeight="Bold" Foreground="DarkGoldenrod" Name="tb_guestinput" HorizontalAlignment="Center" Margin="5" 
                              TextChanged="tb_guestinput_TextChanged"/>
             <DataGrid Margin="5" Foreground="White" FontWeight="Bold" Width="200" ItemsSource="{Binding}" AutoGenerateColumns="False" Height="150" Name="dg_nevek" CanUserAddRows="False"
-                          GridLinesVisibility="None" Background="#36393f" RowBackground="#36393f" SelectionChanged="dg_nevek_SelectionChanged" HorizontalAlignment="Center" SelectionUnit="FullRow" IsReadOnly="True" HeadersVisibility="Column">
+                          GridLinesVisibility="None" Background="#36393f" BorderThickness="0" RowBackground="#36393f" SelectionChanged="dg_nevek_SelectionChanged" HorizontalAlignment="Center" SelectionUnit="FullRow" IsReadOnly="True" HeadersVisibility="Column">
                 <DataGrid.Resources>
                     <Style BasedOn="{StaticResource {x:Type DataGridColumnHeader}}" TargetType="{x:Type DataGridColumnHeader}">
                         <Setter Property="Background" Value="#353638" />
@@ -30,7 +30,7 @@
             </DataGrid>
             <Label Content="Consumptions:" HorizontalAlignment="Center" FontSize="16" FontWeight="Bold" Margin="5" Foreground="DarkGoldenrod" Width="200"/>
             <DataGrid Width="200" Height="150" SelectionUnit="FullRow" ItemsSource="{Binding}" HeadersVisibility="Column" IsSynchronizedWithCurrentItem="True" Name="dg_fogyasztas"
-                      AutoGenerateColumns="False" CanUserAddRows="False" CanUserDeleteRows="False" HorizontalAlignment="Center" IsReadOnly="True" Foreground="White" GridLinesVisibility="None"
+                      AutoGenerateColumns="False" CanUserAddRows="False" CanUserDeleteRows="False" BorderThickness="0" HorizontalAlignment="Center" IsReadOnly="True" Foreground="White" GridLinesVisibility="None"
                       FontWeight="Bold" Background="#36393f" RowBackground="#36393f">
                 <DataGrid.Resources>
                     <Style BasedOn="{StaticResource {x:Type DataGridColumnHeader}}" TargetType="{x:Type DataGridColumnHeader}">
@@ -58,7 +58,7 @@
         <StackPanel Grid.Column="1" Orientation="Vertical">
             <Label Content="Select an item" HorizontalAlignment="Center" FontSize="20" Foreground="DarkGoldenrod" FontWeight="Bold" Margin="5"/>
             <ListBox Name="lb_itemek" Background="#353638" BorderThickness="0"
-                     ScrollViewer.HorizontalScrollBarVisibility="Disabled" ItemsSource="{Binding}" Width="436" Height="350">
+                     ScrollViewer.HorizontalScrollBarVisibility="Disabled" ItemsSource="{Binding}" Width="436" Height="380">
                 <ListBox.ItemsPanel>
                     <ItemsPanelTemplate>
                         <WrapPanel IsItemsHost="True" HorizontalAlignment="Center"/>
@@ -98,10 +98,6 @@
                 </Button>
                 <Label Content="Type:" Foreground="DarkGoldenrod" Margin="5,15,0,5" VerticalAlignment="Center" FontWeight="Bold"/>
                 <ComboBox Name="cb_typefilter" Margin="0,15,5,5" Width="75" Height="25" SelectionChanged="cb_typefilter_SelectionChanged"/>
-            </StackPanel>
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                <Label FontWeight="Bold" Foreground="DarkGoldenrod" Content="Order by:" Margin="5"/>
-                <ComboBox Width="100" Margin="5" Name="cb_order" SelectionChanged="cb_order_SelectionChanged"/>
             </StackPanel>
         </StackPanel>
     </Grid>

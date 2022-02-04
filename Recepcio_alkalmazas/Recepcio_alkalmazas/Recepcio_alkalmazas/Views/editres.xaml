@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:Recepcio_alkalmazas.Views"
         xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
         mc:Ignorable="d"
-        Title="editres" Height="550" Width="400" WindowStartupLocation="CenterScreen" WindowStyle="None" ResizeMode="NoResize" AllowsTransparency="False" >
+        Title="editres" Height="590" Width="400" WindowStartupLocation="CenterScreen" WindowStyle="None" ResizeMode="NoResize" AllowsTransparency="False" >
     <Border BorderThickness="2" BorderBrush="DarkGoldenrod">
     <Grid MouseDown="Grid_MouseDown">
         <Grid.RowDefinitions>
@@ -46,15 +46,15 @@
         </StackPanel>
         <StackPanel Grid.Row="2">
             <Label Content="Check In:" Margin="5" Foreground="DarkGoldenrod" FontSize="15" FontWeight="Bold"/>
-            <DatePicker Margin="5" Name="dp_checkin" SelectedDate="{Binding ArrivalDate}"  Foreground="Black" Background="DarkGray"/>
+            <DatePicker Margin="5" SelectedDateChanged="dp_checkin_SelectedDateChanged" Name="dp_checkin" SelectedDate="{Binding ArrivalDate}"  Foreground="Black" Background="DarkGray"/>
             <Label Content="Check Out:" Margin="5" Foreground="DarkGoldenrod" FontSize="15" FontWeight="Bold"/>
-            <DatePicker Margin="5" Name="dp_checkout" SelectedDate="{Binding LeavingDate}" Foreground="Black" Background="DarkGray"/>
+            <DatePicker Margin="5" SelectedDateChanged="dp_checkout_SelectedDateChanged" Name="dp_checkout" SelectedDate="{Binding LeavingDate}" Foreground="Black" Background="DarkGray"/>
         </StackPanel>
         <StackPanel Grid.Row="2" Grid.Column="1" Grid.RowSpan="3">
             <Label Content="Room type:" Margin="5" Foreground="DarkGoldenrod" FontSize="15" FontWeight="Bold"/>
             <ComboBox Name="cb_rooms" Margin="5" SelectionChanged="cb_rooms_SelectionChanged" />
             <Label Content="Service type:" Margin="5" Foreground="DarkGoldenrod" FontSize="15" FontWeight="Bold"/>
-            <ComboBox Name="cb_services" SelectedValue="{Binding ServiceID}" Margin="5" DisplayMemberPath="ServiceType" SelectedValuePath="ServiceID"/>
+            <ComboBox Name="cb_services" SelectionChanged="cb_services_SelectionChanged" SelectedValue="{Binding ServiceID}" Margin="5" DisplayMemberPath="ServiceType" SelectedValuePath="ServiceID"/>
         </StackPanel>
         <StackPanel Grid.Row="3" Grid.ColumnSpan="2">
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
@@ -64,8 +64,12 @@
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
                 <Label Content="Number of adults:" Margin="5" Foreground="DarkGoldenrod" FontSize="15" FontWeight="Bold"/>
                 <TextBox Name="tb_adults"  PreviewTextInput="tb_adults_PreviewTextInput" Width="50" Margin="5" Text="{Binding Adults}" />
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                    <Label Content="Price:" Margin="5" Foreground="DarkGoldenrod" FontSize="15" FontWeight="Bold"/>
+                    <TextBlock Name="lbl_price" Width="100" TextAlignment="Center" FontSize="14" Margin="5" TextWrapping="WrapWithOverflow" FontWeight="Bold" Foreground="DarkGoldenrod"/>
+                </StackPanel>
             </StackPanel>
-        </StackPanel>
         <StackPanel Grid.Row="4" Grid.ColumnSpan="2">
             <Label Content="Message:" Foreground="DarkGoldenrod" FontSize="15" FontWeight="Bold" Margin="5,0,5,0"/>
             <TextBox Name="tb_message" Height="60" TextWrapping="Wrap" FontSize="14" Text="{Binding Message}" 
