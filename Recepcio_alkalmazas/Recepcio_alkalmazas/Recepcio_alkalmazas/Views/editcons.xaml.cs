@@ -92,7 +92,10 @@ namespace Recepcio_alkalmazas.Views
 
         private void Grid_MouseDown_1(object sender, MouseButtonEventArgs e)
         {
-
+            if (e.LeftButton == MouseButtonState.Pressed)
+            {
+                DragMove();
+            }
         }
     }
 }
