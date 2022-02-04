@@ -143,7 +143,7 @@ if (isset($_POST['btn_send2'])) {
             <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
             <link rel="stylesheet" href="./mainpage/slider/style.css">
             <link rel="stylesheet" href="./mainpage/mainpage.css">
-            
+            <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
             <link rel="stylesheet" href="./mainpage/bookslider/style.css">';
     }
     if ($request === $baseUrl . '/gambling') {

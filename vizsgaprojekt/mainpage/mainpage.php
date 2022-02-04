@@ -52,52 +52,52 @@ $RoomPics1 = $RoomObj->selectRoomPics1ByType();
 </div>
 
 <div class="icons">
-  <div class="focim">
+  <div data-aos="fade-up" data-aos-duration="1000" data-aos-once="true" class="focim">
     <h1>Hotel amenities</h1>
     <p>Explore Our Services</p>
   </div>
   <div class="row">
-    <div class="col-lg-4 col-md-6 col-sm-12">
+    <div data-aos="fade-up" data-aos-duration="1000" data-aos-once="true" class="col-lg-4 col-md-6 col-sm-12">
       <i class="fas fa-wifi"></i>
       <h1>Free Wifi</h1>
       <p>High speed internet access available. <br> Check email and browse the web.</p>
     </div>
-    <a href="<?php echo $baseUrl; ?>/dining" class="col-lg-4 col-md-6 col-sm-12">
+    <a data-aos="fade-up" data-aos-duration="1000" data-aos-once="true" href="<?php echo $baseUrl; ?>/dining" class="col-lg-4 col-md-6 col-sm-12">
       <i class="fas fa-utensils"></i>
       <h1>Restaurant</h1>
       <p>Have an unforgettable dining experiece in our 3 Michelin Star restaurant.</p>
     </a>
-    <a href="<?php echo $baseUrl; ?>/gambling" class="col-lg-4 col-md-6 col-sm-12">
+    <a data-aos="fade-up" data-aos-duration="1000" data-aos-once="true" href="<?php echo $baseUrl; ?>/gambling" class="col-lg-4 col-md-6 col-sm-12">
       <i class="fas fa-dice"></i>
       <h1>Casino</h1>
       <p>Elevate your play in our casino playing your favorite table games or win big with slot machines.</p>
     </a>
-    <div class="col-lg-4 col-md-6 col-sm-12">
+    <div data-aos="fade-up" data-aos-duration="1000" data-aos-once="true" class="col-lg-4 col-md-6 col-sm-12">
       <i class="fas fa-swimming-pool"></i>
       <h1>4 Pools</h1>
       <p>Enjoy your day and relax on a poolside daybed or in acabana at one of our many pools.</p>
     </div>
-    <div class="col-lg-4 col-md-6 col-sm-12">
+    <div data-aos="fade-up" data-aos-duration="1000" data-aos-once="true" class="col-lg-4 col-md-6 col-sm-12">
       <i class="fas fa-spa"></i>
       <h1>Spa & salon</h1>
       <p>Relax and indulge at the spa or get a personal refresh at our salon.</p>
     </div>
-    <div class="col-lg-4 col-md-6 col-sm-12">
+    <div data-aos="fade-up" data-aos-duration="1000" data-aos-once="true" class="col-lg-4 col-md-6 col-sm-12">
       <i class="fas fa-bicycle"></i>
       <h1>Fitness center</h1>
       <p>Access to a fitness center complete with weights, cardio machines and more.</p>
     </div>
-    <div class="col-lg-4 col-md-6 col-sm-12">
+    <div data-aos="fade-up" data-aos-duration="1000" data-aos-once="true" class="col-lg-4 col-md-6 col-sm-12">
       <i class="fas fa-parking"></i>
       <h1>Parking</h1>
       <p>Valet and self-parking available.</p>
     </div>
-    <div id="evcharger" class="col-lg-4 col-md-6 col-sm-12">
+    <div data-aos="fade-up" data-aos-duration="1000" data-aos-once="true" id="evcharger" class="col-lg-4 col-md-6 col-sm-12">
       <i class="fas fa-charging-station"></i>
       <h1>EV Charging</h1>
       <p>Four charging stations available located in valet parking.</p>
     </div>
-    <div class="col-lg-4 col-md-6 col-sm-12">
+    <div data-aos="fade-up" data-aos-duration="1000" data-aos-once="true" class="col-lg-4 col-md-6 col-sm-12" id="roki">
       <i class="fab fa-accessible-icon"></i>
       <h1>Accessibility</h1>
       <p>Accessible parking and hotel rooms available.</p>
@@ -106,7 +106,7 @@ $RoomPics1 = $RoomObj->selectRoomPics1ByType();
 </div>
 
 <div class="rooms">
-  <div class="row roomheader">
+  <div class="row roomheader" data-aos="slide-up" data-aos-duration="1150" data-aos-once="true" data-aos-anchor-placement="top-bottom">
     <div class="col-lg-4 col-sm-12 roomcim">
       <h1>Rooms</h1>
     </div>
@@ -118,7 +118,7 @@ $RoomPics1 = $RoomObj->selectRoomPics1ByType();
     </div>
   </div>
   <div class="row leiras">
-    <div class="col-lg-7 col-sm-12">
+    <div class="col-lg-7 col-sm-12" data-aos="slide-right" data-aos-duration="1200" data-aos-once="true" data-aos-anchor-placement="top-bottom">
       <!--room picture slider-->
       <div class="card">
         <div class="slides">
@@ -140,7 +140,7 @@ $RoomPics1 = $RoomObj->selectRoomPics1ByType();
         </div>
       </div>
     </div>
-    <div class="col-lg-5 col-sm-12 bookszoveg">
+    <div class="col-lg-5 col-sm-12 bookszoveg" data-aos="slide-left" data-aos-duration="1200" data-aos-once="true" data-aos-anchor-placement="top-bottom">
       <div class="slideszoveg active">
         <h1>High-class Rooms</h1>
         <p>One night in one of our luxurious rooms and you will realize that indulgence is not a privilige. It is a way of life.
@@ -171,5 +171,17 @@ $RoomPics1 = $RoomObj->selectRoomPics1ByType();
 <!-- End // .directional_nav -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 <!-- partial -->
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <script src="./mainpage/slider/script.js"></script>
 <script src="./mainpage/bookslider/script.js"></script>
+<script>
+  AOS.init();
+</script>
+<!--
+  data-aos: az animácó
+  data-aos-anchor: egy másik elemhez van hozzáfűzve, akkor jelenik meg
+  data-aos-offset: 
+  data-aos-easing: 
+  data-aos-anchor-placement: a képernyő melyik részekor jelenjen meg
+  data-aos-duration: maga a delay
+-->
