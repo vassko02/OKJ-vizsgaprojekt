@@ -13,6 +13,7 @@
         <li><a href="<?php echo $baseUrl ?>/booking" class="navlink">Book</a></li>
         <li><a href="<?php echo $baseUrl ?>/dining" class="navlink">Restaurant</a></li>
         <li><a href="<?php echo $baseUrl ?>/contactus" class="navlink">Contact Us</a></li>
+        <li><a href="<?php echo $baseUrl ?>/rating" class="navlink">Rate us</a></li>
         <li class="lenyilo">
             <div class="dropdown">
                 <button class="dropdown-toggle lenyilogomb" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
