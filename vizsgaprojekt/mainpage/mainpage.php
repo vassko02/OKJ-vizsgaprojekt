@@ -106,7 +106,7 @@ $RoomPics1 = $RoomObj->selectRoomPics1ByType();
 </div>
 
 <div class="rooms">
-  <div class="row roomheader" data-aos="slide-up" data-aos-duration="1150" data-aos-once="true" data-aos-anchor-placement="top-bottom">
+  <div class="row roomheader" data-aos="slide-up" data-aos-duration="2000" data-aos-once="true" data-aos-anchor-placement="top-bottom">
     <div class="col-lg-4 col-sm-12 roomcim">
       <h1>Rooms</h1>
     </div>
@@ -118,7 +118,7 @@ $RoomPics1 = $RoomObj->selectRoomPics1ByType();
     </div>
   </div>
   <div class="row leiras">
-    <div class="col-lg-7 col-sm-12" data-aos="slide-right" data-aos-duration="1200" data-aos-once="true" data-aos-anchor-placement="top-bottom">
+    <div class="" data-aos="slide-right" data-aos-duration="1200" data-aos-once="true" data-aos-anchor-placement="top-bottom">
       <!--room picture slider-->
       <div class="card">
         <div class="slides">
@@ -135,12 +135,12 @@ $RoomPics1 = $RoomObj->selectRoomPics1ByType();
           </div>
         </div>
         <div class="booksliderbtn row">
-          <a class="col-6 righttolefthover" id="prev" href="#" class="btn"><i class="fas fa-chevron-left"></i> Previous</a>
+          <a class="col-6 righttolefthover" onclick="animacio()" id="prev" href="#" class="btn"><i class="fas fa-chevron-left"></i> Previous</a>
           <a class="col-6 lefttorighthover" id="next" href="#" class="btn">Next <i class="fas fa-chevron-right"></i></a>
         </div>
       </div>
     </div>
-    <div class="col-lg-5 col-sm-12 bookszoveg" data-aos="slide-left" data-aos-duration="1200" data-aos-once="true" data-aos-anchor-placement="top-bottom">
+    <div class="bookszoveg" data-aos="slide-left" data-aos-duration="1200" data-aos-anchor-placement="top-bottom">
       <div class="slideszoveg active">
         <h1>High-class Rooms</h1>
         <p>One night in one of our luxurious rooms and you will realize that indulgence is not a privilige. It is a way of life.
@@ -175,7 +175,14 @@ $RoomPics1 = $RoomObj->selectRoomPics1ByType();
 <script src="./mainpage/slider/script.js"></script>
 <script src="./mainpage/bookslider/script.js"></script>
 <script>
-  AOS.init();
+  AOS.init({
+    once: true
+  });
+  var animalt = document.querySelector('.bookszoveg')
+  function animacio() {
+    
+  }
+
 </script>
 <!--
   data-aos: az animácó
@@ -184,4 +191,5 @@ $RoomPics1 = $RoomObj->selectRoomPics1ByType();
   data-aos-easing: 
   data-aos-anchor-placement: a képernyő melyik részekor jelenjen meg
   data-aos-duration: maga a delay
+  https://preview.colorlib.com/#unwind
 -->

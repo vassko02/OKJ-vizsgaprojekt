@@ -9,6 +9,7 @@ html, body {
 .slidder {
   margin: 0 auto;
   max-width: 90vw;
+  box-shadow: 0px 5px 15px 5px rgba(0,0,0,0.6);
 }
 
 .slidde_viewer {
