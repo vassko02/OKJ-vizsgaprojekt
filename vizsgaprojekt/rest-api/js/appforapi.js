@@ -2,8 +2,7 @@ document.addEventListener('DOMContentLoaded',()=>{
     
     const backend_url = ' http://localhost/14aphp/legfrissebb/OKJ-vizsgaprojekt/vizsgaprojekt/rest-api/backend/rating/';
     
-    let table = document.querySelector('.itemsdata').getElementsByTagName('tbody')[0];
-    console.log('table:',table)
+
     
     let newItemForm = document.querySelector('.newitem');
     
@@ -54,8 +53,8 @@ document.addEventListener('DOMContentLoaded',()=>{
         .then(data => console.log(data))
         .catch(err => console.log(err));
 
-        refressItemList();
     }
     // főprogram
+
     newItemForm.addEventListener('submit',onSubmitNewItem);
 });
