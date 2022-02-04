@@ -100,6 +100,7 @@ namespace Recepcio_alkalmazas.Models
                 {
                     sql += " And Type = @type";
                 }
+                sql += " ORDER BY Type, ItemName";
 
                 using (var cmd = new MySqlCommand(sql, con))
                 {

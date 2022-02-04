@@ -30,7 +30,7 @@
             <Label Content="Reservations:" FontSize="20" FontWeight="Bold" Foreground="DarkGoldenrod" Margin="5"/>
             <DataGrid Margin="5" Foreground="White" FontWeight="Bold" Width="700" ItemsSource="{Binding}" AutoGenerateColumns="False" Height="300" Name="dg_foglalasok"
                             GridLinesVisibility="None" RowBackground="#36393f" Background="#36393f"
-                            HorizontalAlignment="Center" SelectionUnit="FullRow" IsReadOnly="True" HeadersVisibility="Column" SelectionChanged="dg_foglalasok_SelectionChanged">
+                            HorizontalAlignment="Center" SelectionUnit="FullRow" BorderThickness="0" IsReadOnly="True" HeadersVisibility="Column" SelectionChanged="dg_foglalasok_SelectionChanged">
                 <DataGrid.Resources>
                     <Style BasedOn="{StaticResource {x:Type DataGridColumnHeader}}" TargetType="{x:Type DataGridColumnHeader}">
                         <Setter Property="Background" Value="#353638"/>
