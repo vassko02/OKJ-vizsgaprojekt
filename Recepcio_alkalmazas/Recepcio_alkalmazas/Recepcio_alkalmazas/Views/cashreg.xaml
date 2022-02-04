@@ -11,7 +11,7 @@
         <StackPanel>
             <Label Margin="25,5,5,5" Content="Revenue:" FontWeight="Bold" FontSize="16" Foreground="DarkGoldenrod"/>
             <DataGrid Margin="5" Foreground="White" FontWeight="Bold" Width="700" ItemsSource="{Binding}" AutoGenerateColumns="False" Height="300" Name="dg_adatok" CanUserAddRows="False"
-                      GridLinesVisibility="None" RowBackground="#36393f" Background="#36393f" HorizontalAlignment="Center" 
+                      GridLinesVisibility="None" RowBackground="#36393f" Background="#36393f" BorderThickness="0" HorizontalAlignment="Center" 
                       SelectionUnit="FullRow" IsReadOnly="True" HeadersVisibility="Column" AlternatingRowBackground="#36393f" HorizontalContentAlignment="Center">
                 <DataGrid.Resources>
                     <Style BasedOn="{StaticResource {x:Type DataGridColumnHeader}}" TargetType="{x:Type DataGridColumnHeader}">

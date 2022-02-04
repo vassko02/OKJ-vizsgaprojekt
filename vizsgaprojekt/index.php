@@ -94,8 +94,6 @@ if (isset($_POST['btn_send2'])) {
 
 }
 ?>
-
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -208,6 +206,12 @@ if (isset($_POST['btn_send2'])) {
     if ($request === $baseUrl . '/newaccemail') {
         echo '            
         <link rel="stylesheet" href="./aktivalas/elfelejtettjelszo.css"> 
+        
+                ';
+    }
+    if ($request === $baseUrl . '/rating') {
+        echo '            
+        <link rel="stylesheet" href="./rest-api/rating.css"> 
         
                 ';
     }
@@ -357,6 +361,9 @@ if (isset($_POST['btn_send2'])) {
         case $baseUrl . '/dining/menu':
             include('./restaurant/menu/foodmenu.php');
             break;
+        case $baseUrl . '/rating':
+                include('./rest-api/index.html');
+                break;
         case $baseUrl . '/signin':
             $HelpObj->clearReservation();
             include('./login/regisztracio.php');

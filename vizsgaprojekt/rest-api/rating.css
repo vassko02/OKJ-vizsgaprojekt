@@ -1,0 +1,28 @@
+body{
+    background-color: rgb(29, 29, 29);
+}
+.rating{
+    min-height: 72.6vh;
+    margin-top: 15vh !important;
+    
+}
+.rating h2{
+    font-size: 5rem;
+    color: #e6cc4f;
+}
+.rating label{
+    font-size: 2rem;
+    color: #C5B358;
+}
+.btn{
+    background-color: #e6cc4f;
+    float: right;
+    width: 10vw;
+}
+.form-control{
+    border: 2px solid #e6cc4f !important; 
+    color: #ffde37 !important; 
+}
+input[type=textarea]{
+    height: 6vh;
+}

@@ -57,7 +57,7 @@ namespace Recepcio_alkalmazas.Models
             using (var con = new MySqlConnection(ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString))
             {
                 con.Open();
-                var sql = "SELECT * from room";
+                var sql = "SELECT * from room order by RoomName";
                 using (var cmd = new MySqlCommand(sql, con))
                 {
                     using (var reader = cmd.ExecuteReader())
@@ -115,6 +115,28 @@ namespace Recepcio_alkalmazas.Models
                 using (var cmd = new MySqlCommand(sql, con))
                 {
                     cmd.Parameters.AddWithValue("@id", id);
+                    using (var reader = cmd.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            lista.Add(new room(reader));
+                        }
+                    }
+                }
+                con.Close();
+            }
+            return lista;
+        }
+        public static ObservableCollection<room> selectRoomByName(string name)
+        {
+            var lista = new ObservableCollection<room>();
+            using (var con = new MySqlConnection(ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString))
+            {
+                con.Open();
+                var sql = "SELECT * from room where room.RoomName=@name";
+                using (var cmd = new MySqlCommand(sql, con))
+                {
+                    cmd.Parameters.AddWithValue("@name", name);
                     using (var reader = cmd.ExecuteReader())
                     {
                         while (reader.Read())
