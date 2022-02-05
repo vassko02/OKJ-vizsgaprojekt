@@ -56,7 +56,7 @@ $RoomPics1 = $RoomObj->selectRoomPics1ByType();
     <h1>Hotel amenities</h1>
     <p>Explore Our Services</p>
   </div>
-  <div class="row">
+  <div class="row ikonok">
     <div data-aos="fade-up" data-aos-duration="1000" data-aos-once="true" class="col-lg-4 col-md-6 col-sm-12">
       <i class="fas fa-wifi"></i>
       <h1>Free Wifi</h1>
@@ -123,15 +123,13 @@ $RoomPics1 = $RoomObj->selectRoomPics1ByType();
       <div class="card">
         <div class="slides">
           <div slide-id="1" class="slide active">
-            <div class="thumbnail"><img src="<?php echo $RoomPics1[2]; ?>" /></div>
-
+            <div class="thumbnail booksliderimg"><img src="<?php echo $RoomPics1[2]; ?>" /></div>
           </div>
           <div slide-id="2" class="slide">
             <div class="thumbnail"><img src="<?php echo $RoomPics1[3]; ?>" /></div>
           </div>
           <div slide-id="3" class="slide">
             <div class="thumbnail"><img src="<?php echo $RoomPics1[5]; ?>" /></div>
-
           </div>
         </div>
         <div class="booksliderbtn row">
@@ -161,7 +159,37 @@ $RoomPics1 = $RoomObj->selectRoomPics1ByType();
       </div>
     </div>
   </div>
+</div>
 
+<div class="roomelvalaszto">
+  <div class="header">
+    <h1>An experience straight from paradise</h1>
+    <p>Select from an extensive list of room types, amenities, views and locations at the iconic 
+      Peaceful Paradise resort. <br> As one of the largest Las Vegas hotels, 
+      there are five "towers" of the most luxuious rooms you have ever seen.</p>
+  </div>
+  <div class="leiras row">
+    <div class="col-sm-6 col-lg-2">
+      <h1>10</h1>
+      <h3>Bars / Lounges</h3>
+    </div>
+    <div class="col-sm-6 col-lg-2">
+      <h1>3</h1>
+      <h3>Villas</h3>
+    </div>
+    <div class="col-sm-6 col-lg-2">
+      <h1>10</h1>
+      <h3>Suites</h3>
+    </div>
+    <div class="col-sm-6 col-lg-2">
+      <h1>150+</h1>
+      <h3>Hotel rooms</h3>
+    </div>
+    <div class="col-sm-6 col-lg-2">
+      <h1><i class="fas fa-infinity"></i></h1>
+      <h3>Infinite luxury</h3>
+    </div>
+  </div>
 </div>
 
 

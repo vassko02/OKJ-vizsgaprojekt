@@ -67,16 +67,14 @@
        1px 1px 0 #000;
 }
 
-
+/*Hotel amenities - services*/
 .icons {
     text-align: center;
     margin-top: 3vh;
-    margin-bottom: 5vh;
     background-color: hsl(0, 0%, 10%);
     color: white;
     padding-top: 5vh;
     padding-bottom: 5vh;
-    min-height: 100vh;
 }
 .icons .focim {
     margin-bottom: 5vh;
@@ -85,19 +83,20 @@
     font-family: 'Be Vietnam Pro', sans-serif;
     text-transform: uppercase;
     color: #C5B358;
+    font-size: 4.5vh;
 }
 .icons .focim p {
     font-style: italic;
     font-size: 1.8vh;
 }
 .icons .row {
-    width: 100%;
+    width: 85%;
     margin-right: auto;
     margin-left: auto;
 }
 .icons .row div {
     transition: 0.3s;
-    padding: 2vh 5vh;
+    padding: 2.5vh 3vh;
     cursor: default;
 }
 #evcharger {
@@ -118,8 +117,6 @@
       background-position: 200% center;
     }
   }
-
-
 .icons .row div i, .icons a i{
     font-size: 4vh;
     padding-bottom: 1vh;
@@ -131,27 +128,65 @@
 .icons a {
     color: white;
     text-decoration: none;
-    transition: 0.3s;
+    transition: 0.3s !important;
     border-radius: 30px !important;
-    padding: 2vh 5vh;
+    padding: 2.5vh 3vh;
 }
 .icons a:hover{
     color: #C5B358;
+    transition: 0.3s;
 }
 .icons .row h1 {
-    font-size: 3vh;
+    font-size: 2.5vh;
     font-family: 'Be Vietnam Pro', sans-serif;
 }
 .icons p {
-    font-size: 1.8vh;
+    font-size: 1.5vh;
+    max-width: 65%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/*Szoba utáni elválasztó*/
+.roomelvalaszto {
+    background-color: hsl(0, 0%, 10%);
+    color: white;
+    text-align: center;
+    padding-top: 5vh;
+    padding-bottom: 5vh;
+}
+.roomelvalaszto .header h1 {
+    color: #C5B358;
+    font-family: 'Be Vietnam Pro', sans-serif;
+    text-transform: uppercase;
+}
+.roomelvalaszto .header p {
+    margin-bottom: 0;
+    font-size: 1.5vh;
+}
+.roomelvalaszto .leiras {
+    width: 70%;
+    padding-top: 5vh;
+    margin-left: auto;
+    margin-right: auto;
+}
+.roomelvalaszto .leiras div{
+    margin-left: auto;
+    margin-right: auto;
+}
+.roomelvalaszto .leiras div h1 {
+    color: #C5B358;
+    transition: 0.3s;
+}
+.roomelvalaszto .leiras div h3 {
+    font-family: 'Be Vietnam Pro', sans-serif;
 }
 
 
 
 
 
-
-
+/*Mobil nézet*/
 @media screen and (max-width: 1000px){
     .roomcim h1{
         font-size: 9vh;

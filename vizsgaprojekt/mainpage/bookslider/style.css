@@ -1,12 +1,12 @@
 .rooms {
   color: white;
-  height: 98vh;
+  
 }
 .roomheader {
   width: 90vw;
   margin-left: auto;
   margin-right: auto;
-  padding-top: 3vh;
+  padding-top: 5vh;
 }
 .roomcim h1{
   font-size: 9vh;
@@ -68,12 +68,13 @@
   -webkit-transition: 0.5s ease;
   transition: 0.5s ease;
   width: 100%;
-}
+  box-shadow: 0px 5px 15px 5px rgba(0,0,0,0.6) !important;
+ }
 
 .slide img {
-  height: 60vh;
-  width: 100%;
-  min-width: 100%;
+  inline-size: 100%;
+  aspect-ratio: 16 / 9 !important;
+  object-fit: cover;
 }
 
 .slide.active {
@@ -118,6 +119,7 @@
   margin-left: auto;
   margin-right: auto;
   text-align: center;
+  font-size: 2vh;
 }
 
 .bookszoveg {
@@ -191,4 +193,6 @@
 .slideszoveg h1 {
   font-family: 'Be Vietnam Pro', sans-serif;
   color: #C5B358;
+  transition: 0.3s;
+  background-color: hsl(0, 0%, 10%);
 }
