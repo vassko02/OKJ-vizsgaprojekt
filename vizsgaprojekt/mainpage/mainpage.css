@@ -75,6 +75,12 @@
     color: white;
     padding-top: 5vh;
     padding-bottom: 5vh;
+
+    background-image: url('../pictures/mainpage/parallax/SFO_050_original.jpg');
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 .icons .focim {
     margin-bottom: 5vh;
@@ -154,6 +160,12 @@
     text-align: center;
     padding-top: 5vh;
     padding-bottom: 5vh;
+
+    background-image: url('../pictures/mainpage/parallax/parallax1v1.png');
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 .roomelvalaszto .header h1 {
     color: #C5B358;
@@ -183,7 +195,70 @@
 }
 
 
-
+/*Étterem rész*/
+.restaurant {
+    color: white;
+    padding-top: 7.5vh;
+    padding-bottom: 5vh;
+}
+.restaurant .header h1 {
+    font-family: 'Be Vietnam Pro', sans-serif;
+    text-transform: uppercase;
+    text-align: right;
+    font-size: 5vh;
+}
+.restaurant .header p {
+    margin-bottom: 0;
+    font-size: 2vh;
+}
+.restaurant .header a {
+    color: #C5B358;
+    text-decoration: none;
+    font-style: italic;
+    font-size: 2vh;
+}
+.restaurant .leiras {
+    width: 80vw;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 5vh;
+}
+.restaurant .leiras .etteremkep img {
+    content: url('../pictures/mainpage/restaurant4.jpg');
+    inline-size: 100%;
+    aspect-ratio: 16 / 9 !important;
+    object-fit: cover;
+    box-shadow: 0px 5px 15px 5px rgba(0,0,0,0.6);
+}
+.restaurant .leiras .etteremleiras img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+.restaurant .leiras .etteremleiras .kaja {
+    background-color: hsl(0, 0%, 10%);
+    width: 48%;
+    margin-right: 2%;
+    margin-top: auto;
+    margin-bottom: auto;
+    margin-left: auto;
+    padding: 1vh;
+    transition: 0.3s;
+}
+.restaurant .leiras .etteremleiras .kaja:hover {
+    background-color: hsl(0, 0%, 5%);
+    transition: 0.3s;
+}
+.restaurant .leiras .etteremleiras .kaja h1{
+    font-size: 1.5vh;
+    padding-top: 0.5vh;
+    text-align: center;
+}
+.restaurant .leiras .etteremleiras .kaja h3{
+    font-size: 1.5vh;
+    padding-top: 0.5vh;
+}
 
 
 /*Mobil nézet*/

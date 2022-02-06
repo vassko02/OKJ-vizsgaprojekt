@@ -1,6 +1,10 @@
 <?php
 //$Roomslist = $RoomObj->selectallrooms();
 $RoomPics1 = $RoomObj->selectRoomPics1ByType();
+$appetiser = $StorageObj->getTwoFoodByType('Appetiser');
+$soup = $StorageObj->getTwoFoodByType('Soup');
+$dessert = $StorageObj->getTwoFoodByType('Dessert');
+$main = $StorageObj->getTwoFoodByType('Main Course');
 //print_r($RoomPics1);
 ?>
 <div class="lapozo">
@@ -166,7 +170,7 @@ $RoomPics1 = $RoomObj->selectRoomPics1ByType();
     <h1>An experience straight from paradise</h1>
     <p>Select from an extensive list of room types, amenities, views and locations at the iconic 
       Peaceful Paradise resort. <br> As one of the largest Las Vegas hotels, 
-      there are five "towers" of the most luxuious rooms you have ever seen.</p>
+      there are five "towers" of the most luxurious rooms you have ever seen.</p>
   </div>
   <div class="leiras row">
     <div class="col-sm-6 col-lg-2">
@@ -192,6 +196,61 @@ $RoomPics1 = $RoomObj->selectRoomPics1ByType();
   </div>
 </div>
 
+<div class="restaurant">
+  <div class="header row">
+    <h1 class="col-lg-5 col-sm-12">Eat like an Emperor</h1>
+    <div class="col-lg-7 col-sm-12">
+    <p>Enjoy the best eats at Peaceful Paradise Royale Restaurant, 
+      available in all price points and cuisines.</p>
+    <a class="centerhover" href="<?php echo $baseUrl;?>/dining">Go ahead - indulge.</a>
+    </div>
+  </div>
+  <div class="leiras row">
+    <div class="col-sm-12 col-lg-6 etteremkep">
+      <img src="" alt="">
+    </div>
+    <div class="col-sm-12 col-lg-6 row etteremleiras">
+      <?php 
+        foreach ($appetiser as $item) {
+          echo '<div class="col-lg-6 col-sm-12 row kaja">
+          <div class="col-3">
+            <img src="'.$item['ImageURL'].'" alt="">
+          </div>
+          <h1 class="col-6">'.$item['ItemName'].'</h1>
+          <h3 class="col-3">$'.$item['Price'].'</h3>
+        </div>';
+        }
+        foreach ($soup as $item) {
+          echo '<div class="col-lg-6 col-sm-12 row kaja">
+          <div class="col-3">
+            <img src="'.$item['ImageURL'].'" alt="">
+          </div>
+          <h1 class="col-6">'.$item['ItemName'].'</h1>
+          <h3 class="col-3">$'.$item['Price'].'</h3>
+        </div>';
+        }
+        foreach ($main as $item) {
+          echo '<div class="col-lg-6 col-sm-12 row kaja">
+          <div class="col-3">
+            <img src="'.$item['ImageURL'].'" alt="">
+          </div>
+          <h1 class="col-6">'.$item['ItemName'].'</h1>
+          <h3 class="col-3">$'.$item['Price'].'</h3>
+        </div>';
+        }
+        foreach ($dessert as $item) {
+          echo '<div class="col-lg-6 col-sm-12 row kaja">
+          <div class="col-3">
+            <img src="'.$item['ImageURL'].'" alt="">
+          </div>
+          <h1 class="col-6">'.$item['ItemName'].'</h1>
+          <h3 class="col-3">$'.$item['Price'].'</h3>
+        </div>';
+        }
+      ?>
+    </div>
+  </div>
+</div>
 
 
 
@@ -206,11 +265,6 @@ $RoomPics1 = $RoomObj->selectRoomPics1ByType();
   AOS.init({
     once: true
   });
-  var animalt = document.querySelector('.bookszoveg')
-  function animacio() {
-    
-  }
-
 </script>
 <!--
   data-aos: az animácó
