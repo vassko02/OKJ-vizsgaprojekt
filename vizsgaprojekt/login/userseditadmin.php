@@ -95,6 +95,9 @@
      <p class="rankicon">
      ';
       switch ($level['LEVEL']) {
+        case '':
+         echo' <img class="icon" src="./login/icons/basic.png" alt="" srcset="">';
+          break;
         case 'Gold':
           echo'<img class="icon" src="./login/icons/gold-ingot.png" alt="" srcset="">';
           break;

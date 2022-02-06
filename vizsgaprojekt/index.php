@@ -5,7 +5,7 @@ define('VEDETT', 'igen');
 
 //szervernél: /~PeacefulParadise
 //localhostnál: /14aphp/OKJ-vizsgaprojekt/vizsgaprojekt
-$baseUrl = '/14aphp/friss/OKJ-vizsgaprojekt/vizsgaprojekt'; 
+$baseUrl = '/14aphp/gitt/OKJ-vizsgaprojekt/vizsgaprojekt'; 
 $request = $_SERVER['REQUEST_URI']; //mindenkori url
 $mennyiper = substr_count($request, '/');
 $baseMennyiper = substr_count($baseUrl, '/');
@@ -70,6 +70,9 @@ if (isset($_POST['btn_send2'])) {
             $Rnumber += 1;
             $GuestObj->addonetoreservationnumber($user['CustomerID'],$Rnumber);
             $level = '';
+            if ($Rumber < 3) {
+                $level = "";
+            }
             if ( $Rnumber >= 3 ) {
                 $level = "Gold";
             } 
