@@ -39,23 +39,27 @@ html, body {
   background-image: url('../../pictures/mainpage/meretezett1.jpg');
   background-repeat: no-repeat;
   background-size: cover;
+  background-position: center;
 }
 
 .slidde:nth-of-type(2) {
   background-image: url('../../pictures/mainpage/meretezett3.jpg');
   background-repeat: no-repeat;
   background-size: cover;
+  background-position: center;
 }
 
 .slidde:nth-of-type(3) {
   background-image: url('../../pictures/mainpage/meretezett2.jpg');
   background-repeat: no-repeat;
   background-size: cover;
+  background-position: center;
 }
 .slidde:nth-of-type(4) {
   background-image: url('../../pictures/mainpage/meretezett4.jpg'); /*Momofuku Las Vegas*/
   background-repeat: no-repeat;
   background-size: cover;
+  background-position: center;
 }
 
 

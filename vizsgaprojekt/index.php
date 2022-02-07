@@ -5,7 +5,7 @@ define('VEDETT', 'igen');
 
 //szervernél: /~PeacefulParadise
 //localhostnál: /14aphp/OKJ-vizsgaprojekt/vizsgaprojekt
-$baseUrl = '/14aphp/gitt/OKJ-vizsgaprojekt/vizsgaprojekt'; 
+$baseUrl = '/14aphp/friss/OKJ-vizsgaprojekt/vizsgaprojekt'; 
 $request = $_SERVER['REQUEST_URI']; //mindenkori url
 $mennyiper = substr_count($request, '/');
 $baseMennyiper = substr_count($baseUrl, '/');
@@ -120,6 +120,8 @@ if (isset($_POST['btn_send2'])) {
                                     } else if ($mennyiper === ($baseMennyiper + 4)) {
                                         echo '../../.';
                                     } ?>./404/404.css">
+    <link rel="preload" as="image" href="./pictures/small_repulo.gif">
+    <link rel="preload" as="image" href="./pictures/repulo.gif">
     <?php
     if ($request === $baseUrl . '' || $request === $baseUrl . '/') {
         echo '
@@ -281,13 +283,6 @@ if (isset($_POST['btn_send2'])) {
                                     } else if ($mennyiper === ($baseMennyiper + 4)) {
                                         echo '../../.';
                                     } ?>./navbar/style.css">
-    <link rel="stylesheet" href="<?php if ($mennyiper === ($baseMennyiper + 2)) {
-                                        echo '.';
-                                    } else if ($mennyiper === ($baseMennyiper + 3)) {
-                                        echo '../.';
-                                    } else if ($mennyiper === ($baseMennyiper + 4)) {
-                                        echo '../../.';
-                                    } ?>./navbar/preloader.css">
     <link rel="stylesheet" href="<?php if ($mennyiper === ($baseMennyiper + 2)) {
                                         echo '.';
                                     } else if ($mennyiper === ($baseMennyiper + 3)) {

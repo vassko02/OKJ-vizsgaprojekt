@@ -23,7 +23,7 @@ if (isset($_POST['itemname'])) {
                     echo '
                     
                     <form action="" method="POST" class="">
-                    <a class="card" >
+                    <a class="card" id='.$item['StorageID'].'>
                     <div class="card__background" style="background-image: url(' . $item['ImageURL'] . ')"></div>
                     <div class="card__content">
                     <p class="card__category">$' . $item['Price'] . '</p>
@@ -57,7 +57,7 @@ if (isset($_POST['itemname'])) {
                     echo '
                     
                     <form action="" method="POST" class="">
-                    <a class="card" >
+                    <a class="card" id='.$item['StorageID'].'>
                     <div class="card__background" style="background-image: url(' . $item['ImageURL'] . ')"></div>
                     <div class="card__content">
                     <p class="card__category">$' . $item['Price'] . '</p>
@@ -91,7 +91,7 @@ if (isset($_POST['itemname'])) {
                     echo '
                     
                     <form action="" method="POST" class="">
-                    <a class="card" >
+                    <a class="card" id='.$item['StorageID'].'>
                     <div class="card__background" style="background-image: url(' . $item['ImageURL'] . ')"></div>
                     <div class="card__content">
                     <p class="card__category">$' . $item['Price'] . '</p>
@@ -125,7 +125,7 @@ if (isset($_POST['itemname'])) {
                     echo '
                     
                     <form action="" method="POST" class="">
-                    <a class="card">
+                    <a class="card" id='.$item['StorageID'].'>
                     <div class="card__background" style="background-image: url(' . $item['ImageURL'] . ')"></div>
                     <div class="card__content">
                     <p class="card__category">$' . $item['Price'] . '</p>

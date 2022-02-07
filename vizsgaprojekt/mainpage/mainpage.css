@@ -1,3 +1,7 @@
+* {
+    scroll-behavior: smooth;
+}
+
 .lapozo {
     height: 90%;
 }
@@ -108,7 +112,6 @@
 #evcharger {
     text-align: center;
     cursor: wait;
-    transition: 0.3s;
 }
 #evcharger:hover {
     background: linear-gradient(to right, #FFF 20%, #5eff00 40%, #5eff00 60%, #FFF 80%);
@@ -160,8 +163,14 @@
     text-align: center;
     padding-top: 5vh;
     padding-bottom: 5vh;
-
-    background-image: url('../pictures/mainpage/parallax/parallax1v1.png');
+    background:
+    /* top, transparent black, faked with gradient */ 
+    linear-gradient(
+      rgba(0, 0, 0, 0.85), 
+      rgba(0, 0, 0, 0.85)
+    ),
+    /* bottom, image */
+    url('../pictures/mainpage/parallax/parallaxkicsi.png');
     background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
@@ -177,7 +186,7 @@
     font-size: 1.5vh;
 }
 .roomelvalaszto .leiras {
-    width: 70%;
+    width: 75%;
     padding-top: 5vh;
     margin-left: auto;
     margin-right: auto;
@@ -230,49 +239,131 @@
     object-fit: cover;
     box-shadow: 0px 5px 15px 5px rgba(0,0,0,0.6);
 }
+.restaurant .leiras .etteremkep {
+    margin-bottom: 1vh;
+}
+.restaurant .leiras .etteremkep img{
+    /* cursor: url('../pictures/cursor/menu2.png'), auto; */
+}
 .restaurant .leiras .etteremleiras img {
     width: 80px;
     height: 80px;
     border-radius: 50%;
     object-fit: cover;
 }
+.restaurant .leiras .etteremleiras {
+    margin: auto;
+}
 .restaurant .leiras .etteremleiras .kaja {
     background-color: hsl(0, 0%, 10%);
-    width: 48%;
-    margin-right: 2%;
-    margin-top: auto;
-    margin-bottom: auto;
-    margin-left: auto;
     padding: 1vh;
-    transition: 0.3s;
+    margin-bottom: 1vh;
+    text-decoration: none;
+    color: white;
 }
 .restaurant .leiras .etteremleiras .kaja:hover {
     background-color: hsl(0, 0%, 5%);
-    transition: 0.3s;
 }
 .restaurant .leiras .etteremleiras .kaja h1{
     font-size: 1.5vh;
-    padding-top: 0.5vh;
-    text-align: center;
+    font-family: 'Be Vietnam Pro', sans-serif;
+    width: calc(100% - 80px);
 }
 .restaurant .leiras .etteremleiras .kaja h3{
     font-size: 1.5vh;
-    padding-top: 0.5vh;
+    color: #C5B358;
+    text-align: center;
+    width: 80px;
+}
+.kaja .desc {
+    width: calc(100% - 80px);
+}
+.kaja .desc .text {
+    width: 100%;
+    position: relative;
 }
 
 
 /*Mobil nézet*/
 @media screen and (max-width: 1000px){
+    /*Rooms mobil*/
     .roomcim h1{
-        font-size: 9vh;
-        text-transform: uppercase;
         text-align: center !important;
         float:none !important;
     }
+    .roomszoveg {
+        padding: 0 !important;
+    }
     .roomszoveg p{
-        padding-top: 2vh;
-        font-size: 2vh;
+        text-align: justify;
+    }
+    .roomszoveg a {
         margin-left: auto;
         margin-right: auto;
+    }
+    .bookszoveg {
+        position: initial !important;
+    }
+    .rooms .leiras .card {
+        width: 100%;
+        margin-bottom: 0;
+    }
+    .rooms .leiras .slides {
+        height: 25vh;
+    }
+    .rooms .leiras .slides .slide {
+        box-shadow: none !important;
+    }
+    .booksliderbtn a {
+        max-width: 50% !important;
+        width: 50% !important;
+    }
+    .rooms .leiras .bookszoveg {
+        width: 95%;
+        margin-left: auto;
+        margin-right: auto;
+        left: 0;
+        top: 0;
+        margin-top: 1vh;
+        margin-bottom: 3vh;
+    }
+
+    /*Étterem mobil*/
+    .restaurant .leiras {
+        width: 95%;
+    }
+    .restaurant .header {
+        text-align: center !important;
+        width: 95%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .restaurant .header h1 {
+        text-align: center;
+    }
+    .restaurant .leiras .etteremkep {
+        display: none;
+    }
+
+    /*Roomelválasztó mobil*/
+    .roomelvalaszto .header{
+        width: 80%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    /*Main slider mobil*/
+    .lapozo {
+        height: unset;
+    }
+    .lapozo .slidde_viewer {
+        height: 30vh;
+    }
+    .lapozo .slidde_buttons {
+        position: initial;
+    }
+    .lapozo .directional_nav {
+        top: -15vh;
+        height: auto;
     }
 }
