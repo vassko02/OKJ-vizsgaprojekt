@@ -212,6 +212,7 @@ namespace Recepcio_alkalmazas.Views
                 double roomPrice = room.selectRoomByName(cb_rooms.SelectedItem.ToString())[0].RoomPrice;
                 double servicePrice = servicetype.selectPrice(cb_services.SelectedIndex+1)[0].ServicePrice;
                 ar= (roomPrice + servicePrice) * nap * szorzo;
+                ar = Math.Round(ar, 2); 
                 lbl_price.Text = string.Format("{0}$",ar);
             }
             else

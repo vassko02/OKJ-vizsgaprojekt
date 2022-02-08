@@ -100,6 +100,8 @@ namespace Recepcio_alkalmazas.pages
                 {
                     osszeg = consumption.selectSumByID(id);
                     x = osszeg[0].osszeg;
+                    x = Math.Round(x, 2);
+
 
                 }
                 lbl_vegosszeg.Content ="$"+x.ToString("F");
