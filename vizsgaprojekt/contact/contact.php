@@ -1,6 +1,4 @@
 <?php
-
-
   if(isset($_SESSION['email'])){
     $email=$_SESSION['email'];
     $guestdata=$GuestObj->findcustomerbyemail2($email);
@@ -11,8 +9,6 @@
     $guestdata=$GuestObj->findcustomerbyemail2($email);
     $name=$guestdata['Name'];
   }
-
-
 ?>
 <div class="contact">
   <div class="urlap mx-auto">
@@ -58,12 +54,6 @@
       </div>
 
     </form>
-    <!-- <h1>ADATOK</h1>
-    <?php
-    echo ('<pre>');
-    print_r($_POST);
-    echo ('</pre>');
-    ?> -->
   </div>
 </div>
 <script src="./contact/contact.js"></script>

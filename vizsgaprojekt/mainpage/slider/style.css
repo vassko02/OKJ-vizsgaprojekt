@@ -121,17 +121,11 @@ a.slidde_btn {
   -o-transition: opacity 0.4s ease-in-out;
   transition: opacity 0.4s ease-in-out;
   width: 65px;
+  transition: 0.3s;
 }
 
 .previous_btn:hover, .next_btn:hover {
   opacity: 1;
-}
-
-@media only screen and (max-width: 767px) {
-  .previous_btn {
-    left: 50px;
-  }
-  .next_btn {
-    right: 50px;
-  }
+  transform: scale(1.1) !important;
+  transition: 0.3s;
 }

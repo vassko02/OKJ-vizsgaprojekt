@@ -16,6 +16,16 @@
         <li><a href="<?php echo $baseUrl ?>/rating" class="navlink">Rate us</a></li>
         <li class="lenyilo">
             <div class="dropdown">
+                <button class="dropdown-toggle lenyilogomb" type="button" id="dropdownMenuButton2" data-bs-toggle="dropdown" aria-expanded="false">
+                    <i class="fas fa-user-circle"></i>
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton2">
+                    <li><a class="dropdown-item leftborder" href="' . $baseUrl . '/signin"><i class="fas fa-user-plus"></i>Contact</a></li>
+                </ul>
+            </div>
+        </li>
+        <li class="lenyilo">
+            <div class="dropdown">
                 <button class="dropdown-toggle lenyilogomb" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
                     <i class="fas fa-user-circle"></i>
                 </button>
