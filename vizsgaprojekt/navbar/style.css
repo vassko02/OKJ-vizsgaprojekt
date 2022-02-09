@@ -240,7 +240,7 @@ nav{
         opacity: 1;
     }
     .lenyilo {
-        display: none;
+        display: none !important;
     }
     .eltuno {
         display: initial !important;

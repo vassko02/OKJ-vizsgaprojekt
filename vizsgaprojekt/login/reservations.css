@@ -61,7 +61,7 @@ a:hover{
 	padding-top: 30vh;
 	min-height: 92vh;
 }
-.container {
+#container {
 	min-height: 92vh !important;
 	max-width:400px;
 	width:100%;
