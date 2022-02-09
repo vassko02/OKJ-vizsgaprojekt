@@ -267,10 +267,10 @@ class Guest extends Dbconnect
   {
     return bin2hex(random_bytes(16));
   }
-  public function send_activation_emailfornewacc(string $email, string $newacccode,$oldemail, $baseUrl): void
+  public function send_activation_emailfornewacc(int $customerid,string $email, string $newacccode,$oldemail, $baseUrl): void
   {
     // create the activation link
-    $activation_link = 'diak.jedlik.eu' . $baseUrl . "/activate?email=$email&newacccode=$newacccode&oldemail=$oldemail";
+    $activation_link = 'diak.jedlik.eu' . $baseUrl . "/activate?email=$email&newacccode=$newacccode&oldemail=$oldemail&customerid=$customerid";
 
     // set email subject & body
     $subject = 'Account activation';
@@ -1634,14 +1634,14 @@ class Guest extends Dbconnect
     // verify the password
     return null;
   }
-  public function find_unverified_user_fornewacc(string $newacctoken, string $email)
+  public function find_unverified_user_fornewacc(int $customerid,string $newacctoken, string $email)
   {
 
-    $sql = 'SELECT Code,Type,Expiry < now() as expired  FROM codes INNER JOIN customer on codes.CustomerID = customer.CustomerID WHERE customer.Email = ?';
+    $sql = 'SELECT Code,Type,Expiry < now() as expired  FROM codes INNER JOIN customer on codes.CustomerID = customer.CustomerID WHERE codes.CustomerID = ?';
 
     $stmt = $this->con->prepare($sql);
 
-    $stmt->bind_param("s", $email);
+    $stmt->bind_param("i",$customerid);
     $stmt->execute();
 
     $user = $stmt->get_result();
@@ -2381,12 +2381,33 @@ class Guest extends Dbconnect
   }
   public function update_newacc_code_in_db(int $user_id, string $newacctoken, int $expiry = 1 * 24 * 60 * 60): bool
   {
-    $sql = 'UPDATE codes
-                SET Code = ?,
-                Expiry = ?,
-                Type = ?,
-                WHERE CustomerID=?';
+    $sqlselect = 'SELECT * FROM codes WHERE customerID = ? AND Type = "newacc" ';
+    $stmt = $this->con->prepare($sqlselect);
+    $stmt->bind_param("i", $user_id);
+    $stmt->execute();
+    $vane = 0;
+    $result = $stmt->get_result();
 
+    if ($result->num_rows == 1) {
+        //oke
+      $vane = 1;
+    } else {
+      $vane = 0;
+    }
+    if ($vane == 1) {
+              $sql = 'UPDATE codes
+              SET Code = ?,
+              Expiry = ?,
+              Type = ?,
+              WHERE CustomerID=?';
+
+      
+    }
+    else{
+            $sql = 'INSERT INTO codes
+            (Code, Expiry, Type, CustomerID)
+            VALUES (?,?,?,?)';
+    }
     $stmt = $this->con->prepare($sql);
     $token = md5($newacctoken);
     $type = "newacc";
@@ -2394,6 +2415,7 @@ class Guest extends Dbconnect
     $stmt->bind_param("sssi", $token, $exp , $type , $user_id);
 
     return $stmt->execute();
+ 
   }
   public function find_resetable_user(string $password_reset_token, string $email) //megkeresi a felhasználót a link alapján ha van
   {
