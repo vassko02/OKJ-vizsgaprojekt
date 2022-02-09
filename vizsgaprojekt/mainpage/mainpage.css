@@ -1,278 +1,490 @@
-.lapozo {
-    height: 90%;
+* {
+  scroll-behavior: smooth;
 }
 
-.elso,.masodik,.harmadik{
-    margin-left: auto;
-    margin-right: auto;
-    text-align: center;
-    padding-top: 75vh;
+.lapozo {
+  height: 90%;
+}
+
+.elso,
+.masodik,
+.harmadik {
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  padding-top: 75vh;
 }
 .elso {
-    padding-top: 65vh;
+  padding-top: 65vh;
 }
-.elso h1{
-    color: white;
-    font-family: 'Big Shoulders Display', cursive;
-    font-size: 5.5vh;
-    -webkit-text-stroke: 2px black;
-    text-shadow:
-       2px 2px 0 #000,
-     -1px -1px 0 #000,  
-      1px -1px 0 #000,
-      -1px 1px 0 #000,
-       1px 1px 0 #000;
+.elso h1 {
+  color: white;
+  font-family: "Big Shoulders Display", cursive;
+  font-size: 5.5vh;
+  -webkit-text-stroke: 2px black;
+  text-shadow: 2px 2px 0 #000, -1px -1px 0 #000, 1px -1px 0 #000,
+    -1px 1px 0 #000, 1px 1px 0 #000;
 }
 .elso h2 {
-    font-family: 'Big Shoulders Display', cursive;
-    font-style: italic;
-    font-size: 4vh;
-    color: #C5B358;
-    -webkit-text-stroke: 1px black;
-    text-shadow:
-       3px 3px 0 #000,
-     -1px -1px 0 #000,  
-      1px -1px 0 #000,
-      -1px 1px 0 #000,
-       1px 1px 0 #000;
+  font-family: "Big Shoulders Display", cursive;
+  font-style: italic;
+  font-size: 4vh;
+  color: #c5b358;
+  -webkit-text-stroke: 1px black;
+  text-shadow: 3px 3px 0 #000, -1px -1px 0 #000, 1px -1px 0 #000,
+    -1px 1px 0 #000, 1px 1px 0 #000;
 }
 .masodik {
-    padding-top: 65vh;
+  padding-top: 65vh;
 }
-.masodik h1{
-    color: white;
-    font-family: 'Big Shoulders Display', cursive;
-    font-size: 5.5vh;
-    -webkit-text-stroke: 2px black;
-    text-shadow:
-       2px 2px 0 #000,
-     -1px -1px 0 #000,  
-      1px -1px 0 #000,
-      -1px 1px 0 #000,
-       1px 1px 0 #000;
+.masodik h1 {
+  color: white;
+  font-family: "Big Shoulders Display", cursive;
+  font-size: 5.5vh;
+  -webkit-text-stroke: 2px black;
+  text-shadow: 2px 2px 0 #000, -1px -1px 0 #000, 1px -1px 0 #000,
+    -1px 1px 0 #000, 1px 1px 0 #000;
 }
 .harmadik {
-    padding-top: 65vh;
+  padding-top: 65vh;
 }
-.harmadik h1{
-    color: white;
-    font-family: 'Big Shoulders Display', cursive;
-    font-size: 5.5vh;
-    -webkit-text-stroke: 2px black;
-    text-shadow:
-       2px 2px 0 #000,
-     -1px -1px 0 #000,  
-      1px -1px 0 #000,
-      -1px 1px 0 #000,
-       1px 1px 0 #000;
+.harmadik h1 {
+  color: white;
+  font-family: "Big Shoulders Display", cursive;
+  font-size: 5.5vh;
+  -webkit-text-stroke: 2px black;
+  text-shadow: 2px 2px 0 #000, -1px -1px 0 #000, 1px -1px 0 #000,
+    -1px 1px 0 #000, 1px 1px 0 #000;
 }
 
 /*Hotel amenities - services*/
 .icons {
-    text-align: center;
-    margin-top: 3vh;
-    background-color: hsl(0, 0%, 10%);
-    color: white;
-    padding-top: 5vh;
-    padding-bottom: 5vh;
+  text-align: center;
+  margin-top: 3vh;
+  background-color: hsl(0, 0%, 10%);
+  color: white;
+  padding-top: 5vh;
+  padding-bottom: 5vh;
 
-    background-image: url('../pictures/mainpage/parallax/SFO_050_original.jpg');
-    background-attachment: fixed;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
+  background-image: url("../pictures/mainpage/parallax/SFO_050_original.jpg");
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 .icons .focim {
-    margin-bottom: 5vh;
+  margin-bottom: 5vh;
 }
-.icons .focim h1{
-    font-family: 'Be Vietnam Pro', sans-serif;
-    text-transform: uppercase;
-    color: #C5B358;
-    font-size: 4.5vh;
+.icons .focim h1 {
+  font-family: "Be Vietnam Pro", sans-serif;
+  text-transform: uppercase;
+  color: #c5b358;
+  font-size: 4.5vh;
 }
 .icons .focim p {
-    font-style: italic;
-    font-size: 1.8vh;
+  font-style: italic;
+  font-size: 1.8vh;
 }
 .icons .row {
-    width: 85%;
-    margin-right: auto;
-    margin-left: auto;
+  width: 85%;
+  margin-right: auto;
+  margin-left: auto;
 }
 .icons .row div {
-    transition: 0.3s;
-    padding: 2.5vh 3vh;
-    cursor: default;
+  transition: 0.3s;
+  padding: 2.5vh 3vh;
+  cursor: default;
 }
 #evcharger {
-    text-align: center;
-    cursor: wait;
-    transition: 0.3s;
+  text-align: center;
+  cursor: wait;
 }
 #evcharger:hover {
-    background: linear-gradient(to right, #FFF 20%, #5eff00 40%, #5eff00 60%, #FFF 80%);
-    background-size: 200% auto;
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    animation: shine 1.2s linear infinite;
+  background: linear-gradient(
+    to right,
+    #fff 20%,
+    #5eff00 40%,
+    #5eff00 60%,
+    #fff 80%
+  );
+  background-size: 200% auto;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shine 1.2s linear infinite;
 }
 @keyframes shine {
-    to {
-      background-position: 200% center;
-    }
+  to {
+    background-position: 200% center;
   }
-.icons .row div i, .icons a i{
-    font-size: 4vh;
-    padding-bottom: 1vh;
+}
+.icons .row div i,
+.icons a i {
+  font-size: 4vh;
+  padding-bottom: 1vh;
 }
 .icons .row div:hover {
-    transition: 0.3s;
-    color: #C5B358;
+  transition: 0.3s;
+  color: #c5b358;
+  transform: scale(1.1) !important;
 }
 .icons a {
-    color: white;
-    text-decoration: none;
-    transition: 0.3s !important;
-    border-radius: 30px !important;
-    padding: 2.5vh 3vh;
+  color: white;
+  text-decoration: none;
+  transition: 0.3s !important;
+  border-radius: 30px !important;
+  padding: 2.5vh 3vh;
 }
-.icons a:hover{
-    color: #C5B358;
-    transition: 0.3s;
+.icons a:hover {
+  color: #c5b358;
+  transition: 0.3s;
+  transform: scale(1.1) !important;
 }
 .icons .row h1 {
-    font-size: 2.5vh;
-    font-family: 'Be Vietnam Pro', sans-serif;
+  font-size: 2.5vh;
+  font-family: "Be Vietnam Pro", sans-serif;
 }
 .icons p {
-    font-size: 1.5vh;
-    max-width: 65%;
-    margin-left: auto;
-    margin-right: auto;
+  font-size: 1.5vh;
+  max-width: 65%;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 /*Szoba utáni elválasztó*/
 .roomelvalaszto {
-    background-color: hsl(0, 0%, 10%);
-    color: white;
-    text-align: center;
-    padding-top: 5vh;
-    padding-bottom: 5vh;
-
-    background-image: url('../pictures/mainpage/parallax/parallax1v1.png');
-    background-attachment: fixed;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
+  background-color: hsl(0, 0%, 10%);
+  color: white;
+  text-align: center;
+  padding-top: 5vh;
+  padding-bottom: 5vh;
+  background:
+    /* top, transparent black, faked with gradient */ linear-gradient(
+      rgba(0, 0, 0, 0.85),
+      rgba(0, 0, 0, 0.85)
+    ),
+    /* bottom, image */ url("../pictures/mainpage/parallax/parallaxkicsi.png");
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 .roomelvalaszto .header h1 {
-    color: #C5B358;
-    font-family: 'Be Vietnam Pro', sans-serif;
-    text-transform: uppercase;
+  color: #c5b358;
+  font-family: "Be Vietnam Pro", sans-serif;
+  text-transform: uppercase;
 }
 .roomelvalaszto .header p {
-    margin-bottom: 0;
-    font-size: 1.5vh;
+  margin-bottom: 0;
+  font-size: 1.5vh;
 }
 .roomelvalaszto .leiras {
-    width: 70%;
-    padding-top: 5vh;
-    margin-left: auto;
-    margin-right: auto;
+  width: 75%;
+  padding-top: 5vh;
+  margin-left: auto;
+  margin-right: auto;
 }
-.roomelvalaszto .leiras div{
-    margin-left: auto;
-    margin-right: auto;
+.roomelvalaszto .leiras div {
+  margin-left: auto;
+  margin-right: auto;
 }
 .roomelvalaszto .leiras div h1 {
-    color: #C5B358;
-    transition: 0.3s;
+  color: #c5b358;
+  transition: 0.3s;
 }
 .roomelvalaszto .leiras div h3 {
-    font-family: 'Be Vietnam Pro', sans-serif;
+  font-family: "Be Vietnam Pro", sans-serif;
 }
-
 
 /*Étterem rész*/
 .restaurant {
-    color: white;
-    padding-top: 7.5vh;
-    padding-bottom: 5vh;
+  color: white;
+  padding-top: 7.5vh;
+  padding-bottom: 5vh;
+}
+.restaurant .header {
+  max-width: 100%;
 }
 .restaurant .header h1 {
-    font-family: 'Be Vietnam Pro', sans-serif;
-    text-transform: uppercase;
-    text-align: right;
-    font-size: 5vh;
+  font-family: "Be Vietnam Pro", sans-serif;
+  text-transform: uppercase;
+  text-align: right;
+  font-size: 5vh;
 }
 .restaurant .header p {
-    margin-bottom: 0;
-    font-size: 2vh;
+  margin-bottom: 0;
+  font-size: 2vh;
 }
 .restaurant .header a {
-    color: #C5B358;
-    text-decoration: none;
-    font-style: italic;
-    font-size: 2vh;
+  color: #c5b358;
+  text-decoration: none;
+  font-style: italic;
+  font-size: 2vh;
+  max-width: 20vh;
 }
 .restaurant .leiras {
-    width: 80vw;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 5vh;
+  width: 80vw;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 5vh;
 }
 .restaurant .leiras .etteremkep img {
-    content: url('../pictures/mainpage/restaurant4.jpg');
-    inline-size: 100%;
-    aspect-ratio: 16 / 9 !important;
-    object-fit: cover;
-    box-shadow: 0px 5px 15px 5px rgba(0,0,0,0.6);
+  content: url("../pictures/mainpage/restaurant4.jpg");
+  inline-size: 100%;
+  aspect-ratio: 16 / 9 !important;
+  object-fit: cover;
+  box-shadow: 0px 5px 15px 5px rgba(0, 0, 0, 0.6);
+  transition: 0.3s;
+}
+.restaurant .leiras .etteremkep:hover img {
+  transform: scale(1.05);
+  transition: 0.3s;
+}
+.restaurant .leiras .etteremkep {
+  margin-bottom: 1vh;
 }
 .restaurant .leiras .etteremleiras img {
-    width: 80px;
-    height: 80px;
-    border-radius: 50%;
-    object-fit: cover;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+.restaurant .leiras .etteremleiras {
+  margin: auto;
 }
 .restaurant .leiras .etteremleiras .kaja {
-    background-color: hsl(0, 0%, 10%);
-    width: 48%;
-    margin-right: 2%;
-    margin-top: auto;
-    margin-bottom: auto;
-    margin-left: auto;
-    padding: 1vh;
-    transition: 0.3s;
+  background-color: hsl(0, 0%, 10%);
+  padding: 1vh;
+  margin-bottom: 1vh;
+  text-decoration: none;
+  color: white;
+  transition: 0.3s;
 }
 .restaurant .leiras .etteremleiras .kaja:hover {
-    background-color: hsl(0, 0%, 5%);
-    transition: 0.3s;
+  background-color: hsl(0, 0%, 5%);
+  transition: 0.3s;
 }
-.restaurant .leiras .etteremleiras .kaja h1{
-    font-size: 1.5vh;
-    padding-top: 0.5vh;
-    text-align: center;
+.restaurant .leiras .etteremleiras .kaja h1 {
+  font-size: 1.5vh;
+  font-family: "Be Vietnam Pro", sans-serif;
+  width: calc(100% - 80px);
 }
-.restaurant .leiras .etteremleiras .kaja h3{
-    font-size: 1.5vh;
-    padding-top: 0.5vh;
+.restaurant .leiras .etteremleiras .kaja h3 {
+  font-size: 1.5vh;
+  color: #c5b358;
+  text-align: center;
+  width: 80px;
 }
-
+.kaja .desc {
+  width: calc(100% - 80px);
+}
+.kaja .desc .text {
+  width: 100%;
+  position: relative;
+}
+.kaja.levesmobil,
+.kaja.desszertmobil,
+.kaja.foetelmobil,
+.kaja.eloetelmobil {
+  display: none !important;
+}
+.lapozo .mobilnezet {
+  display: none;
+}
 
 /*Mobil nézet*/
-@media screen and (max-width: 1000px){
-    .roomcim h1{
-        font-size: 9vh;
-        text-transform: uppercase;
-        text-align: center !important;
-        float:none !important;
-    }
-    .roomszoveg p{
-        padding-top: 2vh;
-        font-size: 2vh;
-        margin-left: auto;
-        margin-right: auto;
-    }
+
+/*Rooms mobil*/
+@media screen and (max-width: 1400px) {
+  .roomcim h1 {
+    text-align: center !important;
+    float: none !important;
+  }
+  .roomszoveg {
+    padding: 0 !important;
+  }
+  .roomszoveg p {
+    text-align: justify;
+  }
+  .bookszoveg {
+    position: initial !important;
+  }
+  .rooms .leiras .card {
+    width: 80%;
+    margin-bottom: 0;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .rooms .leiras .slides {
+    height: 55vh;
+  }
+  .rooms .leiras .slides .slide {
+    box-shadow: none !important;
+  }
+  .booksliderbtn a {
+    max-width: 50% !important;
+    width: 50% !important;
+  }
+  .rooms .leiras .bookszoveg {
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    top: 0;
+    margin-top: 1vh;
+    margin-bottom: 3vh;
+  }
+}
+@media screen and (max-width: 1000px) {
+  .rooms .leiras .card {
+    width: 100%;
+    margin-bottom: 0;
+  }
+  .rooms .leiras .bookszoveg {
+    width: 95%;
+  }
+  .roomszoveg a {
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+@media screen and (max-width: 800px) {
+  .rooms .leiras .slides {
+    height: 45vh;
+  }
+}
+@media screen and (max-width: 615px) {
+  .rooms .leiras .slides {
+    height: 35vh;
+  }
+  .rooms .leiras .bookszoveg {
+    width: 95%;
+  }
+}
+@media screen and (max-width: 400px) {
+  .rooms .leiras .slides {
+    height: 25vh;
+  }
+}
+
+/*Étterem mobil*/
+@media screen and (max-width: 1000px) {
+  .restaurant .header {
+    text-align: center !important;
+    width: 95%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .restaurant .header h1{
+    text-align: center;
+  }
+  .restaurant .header a {
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .restaurant .leiras {
+    width: 95%;
+  }
+  .restaurant .leiras .etteremkep {
+    display: none;
+  }
+  .kaja.leves,
+  .kaja.desszert,
+  .kaja.foetel,
+  .kaja.eloetel {
+    display: none !important;
+  }
+  .kaja.levesmobil,
+  .kaja.desszertmobil,
+  .kaja.foetelmobil,
+  .kaja.eloetelmobil {
+    display: flex !important;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  /*Általános*/
+  html,
+  body {
+    max-width: 100% !important;
+    width: 100% !important;
+    min-width: 100% !important;
+  }
+
+  /*Roomelválasztó mobil*/
+  .roomelvalaszto .header {
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /*Main slider mobil*/
+  .lapozo {
+    height: unset;
+    margin-bottom: 5vh;
+    width: 100% !important;
+  }
+  .lapozo .slidder {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+  .lapozo .slidde_viewer {
+    height: 30vh;
+  }
+  .lapozo .slidde_buttons {
+    position: initial;
+    margin-bottom: 2vh;
+  }
+  .lapozo .directional_nav {
+    top: -25vh;
+    height: auto;
+    max-width: 100%;
+  }
+  .previous_btn {
+    left: 20px;
+    width: 50px;
+    height: 50px;
+  }
+  .next_btn {
+    right: 20px;
+    width: 50px;
+    height: 50px;
+  }
+  .previous_btn svg,
+  .next_btn svg {
+    width: 50px;
+    height: 50px;
+  }
+  .elso,
+  .masodik,
+  .harmadik {
+    display: none;
+  }
+  .lapozo .mobilnezet {
+    display: initial;
+    color: white;
+    text-align: center;
+  }
+  .lapozo .mobilnezet h1 {
+    font-size: 4.5vh;
+    font-family: "Be Vietnam Pro", sans-serif;
+    text-transform: uppercase;
+    text-shadow: 2px 2px 0 #000, -1px -1px 0 #000, 1px -1px 0 #000,
+      -1px 1px 0 #000, 1px 1px 0 #000;
+  }
+  .lapozo .mobilnezet p {
+    font-style: italic;
+    font-weight: normal;
+    color: #c5b358;
+    font-size: 2.5vh;
+    padding-top: 2vh;
+    text-shadow: 2px 2px 0 #000, -1px -1px 0 #000, 1px -1px 0 #000,
+      -1px 1px 0 #000, 1px 1px 0 #000;
+  }
+}
+@media (max-width: 767px) {
+  .bookszoveg[data-aos="slide-left"] {
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+  }
 }

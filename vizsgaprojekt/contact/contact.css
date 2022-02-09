@@ -1,14 +1,11 @@
-html {
-	background-color: black;
-}
 .contact{
-	height: 100vh;
+	height: 92vh;
+	padding-top: 20vh;
 }
 .urlap{
 	padding: 2vh;
 	text-align: center;
 	padding-top: 1vh;
-	margin-top: 20vh;
 	width: 50vw;
 	height: 40vh;
 	border: 2px solid black;

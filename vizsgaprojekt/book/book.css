@@ -100,7 +100,9 @@ html{
 
 body,html {
 	background: linear-gradient(-45deg, #000000, #caa708, #a08a0f, #d5ba23);
-	background-size: 5000% 1000%;
+	background-size: 1000% 1000%;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
 	animation: gradient 10s ease infinite;
 	height: 100vh;
 }

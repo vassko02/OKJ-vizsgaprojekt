@@ -5,6 +5,14 @@ $appetiser = $StorageObj->getTwoFoodByType('Appetiser');
 $soup = $StorageObj->getTwoFoodByType('Soup');
 $dessert = $StorageObj->getTwoFoodByType('Dessert');
 $main = $StorageObj->getTwoFoodByType('Main Course');
+
+$appetisermobil = $StorageObj->getFoodByType('Appetiser');
+$soupmobil = $StorageObj->getFoodByType('Soup');
+$dessertmobil = $StorageObj->getFoodByType('Dessert');
+$mainmobil = $StorageObj->getFoodByType('Main Course');
+
+$delay = 100;
+$delaymobil = 100;
 //print_r($RoomPics1);
 ?>
 <div class="lapozo">
@@ -53,6 +61,12 @@ $main = $StorageObj->getTwoFoodByType('Main Course');
       </svg>
     </div>
   </div>
+
+  <div class="mobilnezet">
+    <h1>Peaceful Paradise Royale Hotel Las Vegas</h1>
+    <p>"Who's prepared to pay the price <br> For a trip to paradise?"</p>
+  </div>
+
 </div>
 
 <div class="icons">
@@ -122,7 +136,7 @@ $main = $StorageObj->getTwoFoodByType('Main Course');
     </div>
   </div>
   <div class="row leiras">
-    <div class="" data-aos="slide-right" data-aos-duration="1200" data-aos-once="true" data-aos-anchor-placement="top-bottom">
+    <div class="" data-aos="slide-right" data-aos-duration="1200" data-aos-anchor-placement="top-bottom">
       <!--room picture slider-->
       <div class="card">
         <div class="slides">
@@ -137,7 +151,7 @@ $main = $StorageObj->getTwoFoodByType('Main Course');
           </div>
         </div>
         <div class="booksliderbtn row">
-          <a class="col-6 righttolefthover" onclick="animacio()" id="prev" href="#" class="btn"><i class="fas fa-chevron-left"></i> Previous</a>
+          <a class="col-6 righttolefthover" id="prev" href="#" class="btn"><i class="fas fa-chevron-left"></i> Previous</a>
           <a class="col-6 lefttorighthover" id="next" href="#" class="btn">Next <i class="fas fa-chevron-right"></i></a>
         </div>
       </div>
@@ -166,13 +180,13 @@ $main = $StorageObj->getTwoFoodByType('Main Course');
 </div>
 
 <div class="roomelvalaszto">
-  <div class="header">
+  <div class="header" data-aos="fade-zoom-in" data-aos-duration="1500" data-aos-delay="100">
     <h1>An experience straight from paradise</h1>
-    <p>Select from an extensive list of room types, amenities, views and locations at the iconic 
-      Peaceful Paradise resort. <br> As one of the largest Las Vegas hotels, 
+    <p>Select from an extensive list of room types, amenities, views and locations at the iconic
+      Peaceful Paradise resort. <br> As one of the largest Las Vegas hotels,
       there are five "towers" of the most luxurious rooms you have ever seen.</p>
   </div>
-  <div class="leiras row">
+  <div class="leiras row" data-aos="fade-zoom-in" data-aos-duration="1500" data-aos-delay="200">
     <div class="col-sm-6 col-lg-2">
       <h1>10</h1>
       <h3>Bars / Lounges</h3>
@@ -197,57 +211,145 @@ $main = $StorageObj->getTwoFoodByType('Main Course');
 </div>
 
 <div class="restaurant">
-  <div class="header row">
+  <div class="header row" data-aos="fade-down" data-aos-duration="1500" data-aos-delay="100">
     <h1 class="col-lg-5 col-sm-12">Eat like an Emperor</h1>
     <div class="col-lg-7 col-sm-12">
-    <p>Enjoy the best eats at Peaceful Paradise Royale Restaurant, 
-      available in all price points and cuisines.</p>
-    <a class="centerhover" href="<?php echo $baseUrl;?>/dining">Go ahead - indulge.</a>
+      <p>Enjoy the best eats at Peaceful Paradise Royale Restaurant,
+        available in all price points and cuisines.</p>
+      <a class="centerhover" href="<?php echo $baseUrl; ?>/dining">Go ahead - indulge.</a>
     </div>
   </div>
   <div class="leiras row">
-    <div class="col-sm-12 col-lg-6 etteremkep">
+    <a href="<?php echo $baseUrl; ?>/dining" class="col-sm-12 col-md-12 col-lg-12 col-xl-6 etteremkep">
       <img src="" alt="">
-    </div>
-    <div class="col-sm-12 col-lg-6 row etteremleiras">
-      <?php 
+    </a>
+    <div class="col-sm-12 col-lg-12 col-xl-6 row etteremleiras">
+      <div class="col-md-6">
+        <?php
+        //rendes nézet
         foreach ($appetiser as $item) {
-          echo '<div class="col-lg-6 col-sm-12 row kaja">
-          <div class="col-3">
-            <img src="'.$item['ImageURL'].'" alt="">
-          </div>
-          <h1 class="col-6">'.$item['ItemName'].'</h1>
-          <h3 class="col-3">$'.$item['Price'].'</h3>
-        </div>';
+          echo '<div data-aos="fade-up" data-aos-delay="' . $delay . '" data-aos-duration="1000">
+            <a href="' . $baseUrl . '/dining/menu#' . $item['StorageID'] . '" class="kaja d-flex align-items-center eloetel">
+              <img src="' . $item['ImageURL'] . '" alt="">
+              <div class="desc ps-3">
+                <div class="text d-flex align-items-center">
+                  <h1 class="">' . $item['ItemName'] . '</h1>
+                  <h3 class="">$' . $item['Price'] . '</h3>
+                </div>
+              </div>
+            </a>
+          </div>';
+          $delay += 100;
         }
         foreach ($soup as $item) {
-          echo '<div class="col-lg-6 col-sm-12 row kaja">
-          <div class="col-3">
-            <img src="'.$item['ImageURL'].'" alt="">
-          </div>
-          <h1 class="col-6">'.$item['ItemName'].'</h1>
-          <h3 class="col-3">$'.$item['Price'].'</h3>
+          echo '<div data-aos="fade-up" data-aos-delay="' . $delay . '" data-aos-duration="1000">
+          <a href="' . $baseUrl . '/dining/menu#' . $item['StorageID'] . '" class="kaja d-flex align-items-center leves">
+            <img src="' . $item['ImageURL'] . '" alt="">
+            <div class="desc ps-3">
+              <div class="text d-flex align-items-center">
+                <h1 class="">' . $item['ItemName'] . '</h1>
+                <h3 class="">$' . $item['Price'] . '</h3>
+              </div>
+            </div>
+          </a>
         </div>';
+          $delay += 100;
         }
-        foreach ($main as $item) {
-          echo '<div class="col-lg-6 col-sm-12 row kaja">
-          <div class="col-3">
-            <img src="'.$item['ImageURL'].'" alt="">
-          </div>
-          <h1 class="col-6">'.$item['ItemName'].'</h1>
-          <h3 class="col-3">$'.$item['Price'].'</h3>
+
+        //mobil nézet
+        foreach ($appetisermobil as $item) {
+          echo '<div data-aos="fade-up" data-aos-delay="' . $delaymobil . '" data-aos-duration="1000">
+          <a href="' . $baseUrl . '/dining/menu#' . $item['StorageID'] . '" class="kaja d-flex align-items-center eloetelmobil">
+            <img src="' . $item['ImageURL'] . '" alt="">
+            <div class="desc ps-3">
+              <div class="text d-flex align-items-center">
+                <h1 class="">' . $item['ItemName'] . '</h1>
+                <h3 class="">$' . $item['Price'] . '</h3>
+              </div>
+            </div>
+          </a>
         </div>';
+          $delaymobil += 100;
+        }
+        foreach ($soupmobil as $item) {
+          echo '<div data-aos="fade-up" data-aos-delay="' . $delaymobil . '" data-aos-duration="1000">
+          <a href="' . $baseUrl . '/dining/menu#' . $item['StorageID'] . '" class="kaja d-flex align-items-center levesmobil">
+            <img src="' . $item['ImageURL'] . '" alt="">
+            <div class="desc ps-3">
+              <div class="text d-flex align-items-center">
+                <h1 class="">' . $item['ItemName'] . '</h1>
+                <h3 class="">$' . $item['Price'] . '</h3>
+              </div>
+            </div>
+          </a>
+        </div>';
+          $delaymobil += 100;
+        }
+        ?>
+      </div>
+      <div class="col-md-6">
+        <?php
+        //rendes nézet
+        foreach ($main as $item) {
+          echo '<div data-aos="fade-up" data-aos-delay="' . $delay . '" data-aos-duration="1000">
+          <a href="' . $baseUrl . '/dining/menu#' . $item['StorageID'] . '" class="kaja d-flex align-items-center foetel">
+            <img src="' . $item['ImageURL'] . '" alt="">
+            <div class="desc ps-3">
+              <div class="text d-flex align-items-center">
+                <h1 class="">' . $item['ItemName'] . '</h1>
+                <h3 class="">$' . $item['Price'] . '</h3>
+              </div>
+            </div>
+          </a>
+        </div>';
+          $delay += 100;
         }
         foreach ($dessert as $item) {
-          echo '<div class="col-lg-6 col-sm-12 row kaja">
-          <div class="col-3">
-            <img src="'.$item['ImageURL'].'" alt="">
-          </div>
-          <h1 class="col-6">'.$item['ItemName'].'</h1>
-          <h3 class="col-3">$'.$item['Price'].'</h3>
+          echo '<div data-aos="fade-up" data-aos-delay="' . $delay . '" data-aos-duration="1000">
+          <a href="' . $baseUrl . '/dining/menu#' . $item['StorageID'] . '" class="kaja d-flex align-items-center desszert">
+            <img src="' . $item['ImageURL'] . '" alt="">
+            <div class="desc ps-3">
+              <div class="text d-flex align-items-center">
+                <h1 class="">' . $item['ItemName'] . '</h1>
+                <h3 class="">$' . $item['Price'] . '</h3>
+              </div>
+            </div>
+          </a>
         </div>';
+          $delay += 100;
         }
-      ?>
+
+        //mobil nézet
+        foreach ($mainmobil as $item) {
+          echo '<div data-aos="fade-up" data-aos-delay="' . $delaymobil . '" data-aos-duration="1000">
+          <a href="' . $baseUrl . '/dining/menu#' . $item['StorageID'] . '" class="kaja d-flex align-items-center foetelmobil">
+            <img src="' . $item['ImageURL'] . '" alt="">
+            <div class="desc ps-3">
+              <div class="text d-flex align-items-center">
+                <h1 class="">' . $item['ItemName'] . '</h1>
+                <h3 class="">$' . $item['Price'] . '</h3>
+              </div>
+            </div>
+          </a>
+        </div>';
+          $delaymobil += 100;
+        }
+        foreach ($dessertmobil as $item) {
+          echo '<div data-aos="fade-up" data-aos-delay="' . $delaymobil . '" data-aos-duration="1000">
+          <a href="' . $baseUrl . '/dining/menu#' . $item['StorageID'] . '" class="kaja d-flex align-items-center desszertmobil">
+            <img src="' . $item['ImageURL'] . '" alt="">
+            <div class="desc ps-3">
+              <div class="text d-flex align-items-center">
+                <h1 class="">' . $item['ItemName'] . '</h1>
+                <h3 class="">$' . $item['Price'] . '</h3>
+              </div>
+            </div>
+          </a>
+        </div>';
+          $delaymobil += 100;
+        }
+        ?>
+      </div>
     </div>
   </div>
 </div>
@@ -264,6 +366,7 @@ $main = $StorageObj->getTwoFoodByType('Main Course');
 <script>
   AOS.init({
     once: true
+    //disable: 'mobile'
   });
 </script>
 <!--

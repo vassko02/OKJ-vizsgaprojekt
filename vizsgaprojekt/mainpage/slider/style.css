@@ -39,23 +39,27 @@ html, body {
   background-image: url('../../pictures/mainpage/meretezett1.jpg');
   background-repeat: no-repeat;
   background-size: cover;
+  background-position: center;
 }
 
 .slidde:nth-of-type(2) {
   background-image: url('../../pictures/mainpage/meretezett3.jpg');
   background-repeat: no-repeat;
   background-size: cover;
+  background-position: center;
 }
 
 .slidde:nth-of-type(3) {
   background-image: url('../../pictures/mainpage/meretezett2.jpg');
   background-repeat: no-repeat;
   background-size: cover;
+  background-position: center;
 }
 .slidde:nth-of-type(4) {
   background-image: url('../../pictures/mainpage/meretezett4.jpg'); /*Momofuku Las Vegas*/
   background-repeat: no-repeat;
   background-size: cover;
+  background-position: center;
 }
 
 
@@ -117,17 +121,11 @@ a.slidde_btn {
   -o-transition: opacity 0.4s ease-in-out;
   transition: opacity 0.4s ease-in-out;
   width: 65px;
+  transition: 0.3s;
 }
 
 .previous_btn:hover, .next_btn:hover {
   opacity: 1;
-}
-
-@media only screen and (max-width: 767px) {
-  .previous_btn {
-    left: 50px;
-  }
-  .next_btn {
-    right: 50px;
-  }
+  transform: scale(1.1) !important;
+  transition: 0.3s;
 }
