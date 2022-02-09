@@ -11,8 +11,12 @@ if (isset($_POST['itemname'])) {
     $StorageObj->addtoconsumption($_SESSION);    
 }
 ?>
+<body>
+<div class="thetop"></div>
+
 
 <div class="eloetelcim">
+
                   <h1>Appetizers</h1>
                 </div>
       <section class="hero-section">
@@ -147,10 +151,14 @@ if (isset($_POST['itemname'])) {
             </div>
         </div>
     </div>
-</section>
-  
     
-
-
+  
+</section>
 </div>
-
+<div class='scrolltop'>
+        <div class='scroll icon'><i class="fa fa-4x fa-angle-up"></i></div>
+</div>
+    
+</body>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+<script src="../js/scrolltotop.js" defer></script>

@@ -1637,7 +1637,7 @@ class Guest extends Dbconnect
   public function find_unverified_user_fornewacc(string $newacctoken, string $email)
   {
 
-    $sql = 'SELECT CustomerID, newacc_activation_code, newacc_activation_code_expiry < now() as expired FROM `customer` where Email = ? ';
+    $sql = 'SELECT Code,Type,Expiry < now() as expired  FROM codes INNER JOIN customer on codes.CustomerID = customer.CustomerID WHERE customer.Email = ?';
 
     $stmt = $this->con->prepare($sql);
 
@@ -1648,11 +1648,10 @@ class Guest extends Dbconnect
     $row = $user->fetch_assoc();
 
     if ($row != null) {
-      if (md5($newacctoken) === $row['newacc_activation_code']) {
+      if (md5($newacctoken) === $row['Code']) {
         return $row;
       }
     }
-    // verify the password
     return null;
   }
   public function activate_email(int $user_id): bool
@@ -2382,15 +2381,17 @@ class Guest extends Dbconnect
   }
   public function update_newacc_code_in_db(int $user_id, string $newacctoken, int $expiry = 1 * 24 * 60 * 60): bool
   {
-    $sql = 'UPDATE customer
-                SET newacc_activation_code = ?,
-                newacc_activation_code_expiry = ?
+    $sql = 'UPDATE codes
+                SET Code = ?,
+                Expiry = ?,
+                Type = ?,
                 WHERE CustomerID=?';
 
     $stmt = $this->con->prepare($sql);
     $token = md5($newacctoken);
+    $type = "newacc";
     $exp = date('Y-m-d H:i:s', time() + $expiry);
-    $stmt->bind_param("ssi", $token, $exp , $user_id);
+    $stmt->bind_param("sssi", $token, $exp , $type , $user_id);
 
     return $stmt->execute();
   }
