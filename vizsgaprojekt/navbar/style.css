@@ -1,6 +1,9 @@
 /* * {
     transition: 0.3s;
 } */
+/* * {
+    filter: invert(100%) !important;
+} */
 html {
     scrollbar-color: grey black !important;
 }
@@ -160,12 +163,12 @@ nav{
 }
 
 #username {
-    color: white;
-    background-color: black;
+    color: white !important;
+    background-color: black !important;
 }
 #username:hover {
-    color: white;
-    background-color: black;
+    color: white !important;
+    background-color: black !important;
 }
 .gold {
     color: #C5B358;
@@ -256,4 +259,43 @@ nav{
 }
 .toggle .line3{
     transform: rotate(45deg) translate(-5px,-6px);
+}
+
+
+/*Animáció generátor - https://webcode.tools/generators/css/keyframe-animation*/
+.korbekorbe:hover {
+    animation: korbekorbe 1.5s linear 0s infinite normal forwards;
+   }
+.lefordulonyil {
+    padding-left: 0.5vh;
+    font-size: 1.3rem !important;
+    transition: 0.3s;
+    animation: felfordulo 0.2s linear 0s normal forwards;
+}
+.dropdown:hover .lefordulonyil {
+    animation: lefordulo 0.2s linear 0s normal forwards;
+}
+@keyframes korbekorbe {
+    0% {
+      transform: rotate(0);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+}
+@keyframes lefordulo {
+    0% {
+      transform: rotateX(0);
+    }
+    100% {
+      transform: rotateX(0.5turn);
+    }
+}
+@keyframes felfordulo {
+    0% {
+      transform: rotateX(0.5turn);
+    }
+    100% {
+      transform: rotateX(0);
+    }
 }
