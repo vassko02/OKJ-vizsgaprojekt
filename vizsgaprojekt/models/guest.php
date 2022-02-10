@@ -2398,7 +2398,7 @@ class Guest extends Dbconnect
               $sql = 'UPDATE codes
               SET Code = ?,
               Expiry = ?,
-              Type = ?,
+              Type = ?
               WHERE CustomerID=?';
 
       
