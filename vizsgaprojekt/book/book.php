@@ -57,10 +57,16 @@
 ?>
 
 <div class="book">
+	<div class="d-flex">
+	<h1 id="makeareservation">
+		Make a reservation 
+	</h1>
+
+
 	<div class="datas" id="box">
 		<form method="POST">
 			<div class="form-group div1 row">
-				<div class="first col">
+				<div class="first ">
 					<div class="second">
 						<div class="third">
 							<label class="col-form-label" for="adultsnumber">Number of adults</label>
@@ -72,7 +78,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="first col">
+				<div class="first ">
 					<div class="second">
 						<div class="third">
 							<label class="col-form-label" for="childrennumber">Number of children</label>
@@ -85,10 +91,7 @@
 						</div>
 					</div>
 				</div>
-		
-			</div>
-			<div class="form-group div2 row">
-				<div class="first col">
+				<div class="first">
 					<div class="second">
 						<div class="third">
 							<label class="col-form-label" for="arrivaldate">Check-in</label>
@@ -100,7 +103,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="first col">
+				<div class="first">
 					<div class="second">
 						<div class="third">
 							<label class="col-form-label" for="leavingdate">Check-out</label>
@@ -125,6 +128,7 @@
 				</button> -->
 			</div>
 		</form>
+	</div>
 	</div>
 </div>
 <?php

@@ -2,20 +2,30 @@
 html{
     height: 100%;
 }
+#makeareservation{
+    width: 100%;
+    text-align: center;
+    font-size: 5vw;
+    color: #000000;
+
+    margin-top: 20vh;
+        font-family: "Be Vietnam Pro",  sans-serif;
+}
 .datas{
-    padding: 35px;
+    padding: 3vw;
     color: white;
     border: 0px solid #C5B358;
     border-radius: 50px;
     background-color: black;
     margin-left: auto;
     margin-right: auto;
-    width: 60%;
+    width: 80%;
     margin-top: 20vh;
     margin-bottom: 20vh !important;
     height: 30%;
     text-align: center;
     padding-bottom: 20px;
+    margin-right: 5vw;
 }
 .datas:hover{
     border: 3px solid #C5B358;
@@ -30,7 +40,11 @@ html{
     width: 10vw;
     border: 30px solid #C5B358;
 }
-
+input{
+    background-color: black !important;
+    border: 1px solid black !important;
+    color: #d5ba23 !important;
+}
 
 
 
@@ -48,6 +62,7 @@ html{
     border-radius: 15px;
     text-align: center;
     font-weight: bold;
+    margin-top: 2vh;
 }
 .div1 .second{
     overflow: hidden;
