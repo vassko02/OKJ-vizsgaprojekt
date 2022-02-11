@@ -2,7 +2,7 @@
     transition: 0.3s;
 } */
 /* * {
-    filter: invert(100%) !important;
+    filter: hue-rotate(270deg) !important;
 } */
 html {
     scrollbar-color: grey black !important;
