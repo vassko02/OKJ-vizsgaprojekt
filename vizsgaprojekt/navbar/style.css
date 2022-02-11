@@ -114,6 +114,9 @@ nav{
     text-transform: none;
     transition: none;
 }
+.lenyilo {
+    height: 100%;
+}
 .lenyilogomb {
     color: white;
     background-color: black;
@@ -165,6 +168,10 @@ nav{
 #username {
     color: white !important;
     background-color: black !important;
+    font-size: 0.8rem !important;
+    padding-left: 13px !important;
+    padding-top: 3px !important;
+    padding-bottom: 3px !important;
 }
 #username:hover {
     color: white !important;

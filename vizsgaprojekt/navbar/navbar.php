@@ -24,12 +24,12 @@
             <div class="dropdown dropdown-5 lenyilo">
                 <i class="fas fa-user-circle"></i>
                 <i class="fas fa-caret-down lefordulonyil"></i>
-                <ul class="dropdown_menu dropdown_menu-5">
+                <ul class="dropdown_menu dropdown_menu-5 ddm2">
                     <?php 
                     if (isset($_SESSION['username'])) {
                     } 
                     else {
-                        echo '<li class="dropdown_item-1 leftborder"><a href="' . $baseUrl . '/signin"><i class="fas fa-user-plus"></i> Sign in</a></li>';
+                        echo '<li class="dropdown_item-1 leftborder"><a class="" href="' . $baseUrl . '/signin"><i class="fas fa-user-plus"></i> Sign in</a></li>';
                     }
                     ?>
                     <?php
@@ -37,16 +37,16 @@
                         echo '
                             <li class="dropdown_item-1 leftborder"><a class="" href="' . $baseUrl . '/account"><i class="fas fa-user-cog"></i> My account</a></li>
                             <li class="dropdown_item-2 leftborder"><a class="" href="' . $baseUrl . '/guestreservations"><i class="fas fa-concierge-bell"></i> My reservations</a></li>
-                            <li class="dropdown_item-3 leftborder"><a class="" href="' . $baseUrl . '/logout"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
-                            <li class="dropdown_item-4" id="username">Logged in as: <span class="gold">' . $_SESSION['username'] . '</span><li>
+                            <li class="dropdown_item-3" id="username">Logged in as: <span class="gold">' . $_SESSION['username'] . '</span></li>
+                            <li class="dropdown_item-4 leftborder"><a class="" href="' . $baseUrl . '/logout"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
                             ';
                     }
                     if (isset($_SESSION['username']) && $_SESSION['isadmin'] == '1') {
                         echo '
                             <li class="dropdown_item-1 leftborder"><a class="" href="' . $baseUrl . '/admin"><i class="fas fa-tasks"></i> Manage reservations</a></li>
                             <li class="dropdown_item-2 leftborder"><a class="" href="' . $baseUrl . '/userseditadmin"><i class="fas fa-users-cog"></i> Manage users</a></li>
-                            <li class="dropdown_item-3 leftborder"><a class="" href="' . $baseUrl . '/logout"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
-                            <li class="dropdown_item-4" id="username">Logged in as: <span class="gold">' . $_SESSION['username'] . '</span><li>
+                            <li class="dropdown_item-3" id="username">Logged in as: <span class="gold">' . $_SESSION['username'] . '</span></li>
+                            <li class="dropdown_item-4 leftborder"><a class="" href="' . $baseUrl . '/logout"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
                             ';
                             //<div class="dropdown_item-3 dropdown-divider"></div>
                     }

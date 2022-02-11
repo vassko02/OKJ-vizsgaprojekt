@@ -127,7 +127,7 @@
 			</div>
 		</form>
 	</div>
-	<h1 id="makeareservation">
+	<h1 id="makeareservation" class="korbekorbe">
 		Make a reservation 
 	</h1>
 	</div>

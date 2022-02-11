@@ -35,10 +35,13 @@ html{
     text-align: center;
     padding-bottom: 20px;
     margin-right: 5vw;
+    border: 3px solid black;
+    transition: 0.3s;
 }
 .datas:hover{
     border: 3px solid #C5B358;
     border-radius: 50;
+    transition: 0.3s;
 }
 .rooms{
     width: 75vw !important;
