@@ -291,6 +291,13 @@ if (isset($_POST['btn_send2'])) {
                                         echo '../.';
                                     } else if ($mennyiper === ($baseMennyiper + 4)) {
                                         echo '../../.';
+                                    } ?>./navbar/ddanimate/style.css">
+    <link rel="stylesheet" href="<?php if ($mennyiper === ($baseMennyiper + 2)) {
+                                        echo '.';
+                                    } else if ($mennyiper === ($baseMennyiper + 3)) {
+                                        echo '../.';
+                                    } else if ($mennyiper === ($baseMennyiper + 4)) {
+                                        echo '../../.';
                                     } ?>./footer/style.css">
     <title>Peaceful Paradise</title>
 </head>
