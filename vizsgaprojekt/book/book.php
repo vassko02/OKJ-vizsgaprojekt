@@ -57,21 +57,19 @@
 ?>
 
 <div class="book">
-	<div class="d-flex">
-	<h1 id="makeareservation">
-		Make a reservation 
-	</h1>
+	<div class="d-flex foglalashatter">
+	
 
 
 	<div class="datas" id="box">
 		<form method="POST">
 			<div class="form-group div1 row">
 				<div class="first ">
-					<div class="second">
-						<div class="third">
+					<div class="second row">
+						<div class="third col-lg-4 col-sm-6">
 							<label class="col-form-label" for="adultsnumber">Number of adults</label>
 						</div>
-						<div class="third">
+						<div class="third col-lg-8 col-sm-6">
 							<input class="form-control" required value="<?php if (isset($_SESSION['adult'])) {
 									echo $_SESSION['adult'];
 								}else{ echo 2 ;} ?>" type="number" name="adultnumber" id="adultsnumber"  placeholder="Adults">
@@ -79,11 +77,11 @@
 					</div>
 				</div>
 				<div class="first ">
-					<div class="second">
-						<div class="third">
+					<div class="second row">
+						<div class="third col-lg-4 col-sm-6">
 							<label class="col-form-label" for="childrennumber">Number of children</label>
 						</div>
-						<div class="third">
+						<div class="third col-lg-8 col-sm-6">
 							<input class="form-control" required value="<?php if (isset($_SESSION['children'])) {
 									echo $_SESSION['children'];
 								}
@@ -92,11 +90,11 @@
 					</div>
 				</div>
 				<div class="first">
-					<div class="second">
-						<div class="third">
+					<div class="second row">
+						<div class="third col-lg-4 col-sm-6">
 							<label class="col-form-label" for="arrivaldate">Check-in</label>
 						</div>
-						<div class="third">
+						<div class="third col-lg-8 col-sm-6">
 							<input type="date" required value="<?php if (isset($_SESSION['checkin'])) {
 									echo $_SESSION['checkin'];
 								}else{ echo date('2022-04-20') ;} ?>"  class="form-control " name="checkin"  id="arrivaldate">
@@ -104,11 +102,11 @@
 					</div>
 				</div>
 				<div class="first">
-					<div class="second">
-						<div class="third">
+					<div class="second row">
+						<div class="third col-lg-4 col-sm-6">
 							<label class="col-form-label" for="leavingdate">Check-out</label>
 						</div>
-						<div class="third">
+						<div class="third col-lg-8 col-sm-6" >
 							<input type="date" required value="<?php if (isset($_SESSION['checkout'])) {
 									echo $_SESSION['checkout'];
 								}else{ echo date('2022-04-25') ;} ?>" class="form-control " name="checkout" id="leavingdate">
@@ -129,6 +127,9 @@
 			</div>
 		</form>
 	</div>
+	<h1 id="makeareservation">
+		Make a reservation 
+	</h1>
 	</div>
 </div>
 <?php
