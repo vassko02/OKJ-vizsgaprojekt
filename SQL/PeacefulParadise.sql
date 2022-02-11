@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Gép: localhost:3306
--- Létrehozás ideje: 2022. Feb 11. 09:20
+-- Létrehozás ideje: 2022. Feb 11. 15:27
 -- Kiszolgáló verziója: 5.5.62-0+deb8u1
 -- PHP verzió: 7.4.3
 
@@ -28,51 +28,20 @@ DELIMITER $$
 --
 -- Eljárások
 --
-CREATE DEFINER=`PeacefulParadise`@`localhost` PROCEDURE `InsertIntoLog` (IN `un` VARCHAR(100), IN `st` VARCHAR(150), IN `t` VARCHAR(50))  NO SQL
+CREATE DEFINER=`PeacefulParadise`@`localhost` PROCEDURE `InsertIntoLog` (IN `un` VARCHAR(100), IN `st` VARCHAR(150), IN `t` VARCHAR(50), IN `id` INT)  NO SQL
 BEGIN
 
-IF t="Room" THEN
-INSERT INTO roomLog (Name,Status) VALUES (un,st);
-
-ELSEIF t="Reservation" THEN
-INSERT INTO reservationLog (Name,Status) VALUES (un,st);
+IF t="Reservation" THEN
+INSERT INTO reservationLog (Name,Status,Time,ReservationID)
+VALUES (un,st,now(),id);
 
 ELSEIF t="User" THEN
-INSERT INTO userLog (Name,Status) VALUES (un,st);
+INSERT INTO userLog (Name,Status,Time,UserID) VALUES (un,st,now(),id);
 END IF;
 
 END$$
 
 DELIMITER ;
-
--- --------------------------------------------------------
-
---
--- Tábla szerkezet ehhez a táblához `cashregister`
---
-
-CREATE TABLE `cashregister` (
-  `CashRegisterID` int(11) NOT NULL,
-  `GuestName` varchar(50) NOT NULL,
-  `Amount` double NOT NULL,
-  `Title` varchar(100) NOT NULL,
-  `Paid` double NOT NULL,
-  `Changee` double NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- A tábla adatainak kiíratása `cashregister`
---
-
-INSERT INTO `cashregister` (`CashRegisterID`, `GuestName`, `Amount`, `Title`, `Paid`, `Changee`) VALUES
-(29, 'Vass Kornél', 5039.94, 'Guest paying when checking-in (CARD)', 5039.94, 0),
-(30, 'Bélaasd', 3359.96, 'Guest paying at check-in', 3400, 40.04),
-(31, 'admin', 1766.97, 'Guest paying at check-in', 1800, 33.03),
-(33, 'Vass Kornél', 2479.96, 'Guest paying when checking-in (CARD)', 2479.96, 0),
-(35, 'admin', 48297.22, 'Guest paying when checking-in (CARD)', 48297.22, 0),
-(36, 'admin', 1177.98, 'Guest paying at check-in', 1200, 22.02),
-(37, 'admin', 2219.97, 'Guest paying when checking-out', 2300, 80.03),
-(38, 'admin', 3533.96, 'Guest paying when checking-out (CARD)', 3533.96, 0);
 
 -- --------------------------------------------------------
 
@@ -132,24 +101,23 @@ CREATE TABLE `customer` (
   `LEVEL` varchar(150) NOT NULL,
   `ReservationNumber` int(11) NOT NULL,
   `reset_token` varchar(255) NOT NULL,
-  `reset_token_expiry` datetime NOT NULL,
-  `newacc_activation_code` varchar(255) NOT NULL,
-  `newacc_activation_code_expiry` datetime NOT NULL
+  `reset_token_expiry` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='Customer data';
 
 --
 -- A tábla adatainak kiíratása `customer`
 --
 
-INSERT INTO `customer` (`CustomerID`, `Name`, `PhoneNumber`, `Email`, `Address`, `UserName`, `Password`, `IsAdmin`, `active`, `activation_code`, `activation_expiry`, `activated_at`, `created_at`, `LEVEL`, `ReservationNumber`, `reset_token`, `reset_token_expiry`, `newacc_activation_code`, `newacc_activation_code_expiry`) VALUES
-(9, 'admin', '+1420420123', 'admin@admin', 'Admin Street123', 'admin', 'e64b78fc3bc91bcbc7dc232ba8ec59e0', 1, 1, '', '0000-00-00 00:00:00', '2022-01-25 17:20:27', '0000-00-00 00:00:00', '', 2, '', '0000-00-00 00:00:00', '', '0000-00-00 00:00:00'),
-(41, 'Koaxk Ábel', '123', 'ko@x.com', 'dsa', 'koax', 'bb3745d30d57c6279777c579a20483bc', 0, 1, '669a3a54886bcd13c6095cf7e5308c56', '2022-01-27 10:13:35', NULL, '2022-01-26 09:13:35', '', 0, '', '0000-00-00 00:00:00', '', '0000-00-00 00:00:00'),
-(42, 'Tüdő R. Ákos', '+csoves', 'tudor@akos.com', '9012 Győr Kossuth utca 11', 'TudoRaki', '', 0, NULL, '', '0000-00-00 00:00:00', NULL, '2022-01-26 09:20:00', '', 0, '', '0000-00-00 00:00:00', '', '0000-00-00 00:00:00'),
-(77, 'Bac Ilus', '+36304206969', 'example@gmail.com', '9027 Győr Szeszgyár utca 1', '', '', 0, NULL, '', '0000-00-00 00:00:00', NULL, '2022-01-27 12:25:43', '', 0, '', '0000-00-00 00:00:00', '', '0000-00-00 00:00:00'),
-(86, 'Bac Ilus', '+36304206969', 'kaldavai26@gmail.com', '9027 Győr Szeszgyár utca 1', 'mauzileu', '7b5582e4edbeeb77c0ef953ed71620cf', 0, 1, '3ec1744c06652b8bc31888c7b08e79b4', '2022-01-28 21:56:33', '2022-01-27 21:56:40', '2022-01-27 20:56:33', '', 1, 'b544ea5d42193310ee0ca43d0956d3ee', '2022-02-09 19:23:46', 'a7d3b66c213a4d2a8eb3acfbe73dbc3a', '2022-02-02 09:33:39'),
-(87, 'KD', '', 'kalman.david@students.jedlik.eu', '', 'kaldavai26', '7b5582e4edbeeb77c0ef953ed71620cf', 0, 1, '4f03e0e91162e8386b3b1e5896718c00', '2022-02-01 08:07:25', '2022-01-31 08:08:41', '2022-01-31 07:07:25', '', 0, '3c71d5c517e6b9c994db0b7115e89824', '2022-02-01 12:20:33', '', '0000-00-00 00:00:00'),
-(91, 'Kandisz Nóra', '+3620201234012', 'kandisz@gmail.com', 'EnesePutri Szabadság utca 59', 'Kandisz', 'abfeb5ac73556cadb0d0afc57d7221e8', 0, 1, 'c7567d456e2637c94245b32cbe8e617f', '2022-02-01 13:35:28', NULL, '2022-01-31 12:35:28', '', 0, '', '0000-00-00 00:00:00', '', '0000-00-00 00:00:00'),
-(98, 'Hat Izsak', '', 'roncz.gabor@students.jedlik.eu', '', 'hatizsak', '2bcdc1d9f7472c8564fdc52f4bc6e410', 0, 1, '4ef93df898fa4c135db51ddc1dd88aec', '2022-02-07 18:33:34', NULL, '2022-02-06 17:33:33', '', 0, '', '0000-00-00 00:00:00', '', '0000-00-00 00:00:00');
+INSERT INTO `customer` (`CustomerID`, `Name`, `PhoneNumber`, `Email`, `Address`, `UserName`, `Password`, `IsAdmin`, `active`, `activation_code`, `activation_expiry`, `activated_at`, `created_at`, `LEVEL`, `ReservationNumber`, `reset_token`, `reset_token_expiry`) VALUES
+(9, 'admin', '+1420420123', 'admin@admin', 'Admin Street123', 'admin', 'e64b78fc3bc91bcbc7dc232ba8ec59e0', 1, 1, '', '0000-00-00 00:00:00', '2022-01-25 17:20:27', '0000-00-00 00:00:00', '', 2, '', '0000-00-00 00:00:00'),
+(41, 'Koaxk Ábel', '123', 'ko@x.com', 'dsa', 'koax', 'bb3745d30d57c6279777c579a20483bc', 0, 1, '669a3a54886bcd13c6095cf7e5308c56', '2022-01-27 10:13:35', NULL, '2022-01-26 09:13:35', '', 0, '', '0000-00-00 00:00:00'),
+(42, 'Tüdő R. Ákos', '+csoves', 'tudor@akos.com', '9012 Győr Kossuth utca 11', 'TudoRaki', '', 0, NULL, '', '0000-00-00 00:00:00', NULL, '2022-01-26 09:20:00', '', 1, '', '0000-00-00 00:00:00'),
+(77, 'Bac Ilus', '+36304206969', 'example@gmail.com', '9027 Győr Szeszgyár utca 1', '', '', 0, NULL, '', '0000-00-00 00:00:00', NULL, '2022-01-27 12:25:43', '', 0, '', '0000-00-00 00:00:00'),
+(87, 'KD', '', 'kalman.david@students.jedlik.eu', '', 'kaldavai26', '7b5582e4edbeeb77c0ef953ed71620cf', 0, 1, '4f03e0e91162e8386b3b1e5896718c00', '2022-02-01 08:07:25', '2022-01-31 08:08:41', '2022-01-31 07:07:25', '', 0, '3c71d5c517e6b9c994db0b7115e89824', '2022-02-01 12:20:33'),
+(91, 'Kandisz Nóra', '+3620201234012', 'kandisz@gmail.com', 'EnesePutri Szabadság utca 59', 'Kandisz', 'abfeb5ac73556cadb0d0afc57d7221e8', 0, 1, 'c7567d456e2637c94245b32cbe8e617f', '2022-02-01 13:35:28', NULL, '2022-01-31 12:35:28', '', 0, '', '0000-00-00 00:00:00'),
+(98, 'Hat Izsak', '', 'roncz.gabor@students.jedlik.eu', '', 'hatizsak', '2bcdc1d9f7472c8564fdc52f4bc6e410', 0, 1, '4ef93df898fa4c135db51ddc1dd88aec', '2022-02-07 18:33:34', NULL, '2022-02-06 17:33:33', '', 0, '', '0000-00-00 00:00:00'),
+(100, 'szia cigANY', '123', 'asd@asd', '', '', '', 0, NULL, '', '0000-00-00 00:00:00', NULL, '2022-02-11 14:26:18', '', 0, '', '0000-00-00 00:00:00'),
+(101, 'asd', '123', 'asd@hg', '', '', '', 0, NULL, '', '0000-00-00 00:00:00', NULL, '2022-02-11 14:29:04', '', 0, '', '0000-00-00 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -199,14 +167,6 @@ CREATE TABLE `reservation` (
   `Message` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
---
--- A tábla adatainak kiíratása `reservation`
---
-
-INSERT INTO `reservation` (`ReservationID`, `GuestNumber`, `Price`, `Children`, `Adults`, `ArrivalDate`, `LeavingDate`, `CustomerID`, `RoomID`, `ServiceID`, `IsCheckedIn`, `Message`) VALUES
-(305, 3, 2219.97, 0, 3, '2022-02-08', '2022-02-11', 9, 31, 3, 0, ''),
-(313, 2, 3099.95, 0, 2, '2022-04-20', '2022-04-25', 86, 1, 1, 0, 'Something very very important');
-
 -- --------------------------------------------------------
 
 --
@@ -215,8 +175,10 @@ INSERT INTO `reservation` (`ReservationID`, `GuestNumber`, `Price`, `Children`, 
 
 CREATE TABLE `reservationLog` (
   `LogID` int(11) NOT NULL,
-  `Name` varchar(100) COLLATE utf8mb4_hungarian_ci NOT NULL,
-  `Status` varchar(150) COLLATE utf8mb4_hungarian_ci NOT NULL
+  `Name` varchar(100) COLLATE utf8mb4_hungarian_ci DEFAULT NULL,
+  `Status` varchar(150) COLLATE utf8mb4_hungarian_ci DEFAULT NULL,
+  `ReservationID` int(11) DEFAULT NULL,
+  `Time` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_hungarian_ci;
 
 -- --------------------------------------------------------
@@ -291,18 +253,6 @@ INSERT INTO `room` (`RoomID`, `RoomName`, `Capacity`, `Description`, `RoomPrice`
 (48, 'Resort Room | 1 King | Non-Smoking', 2, 'The renovated Resort Room offers one king pillowtop bed, all new furnishings and décor. This room measures more\r\nthan 450 square feet and includes a 42-inch flat-screen TV with in-room movies, hairdryer, iron and ironing board,\r\nclock radio and wireless internet access. Renovated rooms also consist of an upgraded bathroom.', 500, 'https://www.caesars.com/api/v1/image/L2NvbnRlbnQvc2NhZmZvbGRfcGFnZXMvcm9vbXMvYmFsbHlzL2Jsdi9lbi9yZXNvcnRfcm9vbV8xa19ucy9famNyX2NvbnRlbnQvY2FyZHMvY2FyZC9zbGlkZTE/wide/xl/cover', 'https://www.caesars.com/api/v1/image/L2NvbnRlbnQvc2NhZmZvbGRfcGFnZXMvcm9vbXMvYmFsbHlzL2Jsdi9lbi9yZXNvcnRfcm9vbV8xa19ucy9famNyX2NvbnRlbnQvY2FyZHMvY2FyZC9zbGlkZTI/wide/xl/cover', 'https://www.caesars.com/api/v1/image/L2NvbnRlbnQvc2NhZmZvbGRfcGFnZXMvcm9vbXMvYmFsbHlzL2Jsdi9lbi9yZXNvcnRfcm9vbV8xa19ucy9famNyX2NvbnRlbnQvY2FyZHMvY2FyZC9zbGlkZTQ/wide/xl/cover'),
 (49, 'Resort Room | 1 King | Non-Smoking', 2, 'The renovated Resort Room offers one king pillowtop bed, all new furnishings and décor. This room measures more\r\nthan 450 square feet and includes a 42-inch flat-screen TV with in-room movies, hairdryer, iron and ironing board,\r\nclock radio and wireless internet access. Renovated rooms also consist of an upgraded bathroom.', 500, 'https://www.caesars.com/api/v1/image/L2NvbnRlbnQvc2NhZmZvbGRfcGFnZXMvcm9vbXMvYmFsbHlzL2Jsdi9lbi9yZXNvcnRfcm9vbV8xa19ucy9famNyX2NvbnRlbnQvY2FyZHMvY2FyZC9zbGlkZTE/wide/xl/cover', 'https://www.caesars.com/api/v1/image/L2NvbnRlbnQvc2NhZmZvbGRfcGFnZXMvcm9vbXMvYmFsbHlzL2Jsdi9lbi9yZXNvcnRfcm9vbV8xa19ucy9famNyX2NvbnRlbnQvY2FyZHMvY2FyZC9zbGlkZTI/wide/xl/cover', 'https://www.caesars.com/api/v1/image/L2NvbnRlbnQvc2NhZmZvbGRfcGFnZXMvcm9vbXMvYmFsbHlzL2Jsdi9lbi9yZXNvcnRfcm9vbV8xa19ucy9famNyX2NvbnRlbnQvY2FyZHMvY2FyZC9zbGlkZTQ/wide/xl/cover'),
 (50, 'Resort Room | 1 King | Non-Smoking', 2, 'The renovated Resort Room offers one king pillowtop bed, all new furnishings and décor. This room measures more\r\nthan 450 square feet and includes a 42-inch flat-screen TV with in-room movies, hairdryer, iron and ironing board,\r\nclock radio and wireless internet access. Renovated rooms also consist of an upgraded bathroom.', 500, 'https://www.caesars.com/api/v1/image/L2NvbnRlbnQvc2NhZmZvbGRfcGFnZXMvcm9vbXMvYmFsbHlzL2Jsdi9lbi9yZXNvcnRfcm9vbV8xa19ucy9famNyX2NvbnRlbnQvY2FyZHMvY2FyZC9zbGlkZTE/wide/xl/cover', 'https://www.caesars.com/api/v1/image/L2NvbnRlbnQvc2NhZmZvbGRfcGFnZXMvcm9vbXMvYmFsbHlzL2Jsdi9lbi9yZXNvcnRfcm9vbV8xa19ucy9famNyX2NvbnRlbnQvY2FyZHMvY2FyZC9zbGlkZTI/wide/xl/cover', 'https://www.caesars.com/api/v1/image/L2NvbnRlbnQvc2NhZmZvbGRfcGFnZXMvcm9vbXMvYmFsbHlzL2Jsdi9lbi9yZXNvcnRfcm9vbV8xa19ucy9famNyX2NvbnRlbnQvY2FyZHMvY2FyZC9zbGlkZTQ/wide/xl/cover');
-
--- --------------------------------------------------------
-
---
--- Tábla szerkezet ehhez a táblához `roomLog`
---
-
-CREATE TABLE `roomLog` (
-  `LogID` int(11) NOT NULL,
-  `Name` varchar(100) COLLATE utf8mb4_hungarian_ci NOT NULL,
-  `Status` varchar(150) COLLATE utf8mb4_hungarian_ci NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_hungarian_ci;
 
 -- --------------------------------------------------------
 
@@ -439,19 +389,15 @@ INSERT INTO `storage` (`StorageID`, `ItemName`, `Price`, `Type`, `ImageURL`) VAL
 
 CREATE TABLE `userLog` (
   `LogID` int(11) NOT NULL,
-  `Name` varchar(100) COLLATE utf8mb4_hungarian_ci NOT NULL,
-  `Status` varchar(150) COLLATE utf8mb4_hungarian_ci NOT NULL
+  `Name` varchar(100) COLLATE utf8mb4_hungarian_ci DEFAULT NULL,
+  `Status` varchar(150) COLLATE utf8mb4_hungarian_ci DEFAULT NULL,
+  `Time` datetime DEFAULT NULL,
+  `UserID` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_hungarian_ci;
 
 --
 -- Indexek a kiírt táblákhoz
 --
-
---
--- A tábla indexei `cashregister`
---
-ALTER TABLE `cashregister`
-  ADD PRIMARY KEY (`CashRegisterID`);
 
 --
 -- A tábla indexei `codes`
@@ -492,19 +438,14 @@ ALTER TABLE `reservation`
 -- A tábla indexei `reservationLog`
 --
 ALTER TABLE `reservationLog`
-  ADD PRIMARY KEY (`LogID`);
+  ADD PRIMARY KEY (`LogID`),
+  ADD KEY `ReservationID` (`ReservationID`);
 
 --
 -- A tábla indexei `room`
 --
 ALTER TABLE `room`
   ADD PRIMARY KEY (`RoomID`);
-
---
--- A tábla indexei `roomLog`
---
-ALTER TABLE `roomLog`
-  ADD PRIMARY KEY (`LogID`);
 
 --
 -- A tábla indexei `servicetype`
@@ -522,17 +463,12 @@ ALTER TABLE `storage`
 -- A tábla indexei `userLog`
 --
 ALTER TABLE `userLog`
-  ADD PRIMARY KEY (`LogID`);
+  ADD PRIMARY KEY (`LogID`),
+  ADD KEY `UserID` (`UserID`);
 
 --
 -- A kiírt táblák AUTO_INCREMENT értéke
 --
-
---
--- AUTO_INCREMENT a táblához `cashregister`
---
-ALTER TABLE `cashregister`
-  MODIFY `CashRegisterID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
 
 --
 -- AUTO_INCREMENT a táblához `codes`
@@ -544,13 +480,13 @@ ALTER TABLE `codes`
 -- AUTO_INCREMENT a táblához `consumption`
 --
 ALTER TABLE `consumption`
-  MODIFY `ConsumptionID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=186;
+  MODIFY `ConsumptionID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=190;
 
 --
 -- AUTO_INCREMENT a táblához `customer`
 --
 ALTER TABLE `customer`
-  MODIFY `CustomerID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=100;
+  MODIFY `CustomerID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=102;
 
 --
 -- AUTO_INCREMENT a táblához `rating`
@@ -562,25 +498,19 @@ ALTER TABLE `rating`
 -- AUTO_INCREMENT a táblához `reservation`
 --
 ALTER TABLE `reservation`
-  MODIFY `ReservationID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=314;
+  MODIFY `ReservationID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=316;
 
 --
 -- AUTO_INCREMENT a táblához `reservationLog`
 --
 ALTER TABLE `reservationLog`
-  MODIFY `LogID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `LogID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT a táblához `room`
 --
 ALTER TABLE `room`
   MODIFY `RoomID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=51;
-
---
--- AUTO_INCREMENT a táblához `roomLog`
---
-ALTER TABLE `roomLog`
-  MODIFY `LogID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT a táblához `servicetype`
@@ -598,7 +528,7 @@ ALTER TABLE `storage`
 -- AUTO_INCREMENT a táblához `userLog`
 --
 ALTER TABLE `userLog`
-  MODIFY `LogID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `LogID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- Megkötések a kiírt táblákhoz
@@ -623,6 +553,18 @@ ALTER TABLE `reservation`
   ADD CONSTRAINT `reservation_ibfk_1` FOREIGN KEY (`CustomerID`) REFERENCES `customer` (`CustomerID`),
   ADD CONSTRAINT `reservation_ibfk_2` FOREIGN KEY (`RoomID`) REFERENCES `room` (`RoomID`),
   ADD CONSTRAINT `reservation_ibfk_3` FOREIGN KEY (`ServiceID`) REFERENCES `servicetype` (`ServiceID`);
+
+--
+-- Megkötések a táblához `reservationLog`
+--
+ALTER TABLE `reservationLog`
+  ADD CONSTRAINT `reservationLog_ibfk_1` FOREIGN KEY (`ReservationID`) REFERENCES `reservation` (`ReservationID`);
+
+--
+-- Megkötések a táblához `userLog`
+--
+ALTER TABLE `userLog`
+  ADD CONSTRAINT `userLog_ibfk_1` FOREIGN KEY (`UserID`) REFERENCES `customer` (`CustomerID`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
