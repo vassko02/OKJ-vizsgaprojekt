@@ -31,12 +31,13 @@ namespace Recepcio_alkalmazas.Views
                 MessageBox.Show("This email address is already used!", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
             }
-            if (tb_email.Text==""|| tb_guestname.Text == "" || tb_phonenumber.Text == "" ||!tb_email.Text.Contains("@"))
+            if (tb_email.Text==""|| tb_guestname.Text == "" || tb_phonenumber.Text == "" ||!tb_email.Text.Contains("@") || tb_address.Text == "")
             {
                 MessageBox.Show("Incorrect data!", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
             }
-            customer.insert(ujguest);
+            int x=customer.insert(ujguest);
+            log.callInsertIntoLog("admin", "Added new guest", "User", x);
             DialogResult = true;
             this.Close();
         }

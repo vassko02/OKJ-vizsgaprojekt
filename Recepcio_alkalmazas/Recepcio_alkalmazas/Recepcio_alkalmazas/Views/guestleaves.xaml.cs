@@ -126,7 +126,7 @@ namespace Recepcio_alkalmazas.pages
                     if (cardpayment.ShowDialog() == true)
                     {
                         MessageBox.Show("Payment successful!", "Payment Information", MessageBoxButton.OK, MessageBoxImage.Information);
-                        cashregister.insert(new cashregister(name, x, "Guest paying when checking-out (CARD)", x, 0));
+                        log.callInsertIntoLog(egyfoglalas.Name, "Checked-out", "Reservation",egyfoglalas.ReservationID);
                         tb_change.Text = tb_fizetett.Text = "";
                         reservation.updateCheckedin(egyfoglalas.ReservationID, 0);
                         foglalasok = reservation.selectByGuestName(null, 1, false);
@@ -140,9 +140,9 @@ namespace Recepcio_alkalmazas.pages
                 else
                 {
                     MessageBox.Show("Payment successful!", "Payment Information", MessageBoxButton.OK, MessageBoxImage.Information);
+                    log.callInsertIntoLog(egyfoglalas.Name, "Checked-out", "Reservation",egyfoglalas.ReservationID);
                     double paid = double.Parse(tb_fizetett.Text);
                     double change = double.Parse(tb_change.Text.Split(' ')[1]);
-                    cashregister.insert(new cashregister(name, x, "Guest paying when checking-out", paid, change));
                     tb_change.Text = tb_fizetett.Text = "";
                     reservation.updateCheckedin(egyfoglalas.ReservationID, 0);
                     foglalasok = reservation.selectByGuestName(null, 1, false);

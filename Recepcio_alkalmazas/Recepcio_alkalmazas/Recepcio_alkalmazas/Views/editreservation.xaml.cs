@@ -60,6 +60,7 @@ namespace Recepcio_alkalmazas.pages
                             }
                             customer.updateResNumber(egyuser.CustomerID, count - 1,egyuser.Level);
                             consumption.deleteBYREsID(egyfoglalas.ReservationID);
+                            //log.callInsertIntoLog("admin", "Deleted reservation", "Reservation", 0);
                             reservation.delete(egyfoglalas.ReservationID);
                             tb_guestinput.Text = "";
                             foglalasok = reservation.selectByGuestName(null, 0, true);
@@ -79,6 +80,7 @@ namespace Recepcio_alkalmazas.pages
                             egyuser.Level = "";
                         }
                         customer.updateResNumber(egyuser.CustomerID, count - 1, egyuser.Level);
+                        //log.callInsertIntoLog("admin", "Deleted reservation", "Reservation", 0);
                         reservation.delete(egyfoglalas.ReservationID);
                         tb_guestinput.Text = "";
                         foglalasok = reservation.selectByGuestName(null, 0, true);
@@ -93,8 +95,7 @@ namespace Recepcio_alkalmazas.pages
             egyfoglalas = (reservation)dg_foglalasok.SelectedItem;
             if (egyfoglalas!=null)
             {
-            egyuser = customer.selectuserByID(egyfoglalas.CustomerID)[0];
-
+                egyuser = customer.selectuserByID(egyfoglalas.CustomerID)[0];
             }
         }
         private void btn_edit_Click(object sender, RoutedEventArgs e)

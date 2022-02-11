@@ -120,8 +120,8 @@ namespace Recepcio_alkalmazas.Models
             using (var con = new MySqlConnection(ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString))
             {
                 con.Open();
-                var sql = "INSERT INTO customer (Name,PhoneNumber,Email) VALUES " +
-                    "(@Name,@PhoneNumber,@Email)";
+                var sql = "INSERT INTO customer (Name,PhoneNumber,Email,Address) VALUES " +
+                    "(@Name,@PhoneNumber,@Email,@Address)";
                 using (var cmd = new MySqlCommand(sql, con))
                 {
                     cmd.Parameters.AddWithValue("@Name", model.Name);

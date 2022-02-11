@@ -27,6 +27,7 @@ namespace Recepcio_alkalmazas.pages
         ObservableCollection<consumption> fogyasztasok = new ObservableCollection<consumption>();
         ObservableCollection<storage> fogylehetoseg = new ObservableCollection<storage>();
         List<string> tipusok = new List<string>();
+        reservation valasztottres= new reservation();
         public cons()
         {
             InitializeComponent();
@@ -62,6 +63,7 @@ namespace Recepcio_alkalmazas.pages
                 fogyasztasok = consumption.selectItemByReservationID(id);
                 dg_fogyasztas.DataContext = fogyasztasok;
                 arfrissit(id);
+                log.callInsertIntoLog("admin","Added consumption","Reservation",valasztottres.ReservationID);
             }
         }
 
@@ -74,6 +76,7 @@ namespace Recepcio_alkalmazas.pages
                 consumption.delete(id);
                 reservation valasztottres = (reservation)dg_nevek.SelectedItem;
                 int id2 = valasztottres.ReservationID;
+                log.callInsertIntoLog("admin", "Deleted consumption", "Reservation", valasztottres.ReservationID);
                 fogyasztasok = consumption.selectItemByReservationID(id2);
                 dg_fogyasztas.DataContext = fogyasztasok;
                 arfrissit(id2);
@@ -84,8 +87,8 @@ namespace Recepcio_alkalmazas.pages
         {
             if (dg_nevek.SelectedIndex != -1)
             {
-                reservation valasztott = (reservation)dg_nevek.SelectedItem;
-                int id = valasztott.ReservationID;
+                valasztottres = (reservation)dg_nevek.SelectedItem;
+                int id = valasztottres.ReservationID;
                 fogyasztasok = consumption.selectItemByReservationID(id);
                 dg_fogyasztas.DataContext = fogyasztasok;
                 arfrissit(id);

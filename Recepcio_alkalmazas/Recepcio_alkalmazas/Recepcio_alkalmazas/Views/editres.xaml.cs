@@ -169,16 +169,17 @@ namespace Recepcio_alkalmazas.Views
             }
             if (dp_checkout.SelectedDate <= dp_checkin.SelectedDate || vanerror == true || dp_checkin.SelectedDate < DateTime.Today || dp_checkout.SelectedDate < DateTime.Today)
             {
-                MessageBox.Show("There is something wrong with the provided data,or every suitable room is reserved at the specified time!", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show("There is something wrong with the provided data,or all the suitable rooms are reserved at the specified time!", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                 teszelt = false;
             }
             if (vanolyanszoba == false && teszelt == true)
             {
-                MessageBox.Show("There is something wrong with the provided data,or every suitable room is reserved at the specified time!", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show("There is something wrong with the provided data,or all the suitable rooms are reserved at the specified time!", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                 vanerror = true;
             }
             if (editlesz == true && vanerror == false)
             {
+                log.callInsertIntoLog("admin","Edited reservation","Reservation",aktualis.ReservationID);
                 reservation.update(aktualis);
                 DialogResult = true;
                 this.Close();
@@ -186,7 +187,9 @@ namespace Recepcio_alkalmazas.Views
             if (editlesz != true && vanerror == false)
             {
                 int count = reservation.selectCountByGuestID(aktualis.CustomerID);
-                reservation.insert(aktualis);
+                int x=reservation.insert(aktualis);
+                log.callInsertIntoLog("admin", "Added a new reservation", "User", aktualis.CustomerID);
+                log.callInsertIntoLog("admin", "Added a new reservation", "Reservation", x);
                 egyuser = customer.selectuserByID(aktualis.CustomerID)[0];
                 if (egyuser.activated_at != "")
                 {
@@ -203,7 +206,6 @@ namespace Recepcio_alkalmazas.Views
         }
         public void arfrissit()
         {
-
             if (!(cb_rooms.SelectedItem==null|| cb_services.SelectedItem == null||dp_checkin.SelectedDate>=dp_checkout.SelectedDate))
             {
                 DateTime leaving = Convert.ToDateTime(dp_checkout.SelectedDate);
@@ -233,6 +235,7 @@ namespace Recepcio_alkalmazas.Views
                 DragMove();
             }
         }
+
         private static readonly Regex _regex = new Regex("[^0-9-]+"); //regex that matches disallowed text
         private static bool IsTextAllowed(string text)
         {

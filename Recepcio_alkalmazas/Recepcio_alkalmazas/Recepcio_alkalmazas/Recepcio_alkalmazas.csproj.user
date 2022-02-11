@@ -13,9 +13,6 @@
     <Compile Update="Views\AddGuest.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="Views\cashreg.xaml.cs">
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Update="Views\ComsumptionAdd.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -37,6 +34,9 @@
     <Compile Update="Views\guestleaves.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="Views\logs.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Page Update="CardPayment.xaml">
@@ -46,9 +46,6 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Views\AddGuest.xaml">
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Update="Views\cashreg.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Views\ComsumptionAdd.xaml">
@@ -70,6 +67,9 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Views\guestleaves.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\logs.xaml">
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>

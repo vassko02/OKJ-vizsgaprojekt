@@ -18,6 +18,7 @@ using System.Collections.ObjectModel;
 using Recepcio_alkalmazas.pages;
 using System.Windows.Threading;
 using Recepcio_alkalmazas.Models;
+using Recepcio_alkalmazas.Views;
 
 
 namespace Recepcio_alkalmazas
@@ -39,7 +40,7 @@ namespace Recepcio_alkalmazas
         }
         void timer_Tick(object sender, EventArgs e)
         {
-            LiveDateLabel.Content = DateTime.Now.ToString("yyyy MM. dd.");
+            LiveDateLabel.Content = DateTime.Now.ToString("yyyy. MM. dd.");
             LiveTimeLabel.Content = DateTime.Now.ToString("HH:mm:ss");
         }
         private void reset(string melyikgomb)
@@ -92,7 +93,7 @@ namespace Recepcio_alkalmazas
         private void btn_cashier_Click(object sender, RoutedEventArgs e)
         {
             reset("cash");
-            frm_main.Content = new Views.cashreg();
+            frm_main.Content = new logs();
         }
         private void btn_close_Click(object sender, RoutedEventArgs e)
         {
