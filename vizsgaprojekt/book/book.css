@@ -18,7 +18,10 @@ html{
 .foglalashatter{
 
     background-image: url("../pictures/mainpage/meretezett3.jpg");
-    margin-bottom: 5vh;
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding-bottom: 5vh;
+    
 }
 .datas{
     padding: 3vw;
