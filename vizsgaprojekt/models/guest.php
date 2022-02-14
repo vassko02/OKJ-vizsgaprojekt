@@ -184,18 +184,23 @@ class Guest extends Dbconnect
 
         return $result->num_rows;
     }
-    public function saveuser($adatok, string $activation_code, int $expiry = 1 * 24 * 60 * 60)
+    public function saveuser($adatok)
     {
-        echo '<pre>';
-        print_r($adatok);
-        echo '</pre>';
-        $sql = 'INSERT INTO customer (Name,Email,UserName,Password,activation_code,activation_expiry) VALUES(?,?,?,md5(?),md5(?),?)';
+        $sql = 'INSERT INTO customer (Name,Email,UserName,Password) VALUES(?,?,?,md5(?))';
         $stmt = $this->con->prepare($sql);
-        $stmt->bind_param("ssssss", $adatok['name'], $adatok['email'], $adatok['username'], $adatok['jelszo'], $activation_code, date('Y-m-d H:i:s', time() + $expiry));
+        $stmt->bind_param("ssss", $adatok['name'], $adatok['email'], $adatok['username'], $adatok['jelszo']);
         if ($stmt->execute()) {
             return 1;
         }
         return 0;
+    }
+    public function saveuser_activation_token($activation_code, $customerid) {
+        $sql = 'INSERT INTO codes (Code,Expiry,Type,CustomerID) VALUES(md5(?),?,?,?)';
+        $stmt = $this->con->prepare($sql);
+        $date = date('Y-m-d H:i:s', time() + 1 * 24 * 60 * 60);
+        $type = 'activation_code';
+        $stmt->bind_param("sssi", $activation_code, $date, $type, $customerid);
+        return $stmt->execute();
     }
     public function logincsekkemail($email, $jelszo)
     {
@@ -1615,19 +1620,19 @@ class Guest extends Dbconnect
   }
   public function find_unverified_user(string $activation_code, string $email)
   {
-
-    $sql = 'SELECT CustomerID, activation_code, activation_expiry < now() as expired FROM `customer` where active is null and Email = ? ';
+    $sql = 'SELECT Code,Type,Expiry < now() as expired,codes.CustomerID FROM codes INNER JOIN customer on codes.CustomerID = customer.CustomerID WHERE customer.active is null and customer.Email = ? and codes.Type = ?';
 
     $stmt = $this->con->prepare($sql);
 
-    $stmt->bind_param("s", $email);
+    $codetype = 'activation_code';
+    $stmt->bind_param("ss", $email, $codetype);
     $stmt->execute();
 
     $user = $stmt->get_result();
     $row = $user->fetch_assoc();
 
     if ($row != null) {
-      if (md5($activation_code) === $row['activation_code']) {
+      if (md5($activation_code) === $row['Code']) {
         return $row;
       }
     }
@@ -2369,13 +2374,36 @@ class Guest extends Dbconnect
   }
   public function update_user_reset_code_in_db(int $user_id, string $password_reset_token, int $expiry = 1 * 24 * 60 * 60): bool
   {
-    $sql = 'UPDATE customer
-                SET reset_token = ?,
-                    reset_token_expiry = ?
-                WHERE CustomerID=?';
+    $sqlselect = 'SELECT * FROM codes WHERE customerID = ? AND Type = "reset_token" ';
+    $stmt = $this->con->prepare($sqlselect);
+    $stmt->bind_param("i", $user_id);
+    $stmt->execute();
+    $vane = 0;
+    $result = $stmt->get_result();
 
+    if ($result->num_rows == 1) {
+        //oke
+      $vane = 1;
+    } else {
+      $vane = 0;
+    }
+    if ($vane == 1) {
+              $sql = 'UPDATE codes
+              SET Code = ?,
+              Expiry = ?,
+              Type = ?
+              WHERE CustomerID=? AND Type = "reset_token"';
+    }
+    else{
+            $sql = 'INSERT INTO codes
+            (Code, Expiry, Type, CustomerID)
+            VALUES (md5(?),?,?,?)';
+    }
     $stmt = $this->con->prepare($sql);
-    $stmt->bind_param("ssi", md5($password_reset_token), date('Y-m-d H:i:s', time() + $expiry), $user_id);
+    $token = $password_reset_token;
+    $type = "reset_token";
+    $exp = date('Y-m-d H:i:s', time() + $expiry);
+    $stmt->bind_param("sssi", $token, $exp , $type , $user_id);
 
     return $stmt->execute();
   }
@@ -2419,25 +2447,24 @@ class Guest extends Dbconnect
   }
   public function find_resetable_user(string $password_reset_token, string $email) //megkeresi a felhasználót a link alapján ha van
   {
-    $sql = 'SELECT Email,CustomerID, reset_token, reset_token_expiry < now() as "expired_reset_token" FROM customer where reset_token not like "" and Email = ? ';
+    $sql = 'SELECT Code,Type,Expiry < now() as expired,codes.CustomerID,customer.Email FROM codes INNER JOIN customer on codes.CustomerID = customer.CustomerID where customer.Email = ? and codes.Type = "reset_token"';
 
     $stmt = $this->con->prepare($sql);
 
-    $stmt->bind_param("s", $email);
+    $stmt->bind_param("s",$email);
     $stmt->execute();
 
     $user = $stmt->get_result();
     $row = $user->fetch_assoc();
 
     if ($row != null) {
-      if ($row['expired_reset_token'] == 1) {
+      if ($row['expired'] == 1) {
         return null;
       }
-      else if (md5($password_reset_token) === $row['reset_token']) {
+      if (md5($password_reset_token) === $row['Code']) {
         return $row;
       }
     }
-    // verify the password
     return null;
   }
   public function verify_new_password(string $newpassword, int $user_id) //bekéri az új jelszót és lefrissíti
@@ -2466,9 +2493,7 @@ class Guest extends Dbconnect
   public function set_new_password(string $newpassword, int $user_id): bool //bekéri az új jelszót és lefrissíti
   {
     $sql = 'UPDATE customer
-              SET Password = ?,
-              reset_token = "",
-              reset_token_expiry = ""
+              SET Password = ?
               WHERE CustomerID = ?';
 
     $stmt = $this->con->prepare($sql);

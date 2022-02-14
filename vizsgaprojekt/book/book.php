@@ -10,7 +10,6 @@
 				
 			}
 			else{
-				echo 'asd';
 				session_unset();
 			}
 		}
@@ -26,7 +25,7 @@
 		$out = $_POST['checkout'];
 		$date = date('Y-m-d');
 		$guestnumber = $_POST['childrennumber']+$_POST['adultnumber'];
-		echo $guestnumber;
+		//echo $guestnumber;
 		if (($_POST['adultnumber'] > 1 || $_POST['childrennumber'] > 1) && $guestnumber <= 5 ) {
 			$_SESSION['adult'] = $_POST['adultnumber'];
 			$_SESSION['children'] = $_POST['childrennumber'];
@@ -161,7 +160,7 @@
 					<img class="postcard__img"  id="'.$room['ImageURL1'].'" src="'.$room['ImageURL1'].'" alt="Image Title" />
 				</a>
 				<div class="postcard__text">
-					<h1 class="postcard__title blue"><a href="index.php?m=roomdetail">'.$room['RoomName'].'</a></h1>
+					<h1 class="postcard__title blue">'.$room['RoomName'].'</h1>
 					<div class="postcard__subtitle medium">
 						<p class="fas  mr-2">Room capacity: '.$room['Capacity'].'</p>
 					</div>
