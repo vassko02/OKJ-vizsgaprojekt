@@ -1637,7 +1637,7 @@ class Guest extends Dbconnect
   public function find_unverified_user_fornewacc(int $customerid,string $newacctoken, string $email)
   {
 
-    $sql = 'SELECT Code,Type,Expiry < now() as expired  FROM codes INNER JOIN customer on codes.CustomerID = customer.CustomerID WHERE codes.CustomerID = ?';
+    $sql = 'SELECT Code,Type,Expiry < now() as expired  FROM codes INNER JOIN customer on codes.CustomerID = customer.CustomerID WHERE codes.CustomerID = ? ';
 
     $stmt = $this->con->prepare($sql);
 
@@ -2399,7 +2399,7 @@ class Guest extends Dbconnect
               SET Code = ?,
               Expiry = ?,
               Type = ?
-              WHERE CustomerID=?';
+              WHERE CustomerID=? AND Type = "newacc" ';
 
       
     }
