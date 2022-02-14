@@ -99,8 +99,10 @@ if ($request === $baseUrl . '/signin' && isset($_POST['btn_reg'])) {
         
         $emailcode = $GuestObj->generate_activation_code();
         $GuestObj->send_activation_email($_POST['email'], $emailcode, $baseUrl);
-        if ($GuestObj->saveuser($_POST, $emailcode) == 1) {
-
+        if ($GuestObj->saveuser($_POST) == 1) {
+            $id = $GuestObj->findcustomerbyemail($_POST['email']);
+            echo $id['CustomerID'];
+            $GuestObj->saveuser_activation_token($emailcode, $id['CustomerID']);
 
 
             header('Location: ' . $baseUrl . '/signin/regconfirmed');
