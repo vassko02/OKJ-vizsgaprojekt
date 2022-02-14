@@ -20,9 +20,31 @@ body{
     width: 10vw;
 }
 .form-control{
-    border: 2px solid #e6cc4f !important; 
-    color: #ffde37 !important; 
+    border: 2px solid rgb(230, 204, 79) !important; 
+    color: rgb(255, 222, 55) !important; 
 }
 input[type=textarea]{
     height: 6vh;
+}
+
+.card{
+    margin-top: 5vh;
+    margin-bottom: 5vh;
+    width: 40vw;
+    height: 40vh;
+    
+}
+.user img{
+    margin-top: 8vh;
+    width: 7vw;
+}
+.user{
+    color: rgb(250, 174, 28);
+    background-color: rgb(0, 0, 0);
+    height: 40vh;
+    text-align: center;
+}
+.ratedescription{
+    background-color: rgb(250, 174, 28);
+    height: 40vh;
 }
