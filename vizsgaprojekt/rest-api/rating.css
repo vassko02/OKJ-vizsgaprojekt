@@ -2,13 +2,16 @@ body{
     background-color: rgb(29, 29, 29);
 }
 .rating{
-    min-height: 72.6vh;
+    min-height: 68.6vh;
     margin-top: 15vh !important;
     
 }
-.rating h2{
+.rating h2, #ratings{
     font-size: 5rem;
     color: #e6cc4f;
+}
+#ratings{
+    margin-top: 10vh !important;
 }
 .rating label{
     font-size: 2rem;
@@ -30,8 +33,9 @@ input[type=textarea]{
 .card{
     margin-top: 5vh;
     margin-bottom: 5vh;
-    width: 40vw;
+    width: 70vw;
     height: 40vh;
+    border: 0px solid black !important;
     
 }
 .user img{
@@ -44,7 +48,23 @@ input[type=textarea]{
     height: 40vh;
     text-align: center;
 }
+.user #name{
+    font-size: 4rem;
+    margin-bottom: 0px !important;
+}
+.user #email{
+    margin-top: 0px !important;
+    font-size: 1rem;
+}
 .ratedescription{
     background-color: rgb(250, 174, 28);
     height: 40vh;
+}
+.ratedescription p{
+    margin-left: 1vw;
+    margin-top: 5vh;
+    font-size: 2rem;
+}
+.scrolldown{
+    float: right;
 }

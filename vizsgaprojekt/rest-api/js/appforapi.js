@@ -3,8 +3,9 @@ document.addEventListener('DOMContentLoaded',()=>{
     const backend_url = ' http://localhost/14aphp/legfrissebb/OKJ-vizsgaprojekt/vizsgaprojekt/rest-api/backend/rating/';
     
 
-    
+    let table = document.querySelector('.itemsdata').getElementsByTagName('tbody')[0];
     let newItemForm = document.querySelector('.newitem');
+ 
     
     async function getItems(){
         let response = await fetch(backend_url+'read');  // GET
@@ -26,11 +27,19 @@ document.addEventListener('DOMContentLoaded',()=>{
             data['items'].forEach((item,index)=>{
                 let row = table.insertRow(); // <tr></tr>
                 row.innerHTML=
-                '<td>'+(index+1)+'</td>'+
-                '<td>'+item['Name']+'</td>'+
-                '<td>'+item['Email']+'</td>'+
-                '<td>'+item['Description']+'</td>';
-            });
+                '<div class="container" id="rates">'+
+                '<div class="card row mx-auto">'+
+                  '<div class="user col-sm-3">'+
+                      '<img src="./pictures/userpic.png" alt="" srcset="">'+
+                      '<p id="name">'+item['Name'] +'</p>'+
+                      '<p id="email">'+item['Email']+'</p>'+
+                  '</div>'+
+                  '<div class="ratedescription col-sm-9">'+
+                      '<p id="description">'+item['Description']+'</p>'+
+                  '</div>'+
+                '</div>'+
+              '</div>';
+            });            
         })
         .catch(err => {
             //console.log('error:',err.message);
@@ -55,6 +64,9 @@ document.addEventListener('DOMContentLoaded',()=>{
 
     }
     // főprogram
-
+    refressItemList();
     newItemForm.addEventListener('submit',onSubmitNewItem);
+
+
+
 });

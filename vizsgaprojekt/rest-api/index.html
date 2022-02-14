@@ -1,39 +1,42 @@
-<div class="container my-5 rating">
-  <div class="row">
-    <h2 class="text-center">Rate us</h2>
-    <div class="mx-auto w-75">
-      <form class="newitem ">
-        <div class="mb-3">
-          <label for="Name" class="form-label">Name</label>
-          <input type="text" class="form-control bg-dark" id="Name" name="Name">
-        </div>
-        <div class="mb-3">
-          <label for="email" class="form-label">Email</label>
-          <input type="text" class="form-control bg-dark" id="email" name="email">
-        </div>
-        <div class="mb-3">
-          <label for="desc" class="form-label">Description</label>
-          <input type="textarea" class="form-control bg-dark" id="desc" name="desc">
-        </div>
-
-        <button type="submit" class="btn">Submit</button>
-      </form>
+<body>
+  <div class="container my-5 rating">
+    <div class="row">
+      <h2 class="text-center">Rate us</h2>
+      <div class="mx-auto w-75">
+        <form class="newitem ">
+          <div class="mb-3">
+            <label for="Name" class="form-label">Name</label>
+            <input type="text" class="form-control bg-dark" id="Name" name="Name">
+          </div>
+          <div class="mb-3">
+            <label for="email" class="form-label">Email</label>
+            <input type="text" class="form-control bg-dark" id="email" name="email">
+          </div>
+          <div class="mb-3">
+            <label for="desc" class="form-label">Description</label>
+            <input type="textarea" class="form-control bg-dark" id="desc" name="desc">
+          </div>
+  
+          <button type="submit" class="btn">Submit</button>
+        </form>
+      </div>
     </div>
   </div>
-</div>
+  <button  class="scrolldown" onclick="topFunction()">Scrolldown</button>
+  <h2 class="text-center " id="ratings">Our ratings</h2>
+  <table class="table itemsdata">
+   
+    <tbody>
+  
+    </tbody>
+  </table>
+    
+</body>
 
-<div class="container" id="rates">
-  <div class="card row mx-auto">
-    <div class="user col-sm-3">
-        <img src="./pictures/userpic.png" alt="" srcset="">
-        <p>name </p>
-    </div>
-    <div class="ratedescription col-sm-9">
-        <p>
-          Description
-        </p>
-    </div>
-  </div>
-</div>
-
+<script>
+      function topFunction() {
+        document.body.scrollTop = 1000;
+        document.documentElement.scrollTop = 1000;
+      }
+</script>
 <script src="./rest-api/js/appforapi.js" defer></script>
