@@ -45,12 +45,8 @@ if (isset($_POST['btn_srch'])) {
 
 ?>
 
-<div class="book">
 	<div class="d-flex foglalashatter">
-
-
-
-		<div class="datas" id="box">
+		<div class="datas " id="box">
 			<form method="POST">
 				<div class="form-group div1 row">
 					<div class="first ">
@@ -111,7 +107,7 @@ if (isset($_POST['btn_srch'])) {
 					</div>
 				</div>
 				<div class="form-group div3">
-					<button class="btn src" type="submit" name="btn_srch">Search rooms</button>
+					<button class="btn src"  type="submit" name="btn_srch" ><a id="scrollaaa" href="#pageHeaderTitle" >Search rooms</a></button>
 					<p id="error"><?php if ($error === true) {
 										echo 'Please provide valid dates!';
 									} else {
@@ -129,18 +125,41 @@ if (isset($_POST['btn_srch'])) {
 				</div>
 			</form>
 		</div>
-		<h1 id="makeareservation" class="korbekorbe">
-			Make a reservation
-		</h1>
+		<div class="rightside">
+					<h1 id="makeareservation" class="">
+						Make a reservation
+					</h1>
+		<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+			<ol class="carousel-indicators">
+				<li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+				<li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+				<li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+			</ol>
+			<div class="carousel-inner">
+				<div class="carousel-item active">
+						<p>With high ceilings and spacious lanais overlooking the ocean, these rooms incorporate patterns, textures and art inspired by the Vespucci coastline. You'll also receive exclusive Club Floor privileges including breakfast, a full-service bar, and private check-in and check-out.</p><br>
+				</div>
+				<div class="carousel-item">
+								<p>Through our Complete Suite Experience, you’ll benefit from a heightened level of service, amenities and privacy while taking in idyllic views of Vespucci Beach from your oceanfront suite. </p><br>
+				</div>
+				<div class="carousel-item">
+					<p>The Elite suites are our newest oceanfront suites, offering sensational views of the Pacific Ocean and islands beyond. Enjoy special services and amenities including a remarkable wine collection, a personal assistant and more.</p><br>
+				
+				</div>
+			</div>
+		
+			</div>
+					</div>
+	
 	</div>
-</div>
+
 <?php
 // echo ('<pre>');
 // print_r($asd);
 // echo ('</pre>');
 ?>
 <!-- 	 -->
-<section class="dark hatter" id="osszesszoba">
+<section class="dark hatter mt-5" id="osszesszoba">
 	<div class=" py-4">
 		<h1 class="h1 text-center" id="pageHeaderTitle">Our Rooms</h1>
 		<?php
@@ -306,6 +325,7 @@ if (isset($_POST['btn_srch'])) {
 		<div id="caption"></div>
 	</div>
 </section>
+ 
 <?php
 foreach ($Roomslist as $room) {
 	echo '

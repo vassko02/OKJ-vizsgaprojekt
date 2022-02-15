@@ -3,25 +3,34 @@ html{
     height: 100%;
 }
 #makeareservation{
-    width: 100%;
+  
     text-align: center;
     font-size: 5vw;
-    color: #000000;
-    margin-right: 3vw;
+    color: #d5d5d5;
+    
     margin-top: 20vh;
-        font-family: "Be Vietnam Pro",  sans-serif;
+    font-family: "Be Vietnam Pro",  sans-serif;
+    text-shadow: 3px 3px #000000;
+    margin-bottom: 10vh;
         
 }
-#makeareservation:hover{
-    text-shadow: 2px 2px #C5B358;
+.carousel{
+    text-align: center;
+    font-size: 2vw;
 }
 .foglalashatter{
-
-    background-image: url("../pictures/mainpage/meretezett3.jpg");
+    background-color: hsl(0, 0%, 10%);
+    background-image: url("../pictures/mainpage/meretezett3_dark.jpg");
+    background-attachment: fixed;
+    background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
     padding-bottom: 5vh;
     
+}
+.rightside{
+    margin-right: 1vw;
+    width: 65vw !important;
 }
 .datas{
     padding: 3vw;
@@ -31,7 +40,7 @@ html{
     background-color: black;
     margin-left: 3vw;
     margin-right: auto;
-    width: 80%;
+    width: 50vw;
     margin-top: 20vh;
     margin-bottom: 20vh !important;
     height: 30%;
@@ -50,8 +59,16 @@ html{
     width: 75vw !important;
     height: 35vh !important;
 }
+#scrollaaa{
+    text-decoration: none;
+    color: #000000;
+}
+#scrollaaa:hover{
+    text-decoration: none;
+    color: #000000;
+}
 .src{
-    background-color: #C5B358 !important;
+    background-color: #e2c94a !important;
     width: 10vw;
     border: 30px solid #C5B358;
 }
@@ -77,7 +94,7 @@ input{
 }
 .div1 .first{
     float: left;
-    background-color: #C5B358;
+    background-color: #e2c94a;
     color: black;
     border: 3px solid black;
     border-radius: 15px;
@@ -101,7 +118,7 @@ input{
 }
 .div2 .first{
     float: left;
-    background-color: #C5B358;
+    background-color: #e2c94a;
     color: black;
     border: 3px solid black;
     border-radius: 15px;

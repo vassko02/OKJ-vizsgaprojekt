@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded',()=>{
     
-    const backend_url = ' http://localhost/14aphp/legfrissebb/OKJ-vizsgaprojekt/vizsgaprojekt/rest-api/backend/rating/';
+    const backend_url = ' http://localhost/14aphp/gitt/OKJ-vizsgaprojekt/vizsgaprojekt/rest-api/backend/rating/';
     
 
     let table = document.querySelector('.itemsdata').getElementsByTagName('tbody')[0];
