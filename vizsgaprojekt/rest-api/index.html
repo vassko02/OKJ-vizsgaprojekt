@@ -1,5 +1,5 @@
 <body>
-  <div class="container my-5 rating">
+  <div class="container my-5 Ratingg">
     <div class="row">
       <h2 class="text-center">Rate us</h2>
       <div class="mx-auto w-75">
@@ -16,27 +16,35 @@
             <label for="desc" class="form-label">Description</label>
             <input type="textarea" class="form-control bg-dark" id="desc" name="desc">
           </div>
-  
+          <div class="row mb-3 mt-5 keretkellneki">
+            <div class="col-sm-0 col-6">
+                <h2 id="ratecsillag"> Rate our hotel from 1 to 5</h2>
+            </div>
+            <div class="rating col-sm-12 col-6 ms-auto">
+              <input name="stars" id="e5" type="radio" value="5"><label for="e5">★</label></input>
+              <input name="stars" id="e4" type="radio" value="4"><label for="e4">★</label></input>
+              <input name="stars" id="e3" type="radio" value="3"><label for="e3">★</label></input>
+              <input name="stars" id="e2" type="radio" value="2"><label for="e2">★</label></input>
+              <input name="stars" id="e1" type="radio" value="1"><label for="e1">★</label></input>
+            </div>
+          </div>
           <button type="submit" class="btn">Submit</button>
         </form>
       </div>
     </div>
   </div>
-  <button  class="scrolldown" onclick="topFunction()">Scrolldown</button>
-  <h2 class="text-center " id="ratings">Our ratings</h2>
+  <a  class="scrolldown p-auto" href="#ratings">Our ratings ▼</a>
+  <h2 class="text-center " id="ratings">Our ratings   <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-star-half" viewBox="0 0 16 16">
+    <path d="M5.354 5.119 7.538.792A.516.516 0 0 1 8 .5c.183 0 .366.097.465.292l2.184 4.327 4.898.696A.537.537 0 0 1 16 6.32a.548.548 0 0 1-.17.445l-3.523 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256a.52.52 0 0 1-.146.05c-.342.06-.668-.254-.6-.642l.83-4.73L.173 6.765a.55.55 0 0 1-.172-.403.58.58 0 0 1 .085-.302.513.513 0 0 1 .37-.245l4.898-.696zM8 12.027a.5.5 0 0 1 .232.056l3.686 1.894-.694-3.957a.565.565 0 0 1 .162-.505l2.907-2.77-4.052-.576a.525.525 0 0 1-.393-.288L8.001 2.223 8 2.226v9.8z"/>
+  </svg></h2>
   <table class="table itemsdata">
    
-    <tbody>
+    <tbody class="tbody">
   
     </tbody>
   </table>
     
 </body>
 
-<script>
-      function topFunction() {
-        document.body.scrollTop = 1000;
-        document.documentElement.scrollTop = 1000;
-      }
-</script>
+
 <script src="./rest-api/js/appforapi.js" defer></script>

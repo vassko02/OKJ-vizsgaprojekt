@@ -30,6 +30,7 @@
                 "Name" => $Name,
                 "Email" => $Email,
                 "Description" => $Description,
+                "Stars" => $Stars,
                    
             );
             array_push($itemRecords["items"],$itemDetails);

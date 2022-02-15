@@ -7,7 +7,7 @@ class Rating{
     public $Name;
     public $Email;
     public $Description;
-    
+    public $Stars;
 
     private $conn;
 
@@ -23,13 +23,14 @@ class Rating{
     }
     function create(){
         
-        $stmt = $this->conn->prepare("INSERT INTO ".$this->rate." (Name,Email,Description) VALUES(?,?,?) ");
+        $stmt = $this->conn->prepare("INSERT INTO ".$this->rate." (Name,Email,Description,Stars) VALUES(?,?,?,?) ");
 
         $this->Name = htmlspecialchars($this->Name);
         $this->Email = htmlspecialchars($this->Email);
         $this->Description = htmlspecialchars($this->Description);
+        $this->Stars = htmlspecialchars($this->Stars);
      
-        $stmt->bind_param("sss", $this->Name, $this->Email, $this->Description);
+        $stmt->bind_param("ssss", $this->Name, $this->Email, $this->Description,$this->Stars);
      
         if ( $stmt->execute() ){
             return true;

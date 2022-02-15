@@ -1,19 +1,19 @@
 body{
     background-color: rgb(29, 29, 29);
 }
-.rating{
-    min-height: 68.6vh;
+.Ratingg{
+    min-height: 66.6vh;
     margin-top: 15vh !important;
     
 }
-.rating h2, #ratings{
+.Ratingg h2, #ratings{
     font-size: 5rem;
     color: #e6cc4f;
 }
 #ratings{
     margin-top: 10vh !important;
 }
-.rating label{
+.mb-3 label{
     font-size: 2rem;
     color: #C5B358;
 }
@@ -21,11 +21,13 @@ body{
     background-color: #e6cc4f;
     float: right;
     width: 10vw;
+    font-size: 1vw;
 }
-.form-control{
+.form-control, .keretkellneki{
     border: 2px solid rgb(230, 204, 79) !important; 
     color: rgb(255, 222, 55) !important; 
 }
+
 input[type=textarea]{
     height: 6vh;
 }
@@ -49,12 +51,12 @@ input[type=textarea]{
     text-align: center;
 }
 .user #name{
-    font-size: 4rem;
+    font-size: 3vw;
     margin-bottom: 0px !important;
 }
 .user #email{
     margin-top: 0px !important;
-    font-size: 1rem;
+    font-size: 1vw;
 }
 .ratedescription{
     background-color: rgb(250, 174, 28);
@@ -62,9 +64,114 @@ input[type=textarea]{
 }
 .ratedescription p{
     margin-left: 1vw;
-    margin-top: 5vh;
-    font-size: 2rem;
+    margin-top: 3vh;
+    font-size: 2.5vw;
+    
+}
+#starrr{
+    text-align: right;
+    margin-right: 2vw;
 }
 .scrolldown{
+    font-weight: bolder;
+    height: 3vh;
+    border-radius: 6px;
+    text-align: center;
+    width: 20vw;
+    margin-right: 1.5vw;
+    background-color: rgb(250, 174, 28);
+    color: black;
+    text-decoration: unset;
     float: right;
+}
+.scrolldown:hover{
+    text-decoration: unset;
+    color: wheat;
+}
+.tbody{
+    width: 80vw;
+}
+#ratecsillag{
+    padding-top: 0.5vh;
+    font-size: 2rem;
+}
+.rating {
+    width: 20vw;
+    font-size: 3vw !important;
+    overflow:hidden;
+}
+.rating input {
+    float: right;
+    opacity: 0;
+    
+}
+.rating p{
+    font-size: 1vw;
+    color: wheat;
+}
+.rating a,
+.rating label {
+    float:right;
+    color: #aaa;
+    text-decoration: none;
+    -webkit-transition: color .4s;
+    -moz-transition: color .4s;
+    -o-transition: color .4s;
+    transition: color .4s;
+}
+.rating label:hover ~ label,
+.rating input:focus ~ label,
+.rating label:hover,
+.rating a:hover,
+.rating a:hover ~ a,
+.rating a:focus,
+.rating a:focus ~ a		{
+    color: orange;
+    cursor: pointer;
+}
+.rating2 {
+    direction: rtl;
+}
+.rating2 a {
+    float:none
+}
+#description {
+    scrollbar-color: grey black !important;
+}
+#description::-webkit-scrollbar {
+  width: 0.5em;
+  height: 1em;
+  
+}
+#description::-webkit-scrollbar-track {
+  background: black;
+  border: 0em solid black;
+  border-radius: 100vw !important;
+}
+#description::-webkit-scrollbar-thumb {
+  background: grey;
+  border: 0.12em solid black;
+  border-radius: 100vw;
+}
+#description::-webkit-scrollbar-thumb:hover {
+  background: hsl(0, 0%, 35%);
+}
+@media screen and (max-width: 1187px){
+    #ratecsillag{
+      display: none;
+    }
+    .tbody{
+        width: 60vw;
+    }
+    .btn{
+        width: 20vw;
+        font-size: 3vw;
+    }
+    .rating {
+       width: 100%;
+        font-size: 3rem !important;
+        overflow:hidden;
+    }
+    
+
 }
