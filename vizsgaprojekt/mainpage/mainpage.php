@@ -101,7 +101,7 @@ $delaymobil = 100;
       <p>Relax and indulge at the spa or get a personal refresh at our salon.</p>
     </div>
     <div data-aos="fade-up" data-aos-duration="1000" data-aos-once="true" class="col-lg-4 col-md-6 col-sm-12">
-      <i class="fas fa-bicycle"></i>
+      <i class="fa-solid fa-person-biking"></i>
       <h1>Fitness center</h1>
       <p>Access to a fitness center complete with weights, cardio machines and more.</p>
     </div>

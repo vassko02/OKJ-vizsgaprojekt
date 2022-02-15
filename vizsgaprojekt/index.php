@@ -5,7 +5,7 @@ define('VEDETT', 'igen');
 
 //szervernél: /~PeacefulParadise
 //localhostnál: /14aphp/OKJ-vizsgaprojekt/vizsgaprojekt
-$baseUrl = '/14aphp/friss/OKJ-vizsgaprojekt/vizsgaprojekt'; 
+$baseUrl = '/14aphp/friss/OKJ-vizsgaprojekt/vizsgaprojekt';
 $request = $_SERVER['REQUEST_URI']; //mindenkori url
 $mennyiper = substr_count($request, '/');
 $baseMennyiper = substr_count($baseUrl, '/');
@@ -35,22 +35,22 @@ include('action.php');
 if (isset($_POST['btn_send'])) {
     $user = $GuestObj->getuserbyid($_SESSION['username']);
     $level =  $GuestObj->getlevel($user['CustomerID']);
-    switch($level['LEVEL']){
+    switch ($level['LEVEL']) {
         case "Gold":
             $_SESSION['multiplier'] = 0.95;
             $_SESSION['discount'] = 5;
             break;
-        
+
         case "Platinum":
             $_SESSION['multiplier'] = 0.90;
             $_SESSION['discount'] = 10;
             break;
-        
+
         case "Diamond":
             $_SESSION['multiplier'] = 0.85;
             $_SESSION['discount'] = 15;
             break;
-        default: 
+        default:
             $_SESSION['multiplier'] = 1;
             $_SESSION['discount'] = 0;
             break;
@@ -59,42 +59,34 @@ if (isset($_POST['btn_send'])) {
 if (isset($_POST['btn_send2'])) {
     if (isset($_SESSION['adult'])) {
         if (isset($_SESSION['adult'])) {
-           
         }
-     
+
         if (isset($_SESSION['username'])) {
             $user = $GuestObj->getuserbyid($_SESSION['username']);
             //$Rnumber = $GuestObj->getreservationsnumber($user['CustomerID']);  
             $customerreservations = $ReservationObj->selectallreservationbycustomerid($user['CustomerID']);
             $Rnumber = count($customerreservations);
             $Rnumber += 1;
-            $GuestObj->addonetoreservationnumber($user['CustomerID'],$Rnumber);
+            $GuestObj->addonetoreservationnumber($user['CustomerID'], $Rnumber);
             $level = '';
             if ($Rumber < 3) {
                 $level = "";
             }
-            if ( $Rnumber >= 3 ) {
+            if ($Rnumber >= 3) {
                 $level = "Gold";
-            } 
-            else if ($Rnumber >= 7 ) {
+            } else if ($Rnumber >= 7) {
                 $level = "Platinum";
-            }
-            else if($Rnumber >= 11 ){
+            } else if ($Rnumber >= 11) {
                 $level = "Diamond";
             }
-            $GuestObj->updatelevel($user['CustomerID'],$level);
-          
-            
+            $GuestObj->updatelevel($user['CustomerID'], $level);
         }
-       
+
         $ReservationObj->savereservation($_SESSION);
 
         $HelpObj->clearReservation();
-
     } else {
     }
- 
-
 }
 ?>
 <!DOCTYPE html>
@@ -109,6 +101,7 @@ if (isset($_POST['btn_send2'])) {
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js" integrity="sha384-oesi62hOLfzrys4LxRF63OJCXdXDipiYWBnvTl9Y9/TRlw5xlKIEHpNyvvDShgf/" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/7757a6ccbc.js" crossorigin="anonymous"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro&display=swap" rel="stylesheet">
@@ -169,7 +162,6 @@ if (isset($_POST['btn_send2'])) {
     }
     if ($request === $baseUrl . '/booking/roomdetail') {
         echo '<link rel="stylesheet" href="../book/roomdetail.css">';
-        
     }
     if ($request === $baseUrl . '/booking/confirm') {
         echo '<link rel="stylesheet" href="../book/confirm.css">';
@@ -234,7 +226,7 @@ if (isset($_POST['btn_send2'])) {
                 <link rel="stylesheet" href="./login/reservations.css">
                 ';
     }
-    if ( $request === $baseUrl . '/account') {
+    if ($request === $baseUrl . '/account') {
         echo '
                 <link rel="stylesheet" href="./login/reservations.css">
                 <link rel="stylesheet" href="./login/useracc.css">
@@ -338,21 +330,21 @@ if (isset($_POST['btn_send2'])) {
             include('./book/book.php');
             break;
         case $baseUrl . '/booking/roomdetail':
-            if (isset($_POST['Roomid'])){
+            if (isset($_POST['Roomid'])) {
                 include('./book/roomdetail.php');
             } else {
                 include('./404/404.php');
             }
             break;
         case $baseUrl . '/booking/customerdetails':
-            if (isset($_SESSION['roomid'])){
+            if (isset($_SESSION['roomid'])) {
                 include('./book/customerdetails.php');
             } else {
                 include('./404/404.php');
             }
             break;
         case $baseUrl . '/booking/confirm':
-            if (isset($_SESSION['roomid'])){
+            if (isset($_SESSION['roomid'])) {
                 include('./book/confirm.php');
             } else {
                 include('./404/404.php');
@@ -369,8 +361,8 @@ if (isset($_POST['btn_send2'])) {
             include('./restaurant/menu/foodmenu.php');
             break;
         case $baseUrl . '/rating':
-                include('./rest-api/index.html');
-                break;
+            include('./rest-api/index.html');
+            break;
         case $baseUrl . '/signin':
             $HelpObj->clearReservation();
             include('./login/regisztracio.php');
@@ -393,14 +385,14 @@ if (isset($_POST['btn_send2'])) {
                 include('./404/404.php');
             }
             break;
-        case $baseUrl .'/newaccemail':
-                include('./login/newaccountemail.php');
+        case $baseUrl . '/newaccemail':
+            include('./login/newaccountemail.php');
             break;
         case $baseUrl . '/guestreservations':
-                if (isset($_SESSION['username'])) {
-                    include('./login/guestreservations.php');
-                } 
-                break;
+            if (isset($_SESSION['username'])) {
+                include('./login/guestreservations.php');
+            }
+            break;
         case $baseUrl . '/userseditadmin':
             if (isset($_SESSION['isadmin']) && $_SESSION['isadmin'] === 1) {
                 include('./login/userseditadmin.php');
@@ -411,30 +403,28 @@ if (isset($_POST['btn_send2'])) {
         case $baseUrl . '/logout':
             include('./login/logout.php');
             break;
-            case $baseUrl . '/reportconfirmed':
-                include('./contact/reportconfirmed.php');
-                break;
+        case $baseUrl . '/reportconfirmed':
+            include('./contact/reportconfirmed.php');
+            break;
         case $request === $baseUrl . '/contactus' || $request === $baseUrl . '/contactusREPORT':
             include('./contact/contact.php');
             $message = "The report was sent succesfully! We will reply soon as possible";
             echo "<script type='text/javascript'>alert('$message');</script>";
             break;
-        case strpos($request, "activate?email") !== false: 
+        case strpos($request, "activate?email") !== false:
             include('./aktivalas/aktivalas.php');
             break;
-        case strpos($request, "passwordreset?email") !== false: 
+        case strpos($request, "passwordreset?email") !== false:
             if (isset($_SESSION['username'])) {
                 include('./404/404.php');
-            }
-            else {
+            } else {
                 include('./aktivalas/setnewpassword.php');
             }
             break;
-        case $baseUrl.'/forgotpassword':
+        case $baseUrl . '/forgotpassword':
             if (isset($_SESSION['username'])) {
                 include('./404/404.php');
-            }
-            else {
+            } else {
                 include('./aktivalas/elfelejtettjelszo.php');
             }
             break;
@@ -449,7 +439,6 @@ if (isset($_POST['btn_send2'])) {
     }
 
     ?>
-
     <!-- <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script> -->
     <script src="<?php if ($mennyiper === ($baseMennyiper + 2)) {
                         echo '.';
@@ -461,7 +450,7 @@ if (isset($_POST['btn_send2'])) {
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
-    
+
 </body>
 
 </html>

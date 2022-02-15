@@ -58,8 +58,8 @@
             <?php
             if (isset($_SESSION['isadmin']) && $_SESSION['isadmin'] == '1') {
             } else {
-                echo '<li><a class="navlink" href="<?php echo $baseUrl; ?>/contactus"><i class="fas fa-envelope"></i> Contact Us</a></li>
-                    <li><a class="navlink" href="<?php echo $baseUrl; ?>/rating"><i class="fas fa-star-half-alt"></i> Rate Us</a></li>';
+                echo '<li><a class="navlink" href="'.$baseUrl.'/contactus"><i class="fas fa-envelope"></i> Contact Us</a></li>
+                    <li><a class="navlink" href="'.$baseUrl.'/rating"><i class="fas fa-star-half-alt"></i> Rate Us</a></li>';
             }
             ?>
         </div>
