@@ -126,7 +126,23 @@ a, a:hover {
   width: 100px;
 }
 
-@media screen and (min-width: 769px) {
+@media screen and (max-width: 1300px) {
+  .dark {
+    border-radius: 0;
+    margin-left: 0;
+    margin-right: 0;
+    width: 100%;
+  }
+  .dark .postcard {
+    width: 100% !important;
+    padding-top: 5vw;
+  }
+  .postcard .postcard__img {
+    max-height: 110%;
+  }
+}
+
+@media screen and (min-width: 900px) {
   .postcard {
     flex-wrap: inherit;
   }
