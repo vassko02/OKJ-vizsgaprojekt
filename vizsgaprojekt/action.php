@@ -12,7 +12,13 @@ if (isset($_POST['newacc'])) {
 }
 if (($request === $baseUrl . '/contactus' || $request === $baseUrl . '/contactusREPORT') && isset($_POST['btn_send']))
     if ($GuestObj->saveguestproblem($_POST) == 1) {
-
+        if (isset($_SESSION['username'])) {
+            $user =  $GuestObj->getuserbyid($_SESSION['username']);
+            $LogObj->savelog($_POST['firstname'],"Sent a report","User",$user['CustomerID']);
+        }
+        else{
+            $LogObj->savelog($_POST['firstname'],"Sent a report","User",0);
+        }
         header('Location: ' . $baseUrl . '/contactusREPORT');
     }
 $hiba = 0;
@@ -54,7 +60,8 @@ if ($request === $baseUrl . '/signin' && isset($_POST['login'])) {
         $_SESSION['username'] =  $felhasznalo['UserName'];
         $_SESSION['loginemail'] = $felhasznalo['Email'];
         $_SESSION['isadmin'] = $felhasznalo['IsAdmin'];
-
+        $user =  $GuestObj->getuserbyid($_SESSION['username']);
+        $LogObj->savelog($user['Name'],"Logged in","User",$user['CustomerID']);
         if (isset($_SESSION['loginemail']) && $_SESSION['isadmin'] == 1) {
             header('Location: ' . $baseUrl . '/admin');
         } else if ($_SESSION['loginemail']) {
@@ -101,8 +108,10 @@ if ($request === $baseUrl . '/signin' && isset($_POST['btn_reg'])) {
         $GuestObj->send_activation_email($_POST['email'], $emailcode, $baseUrl);
         if ($GuestObj->saveuser($_POST) == 1) {
             $id = $GuestObj->findcustomerbyemail($_POST['email']);
-            echo $id['CustomerID'];
+            
             $GuestObj->saveuser_activation_token($emailcode, $id['CustomerID']);
+        
+            $LogObj->savelog($_POST['name'],"Created an account","User",$id['CustomerID']);
 
 
             header('Location: ' . $baseUrl . '/signin/regconfirmed');

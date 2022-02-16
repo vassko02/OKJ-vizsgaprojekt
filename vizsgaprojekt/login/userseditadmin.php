@@ -54,7 +54,9 @@
           ;        
         }
         else{
+          $LogObj->savelog("admin","Edited a user","User",$_POST['CustomerID']);
         $GuestObj->updatecustomeradmin($_POST);
+
          echo '
          <div class="message" id="message">
          <div class="notif notif--success">
@@ -79,6 +81,7 @@
    
   
   if (isset($_POST['delete'])) {
+    $LogObj->savelog("admin","Deleted a user","User",$_POST['CustomerID']);
     $GuestObj->deleteuser($_POST['CustomerID']);
   }
   $users = $GuestObj->getallusers();

@@ -22,6 +22,17 @@ class Guest extends Dbconnect
 
     return $row;
   }
+  public function getuserbyidreal($id)
+  {
+    $sql = 'SELECT * FROM customer where customer.CustomerID = ?';
+    $stmt = $this->con->prepare($sql);
+    $stmt->bind_param("i", $id);
+    $stmt->execute();
+    $result = $stmt->get_result();
+    $row = $result->fetch_assoc();
+
+    return $row;
+  }
   public function savecustomer($adatok)
   {
     $sql = 'INSERT INTO customer (Name,PhoneNumber,Email,Address) VALUES (?,?,?,?)';
@@ -68,9 +79,8 @@ class Guest extends Dbconnect
   {
     $sql = 'INSERT INTO reports (GuestName,Email,Problem,date) VALUES (?,?,?,?)';
     $stmt = $this->con->prepare($sql);
-    $name = $adatok['firstname'] . ' ' . $adatok['lastname'];
     $date = date("Y-m-d H:i:s");
-    $stmt->bind_param("ssss", $name, $adatok['email'], $adatok['textarea'], $date);
+    $stmt->bind_param("ssss", $adatok['firstname'], $adatok['email'], $adatok['textarea'], $date);
     if ($stmt->execute()) {
       return 1;
     }

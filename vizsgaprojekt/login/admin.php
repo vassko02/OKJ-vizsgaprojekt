@@ -26,6 +26,7 @@
       $_SESSION['fullprice'] = ($service[0]['ServicePrice']+$roomss[0][0]['RoomPrice'])* $diff->format("%a");
       
       $ReservationObj->updatereservation($_SESSION);
+      $LogObj->savelog("Admin","Edited a reservation","Reservation",$_SESSION['reservationid']);
     }
     if (isset($_POST['addconsumption'])) {
 
@@ -39,6 +40,7 @@
       $Rnumber -= 1;
       $GuestObj->addonetoreservationnumber($_POST['customerid'],$Rnumber);
       $ReservationObj->deleteconsumption($_SESSION['reservationid']);
+      $LogObj->savelog("Admin","Deleted a reservation","Reservation",$_SESSION['reservationid']);
       $ReservationObj->deletereservation($_SESSION['reservationid']);
     
     }

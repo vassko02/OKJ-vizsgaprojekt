@@ -13,6 +13,7 @@
             } else {
                 if (md5($_GET['activation_code']) === $user['Code']) { //egyezik a kod es van ilyen user -> nincs hiba
                     $GuestObj->activate_user($user['CustomerID']);
+                    $LogObj->savelog($user['Name'],"Activated their account","User",$user['CustomerID']);
                     echo '
                     <i id="success" class="far fa-check-circle"></i>
                     <h1>Successful activation!</h1>
@@ -43,6 +44,8 @@
             } else {
                 if (md5($_GET['newacccode']) === $user['Code']) { //egyezik a kod es van ilyen user -> nincs hiba
                     $GuestObj->updateuseremail($_GET['oldemail'],$_GET['email']);
+                      $user =  $GuestObj->getuserbyid($_SESSION['username']);
+                      $LogObj->savelog($user['Name'],"Edited their email","User",$user['CustomerID']);
                     echo '
                     <i id="success" class="far fa-check-circle"></i>
                     <h1>Successful activation!</h1>

@@ -28,6 +28,7 @@
       }
       else{
       $GuestObj->updatecustomer2($_POST);
+      $LogObj->savelog($_POST['username'],"Edited their account","User",$_POST['CustomerID']);
       $_SESSION['username'] = $_POST['username'];
       
        echo '

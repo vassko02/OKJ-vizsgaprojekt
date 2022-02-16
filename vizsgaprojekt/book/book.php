@@ -47,7 +47,7 @@ if (isset($_POST['btn_srch'])) {
 
 	<div class="d-flex foglalashatter">
 		<div class="datas " id="box">
-			<form method="POST">
+			<form method="POST" accept="#PageHeaderTitle">
 				<div class="form-group div1 row">
 					<div class="first ">
 						<div class="second row">
@@ -107,7 +107,7 @@ if (isset($_POST['btn_srch'])) {
 					</div>
 				</div>
 				<div class="form-group div3">
-					<button class="btn src"  type="submit" name="btn_srch" ><a id="scrollaaa" href="#pageHeaderTitle" >Search rooms</a></button>
+					<button class="btn src"  type="submit" name="btn_srch" >Search Rooms</button>
 					<p id="error"><?php if ($error === true) {
 										echo 'Please provide valid dates!';
 									} else {

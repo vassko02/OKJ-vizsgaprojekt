@@ -5,7 +5,7 @@ define('VEDETT', 'igen');
 
 //szervernél: /~PeacefulParadise
 //localhostnál: /14aphp/OKJ-vizsgaprojekt/vizsgaprojekt
-$baseUrl = '/14aphp/friss/OKJ-vizsgaprojekt/vizsgaprojekt';
+$baseUrl = '/14aphp/legfrissebb/OKJ-vizsgaprojekt/vizsgaprojekt';
 $request = $_SERVER['REQUEST_URI']; //mindenkori url
 $mennyiper = substr_count($request, '/');
 $baseMennyiper = substr_count($baseUrl, '/');
@@ -22,6 +22,7 @@ include('models/service.php');
 include('models/reservation.php');
 include('models/help.php');
 include('models/storage.php');
+include('models/logs.php');
 include('models/email/mail.php');
 $ServiceObj = new Service();
 $GuestObj = new Guest();
@@ -30,10 +31,12 @@ $ReservationObj = new reservation();
 $HelpObj = new Help();
 $StorageObj = new storage();
 $MailObj = new mail();
+$LogObj = new Logs();
 include('action.php');
 
 if (isset($_POST['btn_send'])) {
-    $user = $GuestObj->getuserbyid($_SESSION['username']);
+    if (isset($_SESSION['username'])) {
+        $user = $GuestObj->getuserbyid($_SESSION['username']);
     $level =  $GuestObj->getlevel($user['CustomerID']);
     switch ($level['LEVEL']) {
         case "Gold":
@@ -54,6 +57,7 @@ if (isset($_POST['btn_send'])) {
             $_SESSION['multiplier'] = 1;
             $_SESSION['discount'] = 0;
             break;
+    }
     }
 }
 if (isset($_POST['btn_send2'])) {
@@ -83,7 +87,10 @@ if (isset($_POST['btn_send2'])) {
         }
 
         $ReservationObj->savereservation($_SESSION);
-
+        $user = $GuestObj->getuserbyidreal($_SESSION['customerid']);
+        $lastres = $ReservationObj->getlastinsertedreservation();
+        $LogObj->savelog($user['Name'],"Created a reservation","Reservation",$lastres[0]['ReservationID']);
+        $LogObj->savelog($user['Name'],"Created a reservation","User",$lastres[0]['CustomerID']);
         $HelpObj->clearReservation();
     } else {
     }

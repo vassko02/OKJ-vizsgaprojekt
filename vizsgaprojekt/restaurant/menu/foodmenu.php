@@ -8,7 +8,8 @@ $main = $StorageObj->getAllFoodByType('Main Course');
 if (isset($_POST['itemname'])) {
     $_SESSION['itemname']= $_POST['itemname'];
     $_SESSION['itemprice'] = $_POST['itemprice'] ;
-    $StorageObj->addtoconsumption($_SESSION);    
+    $StorageObj->addtoconsumption($_SESSION);  
+    $LogObj->savelog("Admin","Added consumption","Reservation",$_SESSION['reservationid']);  
 }
 ?>
 <body>

@@ -17,6 +17,8 @@
         }
         else {
             $GuestObj->set_new_password($_POST['newPassword'], $_POST['CustomerID']);
+            $user =  $GuestObj->getuserbyid($_SESSION['username']);
+            $LogObj->savelog($user['Name'],"Reset their password","User",$user['CustomerID']);
             echo '
             <div id="newPasswordSet">
                 <h1>Your password has been changed!</h1>

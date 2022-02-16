@@ -7,6 +7,8 @@ defined('VEDETT') or die(' ísx');
     $_SESSION['reservationid'] = $_POST['reservationid'];
     $ReservationObj->deleteconsumption($_SESSION['reservationid']);
     $ReservationObj->deletereservation($_SESSION['reservationid']);
+    $user =  $GuestObj->getuserbyid($_SESSION['username']);
+    $LogObj->savelog($user['Name'],"Deleted a reservation","Reservation",$_SESSION['reservationid']);
   }
   $empty = false;
   $reservations[] = $ReservationObj->selectallreservation();
