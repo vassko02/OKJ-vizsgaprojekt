@@ -6,6 +6,22 @@ body {
   font-weight: initial;
 }
 
+.booknow {
+  color: white;
+  border: 3px solid #C5B358;
+  background-color: hsl(0, 0%, 20%);
+  font-family: 'Be Vietnam Pro', sans-serif;
+  border-radius: 20px;
+  letter-spacing: 1px;
+  padding: 10px 43px;
+  transition: 0.3s;
+  text-transform: uppercase;
+}
+.booknow:hover {
+  background-color: #C5B358;
+  transition: 0.3s;
+}
+
 .dark {
   border: 0px solid #C5B358;
   border-radius: 50px;
