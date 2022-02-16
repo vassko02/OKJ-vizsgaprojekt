@@ -63,7 +63,7 @@ namespace Recepcio_alkalmazas.pages
                 fogyasztasok = consumption.selectItemByReservationID(id);
                 dg_fogyasztas.DataContext = fogyasztasok;
                 arfrissit(id);
-                log.callInsertIntoLog("admin","Added consumption","Reservation",valasztottres.ReservationID);
+                log.callInsertIntoLog("Admin","Added consumption","Reservation",valasztottres.ReservationID);
             }
         }
 
@@ -76,7 +76,7 @@ namespace Recepcio_alkalmazas.pages
                 consumption.delete(id);
                 reservation valasztottres = (reservation)dg_nevek.SelectedItem;
                 int id2 = valasztottres.ReservationID;
-                log.callInsertIntoLog("admin", "Deleted consumption", "Reservation", valasztottres.ReservationID);
+                log.callInsertIntoLog("Admin", "Deleted consumption", "Reservation", valasztottres.ReservationID);
                 fogyasztasok = consumption.selectItemByReservationID(id2);
                 dg_fogyasztas.DataContext = fogyasztasok;
                 arfrissit(id2);

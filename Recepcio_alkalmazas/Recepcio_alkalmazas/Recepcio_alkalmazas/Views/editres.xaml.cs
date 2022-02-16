@@ -130,7 +130,6 @@ namespace Recepcio_alkalmazas.Views
                     teszelt = true;
                     vanolyanszoba = false;
                 }
-
                 aktualis.Price = (aktualis.RoomPrice + aktualis.ServicePrice) * napok * szorzo;
                 string x = aktualis.Price.ToString("F2");
                 aktualis.Price = double.Parse(x);
@@ -179,7 +178,7 @@ namespace Recepcio_alkalmazas.Views
             }
             if (editlesz == true && vanerror == false)
             {
-                log.callInsertIntoLog("admin","Edited reservation","Reservation",aktualis.ReservationID);
+                log.callInsertIntoLog("Admin","Edited reservation","Reservation",aktualis.ReservationID);
                 reservation.update(aktualis);
                 DialogResult = true;
                 this.Close();
@@ -188,8 +187,7 @@ namespace Recepcio_alkalmazas.Views
             {
                 int count = reservation.selectCountByGuestID(aktualis.CustomerID);
                 int x=reservation.insert(aktualis);
-                log.callInsertIntoLog("admin", "Added a new reservation", "User", aktualis.CustomerID);
-                log.callInsertIntoLog("admin", "Added a new reservation", "Reservation", x);
+                log.callInsertIntoLog("Admin", "Added a new reservation", "Reservation", x);
                 egyuser = customer.selectuserByID(aktualis.CustomerID)[0];
                 if (egyuser.activated_at != "")
                 {

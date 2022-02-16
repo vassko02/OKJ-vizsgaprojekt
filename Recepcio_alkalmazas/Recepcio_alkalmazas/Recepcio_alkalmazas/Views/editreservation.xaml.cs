@@ -59,8 +59,8 @@ namespace Recepcio_alkalmazas.pages
                                 egyuser.Level = "";
                             }
                             customer.updateResNumber(egyuser.CustomerID, count - 1,egyuser.Level);
+                            log.callInsertIntoLog("Admin", "Deleted reservation", "Reservation", egyfoglalas.ReservationID);
                             consumption.deleteBYREsID(egyfoglalas.ReservationID);
-                            //log.callInsertIntoLog("admin", "Deleted reservation", "Reservation", 0);
                             reservation.delete(egyfoglalas.ReservationID);
                             tb_guestinput.Text = "";
                             foglalasok = reservation.selectByGuestName(null, 0, true);
@@ -80,7 +80,7 @@ namespace Recepcio_alkalmazas.pages
                             egyuser.Level = "";
                         }
                         customer.updateResNumber(egyuser.CustomerID, count - 1, egyuser.Level);
-                        //log.callInsertIntoLog("admin", "Deleted reservation", "Reservation", 0);
+                        log.callInsertIntoLog("Admin", "Deleted reservation", "Reservation", egyfoglalas.ReservationID);
                         reservation.delete(egyfoglalas.ReservationID);
                         tb_guestinput.Text = "";
                         foglalasok = reservation.selectByGuestName(null, 0, true);
