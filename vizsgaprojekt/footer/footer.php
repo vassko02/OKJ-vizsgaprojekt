@@ -60,7 +60,7 @@
     <div class="copyright-area">
         <div class="container">
             <div class="row">
-                <div class="col-xl-12 col-lg-12 text-center text-lg-left">
+                <div class="col-xl-12 col-lg-12 text-center">
                     <div class="copyright-text">
                         <p> &copy; 2022 Peaceful Paradise All Right Reserved</p>
                     </div>

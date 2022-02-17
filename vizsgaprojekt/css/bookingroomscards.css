@@ -9,25 +9,34 @@ body {
 .booknow {
   color: white;
   border: 3px solid #C5B358;
-  background-color: hsl(0, 0%, 20%);
+  background: rgba(0, 0, 0, 0.3);
   font-family: 'Be Vietnam Pro', sans-serif;
   border-radius: 20px;
   letter-spacing: 1px;
   padding: 10px 43px;
   transition: 0.3s;
   text-transform: uppercase;
+  margin-top: 2vw;
 }
 .booknow:hover {
   background-color: #C5B358;
   transition: 0.3s;
 }
-
+.postcard__subtitle {
+  font-size: 1.4rem;
+  font-style: italic;
+}
+.postcard__subtitle p {
+  margin-bottom: 0;
+}
+#roomprice {
+  
+}
 .dark {
   border: 0px solid #C5B358;
-  border-radius: 50px;
-  background: #110f16;
+  background: linear-gradient(90deg, rgba(60,60,60,1) 0%, rgba(50,50,50,1) 50%, rgba(30,30,30,1) 100%) !important;
   margin: auto;
-  width: 80vw;
+  width: 100%;
   padding-left: 5vw;
   padding-right: 5vw;
   margin-bottom: 10vh !important;
@@ -47,21 +56,27 @@ a, a:hover {
 /* Cards */
 .postcard {
   width: 65vw !important;
+  padding: 3vw;
   flex-wrap: wrap;
   display: flex;
-  box-shadow: 0 4px 21px -12px rgba(0, 0, 0, 0.66);
-  border-radius: 10px;
-  margin: 0 0 2rem 0;
+  box-shadow: 0 7px 20px 0px rgba(0,0,0,0.6);
+  border-radius: 20px;
   overflow: hidden;
   position: relative;
   color: #ffffff;
+  background: rgba(0, 0, 0, 1) !important;
+  transition: 0.3s;
+}
+.postcard:hover {
+  box-shadow: 0 7px 20px 0px rgba(0,0,0,0.9);
+  transition: 0.3s;
 }
 .postcard.dark {
-  background-color: #18151f;
+  background-color: hsl(0, 0%, 10%);
 }
 
 .postcard .t-dark {
-  color: #18151f;
+  color: hsl(0, 0%, 10%);
 }
 .postcard a {
   color: inherit;
@@ -85,11 +100,12 @@ a, a:hover {
 }
 .postcard .postcard__img_link {
   display: contents;
+  cursor: pointer;
 }
 .postcard .postcard__bar {
-  width: 50px;
+  width: 100px;
   height: 10px;
-  margin: 10px 0;
+  margin: 15px 0;
   border-radius: 5px;
   background-color: #424242;
   transition: width 0.2s ease;
@@ -139,12 +155,15 @@ a, a:hover {
   border-radius: 10px;
 }
 .postcard:hover .postcard__bar {
-  width: 100px;
+  width: 200px;
 }
+.postcard:hover .postcard__title {
+  color: #C5B358;
+}
+
 
 @media screen and (max-width: 1300px) {
   .dark {
-    border-radius: 0;
     margin-left: 0;
     margin-right: 0;
     width: 100%;
@@ -156,6 +175,14 @@ a, a:hover {
   .postcard .postcard__img {
     max-height: 110%;
   }
+  .postcard {
+    padding-bottom: 5vw;
+  }
+}
+@media screen and (max-width: 900px){
+  .postcard__text form {
+    text-align: center;
+  }
 }
 
 @media screen and (min-width: 900px) {
@@ -164,6 +191,9 @@ a, a:hover {
   }
   .postcard .postcard__title {
     font-size: 2rem;
+    transition: 0.3s;
+    font-family: "Be Vietnam Pro",  sans-serif;
+    cursor: default;
   }
   .postcard .postcard__tagbox {
     justify-content: start;
@@ -174,14 +204,16 @@ a, a:hover {
     transition: transform 0.3s ease;
   }
   .postcard .postcard__text {
-    padding: 3rem;
+    padding: 0;
+    padding-right: 3.5rem;
+    padding-left: 3.5rem;
     width: 100%;
   }
   .postcard .media.postcard__text:before {
     content: "";
     position: absolute;
     display: block;
-    background: #18151f;
+    background: hsl(0, 0%, 10%);
     top: -20%;
     height: 130%;
     width: 55px;
@@ -219,7 +251,7 @@ a, a:hover {
   }
 
   .postcard.dark .postcard__text:before {
-    background: #18151f;
+    background: rgba(0, 0, 0, 1);
   }
 
   .postcard.light .postcard__text:before {
@@ -227,20 +259,21 @@ a, a:hover {
   }
 }
 .blue .postcard__title:hover {
-  color: #0076bd;
+  transition: 0.3s;
 }
 
 .blue .postcard__bar {
-  background-color: #0076bd;
+  background-color: rgb(197, 179, 88);
 }
 
 .blue::before {
-  background-image: linear-gradient(-30deg, rgba(5, 141, 226, 0.1), transparent 50%);
+  background-image: linear-gradient(-30deg, rgba(197, 179, 88, 0.4), transparent 50%) !important;
 }
 
 .blue:nth-child(2n)::before {
-  background-image: linear-gradient(30deg, rgba(0, 118, 189, 0.1), transparent 50%);
+  background-image: linear-gradient(30deg, rgba(197, 179, 88, 0.4), transparent 50%) !important;
 }
+
 
 .postcard .postcard__tagbox .red.play:hover {
   background: #bd150b;

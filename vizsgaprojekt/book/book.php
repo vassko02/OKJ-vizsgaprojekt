@@ -47,7 +47,7 @@ if (isset($_POST['btn_srch'])) {
 
 	<div class="d-flex foglalashatter">
 		<div class="datas " id="box">
-			<form method="POST" accept="#PageHeaderTitle">
+			<form method="POST" action="#pageHeaderTitle">
 				<div class="form-group div1 row">
 					<div class="first ">
 						<div class="second row">
@@ -161,10 +161,9 @@ if (isset($_POST['btn_srch'])) {
 <!-- 	 -->
 <section class="dark hatter mt-5" id="osszesszoba">
 	<div class=" py-4">
-		<h1 class="h1 text-center" id="pageHeaderTitle">Our Rooms</h1>
 		<?php
 		if (isset($_POST['btn_srch']) && isset($_SESSION['checkin'])) {
-
+			
 			// $_POST = array();
 			//  echo ('<pre>');
 			// print_r($_POST);
@@ -174,6 +173,9 @@ if (isset($_POST['btn_srch'])) {
 					<p id="sorry">We dont have any available room at the moment :(</p>
 				';
 			}
+			else {
+				echo '<h1 class="h1 text-center" id="pageHeaderTitle">Available Rooms</h1>';
+			}
 			//rendezés szobaár alapján
 			$price = array();
 			foreach ($filteredrooms as $key => $row) {
@@ -181,6 +183,7 @@ if (isset($_POST['btn_srch'])) {
 			}
 			array_multisort($price, SORT_ASC, $filteredrooms);
 			foreach ($filteredrooms as $room) {
+				$attributes = explode(";", $room['attributes']);
 				echo '
 			
 				<article class="postcard dark blue">
@@ -189,8 +192,9 @@ if (isset($_POST['btn_srch'])) {
 				</a>
 				<div class="postcard__text">
 					<h1 class="postcard__title blue">' . $room['RoomName'] . '</h1>
-					<div class="postcard__subtitle medium">
+					<div class="postcard__subtitle medium d-flex">
 						<p class="mr-2">Room capacity: ' . $room['Capacity'] . '</p>
+						<p id="roomprice">| $' . $room['RoomPrice'] . '/night</p>
 					</div>
 					<div class="postcard__bar"></div>
 					<div class="postcard__preview-txt">' . $room['Description'] . '</div>';
@@ -198,7 +202,7 @@ if (isset($_POST['btn_srch'])) {
 				echo '
 					<ul class="postcard__tagbox ">
 					<li class="tag__item play blue ">
-						<i class="fa-solid fa-maximize"></i> ' . $room['size'] . ' square-meters
+						<i class="fa-solid fa-maximize"></i> ' . $room['size'] . ' m<sup>2</sup>
 					</li>
 					<li class="tag__item play blue ">
 						<i class="fa-solid fa-wifi"></i> Free Wifi
@@ -215,28 +219,68 @@ if (isset($_POST['btn_srch'])) {
 						<i class="fa-solid fa-smoking"></i> Smoking
 					</li>';
 				}
-				echo '
-					<li class="tag__item play blue ">
-						<i class="fa-solid fa-tv"></i> 4K TV
-					</li>
-					<li class="tag__item play blue ">
-						<i class="fa-solid fa-snowflake"></i> Air Conditioner
-					</li>
-					<li class="tag__item play blue ">
-						<i class="fa-solid fa-mug-hot"></i> Coffee Maker
-					</li>
-					<li class="tag__item play blue ">
-					<i class="fa-solid fa-cloud-sun"></i> Own Balcony
-					</li>
-				';
+				//flatTV, Air Conditioner, Coffee Maker, 4K TV, Smart Fridge, Balcony, Smart Room, Movie Theatre, Jacuzzi, Champagne 
+				foreach ($attributes as $attribute)
+				{
+					//echo $attribute;
+					if ($attribute === 'aircon') {
+						echo '<li class="tag__item play blue">
+							<i class="fa-solid fa-snowflake"></i> Air Conditioner
+						</li>';
+					}
+					else if ($attribute === 'flattv') {
+						echo '
+						<li class="tag__item play blue">
+							<i class="fa-solid fa-tv"></i> Flat TV
+						</li>';
+					}
+					else if ($attribute === '4ktv') {
+						echo '
+						<li class="tag__item play blue">
+							<i class="fa-solid fa-tv"></i> 4K TV
+						</li>';
+					}
+					else if ($attribute === 'movietheatre') {
+						echo '
+						<li class="tag__item play blue">
+							<i class="fa-solid fa-film"></i> Movie Theatre
+						</li>';
+					}
+					else if ($attribute === 'coffeemaker') {
+						echo '<li class="tag__item play blue">
+							<i class="fa-solid fa-mug-hot"></i> Coffee Maker
+						</li>';
+					}
+					else if ($attribute === 'smartfridge') {
+						echo '<li class="tag__item play blue">
+							<i class="fa-solid fa-satellite-dish"></i> Smart Fridge
+						</li>';
+					}
+					else if ($attribute === 'smartroom') {
+						echo '<li class="tag__item play blue">
+							<i class="fa-solid fa-microchip"></i> Smart Room
+						</li>';
+					}
+					else if ($attribute === 'jacuzzi') {
+						echo '<li class="tag__item play blue ">
+							<i class="fa-solid fa-hot-tub-person"></i> Own Jacuzzi
+						</li>';
+					}
+					else if ($attribute === 'balcony') {
+						echo '<li class="tag__item play blue ">
+							<i class="fa-solid fa-cloud-sun"></i> Own Balcony
+						</li>';
+					}
+					else if ($attribute === 'champagne') {
+						echo '<li class="tag__item play blue ">
+							<i class="fa-solid fa-champagne-glasses"></i> Pre-Chilled Champagne
+						</li>';
+					}
+				}
 				echo '		
 					</ul>
-					<h3>$' . $room['RoomPrice'] . '/night</h3>
 					<form action="' . $baseUrl . '/booking/roomdetail"  method="post">
-					<button type="submit" class="btn text-light" "><i class="fas"></i><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-bookmarks-fill" viewBox="0 0 16 16">
-					<path d="M2 4a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v11.5a.5.5 0 0 1-.777.416L7 13.101l-4.223 2.815A.5.5 0 0 1 2 15.5V4z" />
-					<path d="M4.268 1A2 2 0 0 1 6 0h6a2 2 0 0 1 2 2v11.5a.5.5 0 0 1-.777.416L13 13.768V2a1 1 0 0 0-1-1H4.268z" />
-					</svg> Book now</button>
+					<button type="submit" class="booknow"><i class="fa-solid fa-bookmark"></i>&nbsp; Book now</button>
 					<input type="hidden" id="Roomid" name="Roomid" value="' . $room['RoomID'] . '">
 					</form>
 				</div>
@@ -247,12 +291,14 @@ if (isset($_POST['btn_srch'])) {
 				//SELECT RoomName,Description,Capacity,RoomPrice,size FROM `room` group by RoomName
 			}
 		} else {
+			echo '<h1 class="h1 text-center" id="pageHeaderTitle">Our Rooms</h1>';
 			$price = array();
 			foreach ($Roomslist as $key => $row) {
 				$price[$key] = $row['RoomPrice'];
 			}
 			array_multisort($price, SORT_ASC, $Roomslist);
 			foreach ($Roomslist as $room) {
+				$attributes = explode(";", $room['attributes']);
 				echo '
 				<article class="postcard dark blue">
 				<a class="postcard__img_link" >
@@ -262,14 +308,13 @@ if (isset($_POST['btn_srch'])) {
 					<h1 class="postcard__title blue"><a href="#">' . $room['RoomName'] . '</a></h1>
 					<div class="postcard__subtitle medium">
 					<p class="mr-2">Room capacity: ' . $room['Capacity'] . '</p>
-
 					</div>
 					<div class="postcard__bar"></div>
 					<div class="postcard__preview-txt">' . $room['Description'] . '</div>';
 				echo '
 					<ul class="postcard__tagbox ">
 					<li class="tag__item play blue ">
-						<i class="fa-solid fa-maximize"></i> ' . $room['size'] . ' square-meters
+						<i class="fa-solid fa-maximize"></i> ' . $room['size'] . ' m<sup>2</sup>
 					</li>
 					<li class="tag__item play blue ">
 						<i class="fa-solid fa-wifi"></i> Free Wifi
@@ -285,6 +330,63 @@ if (isset($_POST['btn_srch'])) {
 					<li class="tag__item play blue ">
 						<i class="fa-solid fa-smoking"></i> Smoking
 					</li>';
+				}
+				foreach ($attributes as $attribute)
+				{
+					//echo $attribute;
+					if ($attribute === 'aircon') {
+						echo '<li class="tag__item play blue">
+							<i class="fa-solid fa-snowflake"></i> Air Conditioner
+						</li>';
+					}
+					else if ($attribute === 'flattv') {
+						echo '
+						<li class="tag__item play blue">
+							<i class="fa-solid fa-tv"></i> Flat TV
+						</li>';
+					}
+					else if ($attribute === '4ktv') {
+						echo '
+						<li class="tag__item play blue">
+							<i class="fa-solid fa-tv"></i> 4K TV
+						</li>';
+					}
+					else if ($attribute === 'movietheatre') {
+						echo '
+						<li class="tag__item play blue">
+							<i class="fa-solid fa-film"></i> Movie Theatre
+						</li>';
+					}
+					else if ($attribute === 'coffeemaker') {
+						echo '<li class="tag__item play blue">
+							<i class="fa-solid fa-mug-hot"></i> Coffee Maker
+						</li>';
+					}
+					else if ($attribute === 'smartfridge') {
+						echo '<li class="tag__item play blue">
+							<i class="fa-solid fa-satellite-dish"></i> Smart Fridge
+						</li>';
+					}
+					else if ($attribute === 'smartroom') {
+						echo '<li class="tag__item play blue">
+							<i class="fa-solid fa-microchip"></i> Smart Room
+						</li>';
+					}
+					else if ($attribute === 'jacuzzi') {
+						echo '<li class="tag__item play blue ">
+							<i class="fa-solid fa-hot-tub-person"></i> Own Jacuzzi
+						</li>';
+					}
+					else if ($attribute === 'balcony') {
+						echo '<li class="tag__item play blue ">
+							<i class="fa-solid fa-cloud-sun"></i> Own Balcony
+						</li>';
+					}
+					else if ($attribute === 'champagne') {
+						echo '<li class="tag__item play blue ">
+							<i class="fa-solid fa-champagne-glasses"></i> Pre-Chilled Champagne
+						</li>';
+					}
 				}
 				echo '
 				</div>
