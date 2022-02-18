@@ -1663,6 +1663,9 @@ class Guest extends Dbconnect
     $row = $user->fetch_assoc();
 
     if ($row != null) {
+      if ($row['expired'] == 1) {
+        return "expiredtoken";
+      }
       if (md5($newacctoken) === $row['Code']) {
         return $row;
       }
