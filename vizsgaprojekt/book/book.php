@@ -45,90 +45,96 @@ if (isset($_POST['btn_srch'])) {
 
 ?>
 
-	<div class="d-flex foglalashatter">
-		<div class="datas " id="box">
-			<form method="POST" action="#pageHeaderTitle">
-				<div class="form-group div1 row">
-					<div class="first ">
-						<div class="second row">
-							<div class="third col-lg-4 col-sm-6">
-								<label class="col-form-label" for="adultsnumber">Number of adults</label>
-							</div>
-							<div class="third col-lg-8 col-sm-6">
-								<input class="form-control" required value="<?php if (isset($_SESSION['adult'])) {
-																				echo $_SESSION['adult'];
-																			} else {
-																				echo 2;
-																			} ?>" type="number" name="adultnumber" id="adultsnumber" placeholder="Adults">
-							</div>
+<div class="d-flex foglalashatter">
+	<div class="datas " id="box">
+		<form method="POST" action="#pageHeaderTitle">
+			<div class="form-group div1 row">
+				<div class="first ">
+					<div class="second row">
+						<div class="third col-lg-4 col-sm-6">
+							<label class="col-form-label" for="adultsnumber">Adults</label>
 						</div>
-					</div>
-					<div class="first ">
-						<div class="second row">
-							<div class="third col-lg-4 col-sm-6">
-								<label class="col-form-label" for="childrennumber">Number of children</label>
-							</div>
-							<div class="third col-lg-8 col-sm-6">
-								<input class="form-control" required value="<?php if (isset($_SESSION['children'])) {
-																				echo $_SESSION['children'];
-																			} else {
-																				echo 0;
-																			} ?>" type="number" name="childrennumber" id="childrennumber" placeholder="Children">
-							</div>
-						</div>
-					</div>
-					<div class="first">
-						<div class="second row">
-							<div class="third col-lg-4 col-sm-6">
-								<label class="col-form-label" for="arrivaldate">Check-in</label>
-							</div>
-							<div class="third col-lg-8 col-sm-6">
-								<input type="date" required value="<?php if (isset($_SESSION['checkin'])) {
-																		echo $_SESSION['checkin'];
-																	} else {
-																		echo date('2022-04-20');
-																	} ?>" class="form-control " name="checkin" id="arrivaldate">
-							</div>
-						</div>
-					</div>
-					<div class="first">
-						<div class="second row">
-							<div class="third col-lg-4 col-sm-6">
-								<label class="col-form-label" for="leavingdate">Check-out</label>
-							</div>
-							<div class="third col-lg-8 col-sm-6">
-								<input type="date" required value="<?php if (isset($_SESSION['checkout'])) {
-																		echo $_SESSION['checkout'];
-																	} else {
-																		echo date('2022-04-25');
-																	} ?>" class="form-control " name="checkout" id="leavingdate">
-							</div>
+						<div class="third col-lg-8 col-sm-6">
+							<input class="form-control" required value="<?php if (isset($_SESSION['adult'])) {
+																			echo $_SESSION['adult'];
+																		} else {
+																			echo 2;
+																		} ?>" type="number" name="adultnumber" id="adultsnumber" placeholder="Adults">
 						</div>
 					</div>
 				</div>
-				<div class="form-group div3">
-					<button class="btn src"  type="submit" name="btn_srch" >Search Rooms</button>
-					<p id="error"><?php if ($error === true) {
-										echo 'Please provide valid dates!';
-									} else {
-									} ?></p>
-					<p id="error"><?php if ($guestnumbererror === true) {
-										echo 'Please provide valid numbers!';
-									} else {
-									} ?></p>
-					<!-- <button class="learn-more btn" type="submit" name="btn_srch" id="button">
+				<div class="first ">
+					<div class="second row">
+						<div class="third col-lg-4 col-sm-6">
+							<label class="col-form-label" for="childrennumber">Children</label>
+						</div>
+						<div class="third col-lg-8 col-sm-6">
+							<input class="form-control" required value="<?php if (isset($_SESSION['children'])) {
+																			echo $_SESSION['children'];
+																		} else {
+																			echo 0;
+																		} ?>" type="number" name="childrennumber" id="childrennumber" placeholder="Children">
+						</div>
+					</div>
+				</div>
+				<div class="first">
+					<div class="second row">
+						<div class="third col-lg-4 col-sm-6">
+							<label class="col-form-label" for="arrivaldate">Check-in</label>
+						</div>
+						<div class="third col-lg-8 col-sm-6">
+							<input type="date" required value="<?php if (isset($_SESSION['checkin'])) {
+																	echo $_SESSION['checkin'];
+																} else {
+																	echo date('2022-04-20');
+																} ?>" class="form-control " name="checkin" id="arrivaldate">
+						</div>
+					</div>
+				</div>
+				<div class="first">
+					<div class="second row">
+						<div class="third col-lg-4 col-sm-6">
+							<label class="col-form-label" for="leavingdate">Check-out</label>
+						</div>
+						<div class="third col-lg-8 col-sm-6">
+							<input type="date" required value="<?php if (isset($_SESSION['checkout'])) {
+																	echo $_SESSION['checkout'];
+																} else {
+																	echo date('2022-04-25');
+																} ?>" class="form-control " name="checkout" id="leavingdate">
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="form-group div3">
+				<button class="btn src" type="submit" name="btn_srch"><i class="fa-solid fa-magnifying-glass"></i> <span>Search Rooms</span></button>
+				<!-- <button class="learn-more" type="submit" name="btn_srch">
+					<span class="circle" aria-hidden="true">
+						<span class="icon arrow"><i class="fa-solid fa-magnifying-glass"></i></span>
+					</span>
+					<span class="button-text">Search</span>
+				</button> -->
+				<p id="error"><?php if ($error === true) {
+									echo 'Please provide valid dates!';
+								} else {
+								} ?></p>
+				<p id="error"><?php if ($guestnumbererror === true) {
+									echo 'Please provide valid numbers!';
+								} else {
+								} ?></p>
+				<!-- <button class="learn-more btn" type="submit" name="btn_srch" id="button">
 					<span class="circle" aria-hidden="true">
 						<span class="icon arrow"></span>
 					</span>
 					<a class="button-text"  href="">Search rooms</a>
 				</button> -->
-				</div>
-			</form>
-		</div>
-		<div class="rightside">
-					<h1 id="makeareservation" class="">
-						Make a reservation
-					</h1>
+			</div>
+		</form>
+	</div>
+	<div class="rightside">
+		<h1 id="makeareservation" class="">
+			Make a reservation
+		</h1>
 		<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
 			<ol class="carousel-indicators">
 				<li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
@@ -137,21 +143,21 @@ if (isset($_POST['btn_srch'])) {
 			</ol>
 			<div class="carousel-inner">
 				<div class="carousel-item active">
-						<p>With high ceilings and spacious lanais overlooking the ocean, these rooms incorporate patterns, textures and art inspired by the Vespucci coastline. You'll also receive exclusive Club Floor privileges including breakfast, a full-service bar, and private check-in and check-out.</p><br>
+					<p>With high ceilings and spacious lanais overlooking the ocean, these rooms incorporate patterns, textures and art inspired by the Vespucci coastline. You'll also receive exclusive Club Floor privileges including breakfast, a full-service bar, and private check-in and check-out.</p><br>
 				</div>
 				<div class="carousel-item">
-								<p>Through our Complete Suite Experience, you’ll benefit from a heightened level of service, amenities and privacy while taking in idyllic views of Vespucci Beach from your oceanfront suite. </p><br>
+					<p>Through our Complete Suite Experience, you’ll benefit from a heightened level of service, amenities and privacy while taking in idyllic views of Vespucci Beach from your oceanfront suite. </p><br>
 				</div>
 				<div class="carousel-item">
 					<p>The Elite suites are our newest oceanfront suites, offering sensational views of the Pacific Ocean and islands beyond. Enjoy special services and amenities including a remarkable wine collection, a personal assistant and more.</p><br>
-				
+
 				</div>
 			</div>
-		
-			</div>
-					</div>
-	
+
+		</div>
 	</div>
+
+</div>
 
 <?php
 // echo ('<pre>');
@@ -163,7 +169,7 @@ if (isset($_POST['btn_srch'])) {
 	<div class=" py-4">
 		<?php
 		if (isset($_POST['btn_srch']) && isset($_SESSION['checkin'])) {
-			
+
 			// $_POST = array();
 			//  echo ('<pre>');
 			// print_r($_POST);
@@ -172,9 +178,11 @@ if (isset($_POST['btn_srch'])) {
 				echo '
 					<p id="sorry">We dont have any available room at the moment :(</p>
 				';
-			}
-			else {
-				echo '<h1 class="h1 text-center" id="pageHeaderTitle">Available Rooms</h1>';
+			} else {
+				echo '<div id="pageHeaderTitle">
+					<h1 class="h1 text-center">Available rooms</h1>
+					<p class="text-center">And current prices according to search</p>
+				</div>';
 			}
 			//rendezés szobaár alapján
 			$price = array();
@@ -220,58 +228,48 @@ if (isset($_POST['btn_srch'])) {
 					</li>';
 				}
 				//flatTV, Air Conditioner, Coffee Maker, 4K TV, Smart Fridge, Balcony, Smart Room, Movie Theatre, Jacuzzi, Champagne 
-				foreach ($attributes as $attribute)
-				{
+				foreach ($attributes as $attribute) {
 					//echo $attribute;
 					if ($attribute === 'aircon') {
 						echo '<li class="tag__item play blue">
 							<i class="fa-solid fa-snowflake"></i> Air Conditioner
 						</li>';
-					}
-					else if ($attribute === 'flattv') {
+					} else if ($attribute === 'flattv') {
 						echo '
 						<li class="tag__item play blue">
 							<i class="fa-solid fa-tv"></i> Flat TV
 						</li>';
-					}
-					else if ($attribute === '4ktv') {
+					} else if ($attribute === '4ktv') {
 						echo '
 						<li class="tag__item play blue">
 							<i class="fa-solid fa-tv"></i> 4K TV
 						</li>';
-					}
-					else if ($attribute === 'movietheatre') {
+					} else if ($attribute === 'movietheatre') {
 						echo '
 						<li class="tag__item play blue">
 							<i class="fa-solid fa-film"></i> Movie Theatre
 						</li>';
-					}
-					else if ($attribute === 'coffeemaker') {
+					} else if ($attribute === 'coffeemaker') {
 						echo '<li class="tag__item play blue">
 							<i class="fa-solid fa-mug-hot"></i> Coffee Maker
 						</li>';
-					}
-					else if ($attribute === 'smartfridge') {
+					} else if ($attribute === 'smartfridge') {
 						echo '<li class="tag__item play blue">
 							<i class="fa-solid fa-satellite-dish"></i> Smart Fridge
 						</li>';
-					}
-					else if ($attribute === 'smartroom') {
+					} else if ($attribute === 'smartroom') {
 						echo '<li class="tag__item play blue">
 							<i class="fa-solid fa-microchip"></i> Smart Room
 						</li>';
-					}
-					else if ($attribute === 'jacuzzi') {
+					} else if ($attribute === 'jacuzzi') {
 						echo '<li class="tag__item play blue ">
 							<i class="fa-solid fa-hot-tub-person"></i> Own Jacuzzi
 						</li>';
-					}
-					else if ($attribute === 'balcony') {
+					} else if ($attribute === 'balcony') {
 						echo '<li class="tag__item play blue ">
 							<i class="fa-solid fa-cloud-sun"></i> Own Balcony
 						</li>';
-					}
-					else if ($attribute === 'champagne') {
+					} else if ($attribute === 'champagne') {
 						echo '<li class="tag__item play blue ">
 							<i class="fa-solid fa-champagne-glasses"></i> Pre-Chilled Champagne
 						</li>';
@@ -291,7 +289,7 @@ if (isset($_POST['btn_srch'])) {
 				//SELECT RoomName,Description,Capacity,RoomPrice,size FROM `room` group by RoomName
 			}
 		} else {
-			echo '<h1 class="h1 text-center" id="pageHeaderTitle">Our Rooms</h1>';
+			echo '<h1 class="h1 text-center" id="pageHeaderTitle">All types of our rooms</h1>';
 			$price = array();
 			foreach ($Roomslist as $key => $row) {
 				$price[$key] = $row['RoomPrice'];
@@ -331,58 +329,48 @@ if (isset($_POST['btn_srch'])) {
 						<i class="fa-solid fa-smoking"></i> Smoking
 					</li>';
 				}
-				foreach ($attributes as $attribute)
-				{
+				foreach ($attributes as $attribute) {
 					//echo $attribute;
 					if ($attribute === 'aircon') {
 						echo '<li class="tag__item play blue">
 							<i class="fa-solid fa-snowflake"></i> Air Conditioner
 						</li>';
-					}
-					else if ($attribute === 'flattv') {
+					} else if ($attribute === 'flattv') {
 						echo '
 						<li class="tag__item play blue">
 							<i class="fa-solid fa-tv"></i> Flat TV
 						</li>';
-					}
-					else if ($attribute === '4ktv') {
+					} else if ($attribute === '4ktv') {
 						echo '
 						<li class="tag__item play blue">
 							<i class="fa-solid fa-tv"></i> 4K TV
 						</li>';
-					}
-					else if ($attribute === 'movietheatre') {
+					} else if ($attribute === 'movietheatre') {
 						echo '
 						<li class="tag__item play blue">
 							<i class="fa-solid fa-film"></i> Movie Theatre
 						</li>';
-					}
-					else if ($attribute === 'coffeemaker') {
+					} else if ($attribute === 'coffeemaker') {
 						echo '<li class="tag__item play blue">
 							<i class="fa-solid fa-mug-hot"></i> Coffee Maker
 						</li>';
-					}
-					else if ($attribute === 'smartfridge') {
+					} else if ($attribute === 'smartfridge') {
 						echo '<li class="tag__item play blue">
 							<i class="fa-solid fa-satellite-dish"></i> Smart Fridge
 						</li>';
-					}
-					else if ($attribute === 'smartroom') {
+					} else if ($attribute === 'smartroom') {
 						echo '<li class="tag__item play blue">
 							<i class="fa-solid fa-microchip"></i> Smart Room
 						</li>';
-					}
-					else if ($attribute === 'jacuzzi') {
+					} else if ($attribute === 'jacuzzi') {
 						echo '<li class="tag__item play blue ">
 							<i class="fa-solid fa-hot-tub-person"></i> Own Jacuzzi
 						</li>';
-					}
-					else if ($attribute === 'balcony') {
+					} else if ($attribute === 'balcony') {
 						echo '<li class="tag__item play blue ">
 							<i class="fa-solid fa-cloud-sun"></i> Own Balcony
 						</li>';
-					}
-					else if ($attribute === 'champagne') {
+					} else if ($attribute === 'champagne') {
 						echo '<li class="tag__item play blue ">
 							<i class="fa-solid fa-champagne-glasses"></i> Pre-Chilled Champagne
 						</li>';
@@ -427,7 +415,7 @@ if (isset($_POST['btn_srch'])) {
 		<div id="caption"></div>
 	</div>
 </section>
- 
+
 <?php
 foreach ($Roomslist as $room) {
 	echo '

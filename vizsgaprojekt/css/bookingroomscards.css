@@ -29,9 +29,6 @@ body {
 .postcard__subtitle p {
   margin-bottom: 0;
 }
-#roomprice {
-  
-}
 .dark {
   border: 0px solid #C5B358;
   background: linear-gradient(90deg, rgba(60,60,60,1) 0%, rgba(50,50,50,1) 50%, rgba(30,30,30,1) 100%) !important;
@@ -47,10 +44,16 @@ a, a:hover {
 }
 
 #pageHeaderTitle {
-  margin: 2rem 0;
-  text-transform: uppercase;
+  margin: 2.5rem 0;
   text-align: center;
+  font-family: "Be Vietnam Pro",  sans-serif;
+}
+#pageHeaderTitle h1 {
+  text-transform: uppercase;
   font-size: 2.5rem;
+}
+#pageHeaderTitle p {
+  font-size: 2rem;
 }
 
 /* Cards */
@@ -68,7 +71,7 @@ a, a:hover {
   transition: 0.3s;
 }
 .postcard:hover {
-  box-shadow: 0 7px 20px 0px rgba(0,0,0,0.9);
+  transform: scale(1.05);
   transition: 0.3s;
 }
 .postcard.dark {
@@ -183,6 +186,10 @@ a, a:hover {
   .postcard__text form {
     text-align: center;
   }
+  .dark {
+    padding-left: 2vw;
+    padding-right: 2vw;
+  }
 }
 
 @media screen and (min-width: 900px) {
@@ -251,7 +258,7 @@ a, a:hover {
   }
 
   .postcard.dark .postcard__text:before {
-    background: rgba(0, 0, 0, 1);
+    background: linear-gradient(356deg, rgba(5,5,2,1) 0%, rgba(6,6,3,1) 38%, rgba(0,0,0,1) 100%);
   }
 
   .postcard.light .postcard__text:before {
@@ -263,15 +270,15 @@ a, a:hover {
 }
 
 .blue .postcard__bar {
-  background-color: rgb(197, 179, 88);
+  background-color: #C5B358;
 }
 
 .blue::before {
-  background-image: linear-gradient(-30deg, rgba(197, 179, 88, 0.4), transparent 50%) !important;
+  background: linear-gradient(-50deg, rgba(197, 179, 88, 0.3) 0%, rgba(6,6,3,1) 40%, rgba(0,0,0,1) 100%) !important;
 }
 
 .blue:nth-child(2n)::before {
-  background-image: linear-gradient(30deg, rgba(197, 179, 88, 0.4), transparent 50%) !important;
+  background: linear-gradient(50deg, rgba(197, 179, 88, 0.3) 0%, rgba(6,6,3,1) 40%, rgba(0,0,0,1) 100%) !important;
 }
 
 

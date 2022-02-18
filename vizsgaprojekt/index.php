@@ -255,7 +255,7 @@ if (isset($_POST['btn_send2'])) {
         echo '  <link rel="stylesheet" href="./contact/contact.css">';
     }
     if ($request === $baseUrl . '/reportconfirmed') {
-        echo '  <link rel="stylesheet" href="./contact/reportconfirmed">';
+        echo '  <link rel="stylesheet" href="./contact/reportconfirmed.css">';
     }
     if (strpos($request, "activate?email") !== false) {
         echo '<link rel="stylesheet" href="./aktivalas/aktivalas.css">
