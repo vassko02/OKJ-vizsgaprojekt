@@ -12,7 +12,7 @@
 ?>
 <div class="contact">
   <div class="urlap mx-auto">
-    <h1 class="text-white">
+    <h1 class="">
       Contact us!
     </h1>
     <form class="row g-3 needs-validation text-white" method="POST" action="<?php echo $baseUrl?>/reportconfirmed" novalidate>
@@ -50,7 +50,7 @@
         <textarea type="textarea" style="height: 12vh;" class="form-control" name="textarea" id="validationCustom03" required></textarea>
       </div>
       <div class="col-12">
-        <button class="btn btn-primary w-25" name="btn_send" type="submit">Send</button>
+        <button class="btn w-25" name="btn_send" type="submit">Send</button>
       </div>
 
     </form>
