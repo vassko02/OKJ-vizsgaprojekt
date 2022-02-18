@@ -3,7 +3,24 @@
 
 
 
-
+.tothetop{
+  text-decoration: none;
+  position: fixed;
+  z-index: 111;
+  margin-left: 90vw !important;
+  margin-top: 85vh !important;
+  background-color: #ffc526;
+  color: black;
+  border: 2px solid black;
+  border-radius: 10px;
+  width: 7vw;
+  text-align: center;
+  font-weight: bolder;
+}
+.tothetop:hover{
+  text-decoration: none;
+  color: black;
+}
 :root{
     --background-dark: #2d3548;
     --text-light: rgba(255,255,255,0.6);

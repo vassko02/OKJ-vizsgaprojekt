@@ -36,12 +36,23 @@
 
             $user = $GuestObj->find_unverified_user_fornewacc($_GET['customerid'],$_GET['newacccode'], $_GET['oldemail']);
             if ($user === null) { //rossz az email cim vagy a kod
-                echo '
+                if ($user == "expiredtoken") {
+                    echo '
                     <i id="error" class="far fa-times-circle"></i>
-                    <h1>Invalid email!</h1>
+                    <h1>Something went wrong</h1>
+                    <p>The activation token has been expired</p>
+                    <a href="'.$baseUrl.'/">Back to the main page</a>';
+                }
+                else{
+                    echo '
+                    <i id="error" class="far fa-times-circle"></i>
+                    <h1>Something went wrong!</h1>
                     <p>The account activation has been failed or it has been already activated</p>
                     <a href="'.$baseUrl.'/">Back to the main page</a>';
-            } else {
+                }
+               
+            }             
+            else {
                 if (md5($_GET['newacccode']) === $user['Code']) { //egyezik a kod es van ilyen user -> nincs hiba
                     $GuestObj->updateuseremail($_GET['oldemail'],$_GET['email']);
                       $user =  $GuestObj->getuserbyid($_SESSION['username']);

@@ -13,13 +13,11 @@ if (isset($_POST['itemname'])) {
 }
 ?>
 <body>
-<div class="thetop"></div>
-
-
-<div class="eloetelcim">
-
-                  <h1>Appetizers</h1>
-                </div>
+    <a  class="tothetop p-auto" href="#top">Back to the top</a>
+    <div class="eloetelcim" id="top">
+        
+        <h1>Appetizers</h1>
+    </div>
       <section class="hero-section">
           <div class="card-grid">
              
@@ -156,9 +154,7 @@ if (isset($_POST['itemname'])) {
   
 </section>
 </div>
-<div class='scrolltop'>
-        <div class='scroll icon'><i class="fa fa-4x fa-angle-up"></i></div>
-</div>
+
     
 </body>
 <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>

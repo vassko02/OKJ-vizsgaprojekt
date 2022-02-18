@@ -1,7 +1,25 @@
 @import url(https://fonts.googleapis.com/css?family=Open+Sans:400italic,400,300,600);
 
 
+input,select,textarea{
+	background-color:rgb(82, 82, 82) !important;
+	color: white !important;
+	border: 2px solid black !important;
+	text-align: right;
+}
+h3{
+	color: #fcc12d !important;
+}
 
+h4{
+	color: #DAA520 !important;
+}
+::-webkit-calendar-picker-indicator {
+    filter: invert(1);
+}
+.styled-select select {
+	filter: invert(1);
+}
 body,html {
 
 	

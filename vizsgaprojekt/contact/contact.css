@@ -16,11 +16,27 @@
 	box-shadow: 5px 10px 5px 10px rgba(0, 0, 0, 0.3);
 
 }
+h1{
+	font-size: 3.5vw;
+	color: #ff9900;
+	font-weight: bolder;
+}
 .texttarea{
 	height: 15vh !important;
 }
-
-
+.form-label{
+	font-size: 1vw;
+	color: #ffa318;
+	text-shadow: 1px 1px #353434;
+}
+.form-control,.form-select{
+	background-color:#2e2c2c !important;
+	color: white !important;
+}
+.btn{
+	background-color: #ff9900;
+	font-weight: bold;
+}
 body {
 	background: linear-gradient(-45deg, #ffa600, #ff9900, #2e2c2c, #a3acaa);
 	background-size: 700% 700%;
