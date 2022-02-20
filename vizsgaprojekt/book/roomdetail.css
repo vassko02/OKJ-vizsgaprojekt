@@ -124,3 +124,55 @@ h5{
     margin: 0 40px;
   
 }
+.carousel-item img {
+  inline-size: 100%;
+  aspect-ratio: 16 / 9 !important;
+  object-fit: cover;
+}
+.roooom {
+  display: flex;
+}
+.roooom .szobakepek {
+  min-width: 50%;
+  padding: 1%;
+}
+.roooom .szobaszoveg {
+  min-width: 50%;
+  padding: 5%;
+}
+.szobaszoveg h1 {
+  font-family: "Be Vietnam Pro",  sans-serif;
+}
+.szobaszoveg .divider {
+  height: 5px;
+  width: 200px;
+  background-color: #C5B358;
+  margin: 15px 0;
+  border-radius: 5px;
+}
+.postcard__tagbox {
+  display: flex;
+  flex-flow: row wrap;
+  font-size: 14px;
+  margin: 20px 0 20px 0;
+  padding: 0;
+}
+.postcard__tagbox .tag__item {
+  display: inline-block;
+  background: rgba(83, 83, 83, 0.4);
+  border-radius: 3px;
+  padding: 2.5px 10px;
+  margin: 0 5px 5px 0;
+  cursor: default;
+  user-select: none;
+  transition: background-color 0.3s;
+}
+.postcard__tagbox .tag__item:hover {
+  background: rgba(83, 83, 83, 0.8);
+}
+
+@media screen and (max-width: 1500px) {
+  .roooom {
+    display: initial;
+  }
+}
