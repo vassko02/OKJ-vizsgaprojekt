@@ -11,6 +11,33 @@ html::-webkit-scrollbar {
   width: 1.5em;
   height: 1em;
 }
+.tothetop{
+    text-decoration: none;
+    display: none !important;
+    position: fixed;
+    z-index: 111;
+    margin-left: 95vw !important;
+    margin-top: 85vh !important;
+    background-color: #E2C94A;
+    color: black;
+    border: 2px solid black;
+    border-radius: 50%;
+    width: 38.4px;
+    height: 38.4px;
+    font-size: 1vw;
+    padding-top: 3px;
+    text-align: center;
+    font-weight: bolder;
+  }
+  .tothetop:hover i{
+    text-decoration: none;
+    color: white;
+}
+.tothetop:hover{
+    border: 2px solid white;
+  }
+
+
 html::-webkit-scrollbar-track {
   background: black;
 }

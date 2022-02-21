@@ -13,7 +13,6 @@ if (isset($_POST['itemname'])) {
 }
 ?>
 <body>
-    <a  class="tothetop p-auto" href="#top">Back to the top</a>
     <div class="eloetelcim" id="top">
         
         <h1>Appetizers</h1>
