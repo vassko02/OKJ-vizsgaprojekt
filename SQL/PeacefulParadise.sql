@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Gép: localhost:3306
--- Létrehozás ideje: 2022. Feb 16. 09:04
+-- Létrehozás ideje: 2022. Feb 21. 08:06
 -- Kiszolgáló verziója: 5.5.62-0+deb8u1
 -- PHP verzió: 7.4.3
 
@@ -65,7 +65,8 @@ INSERT INTO `codes` (`CodeID`, `Code`, `Expiry`, `Type`, `CustomerID`) VALUES
 (1, '12345', '2022-02-10 12:21:12', 'newacc', 9),
 (4, '67e8b11bf078867e61a26022cbd5dd9f', '2022-02-11 12:21:20', 'newacc', 98),
 (13, '1c7c3a1e4f11d228559a549f3be06f8f', '2022-02-15 13:09:25', 'activation_code', 127),
-(14, 'c521379097d5f362e9eca9c201fedc88', '2022-02-15 13:09:46', 'reset_token', 127);
+(14, 'c521379097d5f362e9eca9c201fedc88', '2022-02-15 13:09:46', 'reset_token', 127),
+(15, 'b0fccd5ba439b6bc15ffce593bda4f6d', '2022-02-17 10:17:36', 'activation_code', 130);
 
 -- --------------------------------------------------------
 
@@ -117,13 +118,14 @@ INSERT INTO `customer` (`CustomerID`, `Name`, `PhoneNumber`, `Email`, `Address`,
 (9, 'admin', '+1420420123', 'admin@admin', 'Admin Street12311', 'admin', 'e64b78fc3bc91bcbc7dc232ba8ec59e0', 1, 1, '2022-01-25 17:20:27', '0000-00-00 00:00:00', '', 1),
 (41, 'Koaxk Ábel', '123', 'ko@x.com', 'dsa', 'koax', 'bb3745d30d57c6279777c579a20483bc', 0, 1, NULL, '2022-01-26 09:13:35', '', 0),
 (42, 'Tüdő R. Ákos', '+csoves', 'tudor@akos.com', '9012 Győr Kossuth utca 11', 'TudoRaki', '', 0, NULL, NULL, '2022-01-26 09:20:00', '', 1),
-(77, 'miazapadvanmar', '+36304206969', 'example@gmail.com', '9027 Győr Szeszgyár utca 1', '', '', 0, NULL, NULL, '2022-01-27 12:25:43', '', 0),
+(77, 'Bac Ilus', '+36304206969', 'example@gmail.com', '9027 Győr Szeszgyár utca 1', '', '', 0, NULL, NULL, '2022-01-27 12:25:43', '', 0),
 (91, 'Kandisz Nóra', '+3620201234012', 'kandisz@gmail.com', 'EnesePutri Szabadság utca 59', 'Kandisz', 'abfeb5ac73556cadb0d0afc57d7221e8', 0, 1, NULL, '2022-01-31 12:35:28', '', 0),
-(98, 'Hat Izsak', '1q2322', 'roncz.gabor@students.jedlik.eu', '', 'hatizsak', '2bcdc1d9f7472c8564fdc52f4bc6e410', 0, 1, NULL, '2022-02-06 17:33:33', '', 0),
+(98, 'Hat Izsak', '1q2322', 'roncz.gabor@students.jedlik.eu', '', 'hatizsak', '2bcdc1d9f7472c8564fdc52f4bc6e410', 0, 1, NULL, '2022-02-06 17:33:33', '', 1),
 (100, 'szia cigANY', '123', 'asd@asd', '', '', '', 0, NULL, NULL, '2022-02-11 14:26:18', '', 0),
 (127, 'Anyad', 'asdasd', 'kalman.david@students.jedlik.eu', 'asdasd', 'anyad', '71e26f1fe35aaec97cd2151963c36f2b', 0, 1, '2022-02-14 13:09:31', '2022-02-14 12:09:25', '', 1),
 (128, 'valamaiuj', '+36304206969', 'exampleeeeeeeeeeeeeeeeeeeeeeeeeee@gmail.com', '9027 Győr Szeszgyár utca 1', '', '', 0, NULL, NULL, '2022-02-16 08:30:07', '', 0),
-(129, 'admin', '+1420420123', 'adminasd@admin', 'Admin Street123', '', '', 0, NULL, NULL, '2022-02-16 08:41:55', '', 0);
+(129, 'admin', '+1420420123', 'adminasd@admin', 'Admin Street123', '', '', 0, NULL, NULL, '2022-02-16 08:41:55', '', 0),
+(130, 'aaaaaaaaaaaaaaaaaaaad', '', 'roncz.gabor1@gmail.com', '', 'aaaaaaaaaaaaaaaa', '570c4fef50ce6de1335b94e76ef95b53', 0, NULL, NULL, '2022-02-16 09:17:36', '', 0);
 
 -- --------------------------------------------------------
 
@@ -144,15 +146,30 @@ CREATE TABLE `rating` (
 --
 
 INSERT INTO `rating` (`RatingID`, `Name`, `Email`, `Description`, `Stars`) VALUES
-(8, 'asd', 'a@a', 'aaaaaaaaaaaaaaaaaaaaaaaaaaa', 0),
-(9, 'asd', 'a@a', 'asdasdasdasdasd', 0),
-(10, 'asd', 'asd@a', 'asd', 0),
-(11, 'asd', 'roncz.gabor1@gmail.com', 'tesztt', 0),
-(12, 'asd', 'asd@a', 'asd', 0),
-(30, 'asd', 'sss@ddd', 'adfdshgfzrdjnrstz45645645646', 0),
-(31, 'asd', 'sss@ddd', 'adfdshgfzrdjnrstz45645645646', 0),
-(32, 'vegsoteszt', 'asfh@äa', 'adfnwsopifnoewjndtfélákgenráőpogiknjráltskhnlkerjthgnélbkmdnfpsoigejmnrlkjgnédkjanertplkgnéeosdktlmélerkjhtgőpoejm poie ojkhepotigh poeihrtn pgijenrőasgoihnrp ifnoewjndtfélákgenráőpogiknjráltskhnlkerjthgnélbkmdnfpsoigejmnrlkjgnédkjanertplkgnéeosdktlmélerkjhtgőpoejm poie ojkhepotigh poeihrtn pgijenrőasgoihnrp ifnoewjndtfélákgenráőpogiknjráltskhnlkerjthgnélbkmdnfpsoigejmnrlkjgnédkjanertplkgnéeosdktlmélerkjhtgőpoejm poie ojkhepotigh poeihrtn pgijenrőasgoihnrp ifnoewjndtfélákgenráőpogiknjráltskhnlkerjthgnélbkmdnfpsoigejmnrlkjgnédkjanertplkgnéeosdktlmélerkjhtgőpoejm poie ojkhepotigh poeihrtn pgijenrőasgoihnrp ifnoewjndtfélákgenráőpogiknjráltskhnlkerjthgnélbkmdnfpsoigejmnrlkjgnédkjanertplkgnéeosdktlmélerkjhtgőpoejm poie ojkhepotigh poeihrtn pgijenrőasgoihnrp ifnoewjndtfélákgenráőpogiknjráltskhnlkerjthgnélbkmdnfpsoigejmnrlkjgnédkjanertplkgnéeosdktlmélerkjhtgőpoejm poie ojkhepotigh poeihrtn pgijenrőasgoihnrp ifnoewjndtfélákgenráőpogiknjráltskhnlkerjthgnélbkmdnfpsoigejmnrlkjgnédkjanertplkgnéeosdktlmélerkjhtgőpoejm poie ojkhepotigh poeihrtn pgijenrőasgoihnrp \r\naiujerh giemrfg', 0),
 (33, 'Magic5', 'mag@ic.hu', 'A hangulat, a kedvesség,a profizmus,ásványvíz a szobában, a reggeli fenséges,a házi vaníliás csiga,álom, a búcsuzáskor kapott keksz, az illat és aromadiffúzor a földszinten, a wellness, a berendezés....rengeteg dolgot lehetne felsorolni!', 5);
+
+-- --------------------------------------------------------
+
+--
+-- Tábla szerkezet ehhez a táblához `reports`
+--
+
+CREATE TABLE `reports` (
+  `ReportID` int(11) NOT NULL,
+  `GuestName` varchar(100) COLLATE utf8mb4_hungarian_ci NOT NULL,
+  `Email` varchar(150) COLLATE utf8mb4_hungarian_ci NOT NULL,
+  `Problem` text COLLATE utf8mb4_hungarian_ci NOT NULL,
+  `Time` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_hungarian_ci;
+
+--
+-- A tábla adatainak kiíratása `reports`
+--
+
+INSERT INTO `reports` (`ReportID`, `GuestName`, `Email`, `Problem`, `Time`) VALUES
+(1, 'Bélafasz', 'cig@anyad', 'asd', '2022-02-21 08:22:20'),
+(2, 'Bélafasz', 'asd@asd', 'asd', '2022-02-21 08:23:06'),
+(3, 'Bélafasz', 'asd@asd', 'asd', '2022-02-21 08:30:53');
 
 -- --------------------------------------------------------
 
@@ -207,7 +224,11 @@ INSERT INTO `reservationLog` (`LogID`, `Name`, `Status`, `ReservationID`, `Time`
 (22, 'Admin', 'Edited a reservation', 326, '2022-02-16 09:39:44'),
 (23, 'Admin', 'Deleted a reservation', 326, '2022-02-16 09:39:47'),
 (24, 'admin', 'Created a reservation', 327, '2022-02-16 09:41:57'),
-(25, 'Admin', 'Added consumption', 327, '2022-02-16 09:42:51');
+(25, 'Admin', 'Added consumption', 327, '2022-02-16 09:42:51'),
+(26, 'Hat Izsak', 'Created a reservation', 328, '2022-02-16 10:08:11'),
+(27, NULL, 'Deleted a reservation', 328, '2022-02-16 10:08:36'),
+(28, 'Hat Izsak', 'Deleted a reservation', 328, '2022-02-16 10:09:56'),
+(29, 'Hat Izsak', 'Deleted a reservation', 328, '2022-02-16 10:16:54');
 
 -- --------------------------------------------------------
 
@@ -273,11 +294,11 @@ INSERT INTO `room` (`RoomID`, `RoomName`, `Capacity`, `Description`, `RoomPrice`
 (38, 'Burgundy Room | 1 Queen | Non-Smoking', 2, 'Spacious, bright and bold, our Burgundy Room combines classic European elegance with a modern flair. Splashes of vibrant burgundy complement the crisp brown-and-white color palette, creating a space that’s as warm as it is exciting. The luxurious bathroom boasts a marble counter along with a shower. Elsewhere in the room, you’ll find a full-size desk, a large flat-screen TV, custom accent pieces and convenient amenities like an in-room safe.', 400, 'https://www.caesars.com/api/v1/image/L2NvbnRlbnQvc2NhZmZvbGRfcGFnZXMvcm9vbXMvaGFycmFocy9sYXMvZW4vbXRfZGx4XzFrX25zL19qY3JfY29udGVudC9jYXJkcy9jYXJkL3NsaWRlMg/wide/xl/cover', 'https://www.caesars.com/api/v1/image/L2NvbnRlbnQvc2NhZmZvbGRfcGFnZXMvcm9vbXMvaGFycmFocy9sYXMvZW4vbXRfZGx4XzFrX25zL19qY3JfY29udGVudC9jYXJkcy9jYXJkL3NsaWRlMQ/wide/xl/cover', 'https://www.caesars.com/api/v1/image/L2NvbnRlbnQvc2NhZmZvbGRfcGFnZXMvcm9vbXMvaGFycmFocy9sYXMvZW4vbXRfZGx4XzFrX25zL19qY3JfY29udGVudC9jYXJkcy9jYXJkL3NsaWRlNA/wide/xl/cover', 35, 'flattv;aircon;coffeemaker'),
 (39, 'Burgundy Room | 1 Queen | Non-Smoking', 2, 'Spacious, bright and bold, our Burgundy Room combines classic European elegance with a modern flair. Splashes of vibrant burgundy complement the crisp brown-and-white color palette, creating a space that’s as warm as it is exciting. The luxurious bathroom boasts a marble counter along with a shower. Elsewhere in the room, you’ll find a full-size desk, a large flat-screen TV, custom accent pieces and convenient amenities like an in-room safe.', 400, 'https://www.caesars.com/api/v1/image/L2NvbnRlbnQvc2NhZmZvbGRfcGFnZXMvcm9vbXMvaGFycmFocy9sYXMvZW4vbXRfZGx4XzFrX25zL19qY3JfY29udGVudC9jYXJkcy9jYXJkL3NsaWRlMg/wide/xl/cover', 'https://www.caesars.com/api/v1/image/L2NvbnRlbnQvc2NhZmZvbGRfcGFnZXMvcm9vbXMvaGFycmFocy9sYXMvZW4vbXRfZGx4XzFrX25zL19qY3JfY29udGVudC9jYXJkcy9jYXJkL3NsaWRlMQ/wide/xl/cover', 'https://www.caesars.com/api/v1/image/L2NvbnRlbnQvc2NhZmZvbGRfcGFnZXMvcm9vbXMvaGFycmFocy9sYXMvZW4vbXRfZGx4XzFrX25zL19qY3JfY29udGVudC9jYXJkcy9jYXJkL3NsaWRlNA/wide/xl/cover', 35, 'flattv;aircon;coffeemaker'),
 (40, 'Burgundy Room | 1 Queen | Non-Smoking', 2, 'Spacious, bright and bold, our Burgundy Room combines classic European elegance with a modern flair. Splashes of vibrant burgundy complement the crisp brown-and-white color palette, creating a space that’s as warm as it is exciting. The luxurious bathroom boasts a marble counter along with a shower. Elsewhere in the room, you’ll find a full-size desk, a large flat-screen TV, custom accent pieces and convenient amenities like an in-room safe.', 400, 'https://www.caesars.com/api/v1/image/L2NvbnRlbnQvc2NhZmZvbGRfcGFnZXMvcm9vbXMvaGFycmFocy9sYXMvZW4vbXRfZGx4XzFrX25zL19qY3JfY29udGVudC9jYXJkcy9jYXJkL3NsaWRlMg/wide/xl/cover', 'https://www.caesars.com/api/v1/image/L2NvbnRlbnQvc2NhZmZvbGRfcGFnZXMvcm9vbXMvaGFycmFocy9sYXMvZW4vbXRfZGx4XzFrX25zL19qY3JfY29udGVudC9jYXJkcy9jYXJkL3NsaWRlMQ/wide/xl/cover', 'https://www.caesars.com/api/v1/image/L2NvbnRlbnQvc2NhZmZvbGRfcGFnZXMvcm9vbXMvaGFycmFocy9sYXMvZW4vbXRfZGx4XzFrX25zL19qY3JfY29udGVudC9jYXJkcy9jYXJkL3NsaWRlNA/wide/xl/cover', 35, 'flattv;aircon;coffeemaker'),
-(41, 'Resort Room | 2 King | Non-Smoking', 4, 'The renovated Resort Room offers two queens pillowtop bed, all new furnishings and décor. This room measures\r\nmore than 450 square feet and includes a 42-inch flat-screen TV with in-room movies, hairdryer, iron and ironing\r\nboard, clock radio and wireless internet access. Renovated rooms also consist of an upgraded marble bathroom.', 900, 'https://www.caesars.com/api/v1/image/L2NvbnRlbnQvc2NhZmZvbGRfcGFnZXMvcm9vbXMvYmFsbHlzL2Jsdi9lbi9yZXNvcnRfcm9vbV8ycV9ucy9famNyX2NvbnRlbnQvY2FyZHMvY2FyZC9zbGlkZTI/wide/xl/cover', 'https://www.caesars.com/api/v1/image/L2NvbnRlbnQvc2NhZmZvbGRfcGFnZXMvcm9vbXMvYmFsbHlzL2Jsdi9lbi9yZXNvcnRfcm9vbV8ycV9ucy9famNyX2NvbnRlbnQvY2FyZHMvY2FyZC9zbGlkZTE/wide/xl/cover', 'https://www.caesars.com/api/v1/image/L2NvbnRlbnQvc2NhZmZvbGRfcGFnZXMvcm9vbXMvYmFsbHlzL2Jsdi9lbi9yZXNvcnRfcm9vbV8ycV9ucy9famNyX2NvbnRlbnQvY2FyZHMvY2FyZC9zbGlkZTQ/wide/xl/cover', 42, 'flattv;aircon;coffeemaker'),
-(42, 'Resort Room | 2 King | Non-Smoking', 4, 'The renovated Resort Room offers two queens pillowtop bed, all new furnishings and décor. This room measures\r\nmore than 450 square feet and includes a 42-inch flat-screen TV with in-room movies, hairdryer, iron and ironing\r\nboard, clock radio and wireless internet access. Renovated rooms also consist of an upgraded marble bathroom.', 900, 'https://www.caesars.com/api/v1/image/L2NvbnRlbnQvc2NhZmZvbGRfcGFnZXMvcm9vbXMvYmFsbHlzL2Jsdi9lbi9yZXNvcnRfcm9vbV8ycV9ucy9famNyX2NvbnRlbnQvY2FyZHMvY2FyZC9zbGlkZTI/wide/xl/cover', 'https://www.caesars.com/api/v1/image/L2NvbnRlbnQvc2NhZmZvbGRfcGFnZXMvcm9vbXMvYmFsbHlzL2Jsdi9lbi9yZXNvcnRfcm9vbV8ycV9ucy9famNyX2NvbnRlbnQvY2FyZHMvY2FyZC9zbGlkZTE/wide/xl/cover', 'https://www.caesars.com/api/v1/image/L2NvbnRlbnQvc2NhZmZvbGRfcGFnZXMvcm9vbXMvYmFsbHlzL2Jsdi9lbi9yZXNvcnRfcm9vbV8ycV9ucy9famNyX2NvbnRlbnQvY2FyZHMvY2FyZC9zbGlkZTQ/wide/xl/cover', 42, 'flattv;aircon;coffeemaker'),
-(43, 'Resort Room | 2 King | Non-Smoking', 4, 'The renovated Resort Room offers two queens pillowtop bed, all new furnishings and décor. This room measures\r\nmore than 450 square feet and includes a 42-inch flat-screen TV with in-room movies, hairdryer, iron and ironing\r\nboard, clock radio and wireless internet access. Renovated rooms also consist of an upgraded marble bathroom.', 900, 'https://www.caesars.com/api/v1/image/L2NvbnRlbnQvc2NhZmZvbGRfcGFnZXMvcm9vbXMvYmFsbHlzL2Jsdi9lbi9yZXNvcnRfcm9vbV8ycV9ucy9famNyX2NvbnRlbnQvY2FyZHMvY2FyZC9zbGlkZTI/wide/xl/cover', 'https://www.caesars.com/api/v1/image/L2NvbnRlbnQvc2NhZmZvbGRfcGFnZXMvcm9vbXMvYmFsbHlzL2Jsdi9lbi9yZXNvcnRfcm9vbV8ycV9ucy9famNyX2NvbnRlbnQvY2FyZHMvY2FyZC9zbGlkZTE/wide/xl/cover', 'https://www.caesars.com/api/v1/image/L2NvbnRlbnQvc2NhZmZvbGRfcGFnZXMvcm9vbXMvYmFsbHlzL2Jsdi9lbi9yZXNvcnRfcm9vbV8ycV9ucy9famNyX2NvbnRlbnQvY2FyZHMvY2FyZC9zbGlkZTQ/wide/xl/cover', 42, 'flattv;aircon;coffeemaker'),
-(44, 'Resort Room | 2 King | Non-Smoking', 4, 'The renovated Resort Room offers two queens pillowtop bed, all new furnishings and décor. This room measures\r\nmore than 450 square feet and includes a 42-inch flat-screen TV with in-room movies, hairdryer, iron and ironing\r\nboard, clock radio and wireless internet access. Renovated rooms also consist of an upgraded marble bathroom.', 900, 'https://www.caesars.com/api/v1/image/L2NvbnRlbnQvc2NhZmZvbGRfcGFnZXMvcm9vbXMvYmFsbHlzL2Jsdi9lbi9yZXNvcnRfcm9vbV8ycV9ucy9famNyX2NvbnRlbnQvY2FyZHMvY2FyZC9zbGlkZTI/wide/xl/cover', 'https://www.caesars.com/api/v1/image/L2NvbnRlbnQvc2NhZmZvbGRfcGFnZXMvcm9vbXMvYmFsbHlzL2Jsdi9lbi9yZXNvcnRfcm9vbV8ycV9ucy9famNyX2NvbnRlbnQvY2FyZHMvY2FyZC9zbGlkZTE/wide/xl/cover', 'https://www.caesars.com/api/v1/image/L2NvbnRlbnQvc2NhZmZvbGRfcGFnZXMvcm9vbXMvYmFsbHlzL2Jsdi9lbi9yZXNvcnRfcm9vbV8ycV9ucy9famNyX2NvbnRlbnQvY2FyZHMvY2FyZC9zbGlkZTQ/wide/xl/cover', 42, 'flattv;aircon;coffeemaker'),
-(45, 'Resort Room | 2 King | Non-Smoking', 4, 'The renovated Resort Room offers two queens pillowtop bed, all new furnishings and décor. This room measures\r\nmore than 450 square feet and includes a 42-inch flat-screen TV with in-room movies, hairdryer, iron and ironing\r\nboard, clock radio and wireless internet access. Renovated rooms also consist of an upgraded marble bathroom.', 900, 'https://www.caesars.com/api/v1/image/L2NvbnRlbnQvc2NhZmZvbGRfcGFnZXMvcm9vbXMvYmFsbHlzL2Jsdi9lbi9yZXNvcnRfcm9vbV8ycV9ucy9famNyX2NvbnRlbnQvY2FyZHMvY2FyZC9zbGlkZTI/wide/xl/cover', 'https://www.caesars.com/api/v1/image/L2NvbnRlbnQvc2NhZmZvbGRfcGFnZXMvcm9vbXMvYmFsbHlzL2Jsdi9lbi9yZXNvcnRfcm9vbV8ycV9ucy9famNyX2NvbnRlbnQvY2FyZHMvY2FyZC9zbGlkZTE/wide/xl/cover', 'https://www.caesars.com/api/v1/image/L2NvbnRlbnQvc2NhZmZvbGRfcGFnZXMvcm9vbXMvYmFsbHlzL2Jsdi9lbi9yZXNvcnRfcm9vbV8ycV9ucy9famNyX2NvbnRlbnQvY2FyZHMvY2FyZC9zbGlkZTQ/wide/xl/cover', 42, 'flattv;aircon;coffeemaker'),
+(41, 'Resort Room | 2 King | Non-Smoking', 4, 'The renovated Resort Room offers two queens pillowtop bed, all new furnishings and décor. This room measures\r\nmore than 450 square feet and includes a 42-inch flat-screen TV with in-room movies, hairdryer, iron and ironing\r\nboard, clock radio and wireless internet access. Renovated rooms also consist of an upgraded marble bathroom.', 800, 'https://www.caesars.com/api/v1/image/L2NvbnRlbnQvc2NhZmZvbGRfcGFnZXMvcm9vbXMvYmFsbHlzL2Jsdi9lbi9yZXNvcnRfcm9vbV8ycV9ucy9famNyX2NvbnRlbnQvY2FyZHMvY2FyZC9zbGlkZTI/wide/xl/cover', 'https://www.caesars.com/api/v1/image/L2NvbnRlbnQvc2NhZmZvbGRfcGFnZXMvcm9vbXMvYmFsbHlzL2Jsdi9lbi9yZXNvcnRfcm9vbV8ycV9ucy9famNyX2NvbnRlbnQvY2FyZHMvY2FyZC9zbGlkZTE/wide/xl/cover', 'https://www.caesars.com/api/v1/image/L2NvbnRlbnQvc2NhZmZvbGRfcGFnZXMvcm9vbXMvYmFsbHlzL2Jsdi9lbi9yZXNvcnRfcm9vbV8ycV9ucy9famNyX2NvbnRlbnQvY2FyZHMvY2FyZC9zbGlkZTQ/wide/xl/cover', 42, 'flattv;aircon;coffeemaker'),
+(42, 'Resort Room | 2 King | Non-Smoking', 4, 'The renovated Resort Room offers two queens pillowtop bed, all new furnishings and décor. This room measures\r\nmore than 450 square feet and includes a 42-inch flat-screen TV with in-room movies, hairdryer, iron and ironing\r\nboard, clock radio and wireless internet access. Renovated rooms also consist of an upgraded marble bathroom.', 800, 'https://www.caesars.com/api/v1/image/L2NvbnRlbnQvc2NhZmZvbGRfcGFnZXMvcm9vbXMvYmFsbHlzL2Jsdi9lbi9yZXNvcnRfcm9vbV8ycV9ucy9famNyX2NvbnRlbnQvY2FyZHMvY2FyZC9zbGlkZTI/wide/xl/cover', 'https://www.caesars.com/api/v1/image/L2NvbnRlbnQvc2NhZmZvbGRfcGFnZXMvcm9vbXMvYmFsbHlzL2Jsdi9lbi9yZXNvcnRfcm9vbV8ycV9ucy9famNyX2NvbnRlbnQvY2FyZHMvY2FyZC9zbGlkZTE/wide/xl/cover', 'https://www.caesars.com/api/v1/image/L2NvbnRlbnQvc2NhZmZvbGRfcGFnZXMvcm9vbXMvYmFsbHlzL2Jsdi9lbi9yZXNvcnRfcm9vbV8ycV9ucy9famNyX2NvbnRlbnQvY2FyZHMvY2FyZC9zbGlkZTQ/wide/xl/cover', 42, 'flattv;aircon;coffeemaker'),
+(43, 'Resort Room | 2 King | Non-Smoking', 4, 'The renovated Resort Room offers two queens pillowtop bed, all new furnishings and décor. This room measures\r\nmore than 450 square feet and includes a 42-inch flat-screen TV with in-room movies, hairdryer, iron and ironing\r\nboard, clock radio and wireless internet access. Renovated rooms also consist of an upgraded marble bathroom.', 800, 'https://www.caesars.com/api/v1/image/L2NvbnRlbnQvc2NhZmZvbGRfcGFnZXMvcm9vbXMvYmFsbHlzL2Jsdi9lbi9yZXNvcnRfcm9vbV8ycV9ucy9famNyX2NvbnRlbnQvY2FyZHMvY2FyZC9zbGlkZTI/wide/xl/cover', 'https://www.caesars.com/api/v1/image/L2NvbnRlbnQvc2NhZmZvbGRfcGFnZXMvcm9vbXMvYmFsbHlzL2Jsdi9lbi9yZXNvcnRfcm9vbV8ycV9ucy9famNyX2NvbnRlbnQvY2FyZHMvY2FyZC9zbGlkZTE/wide/xl/cover', 'https://www.caesars.com/api/v1/image/L2NvbnRlbnQvc2NhZmZvbGRfcGFnZXMvcm9vbXMvYmFsbHlzL2Jsdi9lbi9yZXNvcnRfcm9vbV8ycV9ucy9famNyX2NvbnRlbnQvY2FyZHMvY2FyZC9zbGlkZTQ/wide/xl/cover', 42, 'flattv;aircon;coffeemaker'),
+(44, 'Resort Room | 2 King | Non-Smoking', 4, 'The renovated Resort Room offers two queens pillowtop bed, all new furnishings and décor. This room measures\r\nmore than 450 square feet and includes a 42-inch flat-screen TV with in-room movies, hairdryer, iron and ironing\r\nboard, clock radio and wireless internet access. Renovated rooms also consist of an upgraded marble bathroom.', 800, 'https://www.caesars.com/api/v1/image/L2NvbnRlbnQvc2NhZmZvbGRfcGFnZXMvcm9vbXMvYmFsbHlzL2Jsdi9lbi9yZXNvcnRfcm9vbV8ycV9ucy9famNyX2NvbnRlbnQvY2FyZHMvY2FyZC9zbGlkZTI/wide/xl/cover', 'https://www.caesars.com/api/v1/image/L2NvbnRlbnQvc2NhZmZvbGRfcGFnZXMvcm9vbXMvYmFsbHlzL2Jsdi9lbi9yZXNvcnRfcm9vbV8ycV9ucy9famNyX2NvbnRlbnQvY2FyZHMvY2FyZC9zbGlkZTE/wide/xl/cover', 'https://www.caesars.com/api/v1/image/L2NvbnRlbnQvc2NhZmZvbGRfcGFnZXMvcm9vbXMvYmFsbHlzL2Jsdi9lbi9yZXNvcnRfcm9vbV8ycV9ucy9famNyX2NvbnRlbnQvY2FyZHMvY2FyZC9zbGlkZTQ/wide/xl/cover', 42, 'flattv;aircon;coffeemaker'),
+(45, 'Resort Room | 2 King | Non-Smoking', 4, 'The renovated Resort Room offers two queens pillowtop bed, all new furnishings and décor. This room measures\r\nmore than 450 square feet and includes a 42-inch flat-screen TV with in-room movies, hairdryer, iron and ironing\r\nboard, clock radio and wireless internet access. Renovated rooms also consist of an upgraded marble bathroom.', 800, 'https://www.caesars.com/api/v1/image/L2NvbnRlbnQvc2NhZmZvbGRfcGFnZXMvcm9vbXMvYmFsbHlzL2Jsdi9lbi9yZXNvcnRfcm9vbV8ycV9ucy9famNyX2NvbnRlbnQvY2FyZHMvY2FyZC9zbGlkZTI/wide/xl/cover', 'https://www.caesars.com/api/v1/image/L2NvbnRlbnQvc2NhZmZvbGRfcGFnZXMvcm9vbXMvYmFsbHlzL2Jsdi9lbi9yZXNvcnRfcm9vbV8ycV9ucy9famNyX2NvbnRlbnQvY2FyZHMvY2FyZC9zbGlkZTE/wide/xl/cover', 'https://www.caesars.com/api/v1/image/L2NvbnRlbnQvc2NhZmZvbGRfcGFnZXMvcm9vbXMvYmFsbHlzL2Jsdi9lbi9yZXNvcnRfcm9vbV8ycV9ucy9famNyX2NvbnRlbnQvY2FyZHMvY2FyZC9zbGlkZTQ/wide/xl/cover', 42, 'flattv;aircon;coffeemaker'),
 (46, 'Resort Room | 1 King | Non-Smoking', 2, 'The renovated Resort Room offers one king pillowtop bed, all new furnishings and décor. This room measures more\r\nthan 450 square feet and includes a 42-inch flat-screen TV with in-room movies, hairdryer, iron and ironing board,\r\nclock radio and wireless internet access. Renovated rooms also consist of an upgraded bathroom.', 500, 'https://www.caesars.com/api/v1/image/L2NvbnRlbnQvc2NhZmZvbGRfcGFnZXMvcm9vbXMvYmFsbHlzL2Jsdi9lbi9yZXNvcnRfcm9vbV8xa19ucy9famNyX2NvbnRlbnQvY2FyZHMvY2FyZC9zbGlkZTE/wide/xl/cover', 'https://www.caesars.com/api/v1/image/L2NvbnRlbnQvc2NhZmZvbGRfcGFnZXMvcm9vbXMvYmFsbHlzL2Jsdi9lbi9yZXNvcnRfcm9vbV8xa19ucy9famNyX2NvbnRlbnQvY2FyZHMvY2FyZC9zbGlkZTI/wide/xl/cover', 'https://www.caesars.com/api/v1/image/L2NvbnRlbnQvc2NhZmZvbGRfcGFnZXMvcm9vbXMvYmFsbHlzL2Jsdi9lbi9yZXNvcnRfcm9vbV8xa19ucy9famNyX2NvbnRlbnQvY2FyZHMvY2FyZC9zbGlkZTQ/wide/xl/cover', 42, 'flattv;aircon;coffeemaker'),
 (47, 'Resort Room | 1 King | Non-Smoking', 2, 'The renovated Resort Room offers one king pillowtop bed, all new furnishings and décor. This room measures more\r\nthan 450 square feet and includes a 42-inch flat-screen TV with in-room movies, hairdryer, iron and ironing board,\r\nclock radio and wireless internet access. Renovated rooms also consist of an upgraded bathroom.', 500, 'https://www.caesars.com/api/v1/image/L2NvbnRlbnQvc2NhZmZvbGRfcGFnZXMvcm9vbXMvYmFsbHlzL2Jsdi9lbi9yZXNvcnRfcm9vbV8xa19ucy9famNyX2NvbnRlbnQvY2FyZHMvY2FyZC9zbGlkZTE/wide/xl/cover', 'https://www.caesars.com/api/v1/image/L2NvbnRlbnQvc2NhZmZvbGRfcGFnZXMvcm9vbXMvYmFsbHlzL2Jsdi9lbi9yZXNvcnRfcm9vbV8xa19ucy9famNyX2NvbnRlbnQvY2FyZHMvY2FyZC9zbGlkZTI/wide/xl/cover', 'https://www.caesars.com/api/v1/image/L2NvbnRlbnQvc2NhZmZvbGRfcGFnZXMvcm9vbXMvYmFsbHlzL2Jsdi9lbi9yZXNvcnRfcm9vbV8xa19ucy9famNyX2NvbnRlbnQvY2FyZHMvY2FyZC9zbGlkZTQ/wide/xl/cover', 42, 'flattv;aircon;coffeemaker'),
 (48, 'Resort Room | 1 King | Non-Smoking', 2, 'The renovated Resort Room offers one king pillowtop bed, all new furnishings and décor. This room measures more\r\nthan 450 square feet and includes a 42-inch flat-screen TV with in-room movies, hairdryer, iron and ironing board,\r\nclock radio and wireless internet access. Renovated rooms also consist of an upgraded bathroom.', 500, 'https://www.caesars.com/api/v1/image/L2NvbnRlbnQvc2NhZmZvbGRfcGFnZXMvcm9vbXMvYmFsbHlzL2Jsdi9lbi9yZXNvcnRfcm9vbV8xa19ucy9famNyX2NvbnRlbnQvY2FyZHMvY2FyZC9zbGlkZTE/wide/xl/cover', 'https://www.caesars.com/api/v1/image/L2NvbnRlbnQvc2NhZmZvbGRfcGFnZXMvcm9vbXMvYmFsbHlzL2Jsdi9lbi9yZXNvcnRfcm9vbV8xa19ucy9famNyX2NvbnRlbnQvY2FyZHMvY2FyZC9zbGlkZTI/wide/xl/cover', 'https://www.caesars.com/api/v1/image/L2NvbnRlbnQvc2NhZmZvbGRfcGFnZXMvcm9vbXMvYmFsbHlzL2Jsdi9lbi9yZXNvcnRfcm9vbV8xa19ucy9famNyX2NvbnRlbnQvY2FyZHMvY2FyZC9zbGlkZTQ/wide/xl/cover', 42, 'flattv;aircon;coffeemaker'),
@@ -433,8 +454,16 @@ INSERT INTO `userLog` (`LogID`, `Name`, `Status`, `Time`, `UserID`) VALUES
 (7, 'valamaiuj', 'Created a reservation', '2022-02-16 09:37:23', 128),
 (8, 'admin', 'Created a reservation', '2022-02-16 09:41:57', 129),
 (9, 'admin', 'Edited a user', '2022-02-16 09:59:07', 9),
-(10, 'Array', 'Edit his/her account', '2022-02-16 10:03:11', 98),
-(11, 'hatizsak', 'Edit his/her account', '2022-02-16 10:03:34', 98);
+(11, 'hatizsak', 'Edit his/her account', '2022-02-16 10:03:34', 98),
+(12, 'Hat Izsak', 'Created a reservation', '2022-02-16 10:08:11', 98),
+(13, 'aaaaaaaaaaaaaaaaaaaad', 'Created an account', '2022-02-16 10:17:36', 130),
+(14, 'admin', 'Logged in', '2022-02-16 10:22:20', 9),
+(15, 'admin', 'Logged out', '2022-02-16 10:22:25', 9),
+(16, 'admin', 'Logged in', '2022-02-18 13:07:30', 9),
+(17, 'admin', 'Logged in', '2022-02-18 13:40:57', 9),
+(18, 'Bélafasz', 'Sent a report', '2022-02-21 08:22:20', 0),
+(19, 'Bélafasz', 'Sent a report', '2022-02-21 08:23:06', 0),
+(20, 'Bélafasz', 'Sent a report', '2022-02-21 08:30:53', 0);
 
 --
 -- Indexek a kiírt táblákhoz
@@ -465,6 +494,12 @@ ALTER TABLE `customer`
 --
 ALTER TABLE `rating`
   ADD PRIMARY KEY (`RatingID`);
+
+--
+-- A tábla indexei `reports`
+--
+ALTER TABLE `reports`
+  ADD PRIMARY KEY (`ReportID`);
 
 --
 -- A tábla indexei `reservation`
@@ -515,7 +550,7 @@ ALTER TABLE `userLog`
 -- AUTO_INCREMENT a táblához `codes`
 --
 ALTER TABLE `codes`
-  MODIFY `CodeID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `CodeID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT a táblához `consumption`
@@ -527,7 +562,7 @@ ALTER TABLE `consumption`
 -- AUTO_INCREMENT a táblához `customer`
 --
 ALTER TABLE `customer`
-  MODIFY `CustomerID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=130;
+  MODIFY `CustomerID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=131;
 
 --
 -- AUTO_INCREMENT a táblához `rating`
@@ -536,16 +571,22 @@ ALTER TABLE `rating`
   MODIFY `RatingID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
 
 --
+-- AUTO_INCREMENT a táblához `reports`
+--
+ALTER TABLE `reports`
+  MODIFY `ReportID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
 -- AUTO_INCREMENT a táblához `reservation`
 --
 ALTER TABLE `reservation`
-  MODIFY `ReservationID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=328;
+  MODIFY `ReservationID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=329;
 
 --
 -- AUTO_INCREMENT a táblához `reservationLog`
 --
 ALTER TABLE `reservationLog`
-  MODIFY `LogID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+  MODIFY `LogID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
 
 --
 -- AUTO_INCREMENT a táblához `room`
@@ -569,7 +610,7 @@ ALTER TABLE `storage`
 -- AUTO_INCREMENT a táblához `userLog`
 --
 ALTER TABLE `userLog`
-  MODIFY `LogID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `LogID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- Megkötések a kiírt táblákhoz

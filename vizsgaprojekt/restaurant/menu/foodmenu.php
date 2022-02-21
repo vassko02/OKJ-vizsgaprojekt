@@ -13,9 +13,7 @@ if (isset($_POST['itemname'])) {
 }
 ?>
 <body>
-    <a  class="tothetop p-auto" href="#top">Back to the top</a>
-    <div class="eloetelcim" id="top">
-        
+    <div class="eloetelcim">   
         <h1>Appetizers</h1>
     </div>
       <section class="hero-section">
@@ -23,8 +21,7 @@ if (isset($_POST['itemname'])) {
              
                 <?php foreach ($appetiser as $item) {
                     
-                    echo '
-                    
+                    echo '  
                     <form action="" method="POST" class="">
                     <a class="card" id='.$item['StorageID'].'>
                     <div class="card__background" style="background-image: url(' . $item['ImageURL'] . ')"></div>
@@ -36,7 +33,7 @@ if (isset($_POST['itemname'])) {
                     <input name="itemname" type="hidden" value="'.$item['ItemName'].'"/>
                     <input name="itemprice" type="hidden" value="'.$item['Price'].'"/>
                     ';if (isset($_SESSION['reservationid'])  && $_SESSION['isadmin'] == 1) {
-                        echo'  <button name="addcons" type="submit" id="logingomb"  data-submit="...Sending">Add to consumption</button>';
+                        echo'  <button name="addcons" type="submit" id="logingomb"  data-submit="...Sending">Add consumption</button>';
                     }
                     
                     echo'
@@ -70,7 +67,7 @@ if (isset($_POST['itemname'])) {
                     <input name="itemname" type="hidden" value="'.$item['ItemName'].'"/>
                     <input name="itemprice" type="hidden" value="'.$item['Price'].'"/>
                     ';if (isset($_SESSION['reservationid'])  && $_SESSION['isadmin'] == 1) {
-                        echo'  <button name="addcons" type="submit" id="logingomb"  data-submit="...Sending">Add to consumption</button>';
+                        echo'  <button name="addcons" type="submit" id="logingomb"  data-submit="...Sending">Add consumption</button>';
                     }
                     
                     echo'
@@ -104,7 +101,7 @@ if (isset($_POST['itemname'])) {
                     <input name="itemname" type="hidden" value="'.$item['ItemName'].'"/>
                     <input name="itemprice" type="hidden" value="'.$item['Price'].'"/>
                     ';if (isset($_SESSION['reservationid'])  && $_SESSION['isadmin'] == 1) {
-                        echo'  <button name="addcons" type="submit" id="logingomb"  data-submit="...Sending">Add to consumption</button>';
+                        echo'  <button name="addcons" type="submit" id="logingomb"  data-submit="...Sending">Add consumption</button>';
                     }
                     
                     echo'
@@ -117,7 +114,7 @@ if (isset($_POST['itemname'])) {
         </div>
     </div>
 </section>
-<div class="desszertcim">
+<div class="dessertcim">
                   <h1>Desserts</h1>
                 </div>
       <section class="hero-section">
@@ -138,7 +135,7 @@ if (isset($_POST['itemname'])) {
                     <input name="itemname" type="hidden" value="'.$item['ItemName'].'"/>
                     <input name="itemprice" type="hidden" value="'.$item['Price'].'"/>
                     ';if (isset($_SESSION['reservationid'])  && $_SESSION['isadmin'] == 1) {
-                        echo'  <button name="addcons" type="submit" id="logingomb"  data-submit="...Sending">Add to consumption</button>';
+                        echo'  <button name="addcons" type="submit" id="logingomb"  data-submit="...Sending">Add consumption</button>';
                     }
                     
                     echo'

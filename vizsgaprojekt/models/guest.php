@@ -77,10 +77,9 @@ class Guest extends Dbconnect
   }
   public function saveguestproblem($adatok)
   {
-    $sql = 'INSERT INTO reports (GuestName,Email,Problem,date) VALUES (?,?,?,?)';
+    $sql = 'INSERT INTO reports (GuestName,Email,Problem,Time) VALUES (?,?,?,now())';
     $stmt = $this->con->prepare($sql);
-    $date = date("Y-m-d H:i:s");
-    $stmt->bind_param("ssss", $adatok['firstname'], $adatok['email'], $adatok['textarea'], $date);
+    $stmt->bind_param("sss", $adatok['firstname'], $adatok['email'], $adatok['textarea']);
     if ($stmt->execute()) {
       return 1;
     }

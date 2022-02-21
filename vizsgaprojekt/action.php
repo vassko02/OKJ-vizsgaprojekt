@@ -10,7 +10,7 @@ if (isset($_POST['newacc'])) {
     header('Location: ' . $baseUrl . '/newaccemail');
     
 }
-if (($request === $baseUrl . '/contactus' || $request === $baseUrl . '/contactusREPORT') && isset($_POST['btn_send']))
+if (($request === $baseUrl . '/reportconfirmed') && isset($_POST['btn_send']))
     if ($GuestObj->saveguestproblem($_POST) == 1) {
         if (isset($_SESSION['username'])) {
             $user =  $GuestObj->getuserbyid($_SESSION['username']);
@@ -19,7 +19,6 @@ if (($request === $baseUrl . '/contactus' || $request === $baseUrl . '/contactus
         else{
             $LogObj->savelog($_POST['firstname'],"Sent a report","User",0);
         }
-        header('Location: ' . $baseUrl . '/contactusREPORT');
     }
 $hiba = 0;
 if ($request === $baseUrl . '/signin' && isset($_POST['login'])) {
