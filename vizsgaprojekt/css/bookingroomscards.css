@@ -44,7 +44,7 @@ a, a:hover {
 }
 
 #pageHeaderTitle {
-  margin: 2.5rem 0;
+  padding: 2.5rem 0;
   text-align: center;
   font-family: "Be Vietnam Pro",  sans-serif;
 }
@@ -163,7 +163,9 @@ a, a:hover {
 .postcard:hover .postcard__title {
   color: #C5B358;
 }
-
+#roomprice span{
+  display: none !important;
+}
 
 @media screen and (max-width: 1300px) {
   .dark {
@@ -187,8 +189,25 @@ a, a:hover {
     text-align: center;
   }
   .dark {
-    padding-left: 2vw;
-    padding-right: 2vw;
+    padding-left: 1vw;
+    padding-right: 1vw;
+  }
+  .postcard__subtitle {
+    display: initial !important;
+  }
+  .postcard__subtitle span {
+    display: none !important;
+  }
+  #roomprice span{
+    display: initial !important;
+  }
+  .postcard:hover {
+    transform: none;
+    transition: 0.3s;
+  }
+  .postcard__img_link img{
+    padding-left: 1.5rem !important;
+    padding-right: 1.5rem !important;
   }
 }
 

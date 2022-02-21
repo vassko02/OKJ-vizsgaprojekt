@@ -12,7 +12,7 @@ $_SESSION['roomid'] = $_POST['Roomid'];
 //  echo $serviceid;
 ?>
 
-<form action="<?php echo $baseUrl ?>/booking/customerdetails" class="keret " method="post">
+<form action="<?php echo $baseUrl ?>/booking/customerdetails" class="keret" method="post">
     <div class="roooom">
         <div class="szobakepek">
             <div id="carouselExampleCaptions" class="carousel slide carousel-fade" data-bs-ride="carousel">
@@ -45,9 +45,9 @@ $_SESSION['roomid'] = $_POST['Roomid'];
         <div class="szobaszoveg">
             <h1><?php echo $room2['RoomName'];
                 $_SESSION['roomname'] = $room2['RoomName']; ?></h1>
-            <h4 class="mt-3"><i>Room capacity: <?php echo $room2['Capacity']; ?></i></h4>
+            <h4 class=""><i>Room capacity: <?php echo $room2['Capacity']; ?></i></h4>
             <div class="divider"></div>
-            <p class="text-justify mt-5 fs-5"><?php echo $room2['Description']; ?></p>
+            <p class=""><?php echo $room2['Description']; ?></p>
             <?php
             $attributes = explode(";", $room2['attributes']);
             echo '
@@ -59,12 +59,12 @@ $_SESSION['roomid'] = $_POST['Roomid'];
 						<i class="fa-solid fa-wifi"></i> Free Wifi
 					</li>
 				';
-            if (strpos($room2['RoomName'], 'Non-Smoking')) { 
+            if (strpos($room2['RoomName'], 'Non-Smoking')) {
                 echo '
 					<li class="tag__item play blue ">
 						<i class="fa-solid fa-ban-smoking"></i> Non-Smoking
 					</li>';
-            } else { 
+            } else {
                 echo '
 					<li class="tag__item play blue ">
 						<i class="fa-solid fa-smoking"></i> Smoking
@@ -118,10 +118,16 @@ $_SESSION['roomid'] = $_POST['Roomid'];
             }
             echo '</ul>';
             ?>
-            <h5 class="float-right"> Room price: $<?php echo $room2['RoomPrice'];
-                                                    $_SESSION['RoomPrice'] = $room2['RoomPrice']; ?>/night
-            </h5>
-            <select class="form-select bg-dark text-light" name="select" aria-label="Default select example">
+            <div class="szobabottom">
+                <h5>Check-in: <?php echo $_SESSION['checkin']; ?></h5>
+                <div class="d-flex pb-2">
+                    <h5 class="">Check-out: <?php echo $_SESSION['checkout']; ?></h5>
+                    <h5 class="ms-auto"> Room price: $<?php echo $room2['RoomPrice'];
+                                                        $_SESSION['RoomPrice'] = $room2['RoomPrice']; ?>/night
+                    </h5>
+                </div>
+            </div>
+            <select class="form-select" name="select" aria-label="Default select example">
 
                 <?php foreach ($services as $service) {
                     echo ' <option value="' . $service['ServiceID'] . '">' . $service['ServiceType'] . ' $' . $service['ServicePrice'] . ' /night </option>';
@@ -129,11 +135,11 @@ $_SESSION['roomid'] = $_POST['Roomid'];
 
             </select>
 
-            <button type="submit" name="btn_contin" class="btn btn-warning mb-3">
-                Continue
+            <button type="submit" name="btn_contin" class="continue">
+                Continue &nbsp;<i class="fa-solid fa-arrow-right-long"></i>
             </button>
-            <a href="<?php echo $baseUrl ?>/booking" name="btn_cancel" class="btn btn-danger mb-3 ">
-                Cancel
+            <a href="<?php echo $baseUrl ?>/booking" name="btn_cancel" class="cancel">
+                <i class="fa-solid fa-xmark"></i> &nbsp;Cancel
             </a>
 
         </div>

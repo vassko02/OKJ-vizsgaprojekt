@@ -2,7 +2,7 @@
 $error = false;
 $guestnumbererror = false;
 $Roomslist = $RoomObj->selectallrooms();
-
+$filteredrooms = array();
 
 if (isset($_POST['Edit'])) {
 	$edit = $_POST['Edit'];
@@ -46,90 +46,92 @@ if (isset($_POST['btn_srch'])) {
 ?>
 
 <div class="d-flex foglalashatter">
-	<div class="datas " id="box">
-		<form method="POST" action="#pageHeaderTitle">
-			<div class="form-group div1 row">
-				<div class="first ">
-					<div class="second row">
-						<div class="third col-lg-4 col-sm-6">
-							<label class="col-form-label" for="adultsnumber">Adults</label>
+	<div class="leftside">
+		<div class="datas " id="box">
+			<form method="POST" action="#pageHeaderTitle">
+				<div class="form-group row">
+					<div class="col-6">
+						<div class="">
+							<div class="">
+								<label class="col-form-label" for="adultsnumber">Adults</label>
+							</div>
+							<div class="">
+								<input class="form-control" required value="<?php if (isset($_SESSION['adult'])) {
+																				echo $_SESSION['adult'];
+																			} else {
+																				echo 2;
+																			} ?>" type="number" name="adultnumber" id="adultsnumber" placeholder="Adults">
+							</div>
 						</div>
-						<div class="third col-lg-8 col-sm-6">
-							<input class="form-control" required value="<?php if (isset($_SESSION['adult'])) {
-																			echo $_SESSION['adult'];
-																		} else {
-																			echo 2;
-																		} ?>" type="number" name="adultnumber" id="adultsnumber" placeholder="Adults">
+					</div>
+					<div class="col-6">
+						<div class="">
+							<div class="">
+								<label class="col-form-label" for="childrennumber">Children</label>
+							</div>
+							<div class="">
+								<input class="form-control" required value="<?php if (isset($_SESSION['children'])) {
+																				echo $_SESSION['children'];
+																			} else {
+																				echo 0;
+																			} ?>" type="number" name="childrennumber" id="childrennumber" placeholder="Children">
+							</div>
+						</div>
+					</div>
+					<div class="col-6">
+						<div class="">
+							<div class="">
+								<label class="col-form-label" for="arrivaldate">Check-in</label>
+							</div>
+							<div class="">
+								<input type="date" required value="<?php if (isset($_SESSION['checkin'])) {
+																		echo $_SESSION['checkin'];
+																	} else {
+																		echo date('2022-04-20');
+																	} ?>" class="form-control " name="checkin" id="arrivaldate">
+							</div>
+						</div>
+					</div>
+					<div class="col-6">
+						<div class="">
+							<div class="">
+								<label class="col-form-label" for="leavingdate">Check-out</label>
+							</div>
+							<div class="">
+								<input type="date" required value="<?php if (isset($_SESSION['checkout'])) {
+																		echo $_SESSION['checkout'];
+																	} else {
+																		echo date('2022-04-25');
+																	} ?>" class="form-control " name="checkout" id="leavingdate">
+							</div>
 						</div>
 					</div>
 				</div>
-				<div class="first ">
-					<div class="second row">
-						<div class="third col-lg-4 col-sm-6">
-							<label class="col-form-label" for="childrennumber">Children</label>
-						</div>
-						<div class="third col-lg-8 col-sm-6">
-							<input class="form-control" required value="<?php if (isset($_SESSION['children'])) {
-																			echo $_SESSION['children'];
-																		} else {
-																			echo 0;
-																		} ?>" type="number" name="childrennumber" id="childrennumber" placeholder="Children">
-						</div>
-					</div>
-				</div>
-				<div class="first">
-					<div class="second row">
-						<div class="third col-lg-4 col-sm-6">
-							<label class="col-form-label" for="arrivaldate">Check-in</label>
-						</div>
-						<div class="third col-lg-8 col-sm-6">
-							<input type="date" required value="<?php if (isset($_SESSION['checkin'])) {
-																	echo $_SESSION['checkin'];
-																} else {
-																	echo date('2022-04-20');
-																} ?>" class="form-control " name="checkin" id="arrivaldate">
-						</div>
-					</div>
-				</div>
-				<div class="first">
-					<div class="second row">
-						<div class="third col-lg-4 col-sm-6">
-							<label class="col-form-label" for="leavingdate">Check-out</label>
-						</div>
-						<div class="third col-lg-8 col-sm-6">
-							<input type="date" required value="<?php if (isset($_SESSION['checkout'])) {
-																	echo $_SESSION['checkout'];
-																} else {
-																	echo date('2022-04-25');
-																} ?>" class="form-control " name="checkout" id="leavingdate">
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="form-group div3">
-				<button class="btn src" type="submit" name="btn_srch"><i class="fa-solid fa-magnifying-glass"></i> <span>Search Rooms</span></button>
-				<!-- <button class="learn-more" type="submit" name="btn_srch">
+				<div class="form-group">
+					<button class="btn src" type="submit" name="btn_srch"><i class="fa-solid fa-magnifying-glass"></i> <span>Search Rooms</span></button>
+					<!-- <button class="learn-more" type="submit" name="btn_srch">
 					<span class="circle" aria-hidden="true">
 						<span class="icon arrow"><i class="fa-solid fa-magnifying-glass"></i></span>
 					</span>
 					<span class="button-text">Search</span>
 				</button> -->
-				<p id="error"><?php if ($error === true) {
-									echo 'Please provide valid dates!';
-								} else {
-								} ?></p>
-				<p id="error"><?php if ($guestnumbererror === true) {
-									echo 'Please provide valid numbers!';
-								} else {
-								} ?></p>
-				<!-- <button class="learn-more btn" type="submit" name="btn_srch" id="button">
+					<p id="error"><?php if ($error === true) {
+										echo 'Please provide valid dates!';
+									} else {
+									} ?></p>
+					<p id="error"><?php if ($guestnumbererror === true) {
+										echo 'The maximum number of people that can be booked is 4!';
+									} else {
+									} ?></p>
+					<!-- <button class="learn-more btn" type="submit" name="btn_srch" id="button">
 					<span class="circle" aria-hidden="true">
 						<span class="icon arrow"></span>
 					</span>
 					<a class="button-text"  href="">Search rooms</a>
 				</button> -->
-			</div>
-		</form>
+				</div>
+			</form>
+		</div>
 	</div>
 	<div class="rightside">
 		<h1 id="makeareservation" class="">
@@ -166,7 +168,7 @@ if (isset($_POST['btn_srch'])) {
 ?>
 <!-- 	 -->
 <section class="dark hatter mt-5" id="osszesszoba">
-	<div class=" py-4">
+	<div class="">
 		<?php
 		if (isset($_POST['btn_srch']) && isset($_SESSION['checkin'])) {
 
@@ -174,15 +176,20 @@ if (isset($_POST['btn_srch'])) {
 			//  echo ('<pre>');
 			// print_r($_POST);
 			// echo ('</pre>');
-			if (count($filteredrooms) == 0) {
-				echo '
-					<p id="sorry">We dont have any available room at the moment :(</p>
-				';
-			} else {
-				echo '<div id="pageHeaderTitle">
-					<h1 class="h1 text-center">Available rooms</h1>
-					<p class="text-center">And current prices according to search</p>
-				</div>';
+			if ($error == false && $guestnumbererror == false) {
+				if (count($filteredrooms) == 0) {
+					echo '
+						<p id="sorry">We dont have any available room at the moment :(</p>
+					';
+				} else {
+					echo '<div id="pageHeaderTitle">
+						<h1 class="h1 text-center">Available rooms</h1>
+						<p class="text-center">And current prices according to search</p>
+					</div>';
+				}
+			}
+			else {
+
 			}
 			//rendezés szobaár alapján
 			$price = array();
@@ -202,7 +209,8 @@ if (isset($_POST['btn_srch'])) {
 					<h1 class="postcard__title blue">' . $room['RoomName'] . '</h1>
 					<div class="postcard__subtitle medium d-flex">
 						<p class="mr-2">Room capacity: ' . $room['Capacity'] . '</p>
-						<p id="roomprice">| $' . $room['RoomPrice'] . '/night</p>
+						<span>| &nbsp;</span>
+						<p id="roomprice"><span>Price: </span> $' . $room['RoomPrice'] . '/night</p>
 					</div>
 					<div class="postcard__bar"></div>
 					<div class="postcard__preview-txt">' . $room['Description'] . '</div>';

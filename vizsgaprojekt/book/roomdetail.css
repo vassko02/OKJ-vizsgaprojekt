@@ -1,7 +1,6 @@
 
 .carousel-inner img{
     height: 54vh;
-   
 }
 #myImg {
     border-radius: 5px;
@@ -85,44 +84,66 @@ img {
     border-radius: 8px;
    
   }
-h1{
-    font-weight: bold !important;
+.continue, .cancel {
+  margin-top: 3.1vh;
+  float: right !important;
+  background-color: hsl(0, 0%, 10%);
+  color: white;
+  border-radius: 20px;
+  text-align: center;
+  padding-bottom: 5px;
+  padding-top: 5px;
+  padding-right: 15px;
+  padding-left: 15px;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-family: "Be Vietnam Pro",  sans-serif;
+  transition: 0.3s;
 }
-h5{
-    font-style: italic !important;
-}
-.btn-warning{
-    
-    margin-right: 0vw !important;
-}
-.btn-danger{
+.cancel{
     margin-right: 1vw !important;
+    border: 2px solid red;
+    float: left !important;
+    margin-left: 0;
 }
-.btn-warning, .btn-danger {
-    width: 7vw;
-    margin-top: 3.1vh;
-    margin: 2vw;
-    float: right !important;
+.cancel:hover {
+  color: white;
+  background-color: red;
+  text-decoration: none;
+  transition: 0.3s;
+}
+.cancel i {
+  transition: 0.3s;
+}
+.cancel:hover i {
+  transform: rotate(90deg);
+  transition: 0.3s;
+}
+.continue{
+  margin-right: 0vw !important;
+  border: 2px solid #C5B358;
+  transition: 0.5s;
+}
+.continue i {
+  transform: rotate(-360deg);
+  transition: 0.5s;
+}
+.continue:hover {
+  background-color: #C5B358;
+  transition: 0.3s;
+}
+.continue:hover i {
+  transform: rotate(0deg);
+  transition: 0.5s;
 }
 .jobbra{
     text-align: right !important;
 }
 .keret{
-    margin-top: 5vw !important;
-    margin-bottom: 20vw !important;
-    margin-left: 10vw !important;
-    margin-right: 10vw !important;
-    font-size: 2em;
-    background-color: #1e2029;
+    background-color: hsl(0, 0%, 20%);
     color: #fff;
-    box-shadow: 2px 2px 2px #00000080, 10px 1px 12px #00000080,
-      2px 2px 10px #00000080, 2px 2px 3px #00000080, inset 2px 2px 10px #00000080,
-      inset 2px 2px 10px #00000080, inset 2px 2px 10px #00000080,
-      inset 2px 2px 10px #00000080;
-    border-radius: 29px;
-    padding: 11px 19px;
-    margin: 0 40px;
-  
+    padding: 4%;
+    padding-bottom: 27vh;
 }
 .carousel-item img {
   inline-size: 100%;
@@ -131,17 +152,24 @@ h5{
 }
 .roooom {
   display: flex;
+  margin-top: 2%;
 }
 .roooom .szobakepek {
   min-width: 50%;
-  padding: 1%;
 }
 .roooom .szobaszoveg {
   min-width: 50%;
-  padding: 5%;
+  padding-left: 3%;
 }
 .szobaszoveg h1 {
   font-family: "Be Vietnam Pro",  sans-serif;
+}
+.szobaszoveg h4 {
+  font-weight: normal;
+}
+.szobaszoveg p {
+  text-align: justify;
+  font-size: 20px;
 }
 .szobaszoveg .divider {
   height: 5px;
@@ -149,6 +177,14 @@ h5{
   background-color: #C5B358;
   margin: 15px 0;
   border-radius: 5px;
+}
+.szobabottom {
+  margin-top: 3% !important;
+}
+.form-select {
+  background-color: hsl(0, 0%, 10%);
+  color: white;
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath fill='none' stroke='white' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M2 5l6 6 6-6'/%3E%3C/svg%3E");
 }
 .postcard__tagbox {
   display: flex;
@@ -172,7 +208,52 @@ h5{
 }
 
 @media screen and (max-width: 1500px) {
+  .keret {
+    padding-left: 12%;
+    padding-right: 12%;
+  }
   .roooom {
     display: initial;
+  }
+  .szobaszoveg {
+    padding-left: 0 !important;
+    padding-top: 5%;
+  }
+}
+@media screen and (max-width: 1000px) {
+  .keret {
+    padding-left: 5%;
+    padding-right: 5%;
+  }
+}
+@media screen and (max-width: 750px) {
+  .keret {
+    padding-left: 2%;
+    padding-right: 2%;
+  }
+  .szobaszoveg {
+    padding-left: 4% !important;
+    padding-right: 4% !important;
+  }
+}
+@media screen and (max-width: 550px) {
+  .szobakepek,.carousel-inner, .carousel-item img {
+    max-height: 250px !important;
+  }
+  .szobabottom div.d-flex {
+    display: initial !important;
+  }
+  .szobabottom div.d-flex h5:last-of-type {
+    padding-top: 15px;
+    padding-bottom: 10px;
+  }
+  .szobaszoveg p {
+    font-size: 16px;
+  }
+  .modal-content {
+    height: 250px;
+    inline-size: 100%;
+    aspect-ratio: 16 / 9 !important;
+    object-fit: cover;
   }
 }

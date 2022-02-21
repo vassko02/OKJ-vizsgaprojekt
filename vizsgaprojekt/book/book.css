@@ -5,7 +5,7 @@ html{
 #makeareservation{
   
     text-align: center;
-    font-size: 5vw;
+    font-size: 2rem;
     color: #d5d5d5;
     
     margin-top: 20vh;
@@ -16,7 +16,7 @@ html{
 }
 .carousel{
     text-align: center;
-    font-size: 2vw;
+    font-size: 1.7rem;
 }
 .foglalashatter{
     background-color: hsl(0, 0%, 10%);
@@ -29,41 +29,26 @@ html{
 }
 .rightside{
     margin-right: 1vw;
-    width: 65vw !important;
+    margin: auto;
+    width: 40vw;
+}
+.leftside {
+  width: 30vw;
+  margin-left: auto;
+  margin-top: auto;
+  margin-bottom: auto;
 }
 .datas{
-    padding: 3vw;
     color: white;
-    border: 0px solid #C5B358;
-    border-radius: 50px;
-    background-color: black;
-    margin-left: 3vw;
-    margin-right: auto;
-    width: 50vw;
-    text-align: center;
-    padding-bottom: 20px;
-    margin-right: 5vw;
-    border: 3px solid black;
     transition: 0.3s;
-    margin-top: auto;
-    margin-bottom: auto;
-}
-.datas:hover{
-    border: 3px solid #C5B358;
-    border-radius: 50;
-    transition: 0.3s;
+    background-color: hsl(0, 0%, 20%);
+    width: 22vw;
+    margin-left: auto;
+    padding: 2.5vh;
 }
 .rooms{
     width: 75vw !important;
     height: 35vh !important;
-}
-#scrollaaa{
-    text-decoration: none;
-    color: #000000;
-}
-#scrollaaa:hover{
-    text-decoration: none;
-    color: #000000;
 }
 .src{
     background-color: #e2c94a !important;
@@ -72,12 +57,12 @@ html{
     padding-left: 1vw !important;
     display: inline-block;
     transition: 0.3s;
+    margin-top: auto;
+    height: 100%;
 }
-.src:hover span{
-    left: -100px !important;
-    transition: 0.3s;
+.form-group:last-of-type {
+  margin-bottom: 0;
 }
-
 input{
     background-color: black !important;
     border: 1px solid black !important;
@@ -85,76 +70,19 @@ input{
     border-radius: 10px !important;
     text-align: right;
 }
-.second{
-    padding: 0.5vw;
-}
-
 ::-webkit-calendar-picker-indicator {
     filter: invert(1);
 }
 
 
-.div1{
-    overflow: hidden;
-    text-align: center;
-}
-.div1 .first{
-    float: left;
-    background-color: #e2c94a;
-    color: black;
-    border: 3px solid black;
-    border-radius: 15px;
-    text-align: center;
-    font-weight: bold;
-    margin-top: 2vh;
-}
-.div1 .second{
-    overflow: hidden;
-}
-.div1 .third{
-    float: left;
-    padding: auto;
-    padding: 0.5vh;
 
-}
 
-.div2{
-    overflow: hidden;
-    text-align: center;
-}
-.div2 .first{
-    float: left;
-    background-color: #e2c94a;
-    color: black;
-    border: 3px solid black;
-    border-radius: 15px;
-    text-align: center;
-    font-weight: bold;
-    margin-top: 2vh;
-}
 #sorry{
     font-size: 2.5vw;
     font-weight: bolder;
     text-align: center;
     margin: auto;
     color: whitesmoke;
-}
-.div2 .second{
-    overflow: hidden;
-}
-.div2 .third{
-    float: left;
-    padding: auto;
-    padding: 1vh;
-}
-.div2 input{
-    margin-left: 1.5vw;
-}
-.div2 label{
-    width: 7vw;
-}
-.div3 {
-    margin-bottom: 0 !important;
 }
 
 #osszesszoba {

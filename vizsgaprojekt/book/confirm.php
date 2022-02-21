@@ -27,7 +27,12 @@
   $diff = date_diff($date1,$date2);
 
   
-  $_SESSION['fullprice'] = (($_SESSION['serviceprice']+$_SESSION['RoomPrice'])* $diff->format("%a"))*$_SESSION['multiplier'];
+  if (isset($_SESSION['multiplier'])) {
+    $_SESSION['fullprice'] = (($_SESSION['serviceprice']+$_SESSION['RoomPrice'])* $diff->format("%a"))*$_SESSION['multiplier'];
+  }
+  else {
+    $_SESSION['fullprice'] = (($_SESSION['serviceprice']+$_SESSION['RoomPrice'])* $diff->format("%a"))*1;
+  }
   $hundred = 100;
 
 
@@ -98,7 +103,15 @@
 </div>
 <div class="mb-3 keret">
   <label for="fullprice" class="form-label">Full Price:</label>
-  <span> $<?php echo ''.$_SESSION['fullprice'].' -   '.$_SESSION['discount'].'% DISCOUNT  ';?></span>
+  <span> $<?php 
+      if (isset($_SESSION['discount'])) {
+        echo ''.$_SESSION['fullprice'].' -   '.$_SESSION['discount'].'% DISCOUNT  ';
+      }
+      else {
+        echo ''.$_SESSION['fullprice'].' - 0% DISCOUNT';
+      }
+      ?>
+  </span>
 </div>
 <input type="hidden" id="Edit" name="Edit" value="<?php echo $edit?>">
 <button class="btn btn-warning mt-3 edit col keret" type="submit"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
