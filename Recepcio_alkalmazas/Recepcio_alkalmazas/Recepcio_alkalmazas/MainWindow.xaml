@@ -12,7 +12,9 @@
             <Setter Property="Background" Value="Black"/>
             <Setter Property="Foreground" Value="DarkGoldenrod"/>
             <Setter Property="FontWeight" Value="Bold"/>
+            
         </Style>
+        
     </Window.Resources>
     <Grid>
         <Grid.ColumnDefinitions>
@@ -40,7 +42,7 @@
                >
                 <StackPanel  Width="250" Background="#575a59" HorizontalAlignment="Left" >
                     <Image Source="img/proba.png" Stretch="Fill" Height="88"/>
-                    <Button Padding="5" Name="btn_erkezes" Margin="15,10,15,10" Click="btn_erkezes_Click">
+                    <Button Padding="5" Name="btn_erkezes" Margin="15,5,15,5" Click="btn_erkezes_Click">
                         <Button.Resources>
                             <Style TargetType="Border">
                                 <Setter Property="CornerRadius" Value="15"/>
@@ -51,7 +53,7 @@
                             <iconPacks:PackIconMaterial Width="20" Height="20" Kind="LocationEnter" Foreground="DarkGoldenrod" VerticalContentAlignment="Center" VerticalAlignment="Center"/>
                         </StackPanel>
                     </Button>
-                    <Button Padding="5" Name="btn_tavozas"  Margin="15,10,15,10" Click="btn_tavozas_Click">
+                    <Button Padding="5" Name="btn_tavozas"  Margin="15,5,15,5" Click="btn_tavozas_Click">
                         <Button.Resources>
                             <Style TargetType="Border">
                                 <Setter Property="CornerRadius" Value="15"/>
@@ -62,7 +64,7 @@
                             <iconPacks:PackIconMaterial Width="20" Height="20" Kind="ExitRun" Foreground="DarkGoldenrod" VerticalContentAlignment="Center" VerticalAlignment="Center"/>
                         </StackPanel>
                     </Button>
-                    <Button Padding="5" Name="btn_modosit" Margin="15,10,15,10" Click="btn_modosit_Click">
+                    <Button Padding="5" Name="btn_modosit" Margin="15,5,15,5" Click="btn_modosit_Click">
                         <Button.Resources>
                             <Style TargetType="Border">
                                 <Setter Property="CornerRadius" Value="15"/>
@@ -73,7 +75,7 @@
                             <iconPacks:PackIconMaterial Width="20" Height="20" Kind="BookEdit" Foreground="DarkGoldenrod" VerticalContentAlignment="Center" VerticalAlignment="Center"/>
                         </StackPanel>
                     </Button>
-                    <Button Padding="5" Name="btn_fogyasztás" Margin="15,10,15,10" Click="btn_fogyasztás_Click">
+                    <Button Padding="5" Name="btn_fogyasztás" Margin="15,5,15,5" Click="btn_fogyasztás_Click">
                         <Button.Resources>
                             <Style TargetType="Border">
                                 <Setter Property="CornerRadius" Value="15"/>
@@ -84,7 +86,7 @@
                             <iconPacks:PackIconMaterial Width="20" Height="20" Kind="FoodForkDrink" Foreground="DarkGoldenrod" VerticalContentAlignment="Center" VerticalAlignment="Center"/>
                         </StackPanel>
                     </Button>
-                    <Button Padding="5" Name="btn_cashier" Margin="15,10,15,10" Click="btn_cashier_Click">
+                    <Button Padding="5" Name="btn_cashier" Margin="15,5,15,5" Click="btn_cashier_Click">
                         <Button.Resources>
                             <Style TargetType="Border">
                                 <Setter Property="CornerRadius" Value="15"/>
@@ -95,7 +97,18 @@
                             <iconPacks:PackIconMaterial Width="20" Height="20" Kind="ListStatus" Foreground="DarkGoldenrod" VerticalContentAlignment="Center" VerticalAlignment="Center"/>
                         </StackPanel>
                     </Button>
-                    <StackPanel Margin="0,35,0,0">
+                    <Button Padding="5" Name="btn_reportok" Margin="15,5,15,5" Click="btn_reportok_Click">
+                        <Button.Resources>
+                            <Style TargetType="Border">
+                                <Setter Property="CornerRadius" Value="15"/>
+                            </Style>
+                        </Button.Resources>
+                        <StackPanel Orientation="Horizontal">
+                            <Label Content="Ratings/Reports" Foreground="DarkGoldenrod" Margin="0,0,5,0"/>
+                            <iconPacks:PackIconMaterial Width="20" Height="20" Kind="Star" Foreground="DarkGoldenrod" VerticalContentAlignment="Center" VerticalAlignment="Center"/>
+                        </StackPanel>
+                    </Button>
+                    <StackPanel Margin="0,25,0,0">
                         <Label Content="Current date/time:" HorizontalAlignment="Center" HorizontalContentAlignment="Center" Width="250" FontSize="20" FontWeight="Bold" Foreground="White" />
                         <Label Name="LiveDateLabel" Content="" HorizontalAlignment="Center" HorizontalContentAlignment="Center" VerticalAlignment="Bottom" Margin="0,-6,0,0" Width="250" FontSize="20" FontWeight="Bold" Foreground="White" />
                         <Label Name="LiveTimeLabel" Content="" HorizontalAlignment="Center" HorizontalContentAlignment="Center" VerticalAlignment="Bottom" Margin="0,-6,0,0" Width="250" FontSize="20" FontWeight="Bold" Foreground="White" />

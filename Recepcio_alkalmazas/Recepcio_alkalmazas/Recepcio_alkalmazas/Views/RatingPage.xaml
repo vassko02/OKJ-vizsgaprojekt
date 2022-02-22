@@ -1,0 +1,41 @@
+﻿<Page x:Class="Recepcio_alkalmazas.Views.RatingPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Recepcio_alkalmazas.Views"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="RatingPage">
+
+    <StackPanel>
+        <Label Content="Ratings" Foreground="DarkGoldenrod" HorizontalAlignment="Center" FontWeight="Bold" FontSize="20"/>
+        <DataGrid Name="dg_ratings" AutoGenerateColumns="False" IsReadOnly="True" Margin="5" Foreground="White" ItemsSource="{Binding}"
+                  FontWeight="Bold" GridLinesVisibility="None" RowBackground="#36393f" Background="#36393f"
+                  HorizontalAlignment="Center" SelectionUnit="FullRow" BorderThickness="0" HeadersVisibility="Column" Height="397">
+            <DataGrid.Resources>
+                <Style BasedOn="{StaticResource {x:Type DataGridColumnHeader}}" TargetType="{x:Type DataGridColumnHeader}">
+                    <Setter Property="Background" Value="#353638"/>
+                </Style>
+            </DataGrid.Resources>
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Guest name" Binding="{Binding Name}" Width="100"/>
+                <DataGridTextColumn Header="Email address" Width="150" Binding="{Binding Email}"/>
+                <DataGridTextColumn Header="Description"  Width="*" Binding="{Binding Description}">
+                    <DataGridTextColumn.ElementStyle>
+                        <Style TargetType="TextBlock">
+                            <Setter Property="TextBlock.TextWrapping" Value="Wrap" />
+                        </Style>
+                    </DataGridTextColumn.ElementStyle>
+                </DataGridTextColumn>
+                <DataGridTextColumn Header="Stars" Width="50" Binding="{Binding Stars}">
+                    <DataGridTextColumn.ElementStyle>
+                        <Style TargetType="TextBlock">
+                            <Setter Property="Padding" Value="5" />
+                        </Style>
+                    </DataGridTextColumn.ElementStyle>
+                </DataGridTextColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+    </StackPanel>
+</Page>
