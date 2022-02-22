@@ -12,8 +12,8 @@
             <Setter Property="Background" Value="Black"/>
             <Setter Property="Foreground" Value="DarkGoldenrod"/>
             <Setter Property="FontWeight" Value="Bold"/>
-            
-        </Style>
+               
+            </Style>
         
     </Window.Resources>
     <Grid>

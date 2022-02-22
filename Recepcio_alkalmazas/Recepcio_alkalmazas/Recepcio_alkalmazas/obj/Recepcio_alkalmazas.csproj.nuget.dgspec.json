@@ -14,8 +14,7 @@
         "outputPath": "D:\\OKJ-vizsgaprojekt\\Recepcio_alkalmazas\\Recepcio_alkalmazas\\Recepcio_alkalmazas\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\",
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+          "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
         ],
         "configFilePaths": [
           "C:\\Users\\vass.kornel\\AppData\\Roaming\\NuGet\\NuGet.Config",

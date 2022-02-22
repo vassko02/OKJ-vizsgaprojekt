@@ -3,60 +3,47 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-      xmlns:local="clr-namespace:Recepcio_alkalmazas.Views"
+      xmlns:local="clr-namespace:Recepcio_alkalmazas.Views" xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
       mc:Ignorable="d" 
       d:DesignHeight="550" d:DesignWidth="800"
-      Title="logs"> 
+      Title="logs">
+    <Page.Resources>
+        <Style TargetType="Button">
+            <Setter Property="Background" Value="Black"/>
+            <Setter Property="Foreground" Value="DarkGoldenrod"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+        </Style>
+    </Page.Resources>
     <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="*"/>
-        </Grid.ColumnDefinitions>
-        <StackPanel>
-            <Label Content="Reservation log" 
-                   Foreground="DarkGoldenrod"
-                   HorizontalAlignment="Center" Margin="5" 
-                   FontSize="20" FontWeight="Bold"/>
-            <DataGrid Name="dg_reslog" Margin="5" Foreground="White" FontWeight="Bold"
-                      AutoGenerateColumns="False" Height="460" Width="350"
-                      GridLinesVisibility="None" BorderThickness="0"
-                      RowBackground="#36393f" Background="#36393f"
-                      HorizontalAlignment="Center" ItemsSource="{Binding}"  SelectionUnit="FullRow"
-                      IsReadOnly="True" HeadersVisibility="Column">
-                <DataGrid.Resources>
-                    <Style BasedOn="{StaticResource {x:Type DataGridColumnHeader}}" TargetType="{x:Type DataGridColumnHeader}">
-                        <Setter Property="Background" Value="#353638" />
+        <Grid.RowDefinitions>
+            <RowDefinition Height="80"/>
+            <RowDefinition Height="auto"/>
+        </Grid.RowDefinitions>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+            <Button Padding="5" Name="btn_reslog" Width="200" Margin="15,15,40,15" Click="btn_reslog_Click">
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="15"/>
                     </Style>
-                </DataGrid.Resources>
-                <DataGrid.Columns>
-                    <DataGridTextColumn Header="Name" Width="100" Binding="{Binding Name}"/>
-                    <DataGridTextColumn Header="Action" Width="130" Binding="{Binding Status}"/>
-                    <DataGridTextColumn Header="Time" Width="auto" Binding="{Binding Time, StringFormat=\{0:yyyy.MM.dd HH:mm:ss\}}"/>
-                </DataGrid.Columns>
-            </DataGrid>
-        </StackPanel>
-        <StackPanel Grid.Column="1">
-            <Label Content="User log" 
-                   Foreground="DarkGoldenrod"
-                   HorizontalAlignment="Center" Margin="5" 
-                   FontSize="20" FontWeight="Bold"/>
-            <DataGrid Name="dg_userlog" Margin="5" Foreground="White" FontWeight="Bold"
-                      AutoGenerateColumns="False" Height="460" Width="350"
-                      GridLinesVisibility="None" BorderThickness="0"
-                      RowBackground="#36393f" Background="#36393f"
-                      HorizontalAlignment="Center" ItemsSource="{Binding}"  SelectionUnit="FullRow"
-                      IsReadOnly="True" HeadersVisibility="Column">
-                <DataGrid.Resources>
-                    <Style BasedOn="{StaticResource {x:Type DataGridColumnHeader}}" TargetType="{x:Type DataGridColumnHeader}">
-                        <Setter Property="Background" Value="#353638" />
+                </Button.Resources>
+                <StackPanel Orientation="Horizontal">
+                    <Label Content="Reservation log" Foreground="DarkGoldenrod" Margin="0,0,5,0"/>
+                    <iconPacks:PackIconMaterial Width="20" Height="20" Kind="Bell" Foreground="DarkGoldenrod" VerticalContentAlignment="Center" VerticalAlignment="Center"/>
+                </StackPanel>
+            </Button>
+            <Button Padding="5" Name="btn_userlog" Margin="40,15,15,15" Width="200" Click="btn_userlog_Click">
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="15"/>
                     </Style>
-                </DataGrid.Resources>
-                <DataGrid.Columns>
-                    <DataGridTextColumn Header="Name" Width="100" Binding="{Binding Name}"/>
-                    <DataGridTextColumn Header="Action" Width="130" Binding="{Binding Status}"/>
-                    <DataGridTextColumn Header="Time" Width="auto" Binding="{Binding Time, StringFormat=\{0:yyyy.MM.dd HH:mm:ss\}}"/>
-                </DataGrid.Columns>
-            </DataGrid>
+                </Button.Resources>
+                <StackPanel Orientation="Horizontal">
+                    <Label Content="User log" Foreground="DarkGoldenrod" Margin="0,0,5,0"/>
+                    <iconPacks:PackIconMaterial Width="20" Height="20" Kind="Head" Foreground="DarkGoldenrod" VerticalContentAlignment="Center" VerticalAlignment="Center"/>
+                </StackPanel>
+            </Button>
         </StackPanel>
+        <Frame Grid.Row="1" Name="frm_content" NavigationUIVisibility="Hidden"/>
     </Grid>
 </Page>
+

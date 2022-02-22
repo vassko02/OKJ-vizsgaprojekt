@@ -22,18 +22,27 @@ namespace Recepcio_alkalmazas.Views
     /// </summary>
     public partial class logs : Page
     {
-        ObservableCollection<reservationLog> ResLogs = new ObservableCollection<reservationLog>();
-        ObservableCollection<userLog> UserLogs = new ObservableCollection<userLog>();
+
 
         public logs()
         {
             InitializeComponent();
-            ResLogs = reservationLog.selectreservationLog();
-            UserLogs = userLog.selectuserlog();
-            dg_reslog.DataContext = ResLogs;
-            dg_userlog.DataContext = UserLogs;
+            btn_reslog.BorderBrush = Brushes.DarkGoldenrod;
+            frm_content.Content = new REsLogPage();
+        }
 
-            //log.callInsertIntoLog("teszt","Wpf","User");
+        private void btn_reslog_Click(object sender, RoutedEventArgs e)
+        {
+            btn_userlog.BorderBrush = Brushes.DarkGray;
+            btn_reslog.BorderBrush = Brushes.DarkGoldenrod;
+            frm_content.Content = new REsLogPage();
+        }
+
+        private void btn_userlog_Click(object sender, RoutedEventArgs e)
+        {
+            btn_reslog.BorderBrush = Brushes.DarkGray;
+            btn_userlog.BorderBrush = Brushes.DarkGoldenrod;
+            frm_content.Content = new userLogPage();
         }
     }
 }

@@ -28,7 +28,7 @@ namespace Recepcio_alkalmazas.Models
             using (var con = new MySqlConnection(ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString))
             {
                 con.Open();
-                var sql = "select * from userLog";
+                var sql = "select * from userLog order by LogID DESC";
                 using (var cmd = new MySqlCommand(sql, con))
                 {
                     using (var reader = cmd.ExecuteReader())

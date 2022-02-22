@@ -379,3 +379,8 @@ D:\OKJ-vizsgaprojekt\Recepcio_alkalmazas\Recepcio_alkalmazas\Recepcio_alkalmazas
 D:\OKJ-vizsgaprojekt\Recepcio_alkalmazas\Recepcio_alkalmazas\Recepcio_alkalmazas\obj\Debug\netcoreapp3.1\Views\ReportPage.g.cs
 D:\OKJ-vizsgaprojekt\Recepcio_alkalmazas\Recepcio_alkalmazas\Recepcio_alkalmazas\obj\Debug\netcoreapp3.1\Views\RatingPage.baml
 D:\OKJ-vizsgaprojekt\Recepcio_alkalmazas\Recepcio_alkalmazas\Recepcio_alkalmazas\obj\Debug\netcoreapp3.1\Views\ReportPage.baml
+D:\OKJ-vizsgaprojekt\Recepcio_alkalmazas\Recepcio_alkalmazas\Recepcio_alkalmazas\obj\Debug\netcoreapp3.1\Recepcio_alkalmazas.csproj.CopyComplete
+D:\OKJ-vizsgaprojekt\Recepcio_alkalmazas\Recepcio_alkalmazas\Recepcio_alkalmazas\obj\Debug\netcoreapp3.1\Views\REsLogPage.g.cs
+D:\OKJ-vizsgaprojekt\Recepcio_alkalmazas\Recepcio_alkalmazas\Recepcio_alkalmazas\obj\Debug\netcoreapp3.1\Views\userLogPage.g.cs
+D:\OKJ-vizsgaprojekt\Recepcio_alkalmazas\Recepcio_alkalmazas\Recepcio_alkalmazas\obj\Debug\netcoreapp3.1\Views\REsLogPage.baml
+D:\OKJ-vizsgaprojekt\Recepcio_alkalmazas\Recepcio_alkalmazas\Recepcio_alkalmazas\obj\Debug\netcoreapp3.1\Views\userLogPage.baml

@@ -34,7 +34,7 @@ namespace Recepcio_alkalmazas.Models
             using (var con = new MySqlConnection(ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString))
             {
                 con.Open();
-                var sql = "SELECT * FROM rating";
+                var sql = "SELECT * FROM rating ORDER BY Time DESC";
                 using (var cmd = new MySqlCommand(sql, con))
                 {
                     using (var reader = cmd.ExecuteReader())
