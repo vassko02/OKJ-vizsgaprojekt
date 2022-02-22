@@ -1,40 +1,47 @@
 ﻿using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Configuration;
 using System.Text;
-using System.Collections.ObjectModel;
+
+
 namespace Recepcio_alkalmazas.Models
 {
-    class reservationLog
+    class reportModel
     {
-        public int LogID { get; set; }
-        public string Name { get; set; }
-        public string Status { get; set; }
-        public int ReservationID { get; set; }
+        public int ReportID { get; set; }
+        public string GuestName { get; set; }
+        public string Email { get; set; }
+        public string Problem { get; set; }
         public DateTime Time { get; set; }
-        public reservationLog(MySqlDataReader reader)
+
+        public reportModel(MySqlDataReader reader)
         {
-            this.LogID = Convert.ToInt32(reader["LogID"]);
-            this.Name = reader["Name"].ToString();
-            this.Status = reader["Status"].ToString();
-            this.ReservationID = Convert.ToInt32(reader["ReservationID"]);
+            this.ReportID = Convert.ToInt32(reader["ReportID"]);
+            this.GuestName = reader["GuestName"].ToString();
+            this.Email = reader["Email"].ToString();
+            this.Problem = reader["Problem"].ToString();
             this.Time = Convert.ToDateTime(reader["Time"]);
         }
-        public static ObservableCollection<reservationLog> selectreservationLog()
+        public reportModel()
+        {  }
+
+
+        public static ObservableCollection<reportModel> selectReports()
         {
-            var lista = new ObservableCollection<reservationLog>();
+            var lista = new ObservableCollection<reportModel>();
             using (var con = new MySqlConnection(ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString))
             {
                 con.Open();
-                var sql = "select * from reservationLog order by LogID DESC";
+                var sql = "SELECT * FROM reports  ORDER BY Time DESC";
                 using (var cmd = new MySqlCommand(sql, con))
                 {
                     using (var reader = cmd.ExecuteReader())
                     {
                         while (reader.Read())
                         {
-                            lista.Add(new reservationLog(reader));
+                            lista.Add(new reportModel(reader));
                         }
                     }
                 }

@@ -37,6 +37,21 @@
     <Compile Update="Views\logs.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="Views\RatingPage.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\ReportPage.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\reports.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\REsLogPage.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\userLogPage.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Page Update="CardPayment.xaml">
@@ -70,6 +85,21 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Views\logs.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\RatingPage.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\ReportPage.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\reports.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\REsLogPage.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\userLogPage.xaml">
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>

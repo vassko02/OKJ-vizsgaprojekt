@@ -45,7 +45,7 @@ namespace Recepcio_alkalmazas
         }
         private void reset(string melyikgomb)
         {
-            btn_modosit.BorderBrush = btn_cashier.BorderBrush=btn_tavozas.BorderBrush = btn_erkezes.BorderBrush = btn_fogyasztás.BorderBrush = Brushes.Black;
+            btn_modosit.BorderBrush = btn_cashier.BorderBrush=btn_tavozas.BorderBrush = btn_erkezes.BorderBrush = btn_fogyasztás.BorderBrush=btn_reportok.BorderBrush = Brushes.Black;
             switch (melyikgomb)
             {
                 case "tavozas":
@@ -62,6 +62,9 @@ namespace Recepcio_alkalmazas
                     break;
                 case "cash":
                     btn_cashier.BorderBrush = Brushes.DarkGoldenrod;
+                    break;
+                case "reports":
+                    btn_reportok.BorderBrush = Brushes.DarkGoldenrod;
                     break;
                 default:
                     break;
@@ -122,6 +125,10 @@ namespace Recepcio_alkalmazas
                 DragMove();
             }
         }
-
+        private void btn_reportok_Click(object sender, RoutedEventArgs e)
+        {
+            reset("reports");
+           frm_main.Content = new reports();
+        }
     }
 }
