@@ -15,20 +15,20 @@ html::-webkit-scrollbar {
     text-decoration: none;
     display: none !important;
     position: fixed;
-    z-index: 111;
-    margin-left: 95vw !important;
-    margin-top: 85vh !important;
-    background-color: #E2C94A;
+    z-index: 1111111111;
+    background-color: #C5B358;
     color: black;
     border: 2px solid black;
     border-radius: 50%;
-    width: 38.4px;
-    height: 38.4px;
-    font-size: 1vw;
-    padding-top: 3px;
+    width: 50px;
+    height: 50px;
+    font-size: 22px;
+    padding-top: 7px;
     text-align: center;
     font-weight: bolder;
     transition: 0.3s;
+    bottom: 15px;
+    right: 15px;
   }
   .tothetop:hover i{
     text-decoration: none;
@@ -55,6 +55,13 @@ html::-webkit-scrollbar {
   40%, 60% {
     transform: translate3d(0, 2px, 0);
     }
+}
+@media screen and (max-width: 700px){
+    .tothetop {
+        animation: shake 3s cubic-bezier(.36,.07,.19,.97) both;
+        transform: translate3d(0, 0, 0);
+        perspective: 1000px;
+      }
 }
 
 
@@ -97,10 +104,10 @@ nav{
     z-index: 10000;
 }
 .kep{
-    content: url('../pictures/korulvagott_logo.png') !important;
+    content: url('../pictures/korulvagott_logo.jpg');
 }
 .kep:hover {
-    content: url('../pictures/repulo.gif') !important;
+    content: url('../pictures/repulo.gif');
 }
 /*Styling logo*/
 .logo img {

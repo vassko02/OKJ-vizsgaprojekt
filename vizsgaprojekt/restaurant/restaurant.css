@@ -31,7 +31,7 @@ body{
     -moz-text-shadow: 0 0 5px #000;
     -webkit-text-shadow: 0 0 5px #000;
     color: #ffc526;
-    font-size: 6rem;
+    font-size: 10vh;
     width: 100%;
     margin-top: 30vh;
     text-align: center;
