@@ -316,9 +316,8 @@ if (isset($_POST['btn_send2'])) {
     // echo '<br>';
     // echo $mennyiper;
     include('./navbar/navbar.php');
-
-    //próba email küldés (gabor)
-     echo '<a class="tothetop p-auto" id="mybtn" href="#"><i class="fa-solid fa-angle-up"></i></a>';
+        
+     echo '<a class="tothetop" id="mybtn" href="#"><i class="fa-solid fa-arrow-up"></i></a>';
 
 
     switch ($request) {
