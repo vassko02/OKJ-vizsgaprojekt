@@ -1,56 +1,129 @@
-@import url('https://fonts.googleapis.com/css2?family=Prompt&display=swap');
-.btn{
-    float: right;
-    width: 10vw;
-}
 h1{
-    font-family: 'Prompt', sans-serif;
-    font-size: 3vw;
-    background: -webkit-linear-gradient( #ffe134,#ffe134,#0f0f0fa2);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    text-align: left;
-    text-decoration: underline;
-    padding-right: 2vw !important;
-    
+    font-family: "Be Vietnam Pro", sans-serif;
+    font-size: 3rem;
 }
-.text {
-	
-	-webkit-text-fill-color: transparent;
+.keret label {
+    color: #C5B358;
+    font-family: "Be Vietnam Pro", sans-serif;
 }
-input{
-    font-family: 'Prompt' !important;
-    border:1px solid #ceb631 !important;
+.keret input, .keret textarea {
+    background-color: hsl(0, 0%, 10%) !important;
+    border: 2px solid hsl(0, 0%, 10%) !important;
+    color: white !important;
+    border-radius: 10px !important;
 }
-label{
-    color: #ffe134;
+.keret input:focus, .keret textarea:focus {
+  outline: none !important;
+  box-shadow: none;
+  border: 2px solid #c5b358 !important;
+}
+.guestinfo {
     width: 100%;
-    text-align: right;
+    height: 92vh;
+    padding-top: 10vh;
 }
 .keret{
     width: 70vw;
-    margin-top: 5vw !important;
-    margin-bottom: 20vw !important;
-    margin-left: auto !important;
-    margin-right: auto !important;
-    font-size: 2em;
-    background-color: #1e2029;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: hsl(0, 0%, 20%);
     color: #fff;
-    box-shadow: 2px 2px 2px #00000080, 10px 1px 12px #00000080,
-      2px 2px 10px #00000080, 2px 2px 3px #00000080, inset 2px 2px 10px #00000080,
-      inset 2px 2px 10px #00000080, inset 2px 2px 10px #00000080,
-      inset 2px 2px 10px #00000080;
+    box-shadow: 0px 0px 21px 4px rgba(0, 0, 0, 0.5);
     border-radius: 29px;
-    padding: 11px 19px;
-    margin: 0 40px;
-  
+    padding: 2%;
 }
+.keret .useradatok {
+    width: 60%;
+    margin-right: 5%;
+}
+.keret .useradatok div, .keret .usermessage {
+    padding-top: 2vh;
+}
+.keret .usermessage {
+    width: 35%;
+}
+.keret .usermessage textarea {
+    height: 90%;
+}
+.keret .divider {
+    height: 5px;
+    width: 350px;
+    background-color: #C5B358;
+    margin: 10px 0;
+    border-radius: 5px;
+  }
+.continue, .cancel {
+    margin-top: 3.1vh;
+    background-color: hsl(0, 0%, 10%);
+    color: white;
+    border-radius: 20px;
+    text-align: center;
+    padding-bottom: 8px;
+    padding-top: 8px;
+    padding-right: 15px;
+    padding-left: 15px;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-family: "Be Vietnam Pro",  sans-serif;
+    transition: 0.3s;
+  }
+  .cancel{
+      margin-right: 1vw !important;
+      border: 2px solid red;
+      margin-left: 0;
+  }
+  .cancel:hover {
+    color: white;
+    background-color: red;
+    text-decoration: none;
+    transition: 0.3s;
+  }
+  .cancel i {
+    transition: 0.3s;
+  }
+  .cancel:hover i {
+    transform: rotate(90deg);
+    transition: 0.3s;
+  }
+  .continue{
+    margin-right: 0vw !important;
+    border: 2px solid #C5B358;
+    transition: 0.5s;
+    margin-left: auto;
+  }
+  .continue i {
+    transform: rotate(-360deg);
+    transition: 0.5s;
+  }
+  .continue:hover {
+    background-color: #C5B358;
+    transition: 0.3s;
+  }
+  .continue:hover i {
+    transform: rotate(0deg);
+    transition: 0.5s;
+  }
 
-.smalllogo
-{
-    margin-top: 0.5vw;
-    width: 5.2vw;
-    height: 4vw;
-    content: url('../pictures/small_rounded.png') !important;
-    
+@media screen and (max-width: 1000px){
+    .keret {
+        width: 90%;
+    }
+}
+@media screen and (max-width: 750px){
+    .guestinfo {
+        height: unset;
+        padding-bottom: 5vh;
+        padding-top: 5vh;
+    }
+    .keret {
+        width: 100%;
+        padding: 5%;
+    }
+    .keret form div:first-of-type {
+        display: initial !important;
+    }
+    .keret .usermessage {
+        width: 100%;
+        padding-top: 0;
+    }
 }

@@ -121,7 +121,7 @@
      </fieldset>
      <fieldset>
       <h4 for="">Message</h4>
-      <textarea placeholder="Type your Message Here...." tabindex="5" ></textarea>
+      <textarea placeholder="Type your Message Here...." tabindex="5" >'.$oneonereservation['Message'].'</textarea>
      </fieldset>
      <fieldset>
       <button name="submit" type="submit" id="reservation-submit" data-submit="...Sending">Reservation Update</button>

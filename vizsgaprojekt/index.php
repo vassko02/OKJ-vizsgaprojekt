@@ -32,69 +32,9 @@ $HelpObj = new Help();
 $StorageObj = new storage();
 $MailObj = new mail();
 $LogObj = new Logs();
+
 include('action.php');
 
-if (isset($_POST['btn_send'])) {
-    if (isset($_SESSION['username'])) {
-        $user = $GuestObj->getuserbyid($_SESSION['username']);
-    $level =  $GuestObj->getlevel($user['CustomerID']);
-    switch ($level['LEVEL']) {
-        case "Gold":
-            $_SESSION['multiplier'] = 0.95;
-            $_SESSION['discount'] = 5;
-            break;
-
-        case "Platinum":
-            $_SESSION['multiplier'] = 0.90;
-            $_SESSION['discount'] = 10;
-            break;
-
-        case "Diamond":
-            $_SESSION['multiplier'] = 0.85;
-            $_SESSION['discount'] = 15;
-            break;
-        default:
-            $_SESSION['multiplier'] = 1;
-            $_SESSION['discount'] = 0;
-            break;
-    }
-    }
-}
-if (isset($_POST['btn_send2'])) {
-    if (isset($_SESSION['adult'])) {
-        if (isset($_SESSION['adult'])) {
-        }
-
-        if (isset($_SESSION['username'])) {
-            $user = $GuestObj->getuserbyid($_SESSION['username']);
-            //$Rnumber = $GuestObj->getreservationsnumber($user['CustomerID']);  
-            $customerreservations = $ReservationObj->selectallreservationbycustomerid($user['CustomerID']);
-            $Rnumber = count($customerreservations);
-            $Rnumber += 1;
-            $GuestObj->addonetoreservationnumber($user['CustomerID'], $Rnumber);
-            $level = '';
-            if ($Rumber < 3) {
-                $level = "";
-            }
-            if ($Rnumber >= 3) {
-                $level = "Gold";
-            } else if ($Rnumber >= 7) {
-                $level = "Platinum";
-            } else if ($Rnumber >= 11) {
-                $level = "Diamond";
-            }
-            $GuestObj->updatelevel($user['CustomerID'], $level);
-        }
-
-        $ReservationObj->savereservation($_SESSION);
-        $user = $GuestObj->getuserbyidreal($_SESSION['customerid']);
-        $lastres = $ReservationObj->getlastinsertedreservation();
-        $LogObj->savelog($user['Name'],"Created a reservation","Reservation",$lastres[0]['ReservationID']);
-        $LogObj->savelog($user['Name'],"Created a reservation","User",$lastres[0]['CustomerID']);
-        $HelpObj->clearReservation();
-    } else {
-    }
-}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -316,9 +256,9 @@ if (isset($_POST['btn_send2'])) {
     // echo '<br>';
     // echo $mennyiper;
     include('./navbar/navbar.php');
-        
-     echo '<a class="tothetop" id="mybtn" href="#"><i class="fa-solid fa-arrow-up"></i></a>';
 
+    echo '<a class="tothetop" id="mybtn" href="#"><i class="fa-solid fa-arrow-up"></i></a>';
+    //print_r($_SESSION);
 
     switch ($request) {
         case $baseUrl . '':
@@ -458,21 +398,22 @@ if (isset($_POST['btn_send2'])) {
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
     <script>
-//Get the button
-var mybutton = document.getElementById("mybtn");
+        //Get the button
+        var mybutton = document.getElementById("mybtn");
 
-// When the user scrolls down 20px from the top of the document, show the button
-window.onscroll = function() {scrollFunction()};
+        // When the user scrolls down 20px from the top of the document, show the button
+        window.onscroll = function() {
+            scrollFunction()
+        };
 
-function scrollFunction() {
-  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-    mybutton.style.setProperty('display','block','important');
-  } else {
-    mybutton.style.setProperty('display','none','important');
-  }
-}
-
-</script>
+        function scrollFunction() {
+            if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                mybutton.style.setProperty('display', 'block', 'important');
+            } else {
+                mybutton.style.setProperty('display', 'none', 'important');
+            }
+        }
+    </script>
 
 </body>
 

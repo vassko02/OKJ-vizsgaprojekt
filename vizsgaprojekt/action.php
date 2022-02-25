@@ -6,7 +6,7 @@ if (isset($_POST['newacc'])) {
     $_SESSION['address'] = $_POST['address'];
     $_SESSION['CustomerID'] = $_POST['CustomerID'];
     $_SESSION['Emailforpost'] = $_POST['Emailforpost'];
-    $HelpObj->writearray($_SESSION);
+    //$HelpObj->writearray($_SESSION);
     header('Location: ' . $baseUrl . '/newaccemail');
     
 }
@@ -59,6 +59,7 @@ if ($request === $baseUrl . '/signin' && isset($_POST['login'])) {
         $_SESSION['username'] =  $felhasznalo['UserName'];
         $_SESSION['loginemail'] = $felhasznalo['Email'];
         $_SESSION['isadmin'] = $felhasznalo['IsAdmin'];
+        
         $user =  $GuestObj->getuserbyid($_SESSION['username']);
         $LogObj->savelog($user['Name'],"Logged in","User",$user['CustomerID']);
         if (isset($_SESSION['loginemail']) && $_SESSION['isadmin'] == 1) {
@@ -127,5 +128,65 @@ if ($request === $baseUrl . '/forgotpassword' && isset($_POST['reset_password'])
         $GuestObj->send_password_reset_email($_POST['resetEmail'],$password_reset_code,$baseUrl); //email küldés
         $GuestObj->update_user_reset_code_in_db($existingEmail['CustomerID'], $password_reset_code); //hozzáírja a kódot az adatbázishoz
         header('Location: '.$baseUrl.'/');
+    }
+}
+
+if (isset($_SESSION['username'])) {
+    $user = $GuestObj->getuserbyid($_SESSION['username']);
+    $level =  $GuestObj->getlevel($user['CustomerID']);
+    switch ($level['LEVEL']) {
+        case "Gold":
+            $_SESSION['multiplier'] = 0.95;
+            $_SESSION['discount'] = 5;
+            break;
+
+        case "Platinum":
+            $_SESSION['multiplier'] = 0.90;
+            $_SESSION['discount'] = 10;
+            break;
+
+        case "Diamond":
+            $_SESSION['multiplier'] = 0.85;
+            $_SESSION['discount'] = 15;
+            break;
+        default:
+            $_SESSION['multiplier'] = 1;
+            $_SESSION['discount'] = 0;
+            break;
+    }
+}
+if (isset($_POST['btn_send2'])) {
+    if (isset($_SESSION['adult'])) {
+        if (isset($_SESSION['adult'])) {
+        }
+
+        if (isset($_SESSION['username'])) {
+            $user = $GuestObj->getuserbyid($_SESSION['username']);
+            //$Rnumber = $GuestObj->getreservationsnumber($user['CustomerID']);  
+            $customerreservations = $ReservationObj->selectallreservationbycustomerid($user['CustomerID']);
+            $Rnumber = count($customerreservations);
+            $Rnumber += 1;
+            $GuestObj->addonetoreservationnumber($user['CustomerID'], $Rnumber);
+            $level = '';
+            if ($Rumber < 3) {
+                $level = "";
+            }
+            if ($Rnumber >= 3) {
+                $level = "Gold";
+            } else if ($Rnumber >= 7) {
+                $level = "Platinum";
+            } else if ($Rnumber >= 11) {
+                $level = "Diamond";
+            }
+            $GuestObj->updatelevel($user['CustomerID'], $level);
+        }
+
+        $ReservationObj->savereservation($_SESSION);
+        $user = $GuestObj->getuserbyidreal($_SESSION['customerid']);
+        $lastres = $ReservationObj->getlastinsertedreservation();
+        $LogObj->savelog($user['Name'], "Created a reservation", "Reservation", $lastres[0]['ReservationID']);
+        $LogObj->savelog($user['Name'], "Created a reservation", "User", $lastres[0]['CustomerID']);
+        $HelpObj->clearReservation();
+    } else {
     }
 }
