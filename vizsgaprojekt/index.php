@@ -197,6 +197,9 @@ include('action.php');
     if ($request === $baseUrl . '/reportconfirmed') {
         echo '  <link rel="stylesheet" href="./contact/reportconfirmed.css">';
     }
+    if ($request === $baseUrl . '/tos' || $request === $baseUrl . '/privacypolicy') {
+        echo '  <link rel="stylesheet" href="./terms/terms.css">';
+    }
     if (strpos($request, "activate?email") !== false) {
         echo '<link rel="stylesheet" href="./aktivalas/aktivalas.css">
         <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro&display=swap" rel="stylesheet">';
@@ -374,6 +377,12 @@ include('action.php');
             } else {
                 include('./aktivalas/elfelejtettjelszo.php');
             }
+            break;
+        case $baseUrl . '/tos':
+            include('./terms/termsofservice.php');
+            break;
+        case $baseUrl . '/privacypolicy':
+            include('./terms/privacypol.php');
             break;
         default:
             //http_response_code(404);

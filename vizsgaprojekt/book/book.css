@@ -22,8 +22,6 @@ html {
   box-shadow: none;
   border: 2px solid #c5b358 !important;
 }
-.datas input[type="number"] {
-}
 .datas input[type="number"]::-webkit-inner-spin-button {
   -webkit-appearance: none;
 }

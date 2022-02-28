@@ -1,0 +1,20 @@
+body {
+    color: white;
+}
+#terms {
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 5%;
+}
+#terms h1 {
+    text-align: center;
+    margin-bottom: 2%;
+    margin-top: 2%;
+}
+#terms li {
+    margin-left: 2%;
+}
+#terms ul {
+    margin-bottom: 1% !important;
+}
