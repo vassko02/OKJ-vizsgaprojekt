@@ -20,8 +20,12 @@
     margin-left: auto;
 }
 
-#baloldal .header {
+#baloldal .header, #jobboldal .header {
     font-family: "Be Vietnam Pro", sans-serif;
+    display: flex;
+}
+.header h1 {
+  font-size: 2.2rem;
 }
 .divider {
     width: 70%;
@@ -42,9 +46,11 @@
 #baloldal .details div span {
     float: right;
 }
+#jobboldal .details div span {
+  float: right;
+}
 
-.finalize, .edit {
-    margin-top: 3.1vh;
+.finalize, .edit, .cancel {
     background-color: hsl(0, 0%, 10%);
     color: white;
     border-radius: 20px;
@@ -59,9 +65,10 @@
     transition: 0.3s;
   }
   .edit{
-      margin-right: 1vw !important;
+      /* margin-right: 1vw !important; */
       border: 2px solid #C5B358;
       margin-left: 0;
+      margin-left: auto;
   }
   .edit:hover {
     color: white;
@@ -73,7 +80,8 @@
     margin-right: 0vw !important;
     border: 2px solid green;
     transition: 0.5s;
-    margin-top: 2vh;
+    margin-top: 4vh;
+    margin-left: auto;
   }
   .finalize i {
     transform: rotate(-360deg);
@@ -87,9 +95,29 @@
     transform: rotate(0deg);
     transition: 0.5s;
   }
+  .cancel{
+    margin-top: 4vh;
+    margin-right: 1vw !important;
+    border: 2px solid red;
+    float: left !important;
+    margin-left: 0;
+}
+.cancel:hover {
+  color: white;
+  background-color: red;
+  text-decoration: none;
+  transition: 0.3s;
+}
+.cancel i {
+  transition: 0.3s;
+}
+.cancel:hover i {
+  transform: rotate(90deg);
+  transition: 0.3s;
+}
 
 #finalizeres {
-  margin-top: 4vh;
+  margin-top: 6vh;
 }
 #terms a{
     text-decoration: none;
@@ -98,7 +126,7 @@
 #terms a:hover {
     text-decoration: underline;
 }
-.form-check-input[type=checkbox] { /* change "blue" browser chrome to yellow */
+.form-check-input[type=checkbox] {
   filter: invert(67%) sepia(51%) saturate(414%) hue-rotate(13deg) brightness(99%) contrast(83%);
 }
 

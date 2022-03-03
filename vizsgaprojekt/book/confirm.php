@@ -40,6 +40,7 @@ $hundred = 100;
     <form action="<?php echo $baseUrl ?>/booking" method="post" id="baloldal">
       <div class="header">
         <h1 class="">Reservation informations</h1>
+        <button class="edit" type="submit"><i class="fas fa-edit"></i> Edit</button>
       </div>
       <div class="divider"></div>
       <div class="details">
@@ -105,44 +106,46 @@ $hundred = 100;
         </div>
       </div>
       <input type="hidden" id="Edit" name="Edit" value="<?php echo $edit ?>">
-      <button class="edit" type="submit"><i class="fas fa-edit"></i> Edit reservation</button>
     </form>
 
     <div id="jobboldal">
       <form action="<?php echo $baseUrl ?>/booking/customerdetails" method="post">
-        <div class="">
+        <div class="header">
           <h1 class=" ">Guest informations</h1>
+          <button class="edit" type="submit"><i class="fas fa-edit"></i> Edit</button>
         </div>
         <div class="divider"></div>
-        <div class="">
-          <label for="name" class="form-label">Name: </label>
-          <span><?php echo $_SESSION['customername'] ?></span>
-        </div>
-        <div class="">
-          <label for="exampleFormControlInput1" class="form-label">Email address:</label>
-          <span><?php echo $_SESSION['email'] ?></span>
-        </div>
-        <div class="">
-          <label for="phnumber" class="form-label">Phone number:</label>
-          <span><?php echo $_SESSION['phonenumber'] ?></span>
-        </div>
-        <div class="">
-          <label for="address" class="form-label">Address:</label>
-          <span><?php echo $_SESSION['address'] ?></span>
-        </div>
-        <div class="">
-          <label for="message" class="form-label">Your message:</label>
-          <span><?php echo $_SESSION['Message'] ?></span>
+        <div class="details">
+          <div class="">
+            <label for="name" class="form-label">Name: </label>
+            <span><?php echo $_SESSION['customername'] ?></span>
+          </div>
+          <div class="">
+            <label for="exampleFormControlInput1" class="form-label">Email address:</label>
+            <span><?php echo $_SESSION['email'] ?></span>
+          </div>
+          <div class="">
+            <label for="phnumber" class="form-label">Phone number:</label>
+            <span><?php echo $_SESSION['phonenumber'] ?></span>
+          </div>
+          <div class="">
+            <label for="address" class="form-label">Address:</label>
+            <span><?php echo $_SESSION['address'] ?></span>
+          </div>
+          <div class="">
+            <label for="message" class="form-label">Your message:</label>
+            <span><?php echo $_SESSION['Message'] ?></span>
+          </div>
         </div>
         <div class="smalldivider"></div>
-        <button class="edit" type="submit"><i class="fas fa-edit"></i> Edit guest informations</button>
+
       </form>
 
       <form action="<?php echo $baseUrl ?>/booking/resconfirm" method="post" class="needs-validation" id="finalizeres">
         <div class="form-check">
           <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required>
           <label class="form-check-label" for="invalidCheck" id="terms">
-            By checking this box, you are agreeing to our <a target="_blank" href="<?php echo $baseUrl?>/tos">Terms and Conditions</a> and <a target="_blank" href="<?php echo $baseUrl?>/privacypolicy">Privacy Policy</a>.
+            By checking this box, you are agreeing to our <a target="_blank" href="<?php echo $baseUrl ?>/tos">Terms and Conditions</a> and <a target="_blank" href="<?php echo $baseUrl ?>/privacypolicy">Privacy Policy</a>.
           </label>
           <div class="invalid-feedback">
             You must agree before submitting.
@@ -158,7 +161,12 @@ $hundred = 100;
                                                       if (isset($_POST['customerid'])) {
                                                         echo $_POST['customerid'];
                                                       } ?>">
-        <button class="finalize" name="btn_send2" type="submit"><i class="fas fa-check-circle"></i> Finalize reservation</button>
+        <div class="d-flex">
+        <a href="<?php echo $baseUrl ?>/booking" name="btn_cancel" class="cancel">
+          <i class="fa-solid fa-xmark"></i> &nbsp;Cancel
+        </a>
+        <button class="finalize" name="btn_send2" type="submit"><i class="fas fa-check-circle"></i> &nbsp;Finalize reservation</button>
+        </div>
       </form>
     </div>
   </div>

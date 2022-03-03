@@ -84,7 +84,7 @@ img {
    
   }
 .continue, .cancel {
-  margin-top: 3.1vh;
+  margin-top: 4vh;
   float: right !important;
   background-color: hsl(0, 0%, 10%);
   color: white;
@@ -182,7 +182,7 @@ img {
   border-radius: 5px;
 }
 .szobabottom {
-  margin-top: 3% !important;
+  margin-top: 5% !important;
 }
 .form-select {
   background-color: hsl(0, 0%, 10%);

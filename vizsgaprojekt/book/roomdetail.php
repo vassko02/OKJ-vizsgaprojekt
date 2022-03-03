@@ -119,9 +119,8 @@ $_SESSION['roomid'] = $_POST['Roomid'];
             echo '</ul>';
             ?>
             <div class="szobabottom">
-                <h5>Check-in: <?php echo $_SESSION['checkin']; ?></h5>
                 <div class="d-flex pb-2">
-                    <h5 class="">Check-out: <?php echo $_SESSION['checkout']; ?></h5>
+                    <h5 class=""><i class="fa-solid fa-calendar-days"></i>&nbsp; <?php echo $_SESSION['checkin']; echo ' <strong>—</strong> '; echo $_SESSION['checkout'];?></h5>
                     <h5 class="ms-auto"> Room price: $<?php echo $room2['RoomPrice'];
                                                         $_SESSION['RoomPrice'] = $room2['RoomPrice']; ?>/night
                     </h5>
