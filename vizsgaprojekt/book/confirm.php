@@ -65,7 +65,7 @@ $hundred = 100;
           <label for="chldren" class="form-label">Children:</label>
           <span><?php echo $_SESSION['children'] ?></span>
         </div>
-        <div class="">
+        <div class="" id="szobanev">
           <label for="roomname" class="form-label">Room Type:</label>
           <span><?php echo $_SESSION['roomname']; ?></span>
         </div>
