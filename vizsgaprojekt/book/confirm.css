@@ -43,11 +43,16 @@
 }
 #baloldal .details {
 }
-#baloldal .details div span {
-    float: right;
+.details div label {
+  font-weight: 500;
+  font-family: "Be Vietnam Pro",  sans-serif;
 }
-#jobboldal .details div span {
-  float: right;
+#baloldal .details div, #jobboldal .details div {
+    display: flex;
+}
+#jobboldal .details div p, #baloldal .details div p{
+    margin-left: auto;
+    margin-bottom: 0.5rem;
 }
 
 .finalize, .edit, .cancel {
@@ -129,6 +134,50 @@
 .form-check-input[type=checkbox] {
   filter: invert(67%) sepia(51%) saturate(414%) hue-rotate(13deg) brightness(99%) contrast(83%);
 }
+.price {
+  display: initial !important;
+}
+.price .totalprice {
+  font-size: 20px;
+  font-family: "Be Vietnam Pro",  sans-serif;
+  margin-top: 0.5rem;
+  
+}
+.price .totalprice p{
+  
+}
+#uzenet {
+  display: initial !important;
+}
+#uzenet p {
+  padding-left: 5%;
+  text-align: justify;
+}
+#uzenet label {
+  margin-bottom: 0;
+}
+
+
+.collapsible {
+  display: flex;
+}
+.collapsible:hover {
+  cursor: pointer;
+}
+.collapsible span:first-of-type {
+  font-family: "Be Vietnam Pro",  sans-serif;
+}
+#vanszem, #nincsszem {
+  margin-left: auto !important;
+}
+
+.content {
+  padding: 0 18px;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.2s ease-out;
+  margin-bottom: 0.5rem;
+}
 
 @media screen and (max-width: 1600px){
   #hatter {
@@ -197,7 +246,7 @@
   #szobanev label{
     margin-bottom: 0;
   }
-  #szobanev span{
+  #szobanev p{
     margin-bottom: 0.5rem;
   }
 }

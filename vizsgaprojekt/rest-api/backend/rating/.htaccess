@@ -1,5 +1,5 @@
 
 RewriteEngine On   
 
-RewriteRule ^read$ /14aphp/legfrissebb/OKJ-vizsgaprojekt/vizsgaprojekt/rest-api/backend/rating/read.php [NC,L]
-RewriteRule ^create$  /14aphp/legfrissebb/OKJ-vizsgaprojekt/vizsgaprojekt/rest-api/backend/rating/create.php [NC,L]
+RewriteRule ^read$ /14aphp/friss/OKJ-vizsgaprojekt/vizsgaprojekt/rest-api/backend/rating/read.php [NC,L]
+RewriteRule ^create$  /14aphp/friss/OKJ-vizsgaprojekt/vizsgaprojekt/rest-api/backend/rating/create.php [NC,L]

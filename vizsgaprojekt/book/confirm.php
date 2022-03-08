@@ -46,61 +46,61 @@ $hundred = 100;
       <div class="details">
         <div class="">
           <label for="checkin" class="form-label">Check-in:</label>
-          <span><?php echo $_SESSION['checkin'] ?></span>
+          <p><?php echo $_SESSION['checkin'] ?></p>
         </div>
         <div class="">
           <label for="checkout" class="form-label">Check-out:</label>
-          <span><?php echo $_SESSION['checkout']; ?></span>
+          <p><?php echo $_SESSION['checkout']; ?></p>
         </div>
         <div class="">
           <label class="form-label">Nights:</label>
-          <span><?php echo $diff->format("%a"); ?></span>
+          <p><?php echo $diff->format("%a"); ?></p>
         </div>
         <div class="smalldivider"></div>
         <div class="">
           <label for="adult" class="form-label">Adults:</label>
-          <span><?php echo $_SESSION['adult'] ?></span>
+          <p><?php echo $_SESSION['adult'] ?></p>
         </div>
         <div class="">
           <label for="chldren" class="form-label">Children:</label>
-          <span><?php echo $_SESSION['children'] ?></span>
+          <p><?php echo $_SESSION['children'] ?></p>
         </div>
         <div class="" id="szobanev">
           <label for="roomname" class="form-label">Room Type:</label>
-          <span><?php echo $_SESSION['roomname']; ?></span>
+          <p><?php echo $_SESSION['roomname']; ?></p>
         </div>
         <div class="">
           <label for="type" class="form-label">Service Type: </label>
-          <span><?php foreach ($servicebyid as $oneservice) {
-                  echo $oneservice['ServiceType'];
-                }
-                ?></span>
+          <p><?php foreach ($servicebyid as $oneservice) {
+                echo $oneservice['ServiceType'];
+              }
+              ?></p>
         </div>
         <div class="smalldivider"></div>
         <div class="price">
           <div>
             <label class="form-label">Room price:</label>
-            <span><?php echo ' $' . $_SESSION['RoomPrice'] . '/night'; ?></span>
+            <p><?php echo ' $' . $_SESSION['RoomPrice'] . '/night'; ?></p>
           </div>
           <div class="">
             <label class="form-label">Service Price: </label>
-            <span><?php foreach ($servicebyid as $oneservice) {
-                    echo ' $' . $oneservice['ServicePrice'] . '/night';
-                  }
-                  ?></span>
+            <p><?php foreach ($servicebyid as $oneservice) {
+                  echo ' $' . $oneservice['ServicePrice'] . '/night';
+                }
+                ?></p>
           </div>
           <div>
             <label class="form-label">Discount:</label>
-            <span><?php if (isset($_SESSION['discount'])) {
-                    echo $_SESSION['discount'] . '%';
-                  } else {
-                    echo '0%';
-                  } ?></span>
+            <p><?php if (isset($_SESSION['discount'])) {
+                  echo $_SESSION['discount'] . '%';
+                } else {
+                  echo '0%';
+                } ?></p>
           </div>
-          <div class="">
+          <div class="totalprice">
             <label for="fullprice" class="form-label">Total Price:</label>
-            <span> $<?php echo $_SESSION['fullprice']; ?>
-            </span>
+            <p> $<?php echo $_SESSION['fullprice']; ?>
+            </p>
           </div>
           <div class="smalldivider"></div>
         </div>
@@ -118,23 +118,33 @@ $hundred = 100;
         <div class="details">
           <div class="">
             <label for="name" class="form-label">Name: </label>
-            <span><?php echo $_SESSION['customername'] ?></span>
+            <p><?php echo $_SESSION['customername'] ?></p>
           </div>
           <div class="">
             <label for="exampleFormControlInput1" class="form-label">Email address:</label>
-            <span><?php echo $_SESSION['email'] ?></span>
+            <p><?php echo $_SESSION['email'] ?></p>
           </div>
           <div class="">
             <label for="phnumber" class="form-label">Phone number:</label>
-            <span><?php echo $_SESSION['phonenumber'] ?></span>
+            <p><?php echo $_SESSION['phonenumber'] ?></p>
           </div>
           <div class="">
             <label for="address" class="form-label">Address:</label>
-            <span><?php echo $_SESSION['address'] ?></span>
+            <p><?php echo $_SESSION['address'] ?></p>
           </div>
-          <div class="">
-            <label for="message" class="form-label">Your message:</label>
-            <span><?php echo $_SESSION['Message'] ?></span>
+          <div id="uzenet">
+            <div class="collapsible">
+              <span>Message:</span>
+              <span id="vanszem">Click to show&nbsp;<i class="fa-regular fa-eye"></i></span>
+              <span id="nincsszem" class="d-none">Click to hide&nbsp;<i class="fa-regular fa-eye-slash"></i></span>
+            </div>
+            <div class="content">
+              <p><?php echo $_SESSION['Message'] ?></p>
+            </div>
+            <!-- <details>
+              <summary>Message</summary>
+              <p></p>
+            </details> -->
           </div>
         </div>
         <div class="smalldivider"></div>
@@ -162,12 +172,35 @@ $hundred = 100;
                                                         echo $_POST['customerid'];
                                                       } ?>">
         <div class="d-flex">
-        <a href="<?php echo $baseUrl ?>/booking" name="btn_cancel" class="cancel">
-          <i class="fa-solid fa-xmark"></i> &nbsp;Cancel
-        </a>
-        <button class="finalize" name="btn_send2" type="submit"><i class="fas fa-check-circle"></i> &nbsp;Finalize reservation</button>
+          <a href="<?php echo $baseUrl ?>/booking" name="btn_cancel" class="cancel">
+            <i class="fa-solid fa-xmark"></i> &nbsp;Cancel
+          </a>
+          <button class="finalize" name="btn_send2" type="submit"><i class="fas fa-check-circle"></i> &nbsp;Finalize reservation</button>
         </div>
       </form>
     </div>
   </div>
 </div>
+
+<script>
+
+
+var coll = document.getElementsByClassName("collapsible");
+var i;
+
+for (i = 0; i < coll.length; i++) {
+  coll[i].addEventListener("click", function() {
+    this.classList.toggle("active");
+    var content = this.nextElementSibling;
+    if (content.style.maxHeight){
+      content.style.maxHeight = null;
+      vanszem.classList.toggle('d-none');
+      nincsszem.classList.toggle('d-none');
+    } else {
+      content.style.maxHeight = content.scrollHeight + "px";
+      vanszem.classList.toggle('d-none');
+      nincsszem.classList.toggle('d-none');
+    } 
+  });
+}
+</script>
