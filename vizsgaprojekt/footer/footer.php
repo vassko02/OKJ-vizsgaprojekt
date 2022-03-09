@@ -50,7 +50,9 @@
                             <li><a href="<?php echo $baseUrl?>/booking">Book</a></li>
                             <li><a href="<?php echo $baseUrl?>/dining">Restaurant</a></li>
                             <li><a href="<?php echo $baseUrl?>/contactus">Contact us</a></li>
-                            <li><a href="<?php echo $baseUrl?>/signin">Registration</a></li>
+                            <li><a href="<?php echo $baseUrl?>/signin">Sign in/up</a></li>
+                            <li><a target="_blank" href="<?php echo $baseUrl?>/tos">Terms and Conditions</a></li>
+                            <li><a target="_blank" href="<?php echo $baseUrl?>/privacypolicy">Privacy Policy</a></li>
                         </ul>
                     </div>
                 </div>
@@ -62,7 +64,7 @@
             <div class="row">
                 <div class="col-xl-12 col-lg-12 text-center">
                     <div class="copyright-text">
-                        <p> &copy; 2022 Peaceful Paradise All Right Reserved</p>
+                        <p> &copy; 2022 Peaceful Paradise. All Right Reserved.</p>
                     </div>
                 </div>
             </div>

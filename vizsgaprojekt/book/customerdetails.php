@@ -27,7 +27,7 @@ if (isset($_SESSION['loginemail'])) {
                     </div>
                     <div class="">
                         <label for="exampleFormControlInput1" class="form-label">Email address</label>
-                        <input required type="email" name="email" class="form-control bg-dark text-light" <?php if (isset($_SESSION['email']) || isset($_SESSION['loginemail'])) {echo 'readonly=readonly';}?> value="<?php if ($loggedin == true) {
+                        <input required type="email" name="email" class="form-control bg-dark text-light" <?php if (isset($_SESSION['username']) || isset($_SESSION['loginemail'])) {echo 'readonly=readonly';}?> value="<?php if ($loggedin == true) {
                                                                                                             echo $userdetails[0]['Email'];
                                                                                                         } else if (isset($_SESSION['email'])) echo $_SESSION['email'];
                                                                                                         else {

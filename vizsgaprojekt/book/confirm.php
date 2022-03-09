@@ -132,20 +132,24 @@ $hundred = 100;
             <label for="address" class="form-label">Address:</label>
             <p><?php echo $_SESSION['address'] ?></p>
           </div>
-          <div id="uzenet">
-            <div class="collapsible">
-              <span>Message:</span>
-              <span id="vanszem">Click to show&nbsp;<i class="fa-regular fa-eye"></i></span>
-              <span id="nincsszem" class="d-none">Click to hide&nbsp;<i class="fa-regular fa-eye-slash"></i></span>
-            </div>
-            <div class="content">
-              <p><?php echo $_SESSION['Message'] ?></p>
-            </div>
-            <!-- <details>
-              <summary>Message</summary>
-              <p></p>
-            </details> -->
-          </div>
+          <?php 
+            if (isset($_SESSION['Message']) && $_SESSION['Message'] != '') { 
+              echo '<div id="uzenet">
+              <div class="collapsible">
+                <span>Message:</span>
+                <span id="vanszem">Click to show&nbsp;<i class="fa-regular fa-eye"></i></span>
+                <span id="nincsszem" class="d-none">Click to hide&nbsp;<i class="fa-regular fa-eye-slash"></i></span>
+              </div>
+              <div class="content">
+                <p>'.$_SESSION['Message'].'</p>
+              </div>
+              <!-- <details>
+                <summary>Message</summary>
+                <p></p>
+              </details> -->
+            </div>';
+            }
+          ?>
         </div>
         <div class="smalldivider"></div>
 

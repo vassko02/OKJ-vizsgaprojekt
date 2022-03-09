@@ -10,11 +10,6 @@ $request = $_SERVER['REQUEST_URI']; //mindenkori url
 $mennyiper = substr_count($request, '/');
 $baseMennyiper = substr_count($baseUrl, '/');
 
-if (isset($_GET['roomid'])) {
-    $mid = $_GET['roomid'];
-} else {
-    $mid = 0;
-}
 include('dbconnect.php');
 include('models/guest.php');
 include('models/room.php');
@@ -246,11 +241,6 @@ include('action.php');
 
 <body>
     <?php
-    // } else if ($m == 'contactusREPORT') {
-    //     include('./contact/contact.php');
-    //     $message = "The report was sent succesfully! We will reply soon as possible";
-    //     echo "<script type='text/javascript'>alert('$message');</script>";
-    // }
     // echo $request;
     // echo '<br>';
     // echo $baseUrl;
@@ -262,7 +252,7 @@ include('action.php');
 
     echo '<a class="tothetop" id="mybtn" href="#"><i class="fa-solid fa-arrow-up"></i></a>';
     //print_r($_SESSION);
-
+    
     switch ($request) {
         case $baseUrl . '':
             $HelpObj->clearReservation();
@@ -311,6 +301,7 @@ include('action.php');
             include('./restaurant/menu/foodmenu.php');
             break;
         case $baseUrl . '/rating':
+            $HelpObj->clearReservation();
             include('./rest-api/index.html');
             break;
         case $baseUrl . '/signin':
@@ -395,7 +386,6 @@ include('action.php');
     }
 
     ?>
-    <!-- <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script> -->
     <script src="<?php if ($mennyiper === ($baseMennyiper + 2)) {
                         echo '.';
                     } else if ($mennyiper === ($baseMennyiper + 3)) {
@@ -407,10 +397,8 @@ include('action.php');
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
     <script>
-        //Get the button
         var mybutton = document.getElementById("mybtn");
 
-        // When the user scrolls down 20px from the top of the document, show the button
         window.onscroll = function() {
             scrollFunction()
         };
