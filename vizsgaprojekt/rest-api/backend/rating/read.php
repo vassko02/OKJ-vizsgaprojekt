@@ -1,6 +1,6 @@
 <?php
 
-    header("Access-Control-Allow-Origin: http://localhost"); // elérés korlátozás -> feloldva
+    header("Access-Control-Allow-Origin: *"); // elérés korlátozás -> feloldva
     header("Content-Type: application/json; charset=UTF-8"); // adat típus
 
     include_once '../class/Database.php';

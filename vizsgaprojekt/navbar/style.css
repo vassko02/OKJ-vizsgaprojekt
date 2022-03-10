@@ -104,6 +104,7 @@ nav{
     display: flex;
     position: sticky;
     z-index: 10000;
+    font-family: "Be Vietnam Pro",  sans-serif;
 }
 .kep{
     content: url('../pictures/korulvagott_logo.jpg');

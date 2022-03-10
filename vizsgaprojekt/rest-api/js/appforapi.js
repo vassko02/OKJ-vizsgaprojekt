@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded',()=>{
     
-    const backend_url = ' http://localhost/14aphp/friss/OKJ-vizsgaprojekt/vizsgaprojekt/rest-api/backend/rating/';
+    const backend_url = ' http://diak.jedlik.eu/~PeacefulParadise/rest-api/backend/rating/';
     
 
     let table = document.querySelector('.itemsdata').getElementsByTagName('tbody')[0];
@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded',()=>{
  
     
     async function getItems(){
-        let response = await fetch(backend_url+'read');  // GET
+        let response = await fetch(backend_url+'read.php');  // GET
         console.log(response);
         let data = await response.json();
        console.log(data);
@@ -55,7 +55,7 @@ document.addEventListener('DOMContentLoaded',()=>{
         item.Description = document.querySelector('input[name="desc"]').value;
         item.star = document.querySelector( 'input[name="stars"]:checked').value;   
         console.log(JSON.stringify(item));
-        await fetch(backend_url+'create',{
+        await fetch(backend_url+'create.php',{
             method: 'POST',
             body: JSON.stringify(item),
             headers: {"Content-Type" : "application/json; charset=UTF-8"}

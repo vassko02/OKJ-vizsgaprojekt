@@ -44,7 +44,28 @@ h1{
 }
 .keret .usermessage textarea {
     height: 90%;
+    resize: none;
+    scrollbar-color: grey black !important;
 }
+.keret .usermessage textarea::-webkit-scrollbar {
+  width: 0.7em;
+  height: 1em;
+}
+.keret .usermessage textarea::-webkit-scrollbar-track {
+  background: hsl(0, 0%, 10%);
+  border: 0em solid hsl(0, 0%, 10%);
+  border-top-right-radius: 1vw !important;
+  border-bottom-right-radius: 1vw !important;
+}
+.keret .usermessage textarea::-webkit-scrollbar-thumb {
+  background: #C5B358;
+  border: 0.17em solid hsl(0, 0%, 10%) !important;
+  border-radius: 50vw;
+}
+.keret .usermessage textarea::-webkit-scrollbar-thumb:hover {
+  background: hsl(0, 0%, 35%);
+}
+
 .keret .divider {
     height: 5px;
     width: 350px;
