@@ -7,7 +7,7 @@
 	text-align: center;
 	padding-top: 1vh;
 	width: 50vw;
-	height: 40vh;
+	height: 45vh;
 	border: 2px solid black;
 	border-radius: 15px;
 	background-color: black;
@@ -52,5 +52,16 @@ body {
 	}
 	100% {
 		background-position: 0% 50%;
+	}
+}
+@media screen and (max-width: 769px) {
+	.urlap{
+		height: 70vh;
+	}
+	.form-label{
+		font-size: 0.8rem;
+	}
+	.contact{
+		padding-top: 10vh;
 	}
 }
