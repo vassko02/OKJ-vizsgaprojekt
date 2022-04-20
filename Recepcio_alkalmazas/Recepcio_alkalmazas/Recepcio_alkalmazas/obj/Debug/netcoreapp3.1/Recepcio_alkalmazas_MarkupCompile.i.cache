@@ -1,20 +1,20 @@
 ﻿Recepcio_alkalmazas
-
+1.0.0.0
 
 winexe
 C#
 .cs
-C:\OKJ-vizsgaprojekt\Recepcio_alkalmazas\Recepcio_alkalmazas\Recepcio_alkalmazas\obj\Debug\netcoreapp3.1\
+D:\OKJ-vizsgaprojekt\Recepcio_alkalmazas\Recepcio_alkalmazas\Recepcio_alkalmazas\obj\Debug\netcoreapp3.1\
 Recepcio_alkalmazas
 none
 false
-TRACE;DEBUG;NETCOREAPP;NETCOREAPP3_1
-C:\OKJ-vizsgaprojekt\Recepcio_alkalmazas\Recepcio_alkalmazas\Recepcio_alkalmazas\App.xaml
-16903040388
+TRACE;DEBUG;NETCOREAPP;NETCOREAPP3_1;
+D:\OKJ-vizsgaprojekt\Recepcio_alkalmazas\Recepcio_alkalmazas\Recepcio_alkalmazas\App.xaml
+16-783922382
 
-31-1734105299
-202824004984
+321832782429
+202-1885213970
 CardPayment.xaml;MainWindow.xaml;Views\AddGuest.xaml;Views\ComsumptionAdd.xaml;Views\cons.xaml;Views\editcons.xaml;Views\editres.xaml;Views\editreservation.xaml;Views\guestarrives.xaml;Views\guestleaves.xaml;Views\logs.xaml;Views\RatingPage.xaml;Views\ReportPage.xaml;Views\reports.xaml;Views\REsLogPage.xaml;Views\userLogPage.xaml;
 
-False
+True
 
