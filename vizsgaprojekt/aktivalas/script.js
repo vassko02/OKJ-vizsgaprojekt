@@ -26,7 +26,7 @@ $(function () {
       },
       {
         compare: true,
-        message: "The the passwords have to be the same!"
+        message: "The passwords have to be the same!"
       }
     ],
     ok: function (instance) {

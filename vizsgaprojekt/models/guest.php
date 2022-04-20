@@ -2409,13 +2409,13 @@ class Guest extends Dbconnect
     else{
             $sql = 'INSERT INTO codes
             (Code, Expiry, Type, CustomerID)
-            VALUES (md5(?),?,?,?)';
+            VALUES (?,?,?,?)';
     }
     $stmt = $this->con->prepare($sql);
     $token = $password_reset_token;
     $type = "reset_token";
     $exp = date('Y-m-d H:i:s', time() + $expiry);
-    $stmt->bind_param("sssi", $token, $exp , $type , $user_id);
+    $stmt->bind_param("sssi", md5($token), $exp , $type , $user_id);
 
     return $stmt->execute();
   }
