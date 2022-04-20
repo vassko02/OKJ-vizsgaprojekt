@@ -93,7 +93,7 @@
         echo'
    
    
-   <div class="container ">  
+   <div class="container" id="container">  
      <form id="reservation" class="neon1 ';echo $level['LEVEL']; echo'" action="" method="POST">
      <p class="rankicon">
      ';
