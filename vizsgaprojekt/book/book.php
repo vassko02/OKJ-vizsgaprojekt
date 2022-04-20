@@ -45,7 +45,7 @@ if (isset($_POST['btn_srch'])) {
 
 ?>
 
-<div class="d-flex foglalashatter">
+<div class="foglalashatter">
 	<div class="leftside">
 		<div class="datas " id="box">
 			<form method="POST" action="#pageHeaderTitle">
@@ -147,10 +147,10 @@ if (isset($_POST['btn_srch'])) {
 			</ol>
 			<div class="carousel-inner">
 				<div class="carousel-item active">
-					<p>With high ceilings and spacious lanais overlooking the ocean, these rooms incorporate patterns, textures and art inspired by the Vespucci coastline. You'll also receive exclusive Club Floor privileges including breakfast, a full-service bar, and private check-in and check-out.</p><br>
+					<p>With high ceilings and spacious lanais overlooking the ocean, these rooms incorporate patterns, textures and art inspired by the Vespucci coastline. You'll also receive exclusive Club Floor privileges including breakfast.</p><br>
 				</div>
 				<div class="carousel-item">
-					<p>Through our Complete Suite Experience, you’ll benefit from a heightened level of service, amenities and privacy while taking in idyllic views of Vespucci Beach from your oceanfront suite. </p><br>
+					<p>Through our Complete Suite Experience, you’ll benefit from a heightened level of service, amenities and privacy while taking in idyllic views of Vespucci Beach from your oceanfront suite, like you have never seen before.</p><br>
 				</div>
 				<div class="carousel-item">
 					<p>The Elite suites are our newest oceanfront suites, offering sensational views of the Pacific Ocean and islands beyond. Enjoy special services and amenities including a remarkable wine collection, a personal assistant and more.</p><br>

@@ -5,7 +5,7 @@ define('VEDETT', 'igen');
 
 //szervernél: /~PeacefulParadise
 //localhostnál: /14aphp/OKJ-vizsgaprojekt/vizsgaprojekt
-$baseUrl = '/14aphp/friss/OKJ-vizsgaprojekt/vizsgaprojekt';
+$baseUrl = '/~PeacefulParadise';
 $request = $_SERVER['REQUEST_URI']; //mindenkori url
 $mennyiper = substr_count($request, '/');
 $baseMennyiper = substr_count($baseUrl, '/');
@@ -146,8 +146,8 @@ include('action.php');
                 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
                 <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
                 <link rel="stylesheet" href="../restaurant/menu/foodmenu.css">
-                <link rel="stylesheet" href="./css/scrolltotop.css">
                 ';
+                // <link rel="stylesheet" href="./css/scrolltotop.css">
     }
     if ($request === $baseUrl . '/admin') {
         echo '
