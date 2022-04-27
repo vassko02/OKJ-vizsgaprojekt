@@ -1,0 +1,490 @@
+{
+  "id": "d21d3aeb-288b-4869-9a80-0a4e70437492",
+  "version": "2.0",
+  "name": "PeacefulParadise",
+  "url": "http://diak.jedlik.eu/~PeacefulParadise/",
+  "tests": [{
+    "id": "14a17e49-f07a-4df8-9078-75f95bbe39a7",
+    "name": "Login",
+    "commands": [{
+      "id": "0edfca3a-3a7c-4522-8430-6320916b8dfe",
+      "comment": "",
+      "command": "open",
+      "target": "http://diak.jedlik.eu/~PeacefulParadise/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "7ac2d455-a3b5-447b-87a6-ccc085eebcf4",
+      "comment": "",
+      "command": "mouseMoveAt",
+      "target": "css=.dropdown:nth-child(2)",
+      "targets": [
+        ["css=.dropdown:nth-child(2)", "css:finder"],
+        ["xpath=//li[5]/div[2]", "xpath:position"],
+        ["xpath=//div[contains(.,' Sign in')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "023b077b-75e7-4c27-a431-2f1933c62f8c",
+      "comment": "",
+      "command": "mouseOver",
+      "target": "css=.dropdown:nth-child(2)",
+      "targets": [
+        ["css=.dropdown:nth-child(2)", "css:finder"],
+        ["xpath=//li[5]/div[2]", "xpath:position"],
+        ["xpath=//div[contains(.,' Sign in')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "d532662b-f709-451b-9e20-c28e7cb12495",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Sign in",
+      "targets": [
+        ["linkText=Sign in", "linkText"],
+        ["css=.ddm2 a", "css:finder"],
+        ["xpath=//a[contains(text(),'Sign in')]", "xpath:link"],
+        ["xpath=//a[contains(@href, '/~PeacefulParadise/signin')]", "xpath:href"],
+        ["xpath=//div[2]/ul/li/a", "xpath:position"],
+        ["xpath=//a[contains(.,' Sign in')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "a40e4dd6-192b-49c7-8307-5d078339c978",
+      "comment": "",
+      "command": "type",
+      "target": "id=validUsernameperEmail",
+      "targets": [
+        ["id=validUsernameperEmail", "id"],
+        ["name=usernameperemail", "name"],
+        ["css=form:nth-child(1) #validUsernameperEmail", "css:finder"],
+        ["xpath=//input[@id='validUsernameperEmail']", "xpath:attributes"],
+        ["xpath=//div[@id='loginout']/div[2]/form/div[2]/input", "xpath:idRelative"],
+        ["xpath=//div[2]/form/div[2]/input", "xpath:position"]
+      ],
+      "value": "admin"
+    }, {
+      "id": "f2af179e-4f6f-4bdd-bf4b-4646cc9894e2",
+      "comment": "",
+      "command": "type",
+      "target": "id=validPassword",
+      "targets": [
+        ["id=validPassword", "id"],
+        ["name=loginpassword", "name"],
+        ["css=form:nth-child(1) #validPassword", "css:finder"],
+        ["xpath=//input[@id='validPassword']", "xpath:attributes"],
+        ["xpath=//div[@id='loginout']/div[2]/form/div[3]/input", "xpath:idRelative"],
+        ["xpath=//div[2]/form/div[3]/input", "xpath:position"]
+      ],
+      "value": "Admin123"
+    }, {
+      "id": "c1080be1-95b1-4a6c-b2da-f7e352ea3122",
+      "comment": "",
+      "command": "click",
+      "target": "name=login",
+      "targets": [
+        ["name=login", "name"],
+        ["css=form:nth-child(1) > .button-signin:nth-child(4) > #logingomb", "css:finder"],
+        ["xpath=(//button[@id='logingomb'])[2]", "xpath:attributes"],
+        ["xpath=//div[@id='loginout']/div[2]/form/div[4]/button", "xpath:idRelative"],
+        ["xpath=//div[4]/button", "xpath:position"]
+      ],
+      "value": ""
+    }]
+  }, {
+    "id": "05b680c9-c276-4716-a04f-2e607c4f34c5",
+    "name": "Book",
+    "commands": [{
+      "id": "120c2230-cded-458b-b366-4f7f5332e33c",
+      "comment": "",
+      "command": "open",
+      "target": "http://diak.jedlik.eu/~PeacefulParadise/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "dd0fb558-c630-4aea-b0aa-9f616324081f",
+      "comment": "",
+      "command": "click",
+      "target": "css=li:nth-child(3) > .navlink",
+      "targets": [
+        ["css=li:nth-child(3) > .navlink", "css:finder"],
+        ["xpath=//a[contains(text(),'Book')]", "xpath:link"],
+        ["xpath=//a[contains(@href, '/~PeacefulParadise/booking')]", "xpath:href"],
+        ["xpath=//li[3]/a", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "1b6c895f-e54f-4ac0-a691-b4773384ffa3",
+      "comment": "",
+      "command": "type",
+      "target": "id=adultsnumber",
+      "targets": [
+        ["id=adultsnumber", "id"],
+        ["name=adultnumber", "name"],
+        ["css=#adultsnumber", "css:finder"],
+        ["xpath=//input[@id='adultsnumber']", "xpath:attributes"],
+        ["xpath=//div[@id='box']/form/div/div/div/div[2]/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "2"
+    }, {
+      "id": "7a0dbce3-669a-4a32-a04c-ee15efd183c4",
+      "comment": "",
+      "command": "type",
+      "target": "id=childrennumber",
+      "targets": [
+        ["id=childrennumber", "id"],
+        ["name=childrennumber", "name"],
+        ["css=#childrennumber", "css:finder"],
+        ["xpath=//input[@id='childrennumber']", "xpath:attributes"],
+        ["xpath=//div[@id='box']/form/div/div[2]/div/div[2]/input", "xpath:idRelative"],
+        ["xpath=//div[2]/div/div[2]/input", "xpath:position"]
+      ],
+      "value": "2"
+    }, {
+      "id": "48a9d258-85b0-4bc2-adf0-c847968ee0ea",
+      "comment": "",
+      "command": "executeScript",
+      "target": "document.getElementById(\"arrivaldate\").value = \"2022-04-29\";",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "74d8be82-f0c3-43e4-8429-ca862ea0f242",
+      "comment": "",
+      "command": "executeScript",
+      "target": "document.getElementById(\"leavingdate\").value = \"2022-05-03\";",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "ca6b98da-1f40-4c18-8fe5-68c6447cebcf",
+      "comment": "",
+      "command": "click",
+      "target": "name=btn_srch",
+      "targets": [
+        ["name=btn_srch", "name"],
+        ["css=.src", "css:finder"],
+        ["xpath=//button[@name='btn_srch']", "xpath:attributes"],
+        ["xpath=//div[@id='box']/form/div[2]/button", "xpath:idRelative"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,' Search Rooms')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "bdf0eea1-d282-443d-95de-23f2681849c6",
+      "comment": "",
+      "command": "click",
+      "target": "css=.postcard:nth-child(3) .booknow",
+      "targets": [
+        ["css=.postcard:nth-child(3) .booknow", "css:finder"],
+        ["xpath=(//button[@type='submit'])[3]", "xpath:attributes"],
+        ["xpath=//section[@id='osszesszoba']/div/article[2]/div/form/button", "xpath:idRelative"],
+        ["xpath=//article[2]/div/form/button", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "df079504-6010-4604-82fa-49ea57e1df45",
+      "comment": "",
+      "command": "click",
+      "target": "name=select",
+      "targets": [
+        ["name=select", "name"],
+        ["css=.form-select", "css:finder"],
+        ["xpath=//select[@name='select']", "xpath:attributes"],
+        ["xpath=//select", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "8bef87b6-6cc2-4d64-a166-c80a3e968eb1",
+      "comment": "",
+      "command": "select",
+      "target": "name=select",
+      "targets": [
+        ["name=select", "name"],
+        ["css=.form-select", "css:finder"],
+        ["xpath=//select[@name='select']", "xpath:attributes"],
+        ["xpath=//select", "xpath:position"]
+      ],
+      "value": "label=Half Board $29.99 /night "
+    }, {
+      "id": "c9f81aec-6735-4421-9b78-aac01a6ed901",
+      "comment": "",
+      "command": "click",
+      "target": "name=btn_contin",
+      "targets": [
+        ["name=btn_contin", "name"],
+        ["css=.continue", "css:finder"],
+        ["xpath=//button[@name='btn_contin']", "xpath:attributes"],
+        ["xpath=//div[2]/button", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "b5440287-211e-4ba7-8fa8-483535b5ac95",
+      "comment": "",
+      "command": "type",
+      "target": "id=name",
+      "targets": [
+        ["id=name", "id"],
+        ["name=name", "name"],
+        ["css=#name", "css:finder"],
+        ["xpath=//input[@id='name']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "Hát Izsák"
+    }, {
+      "id": "5e5ee062-dcbb-4ea7-a7cf-aa9930688aeb",
+      "comment": "",
+      "command": "type",
+      "target": "id=exampleFormControlInput1",
+      "targets": [
+        ["id=exampleFormControlInput1", "id"],
+        ["name=email", "name"],
+        ["css=#exampleFormControlInput1", "css:finder"],
+        ["xpath=//input[@id='exampleFormControlInput1']", "xpath:attributes"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": "hatizsak@gmail.com"
+    }, {
+      "id": "2e328629-18ff-4c6b-abd5-b985a999ce2e",
+      "comment": "",
+      "command": "type",
+      "target": "id=tel",
+      "targets": [
+        ["id=tel", "id"],
+        ["name=tel", "name"],
+        ["css=#tel", "css:finder"],
+        ["xpath=//input[@id='tel']", "xpath:attributes"],
+        ["xpath=//div[3]/input", "xpath:position"]
+      ],
+      "value": "+36201234567"
+    }, {
+      "id": "a2b25dd5-5f73-4211-a7bd-a0bcf704fb7e",
+      "comment": "",
+      "command": "type",
+      "target": "id=address",
+      "targets": [
+        ["id=address", "id"],
+        ["name=address", "name"],
+        ["css=#address", "css:finder"],
+        ["xpath=//input[@id='address']", "xpath:attributes"],
+        ["xpath=//div[4]/input", "xpath:position"]
+      ],
+      "value": "9999 Alma utca 5"
+    }, {
+      "id": "4626b178-11d5-40ff-80d6-e4aa8b6956da",
+      "comment": "",
+      "command": "click",
+      "target": "name=btn_send",
+      "targets": [
+        ["name=btn_send", "name"],
+        ["css=.continue", "css:finder"],
+        ["xpath=//button[@name='btn_send']", "xpath:attributes"],
+        ["xpath=//button", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "685153ad-e601-4f34-9993-d84197d91c10",
+      "comment": "",
+      "command": "check",
+      "target": "id=invalidCheck",
+      "targets": [
+        ["id=invalidCheck", "id"],
+        ["css=#invalidCheck", "css:finder"],
+        ["xpath=//input[@id='invalidCheck']", "xpath:attributes"],
+        ["xpath=//form[@id='finalizeres']/div/input", "xpath:idRelative"],
+        ["xpath=//div/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "1bdff27b-b1cd-493d-b501-c1b1f0d939f1",
+      "comment": "",
+      "command": "click",
+      "target": "name=btn_send2",
+      "targets": [
+        ["name=btn_send2", "name"],
+        ["css=.finalize", "css:finder"],
+        ["xpath=//button[@name='btn_send2']", "xpath:attributes"],
+        ["xpath=//form[@id='finalizeres']/div[3]/button", "xpath:idRelative"],
+        ["xpath=//div[3]/button", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "8b08d1e7-e07d-4156-a111-1e3ffdce6640",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Back to the main page",
+      "targets": [
+        ["linkText=Back to the main page", "linkText"],
+        ["css=.redo", "css:finder"],
+        ["xpath=//a[contains(text(),'Back to the main page')]", "xpath:link"],
+        ["xpath=(//a[contains(@href, '/~PeacefulParadise/')])[11]", "xpath:href"],
+        ["xpath=//div/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Back to the main page')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }]
+  }, {
+    "id": "ae0a1b31-7f41-4f70-8cbf-03ddf558930f",
+    "name": "Registration",
+    "commands": [{
+      "id": "b5fb32a2-c69f-409a-a4d9-301520058478",
+      "comment": "",
+      "command": "open",
+      "target": "http://diak.jedlik.eu/~PeacefulParadise/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "1419e472-147c-4e77-b256-25af006b7705",
+      "comment": "",
+      "command": "mouseMoveAt",
+      "target": "css=.dropdown:nth-child(2)",
+      "targets": [
+        ["css=.dropdown:nth-child(2)", "css:finder"],
+        ["xpath=//li[5]/div[2]", "xpath:position"],
+        ["xpath=//div[contains(.,' Sign in')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "4f6604b8-5eb1-49c1-808b-0480b895a1c5",
+      "comment": "",
+      "command": "mouseOver",
+      "target": "css=.dropdown:nth-child(2)",
+      "targets": [
+        ["css=.dropdown:nth-child(2)", "css:finder"],
+        ["xpath=//li[5]/div[2]", "xpath:position"],
+        ["xpath=//div[contains(.,' Sign in')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "468f9728-82d1-41c0-8f6f-ead723b78d85",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Sign in",
+      "targets": [
+        ["linkText=Sign in", "linkText"],
+        ["css=.ddm2 a", "css:finder"],
+        ["xpath=//a[contains(text(),'Sign in')]", "xpath:link"],
+        ["xpath=//a[contains(@href, '/~PeacefulParadise/signin')]", "xpath:href"],
+        ["xpath=//div[2]/ul/li/a", "xpath:position"],
+        ["xpath=//a[contains(.,' Sign in')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "a1c15a74-bee0-40e4-9762-15d4030f1a49",
+      "comment": "",
+      "command": "click",
+      "target": "id=signUp",
+      "targets": [
+        ["id=signUp", "id"],
+        ["css=#signUp", "css:finder"],
+        ["xpath=//button[@id='signUp']", "xpath:attributes"],
+        ["xpath=//div[@id='loginout']/div[3]/div/div[2]/button", "xpath:idRelative"],
+        ["xpath=//div[2]/button", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "0166bed5-abd4-41c3-907a-1e14d9a74c3b",
+      "comment": "",
+      "command": "type",
+      "target": "id=#{label}",
+      "targets": [
+        ["id=#{label}", "id"],
+        ["name=username", "name"],
+        ["css=form:nth-child(1) > .input-signin:nth-child(2) > #\\#\\{label\\}", "css:finder"],
+        ["xpath=//input[@id='#{label}']", "xpath:attributes"],
+        ["xpath=//div[@id='loginout']/div/form/div[2]/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "SeleniumTESZT"
+    }, {
+      "id": "bf591757-7888-4ccc-9afb-16b207ffce2a",
+      "comment": "",
+      "command": "type",
+      "target": "name=name",
+      "targets": [
+        ["name=name", "name"],
+        ["css=form:nth-child(1) > .input-signin:nth-child(3) > #\\#\\{label\\}", "css:finder"],
+        ["xpath=(//input[@id='#{label}'])[2]", "xpath:attributes"],
+        ["xpath=//div[@id='loginout']/div/form/div[3]/input", "xpath:idRelative"],
+        ["xpath=//div[3]/input", "xpath:position"]
+      ],
+      "value": "Selenium Teszt Elek"
+    }, {
+      "id": "17dcf547-ea4e-40b2-9423-19006b03d33f",
+      "comment": "",
+      "command": "type",
+      "target": "name=email",
+      "targets": [
+        ["name=email", "name"],
+        ["css=form:nth-child(1) > .input-signin:nth-child(4) > #\\#\\{label\\}", "css:finder"],
+        ["xpath=(//input[@id='#{label}'])[3]", "xpath:attributes"],
+        ["xpath=//div[@id='loginout']/div/form/div[4]/input", "xpath:idRelative"],
+        ["xpath=//div[4]/input", "xpath:position"]
+      ],
+      "value": "tesztsel@gmail.com"
+    }, {
+      "id": "3977b0e3-bb83-4699-a4dc-e8d32cc4feb0",
+      "comment": "",
+      "command": "type",
+      "target": "name=jelszo",
+      "targets": [
+        ["name=jelszo", "name"],
+        ["css=form:nth-child(1) > .input-signin:nth-child(5) > #\\#\\{label\\}", "css:finder"],
+        ["xpath=(//input[@id='#{label}'])[4]", "xpath:attributes"],
+        ["xpath=//div[@id='loginout']/div/form/div[5]/input", "xpath:idRelative"],
+        ["xpath=//div[5]/input", "xpath:position"]
+      ],
+      "value": "Selenium123"
+    }, {
+      "id": "9755c38d-3e2d-4dee-b6d1-71deda83f986",
+      "comment": "",
+      "command": "type",
+      "target": "name=jelszoujra",
+      "targets": [
+        ["name=jelszoujra", "name"],
+        ["css=form:nth-child(1) > .input-signin:nth-child(6) > #\\#\\{label\\}", "css:finder"],
+        ["xpath=(//input[@id='#{label}'])[5]", "xpath:attributes"],
+        ["xpath=//div[@id='loginout']/div/form/div[6]/input", "xpath:idRelative"],
+        ["xpath=//div[6]/input", "xpath:position"]
+      ],
+      "value": "Selenium123"
+    }, {
+      "id": "5db70199-b1fe-4f26-af0b-8ba3fd21fa1c",
+      "comment": "",
+      "command": "click",
+      "target": "id=logingomb",
+      "targets": [
+        ["id=logingomb", "id"],
+        ["name=btn_reg", "name"],
+        ["css=form:nth-child(1) > .button-signin:nth-child(7) > #logingomb", "css:finder"],
+        ["xpath=//button[@id='logingomb']", "xpath:attributes"],
+        ["xpath=//div[@id='loginout']/div/form/div[7]/button", "xpath:idRelative"],
+        ["xpath=//button", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "eb8a0ca7-7b03-4c1e-a4a9-2511847b892e",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Back to the main page",
+      "targets": [
+        ["linkText=Back to the main page", "linkText"],
+        ["css=.redo", "css:finder"],
+        ["xpath=//a[contains(text(),'Back to the main page')]", "xpath:link"],
+        ["xpath=(//a[contains(@href, '/~PeacefulParadise/')])[11]", "xpath:href"],
+        ["xpath=//div/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Back to the main page')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }]
+  }],
+  "suites": [{
+    "id": "a2d22d2e-7756-401c-ba3d-20bf94baf4da",
+    "name": "Default Suite",
+    "persistSession": false,
+    "parallel": false,
+    "timeout": 300,
+    "tests": ["14a17e49-f07a-4df8-9078-75f95bbe39a7"]
+  }],
+  "urls": ["http://diak.jedlik.eu/~PeacefulParadise/"],
+  "plugins": []
+}
